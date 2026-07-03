@@ -1,0 +1,2612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SketchUp + Chaos | Diseña. Renderiza. Impresiona. — CADGRAFICS</title>
+    <meta name="description" content="SketchUp Pro y Studio combinados con Chaos V-Ray, Enscape y Corona. Distribuidor oficial CADGRAFICS.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#8B0000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SketchUp + Chaos | Diseña. Renderiza. Impresiona.">
+    <meta property="og:description" content="SketchUp Pro y Studio combinados con Chaos V-Ray, Enscape y Corona. Distribuidor oficial CADGRAFICS.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80">
+    <meta property="og:url" content="https://cadgrafics.com/sketchup-chaos">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="CADGRAFICS">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SketchUp + Chaos | CADGRAFICS">
+    <meta name="twitter:description" content="SketchUp Pro y Studio combinados con Chaos V-Ray, Enscape y Corona.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://cadgrafics.com/sketchup-chaos">
+    
+    <!-- Schema.org JSON-LD (Multi-producto con @graph) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "SketchUp Studio",
+                "applicationCategory": "DesignApplication",
+                "operatingSystem": "Windows, macOS",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "1169",
+                    "priceCurrency": "USD",
+                    "priceValidUntil": "2026-12-31",
+                    "availability": "https://schema.org/InStock",
+                    "url": "https://cadgrafics.com/sketchup-chaos",
+                    "seller": { "@type": "Organization", "name": "CADGRAFICS" }
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "ratingCount": "1250"
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "SketchUp Pro",
+                "applicationCategory": "DesignApplication",
+                "operatingSystem": "Windows, macOS",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "299",
+                    "priceCurrency": "USD",
+                    "priceValidUntil": "2026-12-31",
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@type": "Organization", "name": "CADGRAFICS" }
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "V-Ray for SketchUp",
+                "applicationCategory": "DesignApplication",
+                "operatingSystem": "Windows, macOS",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@type": "Organization", "name": "CADGRAFICS" }
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "Enscape",
+                "applicationCategory": "DesignApplication",
+                "operatingSystem": "Windows, macOS",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@type": "Organization", "name": "CADGRAFICS" }
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "Chaos Corona",
+                "applicationCategory": "DesignApplication",
+                "operatingSystem": "Windows, macOS",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "seller": { "@type": "Organization", "name": "CADGRAFICS" }
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           1. CSS VARIABLES
+           ============================================ */
+        :root {
+            /* --- Paleta CADGRAFICS --- */
+            --cg-red: #FF0000;
+            --cg-red-secondary: #CC0000;
+            --cg-red-dark: #990000;
+            --cg-red-deep: #8B0000;
+            --cg-green: #18FF5C;
+            --cg-glass-bg: rgba(30, 41, 59, 0.98);
+            --cg-glass-border: rgba(255, 255, 255, 0.1);
+
+            /* --- Paleta SketchUp --- */
+            --orange: #F26522;
+            --orange-hover: #D95A1E;
+            --teal: #00D4AA;
+            --teal-dark: #00B894;
+            --purple: #7B61FF;
+            --purple-dark: #6344E0;
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-card: #141414;
+            --bg-card-hover: #1A1A1A;
+            --border-color: #222222;
+            --border-light: #2A2A2A;
+
+            /* --- Tipografía --- */
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+            /* --- Texto --- */
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0A0;
+            --text-muted: #666666;
+
+            /* --- Espaciado --- */
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2.5rem;
+
+            /* --- Radios --- */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-pill: 100px;
+
+            /* --- Sombras --- */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
+            --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
+
+            /* --- Transiciones --- */
+            --transition-fast: 0.15s ease;
+            --transition-base: 0.25s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.4s ease;
+            --transition-spring: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* --- Layout --- */
+            --header-height: 120px;
+            --header-height-mobile: 64px;
+            --container-max: 1280px;
+        }
+
+        /* ============================================
+           2. RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-top: var(--header-height);
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul, ol { list-style: none; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           3. ACCESSIBILITY
+           ============================================ */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+            z-index: 10000;
+            font-weight: 600;
+            transition: top var(--transition-fast);
+        }
+
+        .skip-link:focus {
+            top: 0;
+            outline: 3px solid var(--cg-green);
+            outline-offset: 2px;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--cg-green);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        @media (forced-colors: active) {
+            .btn--primary { border: 2px solid ButtonText; }
+        }
+
+        /* ============================================
+           4. HEADER
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            transition: all var(--transition-normal);
+            border-bottom: 1px solid var(--cg-red-deep);
+        }
+
+        .header.scrolled {
+            background: rgba(110, 4, 4, 0.95);
+            border-color: var(--cg-glass-border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 56px;
+        }
+
+        .header .logo {
+            height: 120px;
+            width: auto;
+            flex-shrink: 0;
+            transition: transform var(--transition-normal);
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .header .logo:hover { transform: scale(1.05); }
+
+        .nav-menu {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--text-primary);
+            background: var(--cg-red-dark);
+        }
+
+        /* --- Dropdowns --- */
+        .nav-item { position: relative; }
+
+        .dropdown-menu,
+        .dropdown-submenu-menu {
+            position: absolute;
+            background: var(--cg-glass-bg);
+            border: 1px solid var(--cg-glass-border);
+            border-radius: var(--radius-md);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all var(--transition-normal);
+            z-index: 1001;
+            box-shadow: var(--shadow-modal);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .dropdown-menu { top: 100%; left: 0; margin-top: 0.5rem; }
+        .dropdown-submenu-menu { top: 0; left: 100%; }
+
+        .nav-item:hover .dropdown-menu,
+        .nav-item:focus-within .dropdown-menu,
+        .dropdown-submenu:hover .dropdown-submenu-menu,
+        .dropdown-submenu:focus-within .dropdown-submenu-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a,
+        .dropdown-submenu-menu a {
+            padding: 0.85rem 1.25rem;
+            color: var(--text-secondary);
+            background: transparent;
+            border-radius: 0;
+            justify-content: flex-start;
+        }
+
+        .dropdown-menu a:hover,
+        .dropdown-menu a:focus,
+        .dropdown-submenu-menu a:hover,
+        .dropdown-submenu-menu a:focus {
+            background: rgba(110, 4, 4, 0.5);
+            color: var(--text-primary);
+            padding-left: 1.5rem;
+        }
+
+        .dropdown-menu a svg,
+        .dropdown-submenu-menu a svg {
+            color: var(--cg-green);
+            width: 1.25rem;
+            height: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .mobile-toggle {
+            display: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-toggle:hover,
+        .mobile-toggle:focus { background: rgba(255, 255, 255, 0.1); }
+
+        /* --- Header Responsive --- */
+        @media (max-width: 768px) {
+            body { padding-top: var(--header-height-mobile); }
+            .header .logo { height: 48px; }
+            .mobile-toggle { display: block; }
+
+            .nav-menu {
+                position: fixed;
+                top: var(--header-height-mobile);
+                left: 0;
+                right: 0;
+                height: calc(100vh - var(--header-height-mobile));
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 1.5rem;
+                gap: 0.5rem;
+                overflow-y: auto;
+                transform: translateY(-100%);
+                transition: transform var(--transition-normal);
+                z-index: 999;
+            }
+
+            .nav-menu.active { transform: translateY(0); }
+
+            .dropdown-menu,
+            .dropdown-submenu-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                padding: 0;
+                margin: 0;
+                min-width: auto;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height var(--transition-normal);
+            }
+
+            .nav-item.active > .dropdown-menu,
+            .dropdown-submenu.active > .dropdown-submenu-menu {
+                max-height: 500px;
+                padding: 0.5rem 0 0.5rem 1.5rem;
+                margin-top: 0.25rem;
+                border-left: 2px solid var(--cg-green);
+            }
+
+            .nav-item > a::after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid currentColor;
+                margin-left: auto;
+                transition: transform var(--transition-fast);
+            }
+
+            .nav-item.active > a::after { transform: rotate(180deg); }
+
+            .dropdown-submenu > a::after {
+                border-left: 4px solid currentColor;
+                border-top: 4px solid transparent;
+                border-bottom: 4px solid transparent;
+                border-right: 0;
+                margin-left: 0.25rem;
+            }
+
+            .dropdown-submenu.active > a::after { transform: rotate(90deg); }
+        }
+
+        /* ============================================
+           5. MODAL DE CONTACTO
+           ============================================ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .modal.active { display: flex; }
+
+        .modal-content {
+            background: var(--cg-red-deep);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            max-width: 520px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-modal);
+            color: var(--text-primary);
+            animation: slideIn var(--transition-normal);
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f1f5f9;
+            gap: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--text-primary);
+            background-color: #000000;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .modal-close {
+            font-size: 1.75rem;
+            color: #64748b;
+            padding: 0.25rem;
+            border-radius: 50%;
+            transition: all var(--transition-fast);
+            line-height: 1;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            background: #f1f5f9;
+            color: #ef4444;
+            outline: none;
+        }
+
+        .form-group { margin-bottom: 1.25rem; }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            font-family: inherit;
+            background: #fff;
+            color: #1e293b;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: #94a3b8; }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cg-red-deep);
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.25);
+        }
+
+        .form-group input.is-invalid,
+        .form-group textarea.is-invalid {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
+        }
+
+        .form-message {
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            text-align: center;
+            min-height: 1.2em;
+        }
+
+        .form-message.error { color: #ff6b6b; }
+        .form-message.success { color: var(--cg-green); }
+
+        .cta-modal {
+            width: 100%;
+            background: linear-gradient(135deg, #FF4444, var(--cg-red-deep));
+            color: #fff;
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .cta-modal:hover,
+        .cta-modal:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(139, 0, 0, 0.5);
+            outline: none;
+        }
+
+        .cta-modal:disabled { opacity: 0.6; cursor: not-allowed; }
+        .cta-modal svg { width: 1rem; height: 1rem; }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #FF4444, var(--cg-red-deep));
+            color: #fff;
+            border-radius: var(--radius-md);
+        }
+
+        .success-message svg { width: 3rem; height: 3rem; margin: 0 auto 0.75rem; }
+        .success-message h4 { margin-bottom: 0.5rem; font-size: 1.25rem; }
+        .success-message p { opacity: 0.95; }
+
+        /* ============================================
+           6. FOOTER
+           ============================================ */
+        .site-footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 4rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .site-footer h3,
+        .site-footer h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .site-footer p {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .site-footer a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity var(--transition-fast);
+        }
+
+        .site-footer a:hover { opacity: 0.8; }
+
+        .footer-contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-link:hover { color: var(--cg-green); }
+        .footer-contact-link svg { flex-shrink: 0; width: 18px; height: 18px; }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: var(--transition-base);
+        }
+
+        .social-links a:hover {
+            background: var(--cg-red-deep);
+            transform: translateY(-3px);
+        }
+
+        .social-links svg { width: 18px; height: 18px; }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 0.85rem;
+        }
+
+        .copyright a:hover { color: var(--cg-red-deep); opacity: 1; }
+
+        /* ============================================
+           7. WHATSAPP FLOAT
+           ============================================ */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: var(--text-primary);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-base);
+            text-decoration: none;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-float svg { width: 2rem; height: 2rem; }
+
+        .whatsapp-float:hover,
+        .whatsapp-float:focus {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            outline: none;
+            animation: none;
+        }
+
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+        }
+
+        @media (max-width: 600px) {
+            .whatsapp-float { width: 56px; height: 56px; bottom: 1.5rem; right: 1.5rem; }
+            .whatsapp-float svg { width: 1.75rem; height: 1.75rem; }
+        }
+
+        /* ============================================
+           8. TIPOGRAFÍA SKETCHUP
+           ============================================ */
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-label--orange { color: var(--orange); }
+        .section-label--teal { color: var(--teal); }
+
+        .section-title {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 620px;
+            line-height: 1.7;
+        }
+
+        .text-orange { color: var(--orange); }
+        .text-teal { color: var(--teal); }
+
+        /* ============================================
+           9. BOTONES SKETCHUP
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: none;
+            transition: var(--transition-spring);
+            font-family: var(--font-main);
+            white-space: nowrap;
+        }
+
+        .btn--primary { background: var(--orange); color: white; }
+
+        .btn--primary:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(242, 101, 34, 0.35);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .btn--outline:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn--full { width: 100%; justify-content: center; }
+        .btn--large { padding: 18px 36px; font-size: 1rem; }
+
+        .btn__arrow {
+            font-size: 1.1em;
+            transition: transform var(--transition-normal);
+        }
+
+        .btn:hover .btn__arrow { transform: translateX(3px); }
+
+        /* ============================================
+           10. HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            padding: 20px 0 30px;
+            overflow: hidden;
+        }
+
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero__bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.45) saturate(0.9);
+            will-change: transform;
+        }
+
+        .hero__bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(10, 10, 10, 0.97) 0%,
+                rgba(10, 10, 10, 0.85) 35%,
+                rgba(10, 10, 10, 0.5) 65%,
+                rgba(10, 10, 10, 0.2) 100%
+            );
+        }
+
+        .hero__bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 10, 10, 0.3) 0%,
+                transparent 30%,
+                transparent 70%,
+                rgba(10, 10, 10, 0.6) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero__top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero__badge-top {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--orange);
+            text-transform: uppercase;
+        }
+
+        .hero__badge-new {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px 20px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+        }
+
+        .hero__badge-new::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.5); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0, 212, 170, 0); }
+        }
+
+        .hero__title {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .hero__title span { display: block; }
+
+        .hero__description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 480px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .hero__stats {
+            display: flex;
+            gap: 36px;
+            flex-wrap: wrap;
+        }
+
+        .stat__number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .stat__label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ============================================
+           11. SOLUTION SECTION (TABS + CARD)
+           ============================================ */
+        .solution {
+            padding: 32px 0;
+            background: var(--bg-primary);
+        }
+
+        .solution__header { margin-bottom: 32px; }
+
+        .solution__tabs {
+            display: inline-flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 4px;
+            margin-bottom: 28px;
+        }
+
+        .solution__tab {
+            padding: 10px 24px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            border-radius: 4px;
+            transition: var(--transition-spring);
+            background: transparent;
+        }
+
+        .solution__tab:hover { color: var(--text-primary); }
+        .solution__tab.active { background: var(--orange); color: white; }
+
+        .solution__card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .solution__card-image {
+            position: relative;
+            height: 100%;
+            min-height: 280px;
+            overflow: hidden;
+        }
+
+        .solution__card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .solution__card:hover .solution__card-image img { transform: scale(1.03); }
+
+        .solution__card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(10, 10, 10, 0.8) 100%);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--orange);
+            color: white;
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        .solution__card-body {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .solution__card-label {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 6px 14px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            align-self: flex-start;
+        }
+
+        .solution__card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .solution__features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-item__icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(242, 101, 34, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-item__icon svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--orange);
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        /* ============================================
+           12. RENDERS SECTION
+           ============================================ */
+        .renders {
+            padding: 48px 0;
+            background: var(--bg-secondary);
+        }
+
+        .renders__header { margin-bottom: 32px; }
+
+        .renders__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .render-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-spring);
+        }
+
+        .render-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-light);
+        }
+
+        .render-card__image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .render-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .render-card:hover .render-card__image img { transform: scale(1.05); }
+
+        .render-card__image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(10, 10, 10, 0.6) 100%);
+        }
+
+        .render-card__body { padding: 28px; }
+
+        .render-card__tag {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .render-card__tag--orange { background: rgba(242, 101, 34, 0.15); color: var(--orange); }
+        .render-card__tag--teal { background: rgba(0, 212, 170, 0.15); color: var(--teal); }
+        .render-card__tag--purple { background: rgba(123, 97, 255, 0.15); color: var(--purple); }
+
+        .render-card__title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .render-card__desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .render-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: var(--transition-spring);
+        }
+
+        .render-card__link--orange { color: var(--orange); }
+        .render-card__link--teal { color: var(--teal); }
+        .render-card__link--purple { color: var(--purple); }
+        .render-card__link:hover { gap: 12px; }
+
+        /* ============================================
+           13. GALLERY SECTION
+           ============================================ */
+        .gallery {
+            padding: 60px 0;
+            background: var(--bg-primary);
+        }
+
+        .gallery__header { margin-bottom: 32px; }
+
+        .gallery__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .gallery__item {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery__item--tall { grid-row: span 2; aspect-ratio: auto; }
+
+        .gallery__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery__item:hover img { transform: scale(1.05); }
+
+        .gallery__item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(10, 10, 10, 0.7) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .gallery__item:hover::after { opacity: 1; }
+
+        .gallery__item-label {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all var(--transition-normal);
+        }
+
+        .gallery__item:hover .gallery__item-label {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           14. COMPARISON CARDS
+           ============================================ */
+        .comparison {
+            padding: 40px 0;
+            background: var(--bg-secondary);
+        }
+
+        .comparison__header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .comparison__cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            transition: var(--transition-spring);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comparison-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .comparison-card__header {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-card__label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .comparison-card__body {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .comparison-card__item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .comparison-card__check {
+            font-size: 0.9rem;
+            font-weight: 700;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .comparison-card__check--pro {
+            color: var(--text-secondary);
+            background: rgba(160, 160, 160, 0.15);
+        }
+
+        .comparison-card__check--studio {
+            color: var(--teal);
+            background: rgba(0, 212, 170, 0.15);
+        }
+
+        .comparison-card__check--cross {
+            color: var(--text-muted);
+            background: rgba(102, 102, 102, 0.15);
+        }
+
+        .comparison-card__value {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .comparison-card__value--highlight {
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .comparison-card__plan {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .text-bold { font-weight: 700; color: var(--text-primary); }
+
+        /* ============================================
+           15. WORKFLOW SECTION
+           ============================================ */
+        .workflow {
+            padding: 60px 0;
+            background: var(--bg-primary);
+        }
+
+        .workflow__header { margin-bottom: 40px; }
+
+        .workflow__subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-bottom: 32px;
+        }
+
+        .workflow__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .workflow__features { display: grid; gap: 16px; }
+
+        .workflow-feature {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .workflow-feature__icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(242, 101, 34, 0.1);
+            border: 1px solid rgba(242, 101, 34, 0.2);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .workflow-feature__icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--orange);
+            fill: none;
+            stroke-width: 1.8;
+        }
+
+        .workflow-feature__content h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .workflow-feature__content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .workflow__images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .workflow__image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+
+        .workflow__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .workflow__image:hover img { transform: scale(1.03); }
+
+        /* ============================================
+           16. TESTIMONIALS SECTION
+           ============================================ */
+        .testimonials {
+            padding: 40px 0;
+            background: var(--bg-secondary);
+        }
+
+        .testimonials__header { margin-bottom: 24px; }
+
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            transition: var(--transition-spring);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .testimonial-card__stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 12px;
+            color: var(--orange);
+            font-size: 1rem;
+        }
+
+        .testimonial-card__quote {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-style: italic;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+
+        .testimonial-card__author {
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .testimonial-card__name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-card__role {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           17. ANIMATIONS
+           ============================================ */
+        @keyframes slideIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           18. RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .renders__grid { grid-template-columns: repeat(2, 1fr); }
+            .solution__features { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: calc(100vh - var(--header-height-mobile));
+                padding: 40px 0 60px;
+            }
+            .hero__title { font-size: clamp(2.5rem, 12vw, 4rem); }
+            .hero__stats { gap: 32px; }
+            .stat__number { font-size: 2rem; }
+            .renders__grid,
+            .testimonials__grid { grid-template-columns: 1fr; }
+            .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery__item--tall { grid-row: span 1; }
+            .workflow__content { grid-template-columns: 1fr; }
+            .workflow__images { grid-template-columns: 1fr; }
+            .solution__card-image { height: 280px; }
+            .solution__card-body { padding: 24px; }
+            .comparison__cards { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            .hero__actions { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .gallery__grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip Link Accesibilidad -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- SVG Sprite (solo iconos utilizados) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
+        <symbol id="icon-adobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></symbol>
+        <symbol id="icon-autodesk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></symbol>
+        <symbol id="icon-forma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+        <symbol id="icon-aec" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+        <symbol id="icon-mfg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></symbol>
+        <symbol id="icon-microsoft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+        <symbol id="icon-azure" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></symbol>
+        <symbol id="icon-m365" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><polyline points="16 21 12 17 8 21"/></symbol>
+        <symbol id="icon-hp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+        <symbol id="icon-consumibles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/></symbol>
+        <symbol id="icon-designjet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+        <symbol id="icon-pagewide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+        <symbol id="icon-dell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+        <symbol id="icon-workstation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+        <symbol id="icon-perifericos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/></symbol>
+        <symbol id="icon-storage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+        <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+        <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+        <symbol id="icon-check-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></symbol>
+        <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></symbol>
+        <symbol id="icon-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+        <symbol id="icon-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+        <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+    </svg>
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="/" aria-label="Ir a inicio de Cadgrafics">
+                <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+            </a>
+
+            <nav aria-label="Navegación principal">
+                <ul class="nav-menu" id="navMenu">
+                    <li class="nav-item">
+                        <a href="./pages/Adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                            Adobe <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="./pages/Adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
+                            <li><a href="./pages/Adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">
+                            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                                </a>
+                                <ul class="dropdown-submenu-menu">
+                                    <li><a href="./pages/autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
+                                    <li><a href="./pages/autodesk/forma.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-forma"/></svg> Forma</a></li>
+                                    <li><a href="./pages/autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
+                                    <li><a href="./pages/autodesk/mfg-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-mfg"/></svg> MFG Collection</a></li>
+                                    <li><a href="./pages/autodesk/mye-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> MYE Collection</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Microsoft <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                                </a>
+                                <ul class="dropdown-submenu-menu">
+                                    <li><a href="./pages/microsoft/azure.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-azure"/></svg> Azure</a></li>
+                                    <li><a href="./pages/microsoft/microsoft-365.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-m365"/></svg> Microsoft 365</a></li>
+                                    <li><a href="./pages/microsoft/windows-pro.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Windows Pro</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                                </a>
+                                <ul class="dropdown-submenu-menu">
+                                    <li><a href="./pages/hp/consumibles.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
+                                    <li><a href="./pages/hp/design-jet.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-designjet"/></svg> DesignJet</a></li>
+                                    <li><a href="./pages/hp/page-wide.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-pagewide"/></svg> PageWide</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#" aria-haspopup="true" aria-expanded="false">
+                                    <svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Dell <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                                </a>
+                                <ul class="dropdown-submenu-menu">
+                                    <li><a href="./pages/dell/workstation.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-workstation"/></svg> Workstations</a></li>
+                                    <li><a href="./pages/dell/perifericos.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-perifericos"/></svg> Periféricos</a></li>
+                                    <li><a href="./pages/dell/storage.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-storage"/></svg> Storage</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#solution">Soluciones</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#contacto" class="textbutton-trigger" aria-haspopup="dialog" aria-controls="formModal">Contáctanos</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+                <svg width="24" height="24" aria-hidden="true"><use href="#icon-menu"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main id="main-content">
+
+        <!-- HERO -->
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="hero__bg">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1920&q=80" 
+                     alt="Interior moderno con lámpara colgante, renderizado con SketchUp Studio y V-Ray" 
+                     width="1920" height="1080" 
+                     loading="eager" decoding="async" fetchpriority="high">
+            </div>
+            <div class="container hero__content">
+                <div class="hero__top-bar">
+                    <span class="hero__badge-top">Software de Diseño + Renderizado</span>
+                    <span class="hero__badge-new">CHAOS V-RAY 7 · NUEVO</span>
+                </div>
+
+                <h1 class="hero__title" id="hero-title" aria-label="Diseña, Renderiza e Impresiona">
+                    <span aria-hidden="true">DISEÑA.</span>
+                    <span class="text-orange" aria-hidden="true">RENDERIZA.</span>
+                    <span aria-hidden="true">IMPRESIONA.</span>
+                </h1>
+
+                <p class="hero__description">
+                    SketchUp Pro y Studio combinados con las herramientas de renderizado de Chaos — el ecosistema completo para arquitectos, diseñadores y visualizadores 3D.
+                </p>
+
+                <div class="hero__actions">
+                    <a href="#solution" class="btn btn--primary btn--large">
+                        Ver productos <span class="btn__arrow">→</span>
+                    </a>
+                    <a href="#gallery" class="btn btn--outline btn--large">
+                        <span>▷</span> Ver galería
+                    </a>
+                </div>
+
+                <div class="hero__stats" aria-label="Estadísticas de SketchUp">
+                    <div class="stat">
+                        <div class="stat__number" data-target="40" data-suffix="M+" aria-live="polite">0M+</div>
+                        <div class="stat__label">usuarios activos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__number" data-target="180" data-suffix="+" aria-live="polite">0+</div>
+                        <div class="stat__label">países</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__number" data-target="95" data-suffix="%" aria-live="polite">0%</div>
+                        <div class="stat__label">satisfacción cliente</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTION -->
+        <section class="solution" id="solution" aria-labelledby="solution-title">
+            <div class="container">
+                <div class="solution__header reveal">
+                    <div class="section-label section-label--orange">SketchUp</div>
+                    <h2 class="section-title" id="solution-title">ELIGE TU SOLUCIÓN</h2>
+                    <p class="section-subtitle">Desde el modelado básico hasta el flujo de trabajo BIM completo con renderizado incluido.</p>
+                </div>
+
+                <div class="solution__tabs reveal" role="tablist" aria-label="Opciones de SketchUp">
+                    <button class="solution__tab" role="tab" id="tab-pro" aria-selected="false" aria-controls="panel-solution" tabindex="-1" data-tab="pro">SKETCHUP PRO</button>
+                    <button class="solution__tab active" role="tab" id="tab-studio" aria-selected="true" aria-controls="panel-solution" data-tab="studio">SKETCHUP STUDIO</button>
+                </div>
+
+                <div class="solution__card reveal" id="panel-solution" role="tabpanel" aria-labelledby="tab-studio" tabindex="0">
+                    <div class="solution__card-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&q=80" 
+                             alt="Arquitectura moderna renderizada con SketchUp Studio y V-Ray" 
+                             width="1400" height="420" 
+                             loading="lazy" decoding="async">
+                        <span class="badge-popular">MÁS POPULAR</span>
+                    </div>
+                    <div class="solution__card-body">
+                        <span class="solution__card-label" id="cardLabel">SKETCHUP STUDIO</span>
+                        <p class="solution__card-desc" id="cardDesc">La solución completa: modelado BIM, renderizado V-Ray, AR y análisis energético en un solo paquete.</p>
+                        <ul class="solution__features" id="cardFeatures">
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>Todo lo de SketchUp Pro</li>
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>V-Ray para SketchUp incluido</li>
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>Previsualización AR en dispositivos</li>
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>Análisis solar y energético</li>
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>Compatibilidad con Revit y BIM</li>
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>Soporte prioritario 24/7</li>
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>Almacenamiento cloud ilimitado</li>
+                            <li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>Acceso anticipado a funciones beta</li>
+                        </ul>
+                        <button class="btn btn--primary btn--full btn--large">Conocer más</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RENDERS -->
+        <section class="renders" id="renders" aria-labelledby="renders-title">
+            <div class="container">
+                <div class="renders__header reveal">
+                    <div class="section-label section-label--teal">Chaos — Powered by Rendering</div>
+                    <h2 class="section-title" id="renders-title">RENDERS QUE<br><span class="text-teal">PARECEN REALES</span></h2>
+                    <p class="section-subtitle">Las herramientas de renderizado de Chaos se integran directamente con SketchUp para llevar tus proyectos al siguiente nivel visual.</p>
+                </div>
+
+                <div class="renders__grid">
+                    <article class="render-card reveal">
+                        <div class="render-card__image">
+                            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" 
+                                 alt="Render fotorealista de interior con iluminación natural, creado con V-Ray para SketchUp" 
+                                 width="800" height="280" 
+                                 loading="lazy" decoding="async">
+                        </div>
+                        <div class="render-card__body">
+                            <span class="render-card__tag render-card__tag--orange">RENDERIZADO</span>
+                            <h3 class="render-card__title">V-Ray para SketchUp</h3>
+                            <p class="render-card__desc">Renderizado fotorrealista basado en ray tracing. Luces, materiales PBR y resultados de nivel cinematográfico directamente en SketchUp.</p>
+                            <a href="#" class="render-card__link render-card__link--orange">Saber más <span class="btn__arrow">→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="render-card reveal">
+                        <div class="render-card__image">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" 
+                                 alt="Visualización en tiempo real de proyecto arquitectónico con Enscape" 
+                                 width="800" height="280" 
+                                 loading="lazy" decoding="async">
+                        </div>
+                        <div class="render-card__body">
+                            <span class="render-card__tag render-card__tag--teal">VISUALIZACIÓN EN TIEMPO REAL</span>
+                            <h3 class="render-card__title">Enscape</h3>
+                            <p class="render-card__desc">Recorre tu diseño en tiempo real con renders de alta calidad. Exporta videos y recorridos virtuales sin necesidad de configuración compleja.</p>
+                            <a href="#" class="render-card__link render-card__link--teal">Saber más <span class="btn__arrow">→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="render-card reveal">
+                        <div class="render-card__image">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" 
+                                 alt="Renderizado CPU de alta calidad con Chaos Corona para arquitectura" 
+                                 width="800" height="280" 
+                                 loading="lazy" decoding="async">
+                        </div>
+                        <div class="render-card__body">
+                            <span class="render-card__tag render-card__tag--purple">RENDERIZADO CPU</span>
+                            <h3 class="render-card__title">Chaos Corona</h3>
+                            <p class="render-card__desc">Motor de renderizado basado en CPU con flujo de trabajo simple e intuitivo. Ideal para arquitectura e interiores de alta complejidad.</p>
+                            <a href="#" class="render-card__link render-card__link--purple">Saber más <span class="btn__arrow">→</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="gallery" id="gallery" aria-labelledby="gallery-title">
+            <div class="container">
+                <div class="gallery__header reveal">
+                    <div class="section-label section-label--orange">Galería de Proyectos</div>
+                    <h2 class="section-title" id="gallery-title">HECHO CON SKETCHUP + CHAOS</h2>
+                </div>
+
+                <ul class="gallery__grid" role="list">
+                    <li class="gallery__item reveal">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800&q=80" 
+                                 alt="Proyecto interior minimalista con SketchUp Pro" 
+                                 width="800" height="600" 
+                                 loading="lazy" decoding="async">
+                        </figure>
+                    </li>
+                    <li class="gallery__item gallery__item--tall reveal">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" 
+                                 alt="Proyecto de sala moderna con SketchUp Studio" 
+                                 width="800" height="1200" 
+                                 loading="lazy" decoding="async">
+                            <figcaption class="gallery__item-label">SketchUp Studio</figcaption>
+                        </figure>
+                    </li>
+                    <li class="gallery__item reveal">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80" 
+                                 alt="Proyecto exterior con SketchUp Pro" 
+                                 width="800" height="600" 
+                                 loading="lazy" decoding="async">
+                            <figcaption class="gallery__item-label">SketchUp Pro</figcaption>
+                        </figure>
+                    </li>
+                    <li class="gallery__item reveal">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" 
+                                 alt="Proyecto de living con SketchUp Pro" 
+                                 width="800" height="600" 
+                                 loading="lazy" decoding="async">
+                        </figure>
+                    </li>
+                    <li class="gallery__item reveal">
+                        <figure>
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80" 
+                                 alt="Proyecto de cocina renderizado con Chaos V-Ray" 
+                                 width="800" height="600" 
+                                 loading="lazy" decoding="async">
+                            <figcaption class="gallery__item-label">Chaos V-Ray</figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- COMPARISON -->
+        <section class="comparison" id="comparison" aria-labelledby="comparison-title">
+            <div class="container">
+                <div class="comparison__header reveal">
+                    <div class="section-label section-label--orange">Comparativa</div>
+                    <h2 class="section-title" id="comparison-title">PRO VS STUDIO</h2>
+                </div>
+
+                <div class="comparison__cards reveal">
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Modelado 3D</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro">✓</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Layout 2D</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro">✓</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">3D Warehouse</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro">✓</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Colaboración web</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__value">Básica</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__value comparison-card__value--highlight">Avanzada</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">V-Ray incluido</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro comparison-card__check--cross">✕</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Análisis energético</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro comparison-card__check--cross">✕</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Compatibilidad IFC/BIM</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro">✓</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Realidad Aumentada</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro comparison-card__check--cross">✕</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Almacenamiento cloud</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__value">10 GB</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__value comparison-card__value--highlight">Ilimitado</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card__header"><span class="comparison-card__label">Soporte prioritario</span></div>
+                        <div class="comparison-card__body">
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--pro comparison-card__check--cross">✕</span><span class="comparison-card__plan">PRO</span></div>
+                            <div class="comparison-card__item"><span class="comparison-card__check comparison-card__check--studio">✓</span><span class="comparison-card__plan">STUDIO</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKFLOW -->
+        <section class="workflow" id="workflow" aria-labelledby="workflow-title">
+            <div class="container">
+                <div class="workflow__header reveal">
+                    <div class="section-label section-label--teal">Flujo de Trabajo</div>
+                    <h2 class="section-title" id="workflow-title">DEL BOCETO AL<br><span class="text-orange">RENDER FINAL</span></h2>
+                    <p class="workflow__subtitle">SketchUp y Chaos están diseñados para trabajar juntos. Modela en SketchUp, aplica materiales V-Ray, y renderiza con un solo clic — sin exportar, sin perder tiempo.</p>
+                </div>
+
+                <div class="workflow__content">
+                    <div class="workflow__features">
+                        <div class="workflow-feature reveal">
+                            <div class="workflow-feature__icon"><svg viewBox="0 0 24 24"><use href="#icon-layers"/></svg></div>
+                            <div class="workflow-feature__content"><h4>Modelado intuitivo</h4><p>Empieza con formas simples y llega a modelos BIM completos</p></div>
+                        </div>
+                        <div class="workflow-feature reveal">
+                            <div class="workflow-feature__icon"><svg viewBox="0 0 24 24"><use href="#icon-bolt"/></svg></div>
+                            <div class="workflow-feature__content"><h4>Render en tiempo real</h4><p>Enscape te muestra el resultado mientras modelas</p></div>
+                        </div>
+                        <div class="workflow-feature reveal">
+                            <div class="workflow-feature__icon"><svg viewBox="0 0 24 24"><use href="#icon-image"/></svg></div>
+                            <div class="workflow-feature__content"><h4>Ray tracing fotorrealista</h4><p>V-Ray produce imágenes de nivel cinematográfico</p></div>
+                        </div>
+                        <div class="workflow-feature reveal">
+                            <div class="workflow-feature__icon"><svg viewBox="0 0 24 24"><use href="#icon-globe"/></svg></div>
+                            <div class="workflow-feature__content"><h4>Comparte en cualquier formato</h4><p>VR, AR, video, imagen — todo desde un solo modelo</p></div>
+                        </div>
+                    </div>
+
+                    <div class="workflow__images">
+                        <div class="workflow__image reveal">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=80" 
+                                 alt="Interior minimalista renderizado con SketchUp y V-Ray" 
+                                 width="1000" height="625" 
+                                 loading="lazy" decoding="async">
+                        </div>
+                        <div class="workflow__image reveal">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=80" 
+                                 alt="Baño de lujo renderizado con Chaos V-Ray" 
+                                 width="1000" height="625" 
+                                 loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials" id="testimonials" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="testimonials__header reveal">
+                    <div class="section-label section-label--orange">Testimonios</div>
+                    <h2 class="section-title" id="testimonials-title">LO QUE DICEN<br>LOS PROFESIONALES</h2>
+                </div>
+
+                <div class="testimonials__grid">
+                    <article class="testimonial-card reveal">
+                        <div class="testimonial-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <p class="testimonial-card__quote">"SketchUp Studio con V-Ray cambió completamente la forma en que presentamos nuestros proyectos. Nuestros clientes quedan impresionados en cada reunión."</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__name">Valentina Restrepo</div>
+                            <div class="testimonial-card__role">Directora Creativa, Arco Studio</div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card reveal">
+                        <div class="testimonial-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <p class="testimonial-card__quote">"La integración de Enscape con SketchUp es perfecta. Paso del modelo al recorrido virtual en segundos, sin procesos complicados."</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__name">Carlos Mendoza</div>
+                            <div class="testimonial-card__role">Arquitecto Senior, CM Proyectos</div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card reveal">
+                        <div class="testimonial-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+                        <p class="testimonial-card__quote">"Chaos V-Ray produce renders tan fotorrealistas que varios clientes pensaron que eran fotografías de obra terminada."</p>
+                        <div class="testimonial-card__author">
+                            <div class="testimonial-card__name">Sofía Ibáñez</div>
+                            <div class="testimonial-card__role">Visualizadora 3D, IbáñezRender</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Cadgrafics S.A. De C.V.</h3>
+                    <p>Norte 56-A # 5204 • Col. Tablas de San Agustín</p>
+                    <p>07860, Gustavo A. Madero | CDMX</p>
+                    <p>Correo: <a href="mailto:sandra.alvarez@cadgrafics.com.mx">sandra.alvarez@cadgrafics.com.mx</a></p>
+                    <p>
+                        <a href="https://wa.me/525520002550?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (55) 2000-2550">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+                            +52 (55) 2000-2550
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h4>Cadgrafics de Occidente S.A. De C.V.</h4>
+                    <p>Calle Dia # 2381 Col. Jardines del Bosque</p>
+                    <p>44520 | Guadalajara Jalisco, México</p>
+                    <p>Correo: <a href="mailto:rafael.castro@cadgrafics.com.mx">rafael.castro@cadgrafics.com.mx</a></p>
+                    <p>
+                        <a href="https://wa.me/523314040396?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (33) 1404-0396">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+                            +52 (33) 1404-0396
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@cadgrafics1639" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-youtube"/></svg>
+                        </a>
+                        <a href="https://x.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="X">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-x"/></svg>
+                        </a>
+                        <a href="https://facebook.com/Cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-facebook"/></svg>
+                        </a>
+                        <a href="https://instagram.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-instagram"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2026 Cadgrafics S.A. de C.V. | Todos los derechos reservados | <a href="../../aviso_privacidad.html">Aviso de Privacidad</a>.</div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20y%20quiero%20información" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 55 3112 0508">
+        <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+    </a>
+
+    <!-- ============================================
+         MODAL DE CONTACTO
+         ============================================ -->
+    <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" aria-hidden="true">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Cuéntanos sobre tu proyecto</h3>
+                <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar formulario">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <p id="modalDesc" class="visually-hidden">Formulario de contacto para solicitar información sobre productos SketchUp y Chaos</p>
+            <form id="leadForm" novalidate>
+                <div id="formFields">
+                    <div class="form-group">
+                        <label for="name">Nombre completo *</label>
+                        <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name" aria-describedby="name-error-modal"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" aria-describedby="email-error-modal"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Celular *</label>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678" aria-describedby="phone-error-modal"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Empresa *</label>
+                        <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa" aria-describedby="company-error-modal"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tu requerimiento</label>
+                        <textarea id="message" name="message" rows="4" maxlength="500" placeholder="Ej: Necesito licencias SketchUp para equipo de diseño..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-modal">
+                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-send"/></svg> Enviar consulta
+                    </button>
+                    <p class="form-message" id="modalFormMessage" role="status" aria-live="polite"></p>
+                </div>
+                <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+                    <svg width="48" height="48" aria-hidden="true"><use href="#icon-check"/></svg>
+                    <h4>¡Listo!</h4>
+                    <p>Recibimos tu consulta. Te contactaremos en breve.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============================================
+         JAVASCRIPT (CONSOLIDADO)
+         ============================================ -->
+    <script>
+    (function () {
+        'use strict';
+
+        // ===== Utilidades DOM =====
+        const $ = (sel, ctx = document) => ctx.querySelector(sel);
+        const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+        // ===== 1. HEADER: Scroll effect =====
+        const header = $('#header');
+        let headerTicking = false;
+
+        const updateHeader = () => {
+            header?.classList.toggle('scrolled', window.scrollY > 50);
+            headerTicking = false;
+        };
+
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (!headerTicking) {
+                    requestAnimationFrame(updateHeader);
+                    headerTicking = true;
+                }
+            }, { passive: true });
+            updateHeader();
+        }
+
+        // ===== 2. HEADER: Mobile menu toggle =====
+        const mobileToggle = $('#mobileToggle');
+        const navMenu = $('#navMenu');
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isActive = navMenu.classList.toggle('active');
+                mobileToggle.setAttribute('aria-expanded', String(isActive));
+                mobileToggle.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
+                document.body.style.overflow = isActive ? 'hidden' : '';
+
+                const icon = mobileToggle.querySelector('svg use');
+                if (icon) icon.setAttribute('href', isActive ? '#icon-close' : '#icon-menu');
+
+                if (!isActive) {
+                    $$('.nav-item.active, .dropdown-submenu.active').forEach(el => el.classList.remove('active'));
+                    $$('[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
+                }
+            });
+        }
+
+        // ===== 3. HEADER: Dropdowns (mobile + keyboard) =====
+        const setupDropdown = (selector, parentSelector) => {
+            $$(selector).forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const parent = link.closest(parentSelector);
+                        const isActive = parent?.classList.toggle('active');
+                        link.setAttribute('aria-expanded', String(!!isActive));
+
+                        $$(`${parentSelector}.active`).forEach(sib => {
+                            if (sib !== parent) {
+                                sib.classList.remove('active');
+                                sib.querySelector('a')?.setAttribute('aria-expanded', 'false');
+                            }
+                        });
+                    }
+                });
+
+                link.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        const parent = link.closest(parentSelector);
+                        if (parent?.querySelector('.dropdown-menu, .dropdown-submenu-menu')) {
+                            e.preventDefault();
+                            const isActive = parent.classList.toggle('active');
+                            link.setAttribute('aria-expanded', String(isActive));
+                        }
+                    }
+                });
+            });
+        };
+
+        setupDropdown('.nav-item > a', '.nav-item');
+        setupDropdown('.dropdown-submenu > a', '.dropdown-submenu');
+
+        // ===== 4. SMOOTH SCROLL: Anchor links =====
+        const getHeaderOffset = () => window.innerWidth <= 768 ? 80 : 140;
+
+        $$('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const targetId = anchor.getAttribute('href');
+                if (!targetId || targetId.length < 2) return;
+
+                const target = $(targetId);
+                if (!target) return;
+
+                e.preventDefault();
+                const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+                window.scrollTo({ top, behavior: 'smooth' });
+            });
+        });
+
+        // ===== 5. SCROLL REVEAL ANIMATION =====
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        $$('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ===== 6. COUNTER ANIMATION (Stats) =====
+        const animateCounter = (element, target, suffix) => {
+            let current = 0;
+            const increment = target / 60;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                    element.textContent = target + suffix;
+                    return;
+                }
+                element.textContent = Math.round(current) + suffix;
+            }, 25);
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    $$('.stat__number').forEach(stat => {
+                        const target = parseInt(stat.dataset.target);
+                        const suffix = stat.dataset.suffix || '';
+                        animateCounter(stat, target, suffix);
+                    });
+                    statsObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = $('.hero__stats');
+        if (statsSection) statsObserver.observe(statsSection);
+
+        // ===== 7. TABS: Solution Section (Accessible) =====
+        const tabContent = {
+            pro: {
+                label: 'SKETCHUP PRO',
+                desc: 'La herramienta esencial para modelado 3D profesional. Incluye Layout 2D, 3D Warehouse y colaboración web básica.',
+                features: ['Modelado 3D profesional', 'Layout 2D para documentación', 'Acceso a 3D Warehouse', 'Colaboración web básica', '10 GB almacenamiento cloud', 'Compatibilidad IFC/BIM', 'Extensiones y plugins', 'Soporte por email']
+            },
+            studio: {
+                label: 'SKETCHUP STUDIO',
+                desc: 'La solución completa: modelado BIM, renderizado V-Ray, AR y análisis energético en un solo paquete.',
+                features: ['Todo lo de SketchUp Pro', 'V-Ray para SketchUp incluido', 'Previsualización AR en dispositivos', 'Análisis solar y energético', 'Compatibilidad con Revit y BIM', 'Soporte prioritario 24/7', 'Almacenamiento cloud ilimitado', 'Acceso anticipado a funciones beta']
+            }
+        };
+
+        const cardLabel = $('#cardLabel');
+        const cardDesc = $('#cardDesc');
+        const cardFeatures = $('#cardFeatures');
+        const panel = $('#panel-solution');
+        const tabs = $$('.solution__tab');
+
+        const updateTabContent = (tabId) => {
+            const content = tabContent[tabId];
+            if (!content || !cardLabel) return;
+
+            cardLabel.textContent = content.label;
+            cardDesc.textContent = content.desc;
+            cardFeatures.innerHTML = content.features.map(f =>
+                `<li class="feature-item"><span class="feature-item__icon"><svg viewBox="0 0 24 24"><use href="#icon-check-small"/></svg></span>${f}</li>`
+            ).join('');
+        };
+
+        const activateTab = (tab) => {
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+                t.setAttribute('tabindex', '-1');
+            });
+            
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            tab.removeAttribute('tabindex');
+            
+            const tabId = tab.dataset.tab;
+            panel.setAttribute('aria-labelledby', tab.id);
+            updateTabContent(tabId);
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => activateTab(tab));
+            
+            tab.addEventListener('keydown', (e) => {
+                const currentIndex = tabs.indexOf(tab);
+                let newIndex;
+                
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    newIndex = (currentIndex + 1) % tabs.length;
+                    tabs[newIndex].focus();
+                    activateTab(tabs[newIndex]);
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    newIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+                    tabs[newIndex].focus();
+                    activateTab(tabs[newIndex]);
+                } else if (e.key === 'Home') {
+                    e.preventDefault();
+                    tabs[0].focus();
+                    activateTab(tabs[0]);
+                } else if (e.key === 'End') {
+                    e.preventDefault();
+                    tabs[tabs.length - 1].focus();
+                    activateTab(tabs[tabs.length - 1]);
+                }
+            });
+        });
+
+        // ===== 8. PARALLAX: Hero background =====
+        const heroBg = $('.hero__bg img');
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                if (heroBg && scrolled < window.innerHeight) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+            }, { passive: true });
+        }
+
+        // ===== 9. MODAL: Open / Close / Accessibility =====
+        const modal = $('#formModal');
+        const modalClose = $('#modalClose');
+        const leadForm = $('#leadForm');
+        const formFields = $('#formFields');
+        const successMessage = $('#successMessage');
+        const modalFormMessage = $('#modalFormMessage');
+        let lastFocusedElement = null;
+
+        const sanitize = (str) => {
+            const div = document.createElement('div');
+            div.textContent = String(str || '');
+            return div.innerHTML.trim().slice(0, 500);
+        };
+
+        const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const isValidPhone = (phone) => /^[\d\s+\-()]{7,}$/.test(phone);
+
+        const openModal = (e) => {
+            e?.preventDefault();
+            lastFocusedElement = document.activeElement;
+            modal?.classList.add('active');
+            modal?.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            document.body.inert = true;
+            setTimeout(() => $('#name')?.focus(), 100);
+        };
+
+        const closeModal = () => {
+            modal?.classList.remove('active');
+            modal?.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            document.body.inert = false;
+            if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                lastFocusedElement.focus();
+            }
+        };
+
+        // Triggers
+        $$('.textbutton-trigger').forEach(btn => btn.addEventListener('click', openModal));
+
+        // Close handlers
+        modalClose?.addEventListener('click', closeModal);
+        modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+        // Keyboard: Escape + Focus trap
+        document.addEventListener('keydown', (e) => {
+            if (!modal?.classList.contains('active')) return;
+
+            if (e.key === 'Escape') {
+                closeModal();
+                return;
+            }
+
+            if (e.key === 'Tab') {
+                const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+        // ===== 10. MODAL: Form validation & submit =====
+        $$('#leadForm input, #leadForm textarea').forEach(input => {
+            input.addEventListener('input', () => input.classList.remove('is-invalid'));
+        });
+
+        leadForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            modalFormMessage.textContent = '';
+            modalFormMessage.className = 'form-message';
+
+            const fd = new FormData(leadForm);
+            const data = {
+                name: sanitize(fd.get('name')),
+                email: sanitize(fd.get('email')),
+                phone: sanitize(fd.get('phone')),
+                company: sanitize(fd.get('company')),
+                message: sanitize(fd.get('message'))
+            };
+
+            let hasError = false;
+
+            if (!data.name || data.name.length < 3) { $('#name').classList.add('is-invalid'); hasError = true; }
+            if (!isValidEmail(data.email)) { $('#email').classList.add('is-invalid'); hasError = true; }
+            if (!isValidPhone(data.phone)) { $('#phone').classList.add('is-invalid'); hasError = true; }
+            if (!data.company || data.company.length < 2) { $('#company').classList.add('is-invalid'); hasError = true; }
+
+            if (hasError) {
+                modalFormMessage.textContent = 'Por favor completa todos los campos obligatorios correctamente.';
+                modalFormMessage.className = 'form-message error';
+                return;
+            }
+
+            const submitBtn = leadForm.querySelector('.cta-modal');
+            const originalHTML = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<svg width="16" height="16" style="animation: spin 1s linear infinite;" aria-hidden="true"><use href="#icon-send"/></svg> Enviando...';
+
+            try {
+                // Simulación de envío — reemplazar con endpoint real: /api/leads
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                // Fallback: abrir WhatsApp
+                const whatsappText = encodeURIComponent(`Hola CADGRAFICS, me interesa información sobre SketchUp + Chaos. Mi nombre es ${data.name}.`);
+                window.open(`https://wa.me/525531120508?text=${whatsappText}`, '_blank', 'noopener,noreferrer');
+
+                formFields.style.display = 'none';
+                successMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    closeModal();
+                    setTimeout(() => {
+                        leadForm.reset();
+                        formFields.style.display = '';
+                        successMessage.style.display = 'none';
+                    }, 300);
+                }, 3000);
+            } catch (error) {
+                console.error('Error al enviar formulario:', error);
+                modalFormMessage.textContent = 'Error al enviar. Por favor intenta de nuevo.';
+                modalFormMessage.className = 'form-message error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHTML;
+            }
+        });
+
+    })();
+    </script>
+</body>
+</html>

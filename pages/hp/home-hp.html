@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones HP de Impresión de Gran Formato | Distribución Autorizada HP México</title>
+    <meta name="description" content="Soluciones HP de impresión de gran formato. Desde oficinas técnicas hasta centros de producción de alto volumen.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           1. VARIABLES Y RESET
+           ============================================ */
+        :root {
+            /* Colores HP */
+            --hp-blue: #0096D6;
+            --hp-blue-dark: #0077B6;
+            --hp-blue-deep: #002B49;
+            --hp-blue-darker: #001F3F;
+            --hp-blue-light: #E8F4FA;
+            --hp-blue-50: #F0F7FB;
+            
+            /* Neutros */
+            --color-text: #1A1A2E;
+            --color-text-secondary: #5A6B7F;
+            --color-text-light: #8A9BAE;
+            --color-bg: #FFFFFF;
+            --color-bg-alt: #F8FAFC;
+            --color-border: #E2E8F0;
+            
+            /* Tipografía */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --fs-xs: 0.75rem;
+            --fs-sm: 0.875rem;
+            --fs-base: 1rem;
+            --fs-lg: 1.125rem;
+            --fs-xl: 1.25rem;
+            --fs-2xl: 1.5rem;
+            --fs-3xl: 2rem;
+            --fs-4xl: 2.5rem;
+            --fs-5xl: 3.5rem;
+            --fs-6xl: 4.5rem;
+            
+            /* Espaciado */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Layout */
+            --container-max: 1280px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            /* Transiciones */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--fs-base);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Skip link accesibilidad */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            background: var(--hp-blue);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            z-index: 10000;
+            font-weight: 600;
+        }
+        .skip-link:focus { top: 0; }
+
+        /* ============================================
+           2. UTILIDADES
+           ============================================ */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin-inline: auto;
+            padding-inline: var(--space-md);
+        }
+
+        .section-label {
+            display: block;
+            font-size: var(--fs-sm);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--hp-blue);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, var(--fs-5xl));
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            font-size: var(--fs-lg);
+            color: var(--color-text-secondary);
+            text-align: center;
+            max-width: 640px;
+            margin-inline: auto;
+            line-height: 1.6;
+        }
+
+        .text-center { text-align: center; }
+        .text-blue { color: var(--hp-blue); }
+        .text-white { color: white; }
+
+        /* ============================================
+           3. BOTONES
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            padding: 0.875rem 1.75rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: var(--fs-base);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn--primary {
+            background-color: var(--hp-blue);
+            color: white;
+            border-color: var(--hp-blue);
+        }
+        .btn--primary:hover {
+            background-color: var(--hp-blue-dark);
+            border-color: var(--hp-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 150, 214, 0.3);
+        }
+
+        .btn--outline {
+            background-color: transparent;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .btn--outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        .btn--outline-dark {
+            background-color: transparent;
+            color: var(--hp-blue);
+            border-color: var(--hp-blue);
+        }
+        .btn--outline-dark:hover {
+            background-color: var(--hp-blue);
+            color: white;
+        }
+
+        .btn--dark {
+            background-color: var(--hp-blue-deep);
+            color: white;
+            border-color: var(--hp-blue-deep);
+        }
+        .btn--dark:hover {
+            background-color: var(--hp-blue-darker);
+            transform: translateY(-2px);
+        }
+
+        .btn--large {
+            padding: 1.125rem 2rem;
+            font-size: var(--fs-lg);
+        }
+
+        .btn--link {
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--hp-blue);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        .btn--link:hover {
+            gap: var(--space-sm);
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        /* ============================================
+           4. HEADER / NAV
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            transition: var(--transition);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav__logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-weight: 800;
+            font-size: var(--fs-xl);
+            color: var(--hp-blue-deep);
+        }
+
+        .nav__logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav__menu {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+        }
+
+        .nav__link {
+            font-weight: 500;
+            font-size: var(--fs-sm);
+            color: var(--color-text);
+            position: relative;
+        }
+        .nav__link:hover {
+            color: var(--hp-blue);
+        }
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--hp-blue);
+            transition: var(--transition);
+        }
+        .nav__link:hover::after { width: 100%; }
+
+        .nav__toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            position: relative;
+            transition: var(--transition);
+        }
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--color-text);
+            transition: var(--transition);
+        }
+        .hamburger::before { top: -7px; }
+        .hamburger::after { top: 7px; }
+
+        .nav__toggle[aria-expanded="true"] .hamburger { background: transparent; }
+        .nav__toggle[aria-expanded="true"] .hamburger::before { top: 0; transform: rotate(45deg); }
+        .nav__toggle[aria-expanded="true"] .hamburger::after { top: 0; transform: rotate(-45deg); }
+
+        @media (max-width: 900px) {
+            .nav__toggle { display: flex; }
+            .nav__menu {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--space-lg);
+                gap: var(--space-md);
+                transform: translateY(-150%);
+                transition: var(--transition);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                border-top: 1px solid var(--color-border);
+            }
+            .nav__menu.is-active { transform: translateY(0); }
+            .nav__link { font-size: var(--fs-base); }
+        }
+
+        /* ============================================
+           5. HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 72px;
+            overflow: hidden;
+            background: var(--hp-blue-deep);
+        }
+
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(135deg, rgba(0, 31, 63, 0.92) 0%, rgba(0, 43, 73, 0.85) 50%, rgba(0, 150, 214, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80') center/cover no-repeat;
+            z-index: 0;
+        }
+
+        .hero__bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0, 31, 63, 0.4) 100%);
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 1;
+            padding-block: var(--space-3xl);
+            max-width: 720px;
+        }
+
+        .hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: rgba(0, 150, 214, 0.2);
+            border: 1px solid rgba(0, 150, 214, 0.4);
+            color: var(--hp-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: var(--fs-xs);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-lg);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero__badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--hp-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero__title {
+            font-size: clamp(2.5rem, 6vw, var(--fs-6xl));
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: white;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero__title span {
+            color: var(--hp-blue);
+            display: block;
+        }
+
+        .hero__description {
+            font-size: var(--fs-lg);
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+            max-width: 600px;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .hero__stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--space-md);
+            max-width: 900px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            backdrop-filter: blur(12px);
+            transition: var(--transition);
+        }
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .stat-card__icon {
+            width: 24px;
+            height: 24px;
+            color: var(--hp-blue);
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-card__value {
+            font-size: var(--fs-3xl);
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-card__label {
+            font-size: var(--fs-sm);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           6. DOS SOLUCIONES
+           ============================================ */
+        .solutions {
+            padding-block: var(--space-3xl);
+            background: var(--color-bg);
+        }
+
+        .solutions__header {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .solutions__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .solution-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .solution-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .solution-card__image {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .solution-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .solution-card:hover .solution-card__image img {
+            transform: scale(1.05);
+        }
+
+        .solution-card__badge {
+            position: absolute;
+            bottom: var(--space-md);
+            left: var(--space-md);
+            background: var(--hp-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: var(--fs-xs);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .solution-card__content {
+            padding: var(--space-xl);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .solution-card__title {
+            font-size: var(--fs-2xl);
+            font-weight: 800;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.01em;
+        }
+
+        .solution-card__description {
+            font-size: var(--fs-base);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .solution-card__list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            flex: 1;
+        }
+
+        .solution-card__list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            font-size: var(--fs-base);
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .solution-card__list li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--hp-blue);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .solutions__grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           7. COMPARATIVA
+           ============================================ */
+        .comparison {
+            padding-block: var(--space-3xl);
+            background: var(--hp-blue-50);
+        }
+
+        .comparison__header {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .comparison__table-wrapper {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--color-border);
+        }
+
+        .comparison__table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison__table thead th {
+            background: var(--hp-blue-deep);
+            color: white;
+            padding: var(--space-lg) var(--space-md);
+            text-align: left;
+            font-weight: 700;
+            font-size: var(--fs-sm);
+        }
+
+        .comparison__table thead th:first-child {
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: var(--fs-xs);
+        }
+
+        .comparison__table thead th:not(:first-child) {
+            text-align: center;
+        }
+
+        .comparison__table thead th .th-title {
+            font-size: var(--fs-xl);
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .comparison__table thead th .th-subtitle {
+            font-size: var(--fs-sm);
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .comparison__table thead th.hp-blue-col .th-title {
+            color: var(--hp-blue);
+        }
+
+        .comparison__table tbody td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-border);
+            font-size: var(--fs-base);
+        }
+
+        .comparison__table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison__table tbody td:first-child {
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            background: var(--hp-blue-50);
+        }
+
+        .comparison__table tbody td:not(:first-child) {
+            text-align: center;
+            color: var(--color-text);
+        }
+
+        .comparison__table tbody td.hp-blue-col {
+            color: var(--hp-blue);
+            font-weight: 600;
+        }
+
+        .comparison__table tbody tr:nth-child(even) td:first-child {
+            background: #F5F9FC;
+        }
+
+        .comparison__cta-row td {
+            padding: var(--space-lg) var(--space-md);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .comparison__table-wrapper { overflow-x: auto; }
+            .comparison__table { min-width: 600px; }
+        }
+
+        /* ============================================
+           8. PORTAFOLIO
+           ============================================ */
+        .portfolio {
+            padding-block: var(--space-3xl);
+            background: var(--color-bg);
+        }
+
+        .portfolio__header {
+            margin-bottom: var(--space-xl);
+        }
+
+        .portfolio__tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        .portfolio__tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: var(--fs-base);
+            color: var(--color-text-secondary);
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            transition: var(--transition);
+        }
+        .portfolio__tab:hover {
+            color: var(--color-text);
+            background: #EDF2F7;
+        }
+        .portfolio__tab.is-active {
+            background: var(--hp-blue);
+            color: white;
+            border-color: var(--hp-blue);
+        }
+        .portfolio__tab[data-tab="pagewide-xl-pro"].is-active {
+            background: var(--hp-blue-deep);
+            border-color: var(--hp-blue-deep);
+        }
+
+        .portfolio__panel {
+            display: none;
+        }
+        .portfolio__panel.is-active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .portfolio__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .model-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .model-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+            border-color: var(--hp-blue);
+        }
+
+        .model-card__badge {
+            display: inline-block;
+            background: var(--hp-blue);
+            color: white;
+            padding: 0.375rem 0.875rem;
+            border-radius: 100px;
+            font-size: var(--fs-xs);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+            align-self: flex-start;
+        }
+
+        .model-card__badge--dark {
+            background: var(--hp-blue-deep);
+        }
+
+        .model-card__title {
+            font-size: var(--fs-3xl);
+            font-weight: 900;
+            color: var(--color-text);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .model-card__description {
+            font-size: var(--fs-base);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+            flex: 1;
+        }
+
+        .model-card__progress {
+            margin-bottom: var(--space-lg);
+        }
+
+        .model-card__progress-bar {
+            height: 4px;
+            background: var(--hp-blue-light);
+            border-radius: 100px;
+            overflow: hidden;
+            margin-bottom: var(--space-xs);
+        }
+
+        .model-card__progress-fill {
+            height: 100%;
+            background: var(--hp-blue);
+            border-radius: 100px;
+            transition: width 0.6s ease;
+        }
+
+        .model-card__progress-label {
+            font-size: var(--fs-sm);
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .portfolio__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .portfolio__grid { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           9. SECTORES
+           ============================================ */
+        .sectors {
+            padding-block: var(--space-3xl);
+            background: var(--hp-blue-deep);
+            color: white;
+        }
+
+        .sectors .section-title { color: white; }
+        .sectors .section-subtitle { color: rgba(255, 255, 255, 0.7); }
+
+        .sectors__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .sector-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: var(--transition);
+        }
+        .sector-card:hover {
+            background: rgba(0, 150, 214, 0.1);
+            border-color: rgba(0, 150, 214, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .sector-card__icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 150, 214, 0.15);
+            border: 1px solid rgba(0, 150, 214, 0.3);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            color: var(--hp-blue);
+        }
+
+        .sector-card__icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .sector-card__title {
+            font-size: var(--fs-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            color: white;
+        }
+
+        .sector-card__description {
+            font-size: var(--fs-base);
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.6;
+        }
+
+        .sectors__stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            padding-top: var(--space-2xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sector-stat {
+            text-align: center;
+        }
+
+        .sector-stat__icon {
+            width: 32px;
+            height: 32px;
+            color: var(--hp-blue);
+            margin: 0 auto var(--space-sm);
+        }
+
+        .sector-stat__value {
+            font-size: var(--fs-2xl);
+            font-weight: 800;
+            color: white;
+            margin-bottom: var(--space-xs);
+        }
+
+        .sector-stat__label {
+            font-size: var(--fs-base);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 900px) {
+            .sectors__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .sectors__grid,
+            .sectors__stats { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           10. CONTACTO
+           ============================================ */
+        .contact {
+            padding-block: var(--space-3xl);
+            background: var(--color-bg);
+        }
+
+        .contact__grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-3xl);
+            align-items: start;
+        }
+
+        .contact__info {
+            position: sticky;
+            top: 100px;
+        }
+
+        .contact__label {
+            font-size: var(--fs-sm);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--hp-blue);
+            margin-bottom: var(--space-sm);
+        }
+
+        .contact__title {
+            font-size: clamp(2rem, 4vw, var(--fs-5xl));
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            color: var(--color-text);
+            margin-bottom: var(--space-lg);
+        }
+
+        .contact__title span {
+            color: var(--hp-blue);
+        }
+
+        .contact__description {
+            font-size: var(--fs-lg);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-xl);
+        }
+
+        .contact__details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .contact__detail {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .contact__detail-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--hp-blue-light);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--hp-blue);
+            flex-shrink: 0;
+        }
+
+        .contact__detail-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact__detail-label {
+            font-size: var(--fs-sm);
+            color: var(--color-text-light);
+            margin-bottom: 2px;
+        }
+
+        .contact__detail-value {
+            font-size: var(--fs-base);
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .contact__badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .contact__badge {
+            background: var(--hp-blue-light);
+            color: var(--hp-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: var(--fs-sm);
+            font-weight: 600;
+        }
+
+        /* Formulario */
+        .contact__form-wrapper {
+            background: var(--hp-blue-50);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+
+        .contact__form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .form__row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+
+        .form__group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .form__label {
+            font-size: var(--fs-sm);
+            font-weight: 700;
+            color: var(--color-text);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form__label .required {
+            color: var(--hp-blue);
+        }
+
+        .form__input,
+        .form__select {
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-size: var(--fs-base);
+            font-family: inherit;
+            background: white;
+            color: var(--color-text);
+            transition: var(--transition-fast);
+            width: 100%;
+        }
+
+        .form__input:focus,
+        .form__select:focus {
+            outline: none;
+            border-color: var(--hp-blue);
+            box-shadow: 0 0 0 3px rgba(0, 150, 214, 0.1);
+        }
+
+        .form__input::placeholder {
+            color: var(--color-text-light);
+        }
+
+        .form__submit {
+            margin-top: var(--space-sm);
+        }
+
+        .form__note {
+            font-size: var(--fs-sm);
+            color: var(--color-text-light);
+            text-align: center;
+            margin-top: var(--space-sm);
+        }
+
+        @media (max-width: 900px) {
+            .contact__grid { grid-template-columns: 1fr; }
+            .contact__info { position: static; }
+        }
+        @media (max-width: 600px) {
+            .form__row { grid-template-columns: 1fr; }
+        }
+
+        /* ============================================
+           11. FOOTER
+           ============================================ */
+        .footer {
+            background: var(--hp-blue-darker);
+            color: rgba(255, 255, 255, 0.7);
+            padding-block: var(--space-2xl);
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer__brand {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer__logo {
+            font-size: var(--fs-xl);
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .footer__logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .footer__description {
+            font-size: var(--fs-sm);
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        .footer__heading {
+            font-size: var(--fs-sm);
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer__links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .footer__link {
+            font-size: var(--fs-sm);
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition-fast);
+        }
+        .footer__link:hover {
+            color: var(--hp-blue);
+        }
+
+        .footer__bottom {
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            font-size: var(--fs-sm);
+        }
+
+        @media (max-width: 900px) {
+            .footer__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer__brand {
+                grid-column: 1 / -1;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer__grid { grid-template-columns: 1fr; }
+            .footer__bottom { flex-direction: column; text-align: center; }
+        }
+
+        /* ============================================
+           12. ANIMACIONES SCROLL
+           ============================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" role="banner">
+        <nav class="nav container" aria-label="Navegación principal">
+            <a href="#" class="nav__logo" aria-label="CADGraphics - Inicio">
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="6" fill="#0096D6"/>
+                    <path d="M8 16L14 22L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                CADGraphics
+            </a>
+            <ul class="nav__menu" role="menubar" id="primary-menu">
+                <li role="none"><a href="#soluciones" class="nav__link" role="menuitem">Soluciones</a></li>
+                <li role="none"><a href="#comparativa" class="nav__link" role="menuitem">Comparativa</a></li>
+                <li role="none"><a href="#portafolio" class="nav__link" role="menuitem">Portafolio</a></li>
+                <li role="none"><a href="#sectores" class="nav__link" role="menuitem">Sectores</a></li>
+                <li role="none"><a href="#contacto" class="nav__link btn btn--primary" role="menuitem">Cotizar</a></li>
+            </ul>
+            <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primary-menu">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- ========== HERO ========== -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__bg" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero__content">
+                    <span class="hero__badge">Distribución Autorizada HP México</span>
+                    <h1 id="hero-title" class="hero__title">
+                        Soluciones HP de
+                        <span>Impresión de Gran Formato</span>
+                    </h1>
+                    <p class="hero__description">
+                        Desde oficinas técnicas hasta centros de producción de alto volumen. La tecnología HP que maximiza tu productividad y reduce costos operativos.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#contacto" class="btn btn--primary btn--large">
+                            Solicitar Cotización
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#contacto" class="btn btn--outline btn--large">
+                            Solicitar Demostración
+                        </a>
+                    </div>
+                </div>
+                <div class="hero__stats">
+                    <div class="stat-card">
+                        <svg class="stat-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <div class="stat-card__value">30 A1/min</div>
+                        <div class="stat-card__label">Velocidad PageWide XL</div>
+                    </div>
+                    <div class="stat-card">
+                        <svg class="stat-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                        <div class="stat-card__value">120 A1/h</div>
+                        <div class="stat-card__label">Velocidad DesignJet</div>
+                    </div>
+                    <div class="stat-card">
+                        <svg class="stat-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        <div class="stat-card__value">−40%</div>
+                        <div class="stat-card__label">Menor costo operativo</div>
+                    </div>
+                    <div class="stat-card">
+                        <svg class="stat-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <div class="stat-card__value">6 rollos</div>
+                        <div class="stat-card__label">Capacidad máxima</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== DOS SOLUCIONES ========== -->
+        <section class="solutions" id="soluciones" aria-labelledby="solutions-title">
+            <div class="container">
+                <div class="solutions__header text-center reveal">
+                    <span class="section-label">Dos Soluciones HP</span>
+                    <h2 id="solutions-title" class="section-title">La tecnología correcta para cada necesidad</h2>
+                    <p class="section-subtitle">HP ofrece dos líneas complementarias. Elige la que se adapta al perfil de tu operación.</p>
+                </div>
+
+                <div class="solutions__grid">
+                    <!-- DesignJet -->
+                    <article class="solution-card reveal">
+                        <div class="solution-card__image">
+                            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Ingeniero revisando planos técnicos" loading="lazy">
+                            <span class="solution-card__badge">HP DesignJet</span>
+                        </div>
+                        <div class="solution-card__content">
+                            <h3 class="solution-card__title">Para Oficinas Técnicas</h3>
+                            <p class="solution-card__description">
+                                Ideal para arquitectura, ingeniería y construcción. Calidad fotográfica en planos, renders y documentos técnicos con facilidad de uso.
+                            </p>
+                            <ul class="solution-card__list">
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Arquitectura, ingeniería y construcción
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Planos, renders y documentos técnicos
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Volumen bajo a medio
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Alta calidad y facilidad de uso
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Hasta 120 A1/hora
+                                </li>
+                            </ul>
+                            <a href="#portafolio" class="btn--link">
+                                Ver modelos
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- PageWide XL -->
+                    <article class="solution-card reveal">
+                        <div class="solution-card__image">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="Impresora industrial de gran formato en producción" loading="lazy">
+                            <span class="solution-card__badge">HP PageWide XL</span>
+                        </div>
+                        <div class="solution-card__content">
+                            <h3 class="solution-card__title">Para Producción y Reprografía</h3>
+                            <p class="solution-card__description">
+                                Diseñada para centros de impresión y departamentos de producción que necesitan máxima velocidad con el menor costo operativo.
+                            </p>
+                            <ul class="solution-card__list">
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Centros de impresión y reprografía
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Producción masiva de gran volumen
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Hasta 30 A1/minuto (30× más rápida)
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Hasta 6 rollos simultáneos
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    Menor costo operativo
+                                </li>
+                            </ul>
+                            <a href="#portafolio" class="btn--link">
+                                Ver modelos
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== COMPARATIVA ========== -->
+        <section class="comparison" id="comparativa" aria-labelledby="comparison-title">
+            <div class="container">
+                <div class="comparison__header text-center reveal">
+                    <span class="section-label">Comparativa</span>
+                    <h2 id="comparison-title" class="section-title">¿Cuál es la mejor opción para ti?</h2>
+                    <p class="section-subtitle">Elige en función de tu volumen de trabajo y tipo de aplicación.</p>
+                </div>
+
+                <div class="comparison__table-wrapper reveal">
+                    <table class="comparison__table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>
+                                    <span class="th-title" style="color: var(--hp-blue);">HP DesignJet</span>
+                                    <span class="th-subtitle">Oficinas técnicas</span>
+                                </th>
+                                <th class="hp-blue-col">
+                                    <span class="th-title">HP PageWide XL</span>
+                                    <span class="th-subtitle">Producción</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Perfil de uso</td>
+                                <td>Oficinas técnicas</td>
+                                <td class="hp-blue-col">Producción y reprografía</td>
+                            </tr>
+                            <tr>
+                                <td>Velocidad</td>
+                                <td>Hasta 120 A1/hora</td>
+                                <td class="hp-blue-col">Hasta 30 A1/minuto</td>
+                            </tr>
+                            <tr>
+                                <td>Aplicaciones</td>
+                                <td>Planos y renders</td>
+                                <td class="hp-blue-col">Producción masiva</td>
+                            </tr>
+                            <tr>
+                                <td>Capacidad rollos</td>
+                                <td>1–2 rollos</td>
+                                <td class="hp-blue-col">Hasta 6 rollos</td>
+                            </tr>
+                            <tr>
+                                <td>Inversión</td>
+                                <td>Bajo costo inicial</td>
+                                <td class="hp-blue-col">Máxima productividad</td>
+                            </tr>
+                            <tr class="comparison__cta-row">
+                                <td></td>
+                                <td><a href="#contacto" class="btn btn--outline-dark">Cotizar DesignJet</a></td>
+                                <td><a href="#contacto" class="btn btn--primary">Cotizar PageWide XL</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PORTAFOLIO ========== -->
+        <section class="portfolio" id="portafolio" aria-labelledby="portfolio-title">
+            <div class="container">
+                <div class="portfolio__header text-center reveal">
+                    <span class="section-label">Equipos HP</span>
+                    <h2 id="portfolio-title" class="section-title">Portafolio completo</h2>
+                    <p class="section-subtitle">Nueve modelos disponibles para cada escala de operación.</p>
+                </div>
+
+                <div class="portfolio__tabs reveal" role="tablist">
+                    <button class="portfolio__tab is-active" data-tab="designjet" role="tab" aria-selected="true">DesignJet</button>
+                    <button class="portfolio__tab" data-tab="pagewide-xl" role="tab" aria-selected="false">PageWide XL</button>
+                    <button class="portfolio__tab" data-tab="pagewide-xl-pro" role="tab" aria-selected="false">PageWide XL Pro</button>
+                </div>
+
+                <!-- Panel DesignJet -->
+                <div class="portfolio__panel is-active" id="panel-designjet" role="tabpanel">
+                    <div class="portfolio__grid">
+                        <article class="model-card">
+                            <span class="model-card__badge">DesignJet</span>
+                            <h3 class="model-card__title">T850</h3>
+                            <p class="model-card__description">Pequeñas oficinas. Impresión técnica de calidad compacta.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 30%;"></div></div>
+                                <span class="model-card__progress-label">Entrada producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+
+                        <article class="model-card">
+                            <span class="model-card__badge">DesignJet</span>
+                            <h3 class="model-card__title">T950</h3>
+                            <p class="model-card__description">Equipos de trabajo. Mayor velocidad y conectividad avanzada.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 55%;"></div></div>
+                                <span class="model-card__progress-label">Media producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+
+                        <article class="model-card">
+                            <span class="model-card__badge">DesignJet</span>
+                            <h3 class="model-card__title">XL 3600</h3>
+                            <p class="model-card__description">Departamentos corporativos. Multirollo, gran volumen.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 85%;"></div></div>
+                                <span class="model-card__progress-label">Alta producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Panel PageWide XL -->
+                <div class="portfolio__panel" id="panel-pagewide-xl" role="tabpanel">
+                    <div class="portfolio__grid">
+                        <article class="model-card">
+                            <span class="model-card__badge">PageWide XL</span>
+                            <h3 class="model-card__title">4250</h3>
+                            <p class="model-card__description">Entrada a producción. Velocidad y calidad a menor inversión.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 30%;"></div></div>
+                                <span class="model-card__progress-label">Entrada producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+
+                        <article class="model-card">
+                            <span class="model-card__badge">PageWide XL</span>
+                            <h3 class="model-card__title">5200</h3>
+                            <p class="model-card__description">Alta producción. 30 A1/min con excelente costo por página.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 55%;"></div></div>
+                                <span class="model-card__progress-label">Media producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+
+                        <article class="model-card">
+                            <span class="model-card__badge">PageWide XL</span>
+                            <h3 class="model-card__title">8200</h3>
+                            <p class="model-card__description">Producción masiva. Doble rollo, máximo rendimiento.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 85%;"></div></div>
+                                <span class="model-card__progress-label">Alta producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Panel PageWide XL Pro -->
+                <div class="portfolio__panel" id="panel-pagewide-xl-pro" role="tabpanel">
+                    <div class="portfolio__grid">
+                        <article class="model-card">
+                            <span class="model-card__badge model-card__badge--dark">PageWide XL Pro</span>
+                            <h3 class="model-card__title">5200 Pro</h3>
+                            <p class="model-card__description">Técnica + gráfica. Colores de alto impacto en producción.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 30%;"></div></div>
+                                <span class="model-card__progress-label">Entrada producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+
+                        <article class="model-card">
+                            <span class="model-card__badge model-card__badge--dark">PageWide XL Pro</span>
+                            <h3 class="model-card__title">8200 Pro</h3>
+                            <p class="model-card__description">Alta producción gráfica. Calidad fotográfica a escala.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 55%;"></div></div>
+                                <span class="model-card__progress-label">Media producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+
+                        <article class="model-card">
+                            <span class="model-card__badge model-card__badge--dark">PageWide XL Pro</span>
+                            <h3 class="model-card__title">10000 Pro</h3>
+                            <p class="model-card__description">Producción industrial. El líder de velocidad en su clase.</p>
+                            <div class="model-card__progress">
+                                <div class="model-card__progress-bar"><div class="model-card__progress-fill" style="width: 85%;"></div></div>
+                                <span class="model-card__progress-label">Alta producción</span>
+                            </div>
+                            <a href="#contacto" class="btn--link">
+                                Solicitar información
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== SECTORES ========== -->
+        <section class="sectors" id="sectores" aria-labelledby="sectors-title">
+            <div class="container">
+                <div class="text-center reveal" style="margin-bottom: var(--space-2xl);">
+                    <span class="section-label">Sectores</span>
+                    <h2 id="sectors-title" class="section-title">Industrias que confían en HP</h2>
+                    <p class="section-subtitle">Soluciones especializadas para los sectores con mayor demanda de impresión técnica.</p>
+                </div>
+
+                <div class="sectors__grid">
+                    <article class="sector-card reveal">
+                        <div class="sector-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+                        </div>
+                        <h3 class="sector-card__title">Arquitectura</h3>
+                        <p class="sector-card__description">Renders, planos y presentaciones de proyectos</p>
+                    </article>
+
+                    <article class="sector-card reveal">
+                        <div class="sector-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <h3 class="sector-card__title">Ingeniería</h3>
+                        <p class="sector-card__description">Diagramas técnicos, esquemas y documentación</p>
+                    </article>
+
+                    <article class="sector-card reveal">
+                        <div class="sector-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 20v-5h6v5"/></svg>
+                        </div>
+                        <h3 class="sector-card__title">Construcción</h3>
+                        <p class="sector-card__description">Planos de obra y documentación de campo</p>
+                    </article>
+
+                    <article class="sector-card reveal">
+                        <div class="sector-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-9a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v9"/></svg>
+                        </div>
+                        <h3 class="sector-card__title">Gobierno</h3>
+                        <p class="sector-card__description">Cartografía, señalética y documentos oficiales</p>
+                    </article>
+
+                    <article class="sector-card reveal">
+                        <div class="sector-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <h3 class="sector-card__title">Educación</h3>
+                        <p class="sector-card__description">Material didáctico y posters institucionales</p>
+                    </article>
+
+                    <article class="sector-card reveal">
+                        <div class="sector-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 4-6"/></svg>
+                        </div>
+                        <h3 class="sector-card__title">Centros de Impresión</h3>
+                        <p class="sector-card__description">Reprografía de alto volumen y producción</p>
+                    </article>
+                </div>
+
+                <div class="sectors__stats reveal">
+                    <div class="sector-stat">
+                        <svg class="sector-stat__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <div class="sector-stat__value">Respuesta en 24h</div>
+                        <div class="sector-stat__label">Cotizaciones y demos</div>
+                    </div>
+                    <div class="sector-stat">
+                        <svg class="sector-stat__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                        <div class="sector-stat__value">9 modelos</div>
+                        <div class="sector-stat__label">Portafolio disponible</div>
+                    </div>
+                    <div class="sector-stat">
+                        <svg class="sector-stat__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                        <div class="sector-stat__value">Stock permanente</div>
+                        <div class="sector-stat__label">Consumibles originales</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACTO ========== -->
+        <section class="contact" id="contacto" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="contact__grid">
+                    <div class="contact__info reveal">
+                        <span class="contact__label">Contáctanos</span>
+                        <h2 id="contact-title" class="contact__title">
+                            Empieza a imprimir<br>
+                            <span>más rápido hoy</span>
+                        </h2>
+                        <p class="contact__description">
+                            Cuéntanos sobre tu operación y te asesoramos sin compromiso para encontrar el equipo HP ideal para tu volumen de trabajo.
+                        </p>
+
+                        <div class="contact__details">
+                            <div class="contact__detail">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="contact__detail-label">Teléfono</div>
+                                    <div class="contact__detail-value">+52 55 1234 5678</div>
+                                </div>
+                            </div>
+                            <div class="contact__detail">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <div class="contact__detail-label">Correo</div>
+                                    <div class="contact__detail-value">ventas@cadgraphics.com.mx</div>
+                                </div>
+                            </div>
+                            <div class="contact__detail">
+                                <div class="contact__detail-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <div class="contact__detail-label">Ubicación</div>
+                                    <div class="contact__detail-value">Ciudad de México — CDMX</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact__badges">
+                            <span class="contact__badge">Distribución autorizada HP</span>
+                            <span class="contact__badge">Respuesta en 24h</span>
+                            <span class="contact__badge">Sin compromiso</span>
+                            <span class="contact__badge">Entrega e instalación</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__form-wrapper reveal">
+                        <form class="contact__form" id="contact-form" novalidate>
+                            <div class="form__row">
+                                <div class="form__group">
+                                    <label class="form__label" for="nombre">Nombre completo <span class="required">*</span></label>
+                                    <input type="text" id="nombre" name="nombre" class="form__input" placeholder="Juan García" required>
+                                </div>
+                                <div class="form__group">
+                                    <label class="form__label" for="empresa">Empresa <span class="required">*</span></label>
+                                    <input type="text" id="empresa" name="empresa" class="form__input" placeholder="Tu empresa S.A." required>
+                                </div>
+                            </div>
+
+                            <div class="form__group">
+                                <label class="form__label" for="correo">Correo electrónico <span class="required">*</span></label>
+                                <input type="email" id="correo" name="correo" class="form__input" placeholder="juan@empresa.com" required>
+                            </div>
+
+                            <div class="form__group">
+                                <label class="form__label" for="telefono">Teléfono <span class="required">*</span></label>
+                                <input type="tel" id="telefono" name="telefono" class="form__input" placeholder="+52 55 0000 0000" required>
+                            </div>
+
+                            <div class="form__group">
+                                <label class="form__label" for="volumen">Volumen de impresión <span class="required">*</span></label>
+                                <select id="volumen" name="volumen" class="form__select" required>
+                                    <option value="" disabled selected>Selecciona tu volumen mensual</option>
+                                    <option value="bajo">Bajo (menos de 500 A1/mes)</option>
+                                    <option value="medio">Medio (500 - 2,000 A1/mes)</option>
+                                    <option value="alto">Alto (2,000 - 10,000 A1/mes)</option>
+                                    <option value="masivo">Masivo (más de 10,000 A1/mes)</option>
+                                </select>
+                            </div>
+
+                            <div class="form__group">
+                                <label class="form__label" for="equipo">Equipo de interés</label>
+                                <select id="equipo" name="equipo" class="form__select">
+                                    <option value="" disabled selected>Selecciona una línea (opcional)</option>
+                                    <option value="designjet">HP DesignJet</option>
+                                    <option value="pagewide-xl">HP PageWide XL</option>
+                                    <option value="pagewide-xl-pro">HP PageWide XL Pro</option>
+                                    <option value="no-seguro">No estoy seguro / Asesoría</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary btn--large form__submit">
+                                Solicitar Cotización Personalizada
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+
+                            <p class="form__note">Sin compromiso · Respuesta en menos de 24 horas hábiles</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="6" fill="#0096D6"/>
+                            <path d="M8 16L14 22L24 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        CADGraphics
+                    </div>
+                    <p class="footer__description">Distribución autorizada HP México. Soluciones de impresión de gran formato para empresas.</p>
+                </div>
+                <div>
+                    <h4 class="footer__heading">Soluciones</h4>
+                    <ul class="footer__links">
+                        <li><a href="#soluciones" class="footer__link">DesignJet</a></li>
+                        <li><a href="#soluciones" class="footer__link">PageWide XL</a></li>
+                        <li><a href="#soluciones" class="footer__link">PageWide XL Pro</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__heading">Empresa</h4>
+                    <ul class="footer__links">
+                        <li><a href="#comparativa" class="footer__link">Comparativa</a></li>
+                        <li><a href="#portafolio" class="footer__link">Portafolio</a></li>
+                        <li><a href="#sectores" class="footer__link">Sectores</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__heading">Soporte</h4>
+                    <ul class="footer__links">
+                        <li><a href="#contacto" class="footer__link">Cotizar</a></li>
+                        <li><a href="#contacto" class="footer__link">Demostración</a></li>
+                        <li><a href="#contacto" class="footer__link">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__heading">Legal</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">Aviso de privacidad</a></li>
+                        <li><a href="#" class="footer__link">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span id="current-year"></span> CADGraphics. Distribución autorizada HP México. Todos los derechos reservados.</p>
+                <p>Hecho con tecnología HP en CDMX</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        'use strict';
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Año dinámico
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // 2. Menú móvil
+            const navToggle = document.querySelector('.nav__toggle');
+            const navMenu = document.querySelector('.nav__menu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !expanded);
+                    navMenu.classList.toggle('is-active');
+                });
+
+                navMenu.querySelectorAll('.nav__link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('is-active');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+
+            // 3. Tabs del Portafolio
+            const tabs = document.querySelectorAll('.portfolio__tab');
+            const panels = document.querySelectorAll('.portfolio__panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+
+                    tabs.forEach(t => {
+                        t.classList.remove('is-active');
+                        t.setAttribute('aria-selected', 'false');
+                    });
+                    panels.forEach(p => p.classList.remove('is-active'));
+
+                    tab.classList.add('is-active');
+                    tab.setAttribute('aria-selected', 'true');
+
+                    const panel = document.getElementById(`panel-${target}`);
+                    if (panel) panel.classList.add('is-active');
+                });
+            });
+
+            // 4. Smooth scroll con offset del header
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        const headerOffset = 80;
+                        const pos = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                        window.scrollTo({ top: pos, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // 5. Intersection Observer para animaciones
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+            // 6. Validación de formulario
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const nombre = form.nombre.value.trim();
+                    const empresa = form.empresa.value.trim();
+                    const correo = form.correo.value.trim();
+                    const telefono = form.telefono.value.trim();
+                    const volumen = form.volumen.value;
+
+                    if (!nombre || !empresa || !correo || !telefono || !volumen) {
+                        alert('Por favor, completa todos los campos obligatorios.');
+                        return;
+                    }
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(correo)) {
+                        alert('Por favor, ingresa un correo electrónico válido.');
+                        return;
+                    }
+
+                    // Simulación de envío
+                    const btn = form.querySelector('.form__submit');
+                    const originalText = btn.innerHTML;
+                    btn.innerHTML = 'Enviando...';
+                    btn.disabled = true;
+
+                    setTimeout(() => {
+                        btn.innerHTML = '✓ Solicitud enviada';
+                        btn.style.background = '#10B981';
+                        btn.style.borderColor = '#10B981';
+                        form.reset();
+
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.style.background = '';
+                            btn.style.borderColor = '';
+                            btn.disabled = false;
+                        }, 3000);
+                    }, 1500);
+                });
+            }
+
+            // 7. Header con sombra al hacer scroll
+            const header = document.querySelector('.header');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > 50) {
+                    header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+                lastScroll = currentScroll;
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>

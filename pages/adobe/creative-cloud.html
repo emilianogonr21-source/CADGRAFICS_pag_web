@@ -1,0 +1,2714 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Adobe Creative Cloud para Empresas - Licencias empresariales con IA generativa Firefly. La suite de aplicaciones creativas más completa del mundo." />
+  <meta name="theme-color" content="#6e0404">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Adobe Creative Cloud para Empresas | Cadgrafics">
+  <meta name="twitter:description" content="Licencias empresariales con IA generativa Firefly.">
+  <meta name="twitter:image" content="https://cadgrafics.com.mx/assets/images/adobe-cc-empresas-preview.jpg">
+
+  <title>Adobe Creative Cloud para Empresas | Cadgrafics</title>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Adobe Creative Cloud para Empresas | Cadgrafics" />
+  <meta property="og:description" content="Licencias empresariales con IA generativa Firefly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:url" content="https://cadgrafics.com.mx/adobe/creative-cloud-empresas.html" />
+  <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/adobe-cc-empresas-preview.jpg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://cadgrafics.com.mx/adobe/creative-cloud-empresas.html" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/adobe_logo.png" />
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Adobe Creative Cloud para Empresas",
+    "description": "Licencias empresariales con IA generativa Firefly. La suite de aplicaciones creativas más completa del mundo.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Adobe"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "MXN",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Cadgrafics"
+      }
+    }
+  }
+  </script>
+
+  <style>
+/* ============================================
+   VARIABLES Y RESET
+   ============================================ */
+:root {
+  /* Colores de marca */
+  --adobe-red: #FF0000;
+  --adobe-red-dark: #CC0000;
+  --black: #000000;
+  --white: #FFFFFF;
+  
+  /* Escala de grises (menor número = más claro) */
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  /* Colores de UI */
+  --card-dark: #111111;
+  --card-border: #222222;
+  --text-primary: #FFFFFF;
+  --text-secondary: #C8C8C8;
+  --text-muted: #9CA3AF;
+  --accent-green: #18FF5C;
+  --whatsapp-green: #25d366;
+  --whatsapp-green-dark: #128c7e;
+  
+  /* Glass effect */
+  --glass-bg: rgba(30, 41, 59, 0.98);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  
+  /* Espaciado y radios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --header-height: 100px;
+  --max-width: 1280px;
+  
+  /* Animaciones */
+  --transition: 0.3s ease;
+  
+  /* Tipografía */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; margin: 0; padding: 0; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: auto;
+  padding: 12px 24px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--adobe-red);
+  color: var(--white);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent-green);
+  outline-offset: 2px;
+}
+
+.btn-primary:focus-visible {
+  outline-color: var(--white);
+  outline-offset: 4px;
+}
+
+/* ============================================
+   LAYOUT BASE
+   ============================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section[id] { scroll-margin-top: calc(var(--header-height) + 16px); }
+main { padding-top: var(--header-height); }
+
+/* ============================================
+   TIPOGRAFÍA REUTILIZABLE
+   ============================================ */
+.section-label {
+  color: var(--adobe-red);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* ===== UNIFIED TYPOGRAPHY (MATCHES index.html) ===== */
+.hero-title, 
+.heading-xl, 
+.heading-lg {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+/* Párrafos normales - matching index.html */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.section-title { text-align: center; }
+
+.text-gradient {
+  background: linear-gradient(90deg, #FF0000, #FF6A00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-accent { color: var(--adobe-red); font-weight: 700; }
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: none;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--adobe-red);
+  color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--adobe-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--gray-700);
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  border-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(20px);
+  z-index: 1000;
+  padding: 0.75rem 0;
+  transition: all var(--transition);
+  border-bottom: 1px solid #8B0000;
+}
+
+.header.scrolled {
+  background: rgba(110, 4, 4, 0.95);
+  border-color: var(--glass-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 56px;
+}
+
+.header .logo {
+  height: 120px;
+  width: auto;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+  display: block;
+  object-fit: contain;
+}
+
+.header .logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+  color: var(--text-primary);
+  background: #990000;
+}
+
+/* Dropdowns */
+.nav-item { position: relative; }
+
+.dropdown-menu,
+.dropdown-submenu-menu {
+  position: absolute;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  min-width: 240px;
+  padding: 0.75rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all var(--transition);
+  z-index: 1001;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.dropdown-menu { top: 100%; left: 0; margin-top: 0.5rem; }
+.dropdown-submenu-menu { top: 0; left: 100%; }
+
+.nav-item:hover .dropdown-menu,
+.nav-item:focus-within .dropdown-menu,
+.nav-item.open > .dropdown-menu,
+.dropdown-submenu:hover .dropdown-submenu-menu,
+.dropdown-submenu:focus-within .dropdown-submenu-menu,
+.dropdown-submenu.open > .dropdown-submenu-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu a,
+.dropdown-submenu-menu a {
+  padding: 0.85rem 1.25rem;
+  color: var(--text-secondary);
+  background: transparent;
+  border-radius: 0;
+  justify-content: flex-start;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus,
+.dropdown-submenu-menu a:hover,
+.dropdown-submenu-menu a:focus {
+  background: rgba(110, 4, 4, 0.5);
+  color: var(--text-primary);
+  padding-left: 1.5rem;
+}
+
+.dropdown-menu a svg,
+.dropdown-submenu-menu a svg {
+  color: var(--accent-green);
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.mobile-toggle:hover,
+.mobile-toggle:focus { background: rgba(255, 255, 255, 0.1); }
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  position: relative;
+  background: radial-gradient(ellipse at top right, #1a0000 0%, var(--black) 60%);
+  padding: 24px 0 16px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.hero-content h1 { margin-bottom: 16px; }
+
+.hero-content p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  max-width: 480px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.hero-buttons .btn {
+  width: auto;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+}
+
+.hero-image-wrapper { position: relative; }
+
+.hero-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+}
+
+.hero-image img,
+.hero-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-new {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--adobe-red);
+  color: var(--white);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.8rem;
+  z-index: 2;
+}
+
+.firefly-badge {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  color: var(--black);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.firefly-badge-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #FF6A00, #FF0000);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.firefly-badge-text strong { display: block; font-size: 0.85rem; }
+.firefly-badge-text span { font-size: 0.75rem; color: var(--gray-600); }
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+.stat-item { text-align: center; }
+
+.stat-number {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: var(--adobe-red);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* ============================================
+   CARDS BASE
+   ============================================ */
+.card {
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition);
+}
+
+.card-dark {
+  background-color: var(--card-dark);
+  border: 1px solid var(--card-border);
+}
+
+.card:hover { transform: translateY(-4px); }
+
+/* ============================================
+   CUADRO COMPARATIVO
+   ============================================ */
+.comparativo-section {
+  background-color: var(--black);
+  padding: 32px 0;
+}
+
+.comparativo-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.comparativo-title {
+  color: var(--adobe-red);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.comparativo-table-wrapper {
+  background: var(--card-dark);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.comparativo-sidebar {
+  background: var(--gray-700);
+  color: var(--white);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 20px 8px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.comparativo-content {
+  margin-left: 40px;
+  overflow-x: auto;
+}
+
+.comparativo-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 800px;
+}
+
+.comparativo-table th {
+  background: var(--black);
+  color: var(--white);
+  padding: 14px 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 2px solid var(--card-border);
+  line-height: 1.3;
+}
+
+.comparativo-table th:first-child {
+  text-align: left;
+  padding-left: 24px;
+  background: transparent;
+  color: transparent;
+  width: 35%;
+}
+
+.comparativo-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--card-border);
+  text-align: center;
+  font-size: 0.8rem;
+  vertical-align: middle;
+  transition: background 0.2s ease;
+}
+
+.comparativo-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.comparativo-table td:first-child {
+  text-align: left;
+  padding-left: 24px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  border-right: 1px solid var(--card-border);
+}
+
+.comparativo-icon {
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-check-blue { color: #3b5bdb; }
+.icon-check-yellow { color: #f5a623; }
+.icon-cross-gray { color: #666; }
+
+.comparativo-note {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.section-divider {
+  background: var(--gray-700);
+  height: 3px;
+}
+
+/* ============================================
+   APPS INCLUIDAS
+   ============================================ */
+.apps {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 32px 0;
+}
+
+.apps .section-title { color: var(--black); }
+.apps .section-subtitle { color: var(--gray-600); }
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.app-card {
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.app-card:hover {
+  border-color: var(--adobe-red);
+  box-shadow: 0 8px 24px rgba(255, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.app-card img {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.app-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--gray-800);
+}
+
+.app-info p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* ============================================
+   INFRAESTRUCTURA
+   ============================================ */
+.infrastructure {
+  background-color: var(--white);
+  padding: 32px 0;
+}
+
+.infrastructure .section-label { color: var(--gray-500); }
+.infrastructure .section-title { color: var(--black); }
+.infrastructure .section-subtitle { color: var(--gray-600); }
+
+.infra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.infra-card {
+  background-color: var(--black);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border: 1px solid var(--card-border);
+  transition: all var(--transition);
+}
+
+.infra-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-color: var(--adobe-red);
+}
+
+.infra-icon {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--adobe-red);
+}
+
+.infra-icon svg { width: 24px; height: 24px; }
+
+.infra-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.infra-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.highlight-text {
+  color: var(--adobe-red);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   ADOBE FIREFLY
+   ============================================ */
+.firefly {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 32px 0;
+}
+
+.firefly .section-title {
+  color: var(--black);
+  text-align: left;
+}
+
+.firefly-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.firefly-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--adobe-red);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.firefly-content p {
+  color: var(--gray-600);
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.firefly-features { margin: 24px 0; }
+
+.firefly-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.feature-icon {
+  width: 36px;
+  height: 36px;
+  background-color: #FEE2E2;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--adobe-red);
+  flex-shrink: 0;
+}
+
+.firefly-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.firefly-image-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.firefly-image-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.firefly-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   ADOBE EXPRESS
+   ============================================ */
+.express {
+  background-color: var(--black);
+  padding: 32px 0;
+}
+
+.express-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.express-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  padding: 6px 12px;
+  border-radius: 30px;
+  margin-bottom: 16px;
+}
+
+.express-header span { font-weight: 600; }
+
+.included-badge {
+  background-color: rgba(255, 0, 0, 0.15);
+  color: var(--adobe-red);
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.express-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.express-content > p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.express-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.express-feature {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.express-feature-icon {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--adobe-red);
+}
+
+.express-feature h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.express-feature p {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.browser-mockup {
+  background-color: #1A1A1A;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  max-width: 280px;
+}
+
+.browser-header {
+  background-color: #0a0a0a;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.browser-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.browser-dot.red { background-color: #FF5F57; }
+.browser-dot.yellow { background-color: #FEBC2E; }
+.browser-dot.green { background-color: #28C840; }
+
+.browser-url {
+  background-color: #1A1A1A;
+  color: var(--text-muted);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  margin-left: 8px;
+  flex: 1;
+}
+
+.browser-content { padding: 12px; }
+
+.browser-content h5 {
+  font-size: 0.65rem;
+  color: var(--gray-500);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.template-item {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.6rem;
+  color: var(--white);
+}
+
+.template-item:nth-child(1) { background: linear-gradient(135deg, #FF0000, #FF6A00); }
+.template-item:nth-child(2) { background: linear-gradient(135deg, #9900FF, #FF00AA); }
+.template-item:nth-child(3) { background: linear-gradient(135deg, #00AAFF, #00DDFF); }
+.template-item:nth-child(4) { background: linear-gradient(135deg, #00AA44, #00DD66); }
+.template-item:nth-child(5) { background: linear-gradient(135deg, #FFAA00, #FFDD00); }
+.template-item:nth-child(6) { background: linear-gradient(135deg, #FF0066, #FF66AA); }
+
+.ai-prompt {
+  background-color: #0a0a0a;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sparkle { color: var(--adobe-red); }
+
+/* ============================================
+   CASOS DE ÉXITO
+   ============================================ */
+.testimonials {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 32px 0;
+}
+
+.testimonials .section-title { color: var(--black); }
+
+.testimonial-card {
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 32px;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.testimonial-quote-mark {
+  font-size: 5rem;
+  color: rgba(255, 0, 0, 0.15);
+  line-height: 1;
+  font-family: Georgia, serif;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+
+.testimonial-content {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--adobe-red);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.verified-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--adobe-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--black);
+}
+
+.verified-badge svg { width: 12px; height: 12px; }
+
+.testimonial-text {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.testimonial-author h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.testimonial-author p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.testimonial-stars {
+  color: var(--adobe-red);
+  font-size: 1.1rem;
+  margin-top: 12px;
+  letter-spacing: 3px;
+}
+
+.trusted-companies {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+}
+
+.trusted-companies > span:first-child {
+  color: var(--gray-600);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.company {
+  color: var(--gray-500);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq { background-color: var(--black); padding: 24px 0; }
+
+.faq-list { 
+  max-width: 800px; 
+  margin: 16px auto 0; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 6px; 
+}
+
+.faq-item {
+  background: var(--card-dark);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.faq-item:hover { border-color: rgba(255, 0, 0, 0.3); }
+
+.faq-item.active {
+  border-color: var(--adobe-red);
+  background: linear-gradient(145deg, #151515, #0d0d0d);
+}
+
+.faq-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--adobe-red);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  text-align: left;
+  transition: color 0.25s ease;
+}
+
+.faq-question:hover { color: var(--white); }
+.faq-item.active .faq-question { color: var(--white); }
+
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.faq-question svg {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  width: 12px;
+  height: 12px;
+}
+
+.faq-item.active .faq-icon {
+  background: var(--adobe-red);
+  transform: rotate(180deg);
+}
+
+.faq-item.active .faq-question svg { color: var(--white); }
+
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+
+.faq-answer-inner {
+  padding: 0 12px 10px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+.faq-item.active .faq-answer-inner { color: var(--gray-400); }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  background: #000000;
+  color: #ffffff;
+  padding: 4rem 0 1.5rem;
+  margin-top: 80px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.site-footer h3,
+.site-footer h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.site-footer p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.site-footer a { transition: opacity 0.2s ease; }
+.site-footer a:hover { opacity: 0.8; }
+
+.footer-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-link:hover { color: var(--accent-green); }
+
+.footer-contact-link svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: all var(--transition);
+}
+
+.social-links a:hover {
+  background: #8B0000;
+  transform: translateY(-3px);
+}
+
+.social-links svg { width: 18px; height: 18px; }
+
+.copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+
+.copyright a:hover { color: #8B0000; opacity: 1; }
+
+/* ============================================
+   WHATSAPP FLOAT
+   ============================================ */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 2rem;
+  right: 2rem;
+  background: linear-gradient(135deg, var(--whatsapp-green), var(--whatsapp-green-dark));
+  color: var(--white);
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float svg { width: 2rem; height: 2rem; }
+
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+  outline: none;
+  animation: none;
+}
+
+@keyframes pulse-whatsapp {
+  0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+}
+
+/* ============================================
+   MODAL
+   ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal.active { display: flex; }
+
+.modal-content {
+  background: var(--card-dark);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #333;
+  gap: 1rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  background-color: #1a1a1a;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--gray-500);
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background: #333;
+  color: #EF4444;
+  outline: none;
+}
+
+.form-group { margin-bottom: 1.25rem; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--gray-700);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background: #1a1a1a;
+  color: var(--white);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--gray-500); }
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--adobe-red);
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.25);
+}
+
+.cta-modal {
+  width: 100%;
+  background: linear-gradient(135deg, #FF0000, #CC0000);
+  color: #fff;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.cta-modal:hover,
+.cta-modal:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 0, 0, 0.5);
+  outline: none;
+}
+
+.cta-modal svg { width: 1rem; height: 1rem; }
+
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #FF0000, #CC0000);
+  color: #fff;
+  border-radius: var(--radius-md);
+}
+
+.success-message svg {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 0.75rem;
+}
+
+.success-message h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.success-message p { opacity: 0.95; }
+
+/* Honeypot anti-spam */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 968px) {
+  .hero-grid,
+  .firefly-grid,
+  .express-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .testimonial-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .testimonial-avatar { margin: 0 auto; }
+
+  .express-card,
+  .testimonial-card { padding: 40px 24px; }
+}
+
+@media (max-width: 768px) {
+  :root { --header-height: 64px; }
+
+  .mobile-toggle { display: block; }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: calc(100vh - var(--header-height));
+    background: rgba(15, 23, 42, 0.98);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.5rem;
+    gap: 0.5rem;
+    overflow-y: auto;
+    transform: translateY(-100%);
+    transition: transform var(--transition);
+    z-index: 999;
+  }
+
+  .nav-menu.active { transform: translateY(0); }
+
+  .dropdown-menu,
+  .dropdown-submenu-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition);
+  }
+
+  .nav-item.open > .dropdown-menu,
+  .dropdown-submenu.open > .dropdown-submenu-menu {
+    max-height: 500px;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin-top: 0.25rem;
+    border-left: 2px solid var(--accent-green);
+  }
+
+  .nav-item > a::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid currentColor;
+    margin-left: auto;
+  }
+
+  .nav-item.open > a::after { transform: rotate(180deg); }
+
+  .dropdown-submenu > a::after {
+    border-left: 4px solid currentColor;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 0;
+  }
+
+  .dropdown-submenu.open > a::after { transform: rotate(90deg); }
+
+  .header .logo { height: 60px; }
+
+  .firefly-images { grid-template-columns: 1fr 1fr; }
+  .firefly-image-card { aspect-ratio: 1; }
+
+  .comparativo-title {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .comparativo-header {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .apps-grid,
+  .infra-grid { grid-template-columns: 1fr; }
+
+  .template-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .trusted-companies { justify-content: center; }
+
+  .whatsapp-float {
+    width: 56px;
+    height: 56px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .whatsapp-float svg { width: 1.75rem; height: 1.75rem; }
+
+  .comparativo-sidebar {
+    display: none;
+  }
+
+  .comparativo-content {
+    margin-left: 0;
+  }
+
+  .comparativo-table th:first-child,
+  .comparativo-table td:first-child {
+    padding-left: 16px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .whatsapp-float { animation: none; }
+}
+  </style>
+</head>
+<body>
+  <!-- Skip Link para accesibilidad -->
+  <a href="#main-content" class="visually-hidden skip-link">Saltar al contenido principal</a>
+
+  <!-- SVG Sprite consolidado -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="icon-adobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></symbol>
+    <symbol id="icon-autodesk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></symbol>
+    <symbol id="icon-microsoft" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8.5" height="8.5"/><rect x="12.5" y="3" width="8.5" height="8.5"/><rect x="3" y="12.5" width="8.5" height="8.5"/><rect x="12.5" y="12.5" width="8.5" height="8.5"/></symbol>
+    <symbol id="icon-dell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M16 8h-3a4 4 0 0 0 0 8h3"/><path d="M13 12h2"/></symbol>
+    <symbol id="icon-hp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+    <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+    <symbol id="icon-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></symbol>
+    <symbol id="icon-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></symbol>
+    <symbol id="icon-type" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></symbol>
+    <symbol id="icon-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></symbol>
+  </svg>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <a href="../../../index.html" aria-label="Ir a inicio de Cadgrafics">
+        <img src="../../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" width="288" height="72" loading="eager"/>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item has-dropdown">
+            <a href="#marcas" aria-haspopup="true" aria-expanded="false">
+              Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+            </a>
+            <ul class="dropdown-menu" aria-hidden="true">
+              <li><a href="../home-adobe.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
+              <li class="dropdown-submenu has-dropdown">
+                <a href="#" aria-haspopup="true" aria-expanded="false">
+                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                </a>
+                <ul class="dropdown-submenu-menu" aria-hidden="true">
+                  <li><a href="../../Autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
+                  <li><a href="../../Autodesk/forma.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Forma</a></li>
+                  <li><a href="../../Autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> AEC Collection</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu has-dropdown">
+                <a href="#" aria-haspopup="true" aria-expanded="false">
+                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Microsoft <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                </a>
+                <ul class="dropdown-submenu-menu" aria-hidden="true">
+                  <li><a href="#"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Azure</a></li>
+                  <li><a href="#"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Microsoft 365</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu has-dropdown">
+                <a href="#" aria-haspopup="true" aria-expanded="false">
+                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                </a>
+                <ul class="dropdown-submenu-menu" aria-hidden="true">
+                  <li><a href="#"><svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> Consumibles</a></li>
+                  <li><a href="#"><svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> DesignJet</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu has-dropdown">
+                <a href="#" aria-haspopup="true" aria-expanded="false">
+                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Dell <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                </a>
+                <ul class="dropdown-submenu-menu" aria-hidden="true">
+                  <li><a href="#"><svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Workstations</a></li>
+                  <li><a href="#"><svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Periféricos</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#apps">Apps</a></li>
+          <li><a href="#" class="modal-trigger">Contáctanos</a></li>
+        </ul>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <svg width="24" height="24" aria-hidden="true"><use href="#icon-menu"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1 class="heading-xl">
+              Potencia la creatividad
+              <span class="text-gradient">de tu equipo</span>
+              con Adobe Creative Cloud
+            </h1>
+            <p>La suite de aplicaciones creativas más completa del mundo, ahora con IA generativa integrada. Diseña, edita, colabora y publica desde un solo lugar.</p>
+            <div class="hero-buttons">
+              <a href="#" class="btn btn-primary modal-trigger">
+                Agenda una Demo
+                <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+              </a>
+              <a href="#" class="btn btn-outline modal-trigger">
+                <svg width="16" height="16" aria-hidden="true"><use href="#icon-play"/></svg>
+                Solicita una Cotización
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image-wrapper">
+            <div class="hero-image">
+              <video autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%231a1a1a' width='800' height='600'/%3E%3C/svg%3E">
+                <source src="../../assets/video/videos-creative_cloud/creative_cloud.mp4" type="video/mp4" />
+              </video>
+            </div>
+          <div class="firefly-badge">
+              <img src="../../../assets/images/images_creative-cloud/firefly.png" alt="" width="40" height="40" />
+              <div class="firefly-badge-text">
+                <strong>IA Generativa con Firefly</strong>
+                <span>Integrado en todas las apps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CUADRO COMPARATIVO -->
+    <section class="comparativo-section" id="planes">
+      <div class="container">
+        <div class="comparativo-header">
+          <h2 class="comparativo-title">Comparativo</h2>
+        </div>
+
+        <div class="comparativo-table-wrapper">
+          <div class="comparativo-sidebar" id="sidebar-label">FUNCIONES CREATIVAS</div>
+          <div class="comparativo-content">
+            <table class="comparativo-table" id="comparative-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Creative Cloud Pro<br>para equipos</th>
+                  <th>Creative Cloud Pro Plus<br>para equipos</th>
+                  <th>Creative Cloud para<br>empresas Edición 4</th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPS INCLUIDAS -->
+    <section class="apps" id="apps">
+      <div class="container">
+        <div class="section-label">Apps Incluidas</div>
+        <h2 class="heading-xl section-title">Todo el ecosistema Adobe en una licencia</h2>
+        <p class="section-subtitle">Aplicaciones creativas profesionales para cada disciplina de tu equipo</p>
+
+        <div class="apps-grid">
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/Animate.png" alt="Icono de Animate" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Animate</h3><p>Animación vectorial interactiva para web y medios.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/Audition.png" alt="Icono de Audition" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Audition</h3><p>Edición, mezcla y restauración de audio profesional.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/after_efects.png" alt="Icono de After Effects" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>After Effects</h3><p>Motion graphics, animación y efectos visuales.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/premiere.png" alt="Icono de Premiere Pro" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Premiere Pro</h3><p>Edición de video profesional para cine, TV y redes.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/InCopy.png" alt="Icono de InCopy" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>InCopy</h3><p>Creación de contenido de texto para equipos editoriales.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/InDesign.png" alt="Icono de Indesign" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>InDesign</h3><p>Maquetación editorial, revistas, libros y publicaciones.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/Lightroom.png" alt="Icono de Lightroom" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Lightroom</h3><p>Gestión, edición y publicación fotográfica en la nube.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/photoshop.png" alt="Icono de Photoshop" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Photoshop</h3><p>Edición y retoque profesional de imágenes y fotografías.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/acrobat.png" alt="Icono de Acrobat" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Acrobat Pro</h3><p>Creación, edición y firma de documentos PDF.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/adobe_express.png" alt="Icono de Adobe Express" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Adobe Express</h3><p>Diseño rápidio con plantillas e IA Para culaquier equipo</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/adobe_stock.png" alt="Icono de Adobe Stock" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Adobe Stock</h3><p>Biblioteca de recursos visuales con millones de fotos, plantillas y vectores.</p></div>
+          </article>
+          <article class="app-card">
+            <img src="../../assets/images/images_creative-cloud/illustrator.png" alt="Icono de Illustrator" width="48" height="48" loading="lazy" decoding="async" />
+            <div class="app-info"><h3>Illustrator</h3><p>Diseño vectorial, ilustración y gráficos escalables.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFRAESTRUCTURA -->
+    <section class="infrastructure" id="infraestructura">
+      <div class="container">
+        <div class="section-label">Infraestructura Incluida</div>
+        <h2 class="heading-xl section-title">Todo lo que necesitas para trabajar sin límites</h2>
+        <p class="section-subtitle">Infraestructura empresarial incluida en todos los planes</p>
+
+        <div class="infra-grid">
+          <article class="infra-card">
+            <div class="infra-icon">
+              <svg width="32" height="32" aria-hidden="true"><use href="#icon-cloud"/></svg>
+            </div>
+            <div>
+              <h3>Almacenamiento en la Nube</h3>
+              <p>Hasta 1 TB por usuario con sincronización automática, historial de versiones y compartición segura entre equipos.</p>
+              <p class="highlight-text">Accede a tus archivos desde cualquier dispositivo en tiempo real.</p>
+            </div>
+          </article>
+
+          <article class="infra-card">
+            <div class="infra-icon">
+              <svg width="32" height="32" aria-hidden="true"><use href="#icon-headset"/></svg>
+            </div>
+            <div>
+              <h3>Soporte Empresarial</h3>
+              <p>Asistencia técnica dedicada con Customer Success Manager, SLA garantizado del 99.9% y soporte telefónico.</p>
+              <p class="highlight-text">Tiempo de respuesta prioritario para planes Pro Plus y Enterprise.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADOBE FIREFLY -->
+    <section class="firefly" id="firefly">
+      <div class="container">
+        <div class="firefly-grid">
+          <div class="firefly-content">
+            <div class="firefly-label">
+              <img src="../../assets/images/images_creative-cloud/firefly.png" alt="" width="32" height="32" />
+              Adobe Firefly
+            </div>
+            <h2 class="heading-lg">IA Generativa <span class="text-accent">diseñada para empresas</span></h2>
+            <p>Adobe Firefly es el modelo de IA generativa de Adobe, integrado directamente en tus aplicaciones favoritas. Genera imágenes fotorrealistas, vectores, efectos de texto y más, todo desde un prompt en español.</p>
+            <p>A diferencia de otras IAs, Firefly fue entrenado con contenido con licencia, lo que garantiza que las creaciones de tu empresa sean <strong>comercialmente seguras</strong> y libres de reclamos de derechos de autor.</p>
+
+            <ul class="firefly-features">
+              <li>
+                <span class="feature-icon"><svg width="20" height="20" aria-hidden="true"><use href="#icon-image"/></svg></span>
+                Generación de imágenes desde texto
+              </li>
+              <li>
+                <span class="feature-icon"><svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg></span>
+                Vectores e ilustraciones con IA
+              </li>
+              <li>
+                <span class="feature-icon"><svg width="20" height="20" aria-hidden="true"><use href="#icon-type"/></svg></span>
+                Efectos de texto inteligentes
+              </li>
+              <li>
+                <span class="feature-icon"><svg width="20" height="20" aria-hidden="true"><use href="#icon-star"/></svg></span>
+                Relleno generativo en Photoshop
+              </li>
+            </ul>
+
+            <a href="#" class="btn btn-primary modal-trigger">
+              Ver planes con Firefly
+              <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </a>
+          </div>
+
+          <div class="firefly-images">
+            <div class="firefly-image-card">
+              <img src="../../../assets/images/images_creative-cloud/creative_cloud.png" alt="Efectos de texto con IA" width="800" height="450" loading="lazy" decoding="async" />
+            </div>
+            <div class="firefly-image-card">
+              <img src="../../../assets/images/images_creative-cloud/creative_cloud4.png" alt="Vectores e ilustraciones" width="800" height="450" loading="lazy" decoding="async" />
+            </div>
+            <div class="firefly-image-card">
+              <img src="../../../assets/images/images_creative-cloud/creative_cloud5.png" alt="Relleno generativo" width="800" height="450" loading="lazy" decoding="async" />
+            </div>
+            <div class="firefly-image-card">
+              <img src="../../../assets/images/images_creative-cloud/creative_cloud6.png" alt="Relleno generativo" width="800" height="450" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- ADOBE EXPRESS -->
+    <section class="express" id="express">
+      <div class="container">
+        <div class="express-card" style="padding: 24px;">
+          <div class="express-header" style="margin-bottom: 16px;">
+            <img src="../../assets/images/images_creative-cloud/adobe_express.png" alt="Adobe Express" width="36" height="36" loading="lazy" decoding="async" />
+            <span>Adobe Express</span>
+          </div>
+
+          <div class="express-grid">
+            <div class="express-content">
+              <h2 class="heading-lg" style="font-size: 2rem; margin-bottom: 12px;">Diseño profesional <span class="text-accent">al alcance de todos</span></h2>
+              <p style="font-size: 1rem; margin-bottom: 16px;">Adobe Express permite a cualquier miembro de tu empresa crear contenido visual profesional en minutos, con miles de plantillas y la potencia de Firefly.</p>
+
+              <div class="express-features" style="margin-bottom: 16px;">
+                <div class="express-feature">
+                  <div class="express-feature-icon">
+                    <svg width="20" height="20" aria-hidden="true"><use href="#icon-share"/></svg>
+                  </div>
+                  <div><h4>Redes Sociales</h4><p>Contenido visual para Instagram, LinkedIn y más.</p></div>
+                </div>
+
+                <div class="express-feature">
+                  <div class="express-feature-icon">
+                    <svg width="20" height="20" aria-hidden="true"><use href="#icon-monitor"/></svg>
+                  </div>
+                  <div><h4>Presentaciones</h4><p>Slides profesionales con animaciones.</p></div>
+                </div>
+
+                <div class="express-feature">
+                  <div class="express-feature-icon">
+                    <svg width="20" height="20" aria-hidden="true"><use href="#icon-file"/></svg>
+                  </div>
+                  <div><h4>Documentos</h4><p>Folletos, reportes y propuestas.</p></div>
+                </div>
+              </div>
+
+              <a href="#" class="btn btn-primary modal-trigger" style="padding: 14px 24px; font-size: 1rem;">
+                Explorar Adobe Express
+                <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+              </a>
+            </div>
+
+            <div class="video-express-wrapper" style="position: relative; width: 100%; max-width: 700px; margin: 0 auto;">
+              <div class="video-glow-effect" style="position: absolute; inset: -6px; background: linear-gradient(135deg, rgba(255,0,0,0.5), rgba(255,106,0,0.4), rgba(255,0,0,0.3)); border-radius: 20px; filter: blur(16px); z-index: 0;"></div>
+              <video width="100%" height="100%" autoplay muted loop playsinline style="position: relative; width: 100%; aspect-ratio: 3/2; border-radius: 16px; object-fit: cover; box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.15); z-index: 1; transition: transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 28px 72px rgba(0,0,0,0.7), 0 0 24px rgba(255,0,0,0.35)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.15)';">
+                <source src="../../assets/video/video_landing_cc_adobe_express.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASOS DE ÉXITO -->
+    <section class="testimonials" id="testimonios">
+      <div class="container">
+        <div class="section-label">Casos de Éxito</div>
+        <h2 class="heading-xl section-title">Lo que dicen nuestros clientes</h2>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+          <div class="testimonial-content">
+            <div class="testimonial-avatar">
+              <img src="../../assets/images/images_creative-cloud/caso_exito.jpeg" alt="Hugo Soriano" width="200" height="200" loading="lazy" decoding="async" />
+            </div>
+            <div>
+              <p class="testimonial-text">"Integrar Adobe en nuestro plan de estudios va mucho más allá de sumar una herramienta digital: es abrir un espacio donde la creatividad y la tecnología se encuentran con propósito. Al hacerlo, formamos profesionales que no solo dominan el software, sino que desarrollan una mentalidad innovadora, práctica y alineada con las exigencias reales de la industria. Porque creemos que la educación debe acompañar el ritmo del mundo, y con Adobe les damos las herramientas para que no solo se adapten al futuro, sino que lo diseñen con confianza y criterio."</p>
+              <div class="testimonial-author">
+                <h3>Hugo Soriano</h3>
+                <p>Docente de Áreas Creativas y Audiovisuales en ETAC</p>
+              </div>
+              <div class="testimonial-stars" aria-label="Calificación: 5 de 5 estrellas">★★★★★</div>
+            </div>
+          </div>
+
+          <div class="trusted-companies">
+            <span>También confían en Adobe:</span>
+            <span class="company">Ogilvy MX</span>
+            <span class="company">BBVA</span>
+            <span class="company">Cemex</span>
+            <span class="company">Rappi</span>
+            <span class="company">Bimbo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2 class="heading-xl section-title">Preguntas frecuentes</h2>
+        <p class="section-subtitle">Todo lo que necesitas saber sobre licencias, soporte y planes</p>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faq-answer-1">
+              ¿Cuántas licencias mínimas necesito para un plan empresarial?
+              <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-1" role="region">
+              <div class="faq-answer-inner">El plan Creative Cloud Empresarial tiene un mínimo de 5 usuarios. Para equipos más pequeños, los planes Pro y Pro Plus están disponibles desde 1 usuario. Para organizaciones con más de 100 usuarios, ofrecemos condiciones especiales de negociación.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+              ¿Qué tipo de soporte técnico incluye cada plan?
+              <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-2" role="region">
+              <div class="faq-answer-inner">El plan Pro incluye soporte estándar 5x8 vía chat y correo. El plan Pro Plus incluye soporte prioritario 24x7 con tiempo de respuesta garantizado de 4 horas. El plan Empresarial incluye un Customer Success Manager dedicado, soporte telefónico 24x7 y SLA del 99.9%.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+              ¿Cuál es la diferencia entre Creative Cloud Pro Plus y la Edición 4 Empresarial?
+              <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-3" role="region">
+              <div class="faq-answer-inner">La Edición 4 Empresarial agrega capacidades de gestión centralizada de licencias, SSO empresarial (Single Sign-On), facturación consolidada, acceso a Adobe Workfront para gestión de proyectos, almacenamiento ilimitado y créditos Firefly sin restricciones.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+              ¿Se pueden asignar diferentes apps a diferentes usuarios dentro de la misma licencia?
+              <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-4" role="region">
+              <div class="faq-answer-inner">Sí, con el plan Empresarial el administrador puede asignar conjuntos específicos de aplicaciones a cada usuario según su rol. Por ejemplo, los diseñadores pueden tener Photoshop e Illustrator, mientras que los editores de video tienen Premiere Pro y After Effects.</div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+              ¿Las licencias incluyen el uso de IA Firefly para producción comercial?
+              <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
+            </button>
+            <div class="faq-answer" id="faq-answer-5" role="region">
+              <div class="faq-answer-inner">Sí. Todos los contenidos generados con Adobe Firefly están cubiertos para uso comercial, ya que el modelo fue entrenado con imágenes con licencia de Adobe Stock. Cada plan incluye créditos Firefly mensuales: 500 en Pro, 2,500 en Pro Plus, e ilimitados en el plan Empresarial.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <h3>Cadgrafics S.A. De C.V.</h3>
+          <p>Norte 56-A # 5204 • Col. Tablas de San Agustín</p>
+          <p>07860, Gustavo A. Madero | CDMX</p>
+          <p>Correo: <a href="mailto:sandra.alvarez@cadgrafics.com.mx">sandra.alvarez@cadgrafics.com.mx</a></p>
+          <p>
+            <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (55) 3112-0508">
+              <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+              +52 (55) 3112-0508
+            </a>
+          </p>
+        </div>
+        <div>
+          <h4>Cadgrafics de Occidente S.A. De C.V.</h4>
+          <p>Calle Dia # 2381 Col. Jardines del Bosque</p>
+          <p>44520 | Guadalajara Jalisco, México</p>
+          <p>Correo: <a href="mailto:rafael.castro@cadgrafics.com.mx">rafael.castro@cadgrafics.com.mx</a></p>
+          <p>
+            <a href="https://wa.me/523314040396?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (33) 1404-0396">
+              <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+              +52 (33) 1404-0396
+            </a>
+          </p>
+        </div>
+        <div>
+          <h4>Síguenos</h4>
+          <div class="social-links">
+            <a href="https://linkedin.com/company/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="18" height="18" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+            <a href="https://youtube.com/@cadgrafics1639" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="18" height="18" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+            <a href="https://x.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="X"><svg width="18" height="18" aria-hidden="true"><use href="#icon-x"/></svg></a>
+            <a href="https://facebook.com/Cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+            <a href="https://instagram.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">&copy; Todos los derechos reservados | <a href="../../../aviso_privacidad.html">Aviso de Privacidad</a>.</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20y%20quiero%20información" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 55 3112 0508">
+    <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+  </a>
+
+  <!-- Modal de contacto -->
+  <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content" role="document">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Cuéntanos sobre tu proyecto</h3>
+        <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar formulario">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="leadForm" novalidate>
+        <div id="formFields">
+          <div class="form-group">
+            <label for="name">Nombre completo *</label>
+            <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name"/>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email"/>
+          </div>
+          <div class="form-group">
+            <label for="phone">Celular *</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678"/>
+          </div>
+          <div class="form-group">
+            <label for="company">Empresa *</label>
+            <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa"/>
+          </div>
+          <div class="form-group">
+            <label for="message">Tu requerimiento</label>
+            <textarea id="message" name="message" rows="4" maxlength="500" placeholder="Ej: Necesito licencias Adobe para equipo de diseño..."></textarea>
+          </div>
+          <!-- Honeypot anti-spam -->
+          <div class="hp-field" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <button type="submit" class="cta-modal">
+            <svg width="16" height="16" aria-hidden="true"><use href="#icon-send"/></svg> Enviar consulta
+          </button>
+        </div>
+        <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+          <svg width="48" height="48" aria-hidden="true"><use href="#icon-check"/></svg>
+          <h4>¡Listo!</h4>
+          <p>Recibimos tu consulta. Te contactaremos en breve.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const header = document.getElementById('header');
+
+      // ============================================
+      // DATOS DEL CUADRO COMPARATIVO
+      // ============================================
+      const tableData = [
+        {
+          section: "FUNCIONES CREATIVAS",
+          rows: [
+            {
+              feature: "Aplicaciones y servicios creativos",
+              values: [
+                { type: "check", color: "blue" },
+                { type: "check", color: "blue" },
+                { type: "check", color: "blue" }
+              ]
+            },
+            {
+              feature: "Funciones de IA generativa estándar de Adobe Firefly (Imagen y vector¹)",
+              values: [
+                { type: "check", color: "blue", note: "Ilimitado" },
+                { type: "check", color: "blue", note: "Ilimitado" },
+                { type: "check", color: "blue", note: "Ilimitado<br>+ Composiciones de objetos y kits de estilos" }
+              ]
+            },
+            {
+              feature: "4,000 créditos generativos para funciones prémium de IA generativa (Video y audio)",
+              values: [
+                { type: "check", color: "blue" },
+                { type: "check", color: "blue" },
+                { type: "check", color: "blue" }
+              ]
+            },
+            {
+              feature: "Adobe Stock: fotos, activos de diseño y en 3D estándar ilimitados",
+              values: [
+                { type: "cross", color: "gray" },
+                { type: "check", color: "blue" },
+                { type: "check", color: "blue" }
+              ]
+            },
+            {
+              feature: "Adobe Stock: tipo de licencia²",
+              values: [
+                { type: "cross", color: "gray" },
+                { type: "check", color: "yellow", note: "Mejorado" },
+                { type: "check", color: "blue", note: "Ampliado" }
+              ]
+            },
+            {
+              feature: "Sesiones con especialistas en productos de Adobe",
+              values: [
+                { type: "check", color: "yellow", note: "2 por persona al año" },
+                { type: "check", color: "yellow", note: "2 por persona al año" },
+                { type: "check", color: "blue", note: "Ilimitado" }
+              ]
+            }
+          ]
+        },
+        {
+          section: "FUNCIONES ADMINISTRATIVAS",
+          rows: [
+            {
+              feature: "Indemnización por propiedad intelectual (Adobe Stock y Firefly)³",
+              values: [
+                { type: "cross", color: "gray" },
+                { type: "check", color: "yellow", note: "US$ 10,000/activo" },
+                { type: "check", color: "blue", note: "Plan VIP: US$ 10,000/activo" }
+              ]
+            },
+            {
+              feature: "Seguridad y asistencia técnica de nivel empresarial",
+              values: [
+                { type: "check", color: "yellow", note: "Limitado" },
+                { type: "check", color: "yellow", note: "Limitado" },
+                { type: "check", color: "blue", note: "Ilimitado" }
+              ]
+            },
+            {
+              feature: "Funciones administrativas",
+              values: [
+                { type: "check", color: "yellow", note: "Solo rol de administrador del sistema" },
+                { type: "check", color: "yellow", note: "Solo rol de administrador del sistema" },
+                { type: "check", color: "blue", note: "Rol de administrador del sistema, producto, perfil del producto, grupo de personas usuarias, implementación y asistencia técnica" }
+              ]
+            },
+            {
+              feature: "Inicio de sesión único (SSO)",
+              values: [
+                { type: "cross", color: "gray" },
+                { type: "cross", color: "gray" },
+                { type: "check", color: "blue" }
+              ]
+            },
+            {
+              feature: "Control del acceso a los servicios en grupo",
+              values: [
+                { type: "cross", color: "gray" },
+                { type: "cross", color: "gray" },
+                { type: "check", color: "blue" }
+              ]
+            },
+            {
+              feature: "Incorporación e implementación personalizadas",
+              values: [
+                { type: "cross", color: "gray" },
+                { type: "cross", color: "gray" },
+                { type: "check", color: "blue" }
+              ]
+            }
+          ]
+        }
+      ];
+
+      function getIcon(type, color) {
+        if (type === "check") {
+          if (color === "blue") return '<span class="comparativo-icon icon-check-blue">☑</span>';
+          if (color === "yellow") return '<span class="comparativo-icon icon-check-yellow">☑</span>';
+        }
+        if (type === "cross") {
+          return '<span class="comparativo-icon icon-cross-gray">✗</span>';
+        }
+        return '';
+      }
+
+      function buildTable() {
+        const tbody = document.getElementById('table-body');
+        const sidebar = document.getElementById('sidebar-label');
+
+        tableData.forEach((sectionData, sectionIndex) => {
+          sectionData.rows.forEach((row, rowIndex) => {
+            const tr = document.createElement('tr');
+            tr.className = 'feature-row';
+
+            // Feature name cell
+            const tdFeature = document.createElement('td');
+            tdFeature.textContent = row.feature;
+            tr.appendChild(tdFeature);
+
+            // Value cells
+            row.values.forEach(val => {
+              const td = document.createElement('td');
+              td.innerHTML = getIcon(val.type, val.color);
+              if (val.note) {
+                td.innerHTML += `<span class="comparativo-note">${val.note}</span>`;
+              }
+              tr.appendChild(td);
+            });
+
+            tbody.appendChild(tr);
+          });
+
+          // Add section divider after last row of section (except last section)
+          if (sectionIndex < tableData.length - 1) {
+            const dividerTr = document.createElement('tr');
+            dividerTr.innerHTML = '<td colspan="4" style="background:var(--gray-700); height:3px; padding:0;"></td>';
+            tbody.appendChild(dividerTr);
+          }
+        });
+      }
+
+      // Update sidebar on scroll
+      function updateSidebar() {
+        const table = document.getElementById('comparative-table');
+        const sidebar = document.getElementById('sidebar-label');
+        const tableRect = table.getBoundingClientRect();
+        const tableTop = tableRect.top + window.scrollY;
+        const tableHeight = table.offsetHeight;
+
+        const scrollProgress = (window.scrollY - tableTop + window.innerHeight / 2) / tableHeight;
+        const firstSectionRows = tableData[0].rows.length;
+        const totalRows = tableData.reduce((sum, s) => sum + s.rows.length, 0);
+
+        if (scrollProgress > (firstSectionRows / totalRows)) {
+          sidebar.textContent = "FUNCIONES ADMINISTRATIVAS";
+          sidebar.style.background = "var(--adobe-red)";
+        } else {
+          sidebar.textContent = "FUNCIONES CREATIVAS";
+          sidebar.style.background = "var(--gray-700)";
+        }
+      }
+
+      // ============================================
+      // HEADER SCROLL
+      // ============================================
+      const handleHeaderScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+      };
+      window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+      handleHeaderScroll();
+
+      // ============================================
+      // FAQ ACCORDION
+      // ============================================
+      const faqItems = document.querySelectorAll('.faq-item');
+
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const answerInner = item.querySelector('.faq-answer-inner');
+
+        if (item.classList.contains('active')) {
+          answer.style.maxHeight = answerInner.scrollHeight + 40 + 'px';
+        }
+
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            otherItem.querySelector('.faq-answer').style.maxHeight = '0';
+          });
+
+          if (!isActive) {
+            item.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
+            answer.style.maxHeight = answerInner.scrollHeight + 40 + 'px';
+          }
+        });
+      });
+
+      // ============================================
+      // ANIMACIÓN DE APARICIÓN AL HACER SCROLL
+      // ============================================
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            entry.target.style.willChange = 'auto';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      const DELAY_STEP = 0.08;
+      document.querySelectorAll('.app-card, .infra-card, .firefly-image-card, .express-feature, .faq-item, .feature-row')
+        .forEach((el, index) => {
+          const groupDelay = (index % 6) * DELAY_STEP;
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+          el.style.willChange = 'opacity, transform';
+          el.style.transition = `opacity 0.6s ease ${groupDelay}s, transform 0.6s ease ${groupDelay}s`;
+          observer.observe(el);
+        });
+
+      // ============================================
+      // MOBILE MENU TOGGLE
+      // ============================================
+      const mobileToggle = document.getElementById('mobileToggle');
+      const navMenu = document.getElementById('navMenu');
+
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener('click', () => {
+          const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+          mobileToggle.setAttribute('aria-expanded', String(!isExpanded));
+          mobileToggle.setAttribute('aria-label', isExpanded ? 'Abrir menú' : 'Cerrar menú');
+          navMenu.classList.toggle('active');
+        });
+      }
+
+      // ============================================
+      // DROPDOWN TOGGLE (Mobile + Accesibilidad)
+      // ============================================
+      const dropdownToggles = document.querySelectorAll('.has-dropdown > a');
+
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768 || toggle.getAttribute('href') === '#') {
+            e.preventDefault();
+            const parent = toggle.parentElement;
+            const isOpen = parent.classList.contains('open');
+
+            parent.parentElement.querySelectorAll(':scope > .has-dropdown.open').forEach(sib => {
+              if (sib !== parent) {
+                sib.classList.remove('open');
+                const sibToggle = sib.querySelector(':scope > a');
+                if (sibToggle) sibToggle.setAttribute('aria-expanded', 'false');
+                const sibMenu = sib.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
+                if (sibMenu) sibMenu.setAttribute('aria-hidden', 'true');
+              }
+            });
+
+            parent.classList.toggle('open', !isOpen);
+            toggle.setAttribute('aria-expanded', String(!isOpen));
+            const menu = parent.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
+            if (menu) menu.setAttribute('aria-hidden', String(isOpen));
+          }
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.has-dropdown')) {
+          document.querySelectorAll('.has-dropdown.open').forEach(el => {
+            el.classList.remove('open');
+            const toggle = el.querySelector(':scope > a');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+            const menu = el.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
+            if (menu) menu.setAttribute('aria-hidden', 'true');
+          });
+        }
+      });
+
+      // ============================================
+      // MODAL CON FOCUS TRAP
+      // ============================================
+      const modal = document.getElementById('formModal');
+      const modalClose = document.getElementById('modalClose');
+      const leadForm = document.getElementById('leadForm');
+      const formFields = document.getElementById('formFields');
+      const successMessage = document.getElementById('successMessage');
+      let lastFocusedElement = null;
+
+      function openModal() {
+        lastFocusedElement = document.activeElement;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => modalClose.focus(), 100);
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastFocusedElement) lastFocusedElement.focus();
+      }
+
+      document.querySelectorAll('.modal-trigger').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+
+        if (e.key === 'Tab' && modal.classList.contains('active')) {
+          const focusableElements = modal.querySelectorAll(
+            'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          );
+          const firstFocusable = focusableElements[0];
+          const lastFocusable = focusableElements[focusableElements.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) { e.preventDefault(); lastFocusable.focus(); }
+          } else {
+            if (document.activeElement === lastFocusable) { e.preventDefault(); firstFocusable.focus(); }
+          }
+        }
+      });
+
+      // ============================================
+      // FORMULARIO CON HONEYPOT
+      // ============================================
+      if (leadForm) {
+        leadForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          // Verificar honeypot (anti-spam)
+          const honeypot = leadForm.querySelector('[name="website"]');
+          if (honeypot && honeypot.value) return;
+
+          if (!leadForm.checkValidity()) {
+            leadForm.reportValidity();
+            return;
+          }
+
+          formFields.style.display = 'none';
+          successMessage.style.display = 'block';
+
+          setTimeout(() => {
+            closeModal();
+            leadForm.reset();
+            formFields.style.display = 'block';
+            successMessage.style.display = 'none';
+          }, 3000);
+        });
+      }
+
+      // ============================================
+      // INICIALIZAR TABLA COMPARATIVA
+      // ============================================
+      buildTable();
+      window.addEventListener('scroll', updateSidebar, { passive: true });
+      updateSidebar();
+    });
+  </script>
+</body>
+</html>
