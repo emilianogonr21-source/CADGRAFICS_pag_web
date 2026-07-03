@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Adobe Creative Cloud para Empresas - Licencias empresariales con IA generativa Firefly. La suite de aplicaciones creativas más completa del mundo." />
   <meta name="theme-color" content="#6e0404">
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
@@ -83,7 +84,7 @@
   --card-border: #222222;
   --text-primary: #FFFFFF;
   --text-secondary: #C8C8C8;
-  --text-muted: #9CA3AF;
+  --text-muted: #B0B0B0;
   --accent-green: #18FF5C;
   --whatsapp-green: #25d366;
   --whatsapp-green-dark: #128c7e;
@@ -192,7 +193,6 @@ main { padding-top: var(--header-height); }
   margin-bottom: 16px;
 }
 
-/* ===== UNIFIED TYPOGRAPHY (MATCHES index.html) ===== */
 .hero-title, 
 .heading-xl, 
 .heading-lg {
@@ -218,14 +218,11 @@ main { padding-top: var(--header-height); }
   margin: 0 auto 48px;
 }
 
-/* Párrafos normales - matching index.html */
 p {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
-
-.section-title { text-align: center; }
 
 .text-gradient {
   background: linear-gradient(90deg, #FF0000, #FF6A00);
@@ -1872,12 +1869,12 @@ p {
 
           <div class="hero-image-wrapper">
             <div class="hero-image">
-              <video autoplay muted loop playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%231a1a1a' width='800' height='600'/%3E%3C/svg%3E">
+              <video autoplay muted loop playsinline preload="metadata" aria-label="Demostración de Adobe Creative Cloud" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Crect fill='%231a1a1a' width='800' height='600'/%3E%3C/svg%3E">
                 <source src="../../assets/video/videos-creative_cloud/creative_cloud.mp4" type="video/mp4" />
               </video>
             </div>
           <div class="firefly-badge">
-              <img src="../../../assets/images/images_creative-cloud/firefly.png" alt="" width="40" height="40" />
+              <img src="../../../assets/images/images_creative-cloud/firefly.png" alt="Adobe Firefly IA generativa" width="40" height="40" />
               <div class="firefly-badge-text">
                 <strong>IA Generativa con Firefly</strong>
                 <span>Integrado en todas las apps</span>
@@ -2015,7 +2012,7 @@ p {
         <div class="firefly-grid">
           <div class="firefly-content">
             <div class="firefly-label">
-              <img src="../../assets/images/images_creative-cloud/firefly.png" alt="" width="32" height="32" />
+              <img src="../../assets/images/images_creative-cloud/firefly.png" alt="Adobe Firefly IA generativa" width="32" height="32" />
               Adobe Firefly
             </div>
             <h2 class="heading-lg">IA Generativa <span class="text-accent">diseñada para empresas</span></h2>
@@ -2110,8 +2107,8 @@ p {
 
             <div class="video-express-wrapper" style="position: relative; width: 100%; max-width: 700px; margin: 0 auto;">
               <div class="video-glow-effect" style="position: absolute; inset: -6px; background: linear-gradient(135deg, rgba(255,0,0,0.5), rgba(255,106,0,0.4), rgba(255,0,0,0.3)); border-radius: 20px; filter: blur(16px); z-index: 0;"></div>
-              <video width="100%" height="100%" autoplay muted loop playsinline style="position: relative; width: 100%; aspect-ratio: 3/2; border-radius: 16px; object-fit: cover; box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.15); z-index: 1; transition: transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 28px 72px rgba(0,0,0,0.7), 0 0 24px rgba(255,0,0,0.35)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.15)';">
-                <source src="../../assets/video/video_landing_cc_adobe_express.mp4" type="video/mp4">
+              <video width="100%" height="100%" autoplay muted loop playsinline preload="metadata" aria-label="Demostración de Adobe Express" style="position: relative; width: 100%; aspect-ratio: 3/2; border-radius: 16px; object-fit: cover; box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.15); z-index: 1; transition: transform 0.4s ease, box-shadow 0.4s ease;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 28px 72px rgba(0,0,0,0.7), 0 0 24px rgba(255,0,0,0.35)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.15)';">
+                <source src="../../assets/video/videos-creative_cloud/video_landing_cc_adobe_express.mp4" type="video/mp4">
                 Tu navegador no soporta la reproducción de video.
               </video>
             </div>
@@ -2162,51 +2159,51 @@ p {
 
         <div class="faq-list">
           <div class="faq-item active">
-            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faq-answer-1">
+            <button type="button" class="faq-question" id="faq-question-1" aria-expanded="true" aria-controls="faq-answer-1">
               ¿Cuántas licencias mínimas necesito para un plan empresarial?
               <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
             </button>
-            <div class="faq-answer" id="faq-answer-1" role="region">
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
               <div class="faq-answer-inner">El plan Creative Cloud Empresarial tiene un mínimo de 5 usuarios. Para equipos más pequeños, los planes Pro y Pro Plus están disponibles desde 1 usuario. Para organizaciones con más de 100 usuarios, ofrecemos condiciones especiales de negociación.</div>
             </div>
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+            <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
               ¿Qué tipo de soporte técnico incluye cada plan?
               <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
             </button>
-            <div class="faq-answer" id="faq-answer-2" role="region">
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
               <div class="faq-answer-inner">El plan Pro incluye soporte estándar 5x8 vía chat y correo. El plan Pro Plus incluye soporte prioritario 24x7 con tiempo de respuesta garantizado de 4 horas. El plan Empresarial incluye un Customer Success Manager dedicado, soporte telefónico 24x7 y SLA del 99.9%.</div>
             </div>
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+            <button type="button" class="faq-question" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">
               ¿Cuál es la diferencia entre Creative Cloud Pro Plus y la Edición 4 Empresarial?
               <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
             </button>
-            <div class="faq-answer" id="faq-answer-3" role="region">
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
               <div class="faq-answer-inner">La Edición 4 Empresarial agrega capacidades de gestión centralizada de licencias, SSO empresarial (Single Sign-On), facturación consolidada, acceso a Adobe Workfront para gestión de proyectos, almacenamiento ilimitado y créditos Firefly sin restricciones.</div>
             </div>
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+            <button type="button" class="faq-question" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">
               ¿Se pueden asignar diferentes apps a diferentes usuarios dentro de la misma licencia?
               <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
             </button>
-            <div class="faq-answer" id="faq-answer-4" role="region">
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
               <div class="faq-answer-inner">Sí, con el plan Empresarial el administrador puede asignar conjuntos específicos de aplicaciones a cada usuario según su rol. Por ejemplo, los diseñadores pueden tener Photoshop e Illustrator, mientras que los editores de video tienen Premiere Pro y After Effects.</div>
             </div>
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+            <button type="button" class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
               ¿Las licencias incluyen el uso de IA Firefly para producción comercial?
               <span class="faq-icon"><svg width="16" height="16" aria-hidden="true"><use href="#icon-chevron-down"/></svg></span>
             </button>
-            <div class="faq-answer" id="faq-answer-5" role="region">
+            <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
               <div class="faq-answer-inner">Sí. Todos los contenidos generados con Adobe Firefly están cubiertos para uso comercial, ya que el modelo fue entrenado con imágenes con licencia de Adobe Stock. Cada plan incluye créditos Firefly mensuales: 500 en Pro, 2,500 en Pro Plus, e ilimitados en el plan Empresarial.</div>
             </div>
           </div>
@@ -2315,6 +2312,17 @@ p {
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const header = document.getElementById('header');
+
+      // ============================================
+      // UTILIDAD: DEBOUNCE
+      // ============================================
+      function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      }
 
       // ============================================
       // DATOS DEL CUADRO COMPARATIVO
@@ -2441,19 +2449,16 @@ p {
 
       function buildTable() {
         const tbody = document.getElementById('table-body');
-        const sidebar = document.getElementById('sidebar-label');
 
         tableData.forEach((sectionData, sectionIndex) => {
-          sectionData.rows.forEach((row, rowIndex) => {
+          sectionData.rows.forEach((row) => {
             const tr = document.createElement('tr');
             tr.className = 'feature-row';
 
-            // Feature name cell
             const tdFeature = document.createElement('td');
             tdFeature.textContent = row.feature;
             tr.appendChild(tdFeature);
 
-            // Value cells
             row.values.forEach(val => {
               const td = document.createElement('td');
               td.innerHTML = getIcon(val.type, val.color);
@@ -2466,7 +2471,6 @@ p {
             tbody.appendChild(tr);
           });
 
-          // Add section divider after last row of section (except last section)
           if (sectionIndex < tableData.length - 1) {
             const dividerTr = document.createElement('tr');
             dividerTr.innerHTML = '<td colspan="4" style="background:var(--gray-700); height:3px; padding:0;"></td>';
@@ -2681,7 +2685,6 @@ p {
         leadForm.addEventListener('submit', (e) => {
           e.preventDefault();
 
-          // Verificar honeypot (anti-spam)
           const honeypot = leadForm.querySelector('[name="website"]');
           if (honeypot && honeypot.value) return;
 
@@ -2703,10 +2706,10 @@ p {
       }
 
       // ============================================
-      // INICIALIZAR TABLA COMPARATIVA
+      // INICIALIZAR TABLA COMPARATIVO
       // ============================================
       buildTable();
-      window.addEventListener('scroll', updateSidebar, { passive: true });
+      window.addEventListener('scroll', debounce(updateSidebar, 16), { passive: true });
       updateSidebar();
     });
   </script>
