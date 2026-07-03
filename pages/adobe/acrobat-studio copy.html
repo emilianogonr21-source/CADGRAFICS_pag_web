@@ -573,6 +573,49 @@
 
     .hero-video-wrapper { position: relative; }
 
+    .hero-video-badge {
+      position: absolute;
+      top: 0;
+      right: 24px;
+      transform: translateY(calc(-100% - 10px));
+      z-index: 2;
+      display: block;
+    }
+
+    .hero-video-badge:hover {
+      transform: translateY(calc(-100% - 10px));
+    }
+
+    .hero-video-badge img {
+      width: auto;
+      height: 36px;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .hero-video-badge {
+        top: 14px;
+        right: 14px;
+        padding: 0.65rem 0.8rem;
+      }
+
+      .hero-video-badge img {
+        height: 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-video-badge {
+        top: 12px;
+        right: 12px;
+        padding: 0.55rem 0.7rem;
+      }
+
+      .hero-video-badge img {
+        height: 24px;
+      }
+    }
+
     .hero-video-glow {
       position: absolute;
       inset: -6px;
@@ -1451,6 +1494,9 @@
       </div>
 
       <div class="hero-video-wrapper">
+        <div class="hero-video-badge" aria-label="Logo de Adobe">
+          <img src="../../assets/images/images_acrobat-studio/logo_adobe.png" alt="Logo de Adobe" loading="lazy" decoding="async" />
+        </div>
         <div class="hero-video">
           <span id="hero-video-desc" class="visually-hidden">Video demostrativo de Adobe Acrobat Studio en acción</span>
           <video id="heroVideo" autoplay muted loop playsinline controls preload="metadata" poster="../../assets/video/poster-acrobat_studio.jpg" aria-describedby="hero-video-desc">
