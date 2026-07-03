@@ -1001,17 +1001,18 @@
       display: block;
       width: 80px;
       height: auto;
-      margin: 0 auto 12px;
+      margin: 0 0 12px 0;
       object-fit: contain;
       filter: drop-shadow(0 2px 4px rgba(232, 25, 12, 0.15));
       transition: transform var(--transition-normal), filter var(--transition-normal);
     }
-    .solution-card:nth-child(2) .solution-tag-icon,
+    .solution-card:nth-child(2) .solution-tag-icon {
+      width: 220px;
+      margin: 5px 0 12px 0;
+    }
     .solution-card:nth-child(3) .solution-tag-icon {
       width: 220px;
       margin: 5px auto 12px;
-    }
-    .solution-card:nth-child(3) .solution-tag-icon {
       filter: drop-shadow(0 2px 4px rgba(232, 25, 12, 0.25));
     }
     .solution-card.recommended:hover .solution-tag-icon {
