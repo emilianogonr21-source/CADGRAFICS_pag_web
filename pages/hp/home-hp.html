@@ -103,6 +103,10 @@
       --space-md: 1rem;
       --space-lg: 1.5rem;
       --space-xl: 2.5rem;
+      --section-padding-desktop: 84px 0;
+      --section-padding-compact: 56px 0;
+      --section-padding-dark: 84px 0 56px;
+      --section-gap-lg: 40px;
       
       --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
     }
@@ -230,7 +234,7 @@
       font-size: 1.1rem;
       color: var(--text-muted);
       max-width: 640px;
-      margin: 0 auto 48px;
+      margin: 0 auto 36px;
     }
 
     .text-center {
@@ -533,7 +537,7 @@
     .hero {
       position: relative;
       min-height: 100vh;
-      padding: 80px 0 60px;
+      padding: 64px 0 44px;
       background:
         linear-gradient(135deg, rgba(0, 34, 51, 0.85) 0%, rgba(0, 51, 78, 0.75) 50%, rgba(0, 34, 51, 0.6) 100%),
         url('https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=1920&q=80') center/cover no-repeat;
@@ -568,7 +572,7 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       backdrop-filter: blur(10px);
     }
 
@@ -585,7 +589,7 @@
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 800;
       line-height: 1.05;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
       letter-spacing: -0.02em;
     }
 
@@ -597,7 +601,7 @@
       font-size: 1.15rem;
       line-height: 1.7;
       color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 40px;
+      margin-bottom: 28px;
       max-width: 680px;
     }
 
@@ -605,7 +609,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
-      margin-bottom: 60px;
+      margin-bottom: 44px;
     }
 
     .hero-stats {
@@ -653,7 +657,7 @@
        6. SOLUCIONES SECTION
        ============================================ */
     .solutions {
-      padding: 100px 0;
+      padding: var(--section-padding-desktop);
       background-color: var(--bg-white);
     }
 
@@ -661,7 +665,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 32px;
-      margin-top: 48px;
+      margin-top: var(--section-gap-lg);
     }
 
     .solution-card {
@@ -755,7 +759,7 @@
        7. COMPARATIVA SECTION
        ============================================ */
     .comparison {
-      padding: 100px 0;
+      padding: var(--section-padding-desktop);
       background-color: var(--bg-blue-light);
     }
 
@@ -764,7 +768,7 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-md);
-      margin-top: 48px;
+      margin-top: var(--section-gap-lg);
     }
 
     .comparison-table {
@@ -841,7 +845,7 @@
        8. PORTAFOLIO SECTION
        ============================================ */
     .portfolio {
-      padding: 100px 0;
+      padding: var(--section-padding-desktop);
       background-color: var(--bg-white);
     }
 
@@ -850,7 +854,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin: 48px 0 40px;
+      margin: var(--section-gap-lg) 0 28px;
     }
 
     .tab-btn {
@@ -974,7 +978,7 @@
        9. SECTORES SECTION
        ============================================ */
     .sectors {
-      padding: 100px 0 60px;
+      padding: var(--section-padding-dark);
       background-color: var(--hp-blue-deep);
       color: var(--bg-white);
     }
@@ -991,7 +995,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
-      margin-top: 48px;
+      margin-top: var(--section-gap-lg);
     }
 
     .sector-card {
@@ -1033,8 +1037,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 32px;
-      margin-top: 80px;
-      padding-top: 60px;
+      margin-top: 56px;
+      padding-top: 44px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -1064,14 +1068,14 @@
        10. CONTACTO SECTION
        ============================================ */
     .contact {
-      padding: 100px 0;
+      padding: var(--section-padding-desktop);
       background-color: var(--bg-white);
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
-      gap: 64px;
+      gap: 48px;
       align-items: start;
     }
 
@@ -1086,13 +1090,13 @@
     .contact-description {
       color: var(--text-muted);
       font-size: 1.05rem;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       line-height: 1.7;
     }
 
     .contact-methods {
       list-style: none;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
     .contact-methods li {
@@ -1148,7 +1152,7 @@
     .contact-form-wrapper {
       background-color: var(--bg-light);
       border-radius: var(--radius-lg);
-      padding: 40px;
+      padding: 32px;
       border: 1px solid var(--border-light);
     }
 
@@ -1233,13 +1237,13 @@
     .site-footer { 
       background: #000000; 
       color: #ffffff; 
-      padding: 4rem 0 1.5rem; 
+      padding: 3rem 0 1.25rem; 
     }
     .footer-content { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 2rem; 
-      margin-bottom: 3rem; 
+      gap: 1.75rem; 
+      margin-bottom: 2.25rem; 
       text-align: left; 
     }
     .site-footer h3, 
@@ -1307,7 +1311,7 @@
     
     .copyright { 
       text-align: center; 
-      padding-top: 2rem; 
+      padding-top: 1.5rem; 
       border-top: 1px solid rgba(255,255,255,0.1); 
       color: #ffffff;
       font-size: 0.85rem; 
@@ -1549,13 +1553,13 @@
     @media (max-width: 968px) {
       .contact-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 36px;
       }
     }
 
     @media (max-width: 768px) {
       .hero {
-        padding: 60px 0 40px;
+        padding: 52px 0 34px;
       }
 
       .hero-title {
@@ -1575,7 +1579,7 @@
       .portfolio,
       .sectors,
       .contact {
-        padding: 60px 0;
+        padding: var(--section-padding-compact);
       }
 
       .form-row {
