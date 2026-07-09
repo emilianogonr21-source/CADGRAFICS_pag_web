@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadgraphics - Autodesk Platinum Partner | Realidad Digital</title>
-    <meta name="description" content="Como Platinum Partner de Autodesk, Cadgraphics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción.">
+    <title>CADGRAFICS - Autodesk Platinum Partner | Realidad Digital</title>
+    <meta name="description" content="Como Platinum Partner de Autodesk, Cadgrafics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción.">
     
     <!-- SEO & Social Media -->
     <link rel="canonical" href="https://cadgrafics.com.mx/">
@@ -14,7 +14,9 @@
     <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/og-image.jpg">
     <meta property="og:url" content="https://cadgrafics.com.mx/">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@cadgrafics">
     
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -30,9 +32,10 @@
     
     <style>
         /* ============================================
-           1. VARIABLES - BASE (Segundo código)
+           1. VARIABLES - CONSOLIDADAS
            ============================================ */
         :root {
+            /* Colores principales */
             --color-yellow: #E8FF00;
             --color-yellow-dark: #C8DC00;
             --color-black: #000000;
@@ -45,25 +48,7 @@
             --color-gray-dark: #333333;
             --color-blue-specialized: #2E86AB;
             
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 3rem;
-            --spacing-xl: 5rem;
-            --spacing-2xl: 8rem;
-            
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-        }
-
-        /* ============================================
-           2. VARIABLES ADICIONALES (Header/Footer/Modal)
-           ============================================ */
-        :root {
+            /* Colores adicionales */
             --primary-red: #FF0000;
             --secondary-red: #CC0000;
             --dark-red: #990000;
@@ -77,6 +62,7 @@
             --color-green-glow: #00ff41;
             --color-gold: #FFD700;
             
+            /* Efectos */
             --glow-red: rgba(255, 0, 0, 0.6);
             --glass-bg: rgba(30, 41, 59, 0.98);
             --glass-border: rgba(255, 255, 255, 0.1);
@@ -84,12 +70,25 @@
             --text-secondary: #C8C8C8;
             --text-muted: #999999;
             
-            --header-height: 120px;
+            /* Tipografía */
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            /* Espaciado */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            --spacing-2xl: 8rem;
+            
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
             --space-md: 1rem;
             --space-lg: 1.5rem;
             --space-xl: 2.5rem;
+            
+            /* Bordes y sombras */
             --radius-sm: 6px;
             --radius-md: 12px;
             --radius-lg: 20px;
@@ -98,11 +97,19 @@
             --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
             --shadow-glow: 0 20px 50px rgba(255, 0, 0, 0.25);
             --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
+            
+            /* Transiciones */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
             --transition-base: 0.25s ease;
+            
+            /* Layout */
+            --header-height: 120px;
         }
 
         /* ============================================
-           3. RESET & BASE
+           2. RESET & BASE
            ============================================ */
         *, *::before, *::after {
             box-sizing: border-box;
@@ -111,7 +118,6 @@
         }
 
         html {
-            scroll-behavior: smooth;
             font-size: 16px;
         }
 
@@ -155,7 +161,7 @@
         }
 
         /* ============================================
-           4. ACCESSIBILITY
+           3. ACCESSIBILITY
            ============================================ */
         .visually-hidden {
             position: absolute;
@@ -201,11 +207,10 @@
                 animation-iteration-count: 1;
                 transition-duration: 0.01ms;
             }
-            html { scroll-behavior: auto; }
         }
 
         /* ============================================
-           5. HEADER STYLES
+           4. HEADER STYLES
            ============================================ */
         .header {
             position: fixed;
@@ -232,7 +237,7 @@
         }
 
         .header .logo {
-            height: 120px;
+            height: 72px;
             width: auto;
             flex-shrink: 0;
             transition: transform var(--transition-normal);
@@ -433,7 +438,7 @@
         }
 
         /* ============================================
-           6. UTILIDADES (Segundo código)
+           5. UTILIDADES
            ============================================ */
         .section-label {
             display: flex;
@@ -508,7 +513,7 @@
         }
 
         /* ============================================
-           7. BOTONES (Segundo código)
+           6. BOTONES
            ============================================ */
         .btn {
             display: inline-flex;
@@ -568,7 +573,7 @@
         }
 
         /* ============================================
-           8. HERO SECTION (Segundo código)
+           7. HERO SECTION
            ============================================ */
         .hero {
             position: relative;
@@ -704,7 +709,7 @@
         }
 
         /* ============================================
-           9. PORTFOLIO (Segundo código)
+           8. PORTFOLIO
            ============================================ */
         .portfolio {
             background-color: var(--color-white);
@@ -821,7 +826,7 @@
         .portfolio__cta .btn { min-width: 320px; }
 
         /* ============================================
-           10. VENTAJAS (Segundo código)
+           9. VENTAJAS
            ============================================ */
         .advantages {
             padding: var(--spacing-2xl) 0;
@@ -927,7 +932,7 @@
         }
 
         /* ============================================
-           11. CTA SECTION (Segundo código)
+           10. CTA SECTION
            ============================================ */
         .cta-section {
             padding: var(--spacing-2xl) 0;
@@ -999,7 +1004,7 @@
         }
 
         /* ============================================
-           12. CREDENCIALES (Segundo código)
+           11. CREDENCIALES
            ============================================ */
         .credentials {
             background-color: var(--color-white);
@@ -1154,7 +1159,7 @@
         }
 
         /* ============================================
-           13. CASOS DE ÉXITO (Segundo código)
+           12. CASOS DE ÉXITO
            ============================================ */
         .cases {
             padding: var(--spacing-2xl) 0;
@@ -1275,7 +1280,7 @@
         .cases__cta .btn { min-width: 320px; }
 
         /* ============================================
-           14. ANIMACIONES (Segundo código)
+           13. ANIMACIONES
            ============================================ */
         .fade-in {
             opacity: 0;
@@ -1299,7 +1304,7 @@
         }
 
         /* ============================================
-           15. FOOTER (Primer código)
+           14. FOOTER
            ============================================ */
         .site-footer {
             background: #000000;
@@ -1392,7 +1397,7 @@
         }
 
         /* ============================================
-           16. WHATSAPP FLOAT (Primer código)
+           15. WHATSAPP FLOAT
            ============================================ */
         .whatsapp-float {
             position: fixed;
@@ -1442,7 +1447,7 @@
         }
 
         /* ============================================
-           17. MODAL (Primer código)
+           16. MODAL
            ============================================ */
         .modal {
             display: none;
@@ -1619,7 +1624,7 @@
         .form-message.error { color: #ff6b6b; }
 
         /* ============================================
-           18. RESPONSIVE (Combinado)
+           17. RESPONSIVE
            ============================================ */
         @media (max-width: 1024px) {
             .collections-grid,
@@ -1702,12 +1707,12 @@
 </svg>
 
 <!-- ============================================
-     HEADER (Primer código - CADGRAFICS)
+     HEADER 
      ============================================ -->
 <header class="header" id="header">
     <div class="container nav-container">
         <a href="#" aria-label="Ir a inicio de Cadgrafics">
-            <img src="assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+            <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
         </a>
         
         <nav aria-label="Navegación principal">
@@ -1811,7 +1816,7 @@
             </h1>
 
             <p class="hero__subtitle fade-in fade-in-delay-2">
-                Como Platinum Partner de Autodesk, Cadgraphics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción con soporte técnico especializado y entrenamientos certificados.
+                Como Platinum Partner de Autodesk, Cadgrafics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción con soporte técnico especializado y entrenamientos certificados.
             </p>
 
             <div class="hero__cta fade-in fade-in-delay-3">
@@ -1824,29 +1829,18 @@
 
         <div class="hero__badges fade-in fade-in-delay-4">
             <div class="hero__badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-check"/></svg>
                 <span>Soporte Prioritario</span>
             </div>
             <div class="hero__badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-check"/></svg>
                 <span>Entrenamientos Certificados</span>
             </div>
             <div class="hero__badge">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                    <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-check"/></svg>
                 <span>Descuentos por Volumen</span>
             </div>
         </div>
-
-        <div class="hero__scroll-indicator"></div>
     </section>
 
     <!-- PORTFOLIO - COLECCIONES -->
@@ -1978,7 +1972,7 @@
             <div class="advantages__header">
                 <div class="section-label section-label--light fade-in">Ventajas</div>
                 <h2 class="section-title fade-in fade-in-delay-1">
-                    ¿Por qué elegir <span class="highlight">Cadgraphics?</span>
+                    ¿Por qué elegir <span class="highlight">Cadgrafics?</span>
                 </h2>
                 <p class="section-subtitle fade-in fade-in-delay-2">
                     Más que un distribuidor, somos tu socio estratégico para el éxito
@@ -2285,7 +2279,7 @@
                 </div>
             </div>
         </div>
-        <div class="copyright">&copy; Todos los derechos reservados | <a href="aviso_privacidad.html">Aviso de Privacidad</a>.</div>
+        <div class="copyright">&copy; 2026 Cadgrafics | Todos los derechos reservados | <a href="aviso_privacidad.html">Aviso de Privacidad</a>.</div>
     </div>
 </footer>
 
@@ -2295,7 +2289,7 @@
 </a>
 
 <!-- ============================================
-     MODAL (Primer código - CADGRAFICS)
+     MODAL
      ============================================ -->
 <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal-content" role="document">
@@ -2577,7 +2571,7 @@
     };
 
     const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const isValidPhone = (phone) => /^[\d\s+\-()]{7,}$/.test(phone);
+    const isValidPhone = (phone) => /^[\d\s+\-()]{10,20}$/.test(phone);
 
     const openModal = (e) => {
         e?.preventDefault();
