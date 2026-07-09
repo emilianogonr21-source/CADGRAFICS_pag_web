@@ -4,32 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Soluciones HP de Impresión de Gran Formato - Distribución Autorizada HP México. DesignJet, PageWide XL y PageWide XL Pro." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Soluciones HP de Impresión de Gran Formato | CADGRAFICS</title>
   
   <!-- SEO & Social Media -->
   <link rel="canonical" href="https://cadgrafics.com.mx/pages/hp/home-hp.html">
-  <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+  <link rel="icon" href="../../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../assets/images/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
+  
   <meta property="og:title" content="Soluciones HP de Impresión de Gran Formato | CADGRAFICS">
   <meta property="og:description" content="DesignJet, PageWide XL y PageWide XL Pro. Distribuidor autorizado HP México.">
   <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/og-image-hp.jpg">
   <meta property="og:url" content="https://cadgrafics.com.mx/pages/hp/home-hp.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  
-  <!-- Security Headers -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Performance: Preconnect & Preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
   <style>
     /* ============================================
-       0. VARIABLES GLOBALES (HEADER/FOOTER)
+       0. VARIABLES GLOBALES
        ============================================ */
     :root {
       /* Paleta HP */
@@ -38,44 +37,7 @@
       --hp-blue-deep: #00334E;
       --hp-blue-darker: #002233;
 
-      /* Neutros */
-      --text-dark: #0f172a;
-      --text-body: #475569;
-      --text-muted: #64748b;
-      --text-light: #94a3b8;
-
-      /* Fondos */
-      --bg-white: #ffffff;
-      --bg-light: #f8fafc;
-      --bg-blue-light: #f0f9ff;
-
-      /* Bordes */
-      --border-light: #e2e8f0;
-      --border-medium: #cbd5e1;
-
-      /* Sombras */
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
-      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
-
-      /* Tipografía */
-      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 20px;
-
-      /* Transiciones */
-      --transition-fast: 0.15s ease;
-      --transition-normal: 0.3s ease;
-      --transition-slow: 0.4s ease;
-
-      /* Header */
-      --header-height: 120px;
-      --container-max: 1280px;
-      
-      /* Colores Cadgrafics */
+      /* Paleta Cadgrafics */
       --color-dark: #0a0a0a;
       --color-red: #5B0010;
       --color-red-deep: #3d000a;
@@ -87,24 +49,64 @@
       --color-gray: #4b5563;
       --color-gray-light: #f8f9fa;
       --color-gold: #FFD700;
-      
       --dark-red: #990000;
       --charcoal: #2A0000;
-      
-      --glow-red: rgba(255, 0, 0, 0.6);
-      --glass-bg: rgba(30, 41, 59, 0.98);
-      --glass-border: rgba(255, 255, 255, 0.1);
+
+      /* Neutros */
+      --text-dark: #0f172a;
+      --text-body: #475569;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
       --text-primary: #FFFFFF;
       --text-secondary: #C8C8C8;
       --text-muted-global: #999999;
-      
+
+      /* Fondos */
+      --bg-white: #ffffff;
+      --bg-light: #f8fafc;
+      --bg-blue-light: #f0f9ff;
+
+      /* Bordes */
+      --border-light: #e2e8f0;
+      --border-medium: #cbd5e1;
+
+      /* Glass */
+      --glass-bg: rgba(30, 41, 59, 0.98);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glow-red: rgba(255, 0, 0, 0.6);
+
+      /* Sombras */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
+
+      /* Tipografía */
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      /* Radios */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+
+      /* Espaciado */
       --space-xs: 0.25rem;
       --space-sm: 0.5rem;
       --space-md: 1rem;
       --space-lg: 1.5rem;
       --space-xl: 2.5rem;
-      
-      --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
+
+      /* Transiciones */
+      --transition-fast: 0.15s ease;
+      --transition-normal: 0.3s ease;
+      --transition-slow: 0.4s ease;
+      --transition-base: 0.3s ease;
+
+      /* Layout */
+      --header-height: 120px;
+      --container-max: 1280px;
     }
 
     /* ============================================
@@ -319,18 +321,21 @@
        ============================================ */
     .header {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(0,0,0,0.95);
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.95);
       backdrop-filter: blur(20px);
       z-index: 1000;
       padding: 0.75rem 0;
       transition: all var(--transition-normal);
       border-bottom: 1px solid #8B0000;
     }
+
     .header.scrolled {
       background: rgba(110, 4, 4, 0.95);
-      border-color: rgba(255,255,255,0.1);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .nav-container {
@@ -349,7 +354,11 @@
       object-fit: contain;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
-    .header .logo:hover { transform: scale(1.05); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); }
+
+    .header .logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    }
 
     .nav-menu {
       display: flex;
@@ -369,6 +378,7 @@
       align-items: center;
       gap: 0.5rem;
     }
+
     .nav-menu a:hover,
     .nav-menu a:focus {
       color: var(--color-white);
@@ -376,7 +386,9 @@
     }
 
     /* Dropdowns */
-    .nav-item { position: relative; }
+    .nav-item {
+      position: relative;
+    }
     
     .dropdown-menu,
     .dropdown-submenu-menu {
@@ -395,8 +407,17 @@
       box-shadow: var(--shadow-modal);
       backdrop-filter: blur(10px);
     }
-    .dropdown-menu { top: 100%; left: 0; margin-top: 0.5rem; }
-    .dropdown-submenu-menu { top: 0; left: 100%; }
+
+    .dropdown-menu {
+      top: 100%;
+      left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-submenu-menu {
+      top: 0;
+      left: 100%;
+    }
 
     .nav-item:hover .dropdown-menu,
     .nav-item:focus-within .dropdown-menu,
@@ -415,6 +436,7 @@
       border-radius: 0;
       justify-content: flex-start;
     }
+
     .dropdown-menu a:hover,
     .dropdown-menu a:focus,
     .dropdown-submenu-menu a:hover,
@@ -423,6 +445,7 @@
       color: var(--color-white);
       padding-left: 1.5rem;
     }
+
     .dropdown-menu a svg,
     .dropdown-submenu-menu a svg {
       color: var(--color-green);
@@ -439,9 +462,10 @@
       font-weight: 600;
       color: var(--color-white);
     }
+
     .cta-header:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
     }
 
     .mobile-toggle {
@@ -454,19 +478,27 @@
       padding: 0.5rem;
       border-radius: var(--radius-sm);
     }
+
     .mobile-toggle:hover,
-    .mobile-toggle:focus { background: rgba(255,255,255,0.1); }
+    .mobile-toggle:focus {
+      background: rgba(255, 255, 255, 0.1);
+    }
 
     /* Responsive Header */
     @media (max-width: 768px) {
-      :root { --header-height: 64px; }
+      :root {
+        --header-height: 64px;
+      }
       
-      .mobile-toggle { display: block; }
+      .mobile-toggle {
+        display: block;
+      }
       
       .nav-menu {
         position: fixed;
         top: var(--header-height);
-        left: 0; right: 0;
+        left: 0;
+        right: 0;
         height: calc(100vh - var(--header-height));
         background: rgba(15, 23, 42, 0.98);
         flex-direction: column;
@@ -478,7 +510,10 @@
         transition: transform var(--transition-normal);
         z-index: 999;
       }
-      .nav-menu.active { transform: translateY(0); }
+
+      .nav-menu.active {
+        transform: translateY(0);
+      }
       
       .dropdown-menu,
       .dropdown-submenu-menu {
@@ -497,6 +532,7 @@
         overflow: hidden;
         transition: max-height var(--transition-normal);
       }
+
       .nav-item.active > .dropdown-menu,
       .dropdown-submenu.active > .dropdown-submenu-menu {
         max-height: 500px;
@@ -515,7 +551,10 @@
         margin-left: auto;
         transition: transform var(--transition-fast);
       }
-      .nav-item.active > a::after { transform: rotate(180deg); }
+
+      .nav-item.active > a::after {
+        transform: rotate(180deg);
+      }
       
       .dropdown-submenu > a::after {
         border-left: 4px solid currentColor;
@@ -524,7 +563,10 @@
         border-right: 0;
         margin-left: 0.25rem;
       }
-      .dropdown-submenu.active > a::after { transform: rotate(90deg); }
+
+      .dropdown-submenu.active > a::after {
+        transform: rotate(90deg);
+      }
     }
 
     /* ============================================
@@ -877,12 +919,6 @@
       background-color: var(--hp-blue-deep);
     }
 
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
     .portfolio-panel {
       display: none;
     }
@@ -1230,87 +1266,98 @@
     /* ============================================
        11. FOOTER
        ============================================ */
-    .site-footer { 
-      background: #000000; 
-      color: #ffffff; 
-      padding: 4rem 0 1.5rem; 
+    .site-footer {
+      background: #000000;
+      color: #ffffff;
+      padding: 4rem 0 1.5rem;
     }
-    .footer-content { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 2rem; 
-      margin-bottom: 3rem; 
-      text-align: left; 
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+      text-align: left;
     }
-    .site-footer h3, 
-    .site-footer h4 { 
-      font-size: 1rem; 
-      font-weight: 700; 
-      line-height: 1.6; 
-      color: var(--color-white); 
-      margin-bottom: 1rem; 
-    } 
-    .site-footer p { 
-      font-size: 1rem; 
-      font-weight: 400; 
-      line-height: 1.6; 
-      color: var(--color-white); 
-      margin-bottom: 1rem; 
+
+    .site-footer h3,
+    .site-footer h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.6;
+      color: var(--color-white);
+      margin-bottom: 1rem;
     }
+
+    .site-footer p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--color-white);
+      margin-bottom: 1rem;
+    }
+
     .site-footer a {
       color: inherit;
       text-decoration: none;
       transition: opacity var(--transition-fast);
     }
+
     .site-footer a:hover {
       opacity: 0.8;
     }
+
     .footer-contact-link {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       transition: color 0.3s ease;
     }
+
     .footer-contact-link:hover {
       color: var(--color-green);
     }
+
     .footer-contact-link svg {
       flex-shrink: 0;
       width: 18px;
       height: 18px;
     }
     
-    .social-links { 
-      display: flex; 
-      gap: 1rem; 
-      flex-wrap: wrap; 
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .social-links a { 
-      width: 40px; 
-      height: 40px; 
-      background: rgba(255,255,255,0.1); 
-      border-radius: 50%; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      color: var(--color-white); 
-      transition: var(--transition-base); 
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-white);
+      transition: var(--transition-base);
     }
-    .social-links a:hover { 
-      background: var(--color-red); 
-      transform: translateY(-3px); 
+
+    .social-links a:hover {
+      background: var(--color-red);
+      transform: translateY(-3px);
     }
+
     .social-links svg {
       width: 18px;
       height: 18px;
     }
     
-    .copyright { 
-      text-align: center; 
-      padding-top: 2rem; 
-      border-top: 1px solid rgba(255,255,255,0.1); 
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: #ffffff;
-      font-size: 0.85rem; 
+      font-size: 0.85rem;
     }
 
     .copyright a:hover {
@@ -1321,53 +1368,58 @@
     /* ============================================
        12. WHATSAPP FLOAT
        ============================================ */
-    .whatsapp-float { 
-      position: fixed; 
-      width: 60px; 
-      height: 60px; 
-      bottom: 2rem; 
-      right: 2rem; 
-      background: linear-gradient(135deg, #25d366, #128c7e); 
-      color: var(--color-white); 
-      border-radius: 50%; 
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4); 
-      z-index: 9999; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      transition: var(--transition-base); 
-      text-decoration: none; 
-      animation: pulse-whatsapp 2s infinite; 
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: var(--color-white);
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-base);
+      text-decoration: none;
+      animation: pulse-whatsapp 2s infinite;
     }
+
     .whatsapp-float svg {
       width: 2rem;
       height: 2rem;
     }
-    .whatsapp-float:hover, 
-    .whatsapp-float:focus { 
-      transform: scale(1.1); 
-      box-shadow: 0 8px 30px rgba(37,211,102,0.5); 
-      outline: none; 
-      animation: none; 
+
+    .whatsapp-float:hover,
+    .whatsapp-float:focus {
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+      outline: none;
+      animation: none;
     }
-    @keyframes pulse-whatsapp { 
-      0% { 
-        box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.5); 
-      } 
-      50% { 
-        box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0); 
-      } 
-      100% { 
-        box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.5); 
-      } 
-    }
-    @media (max-width: 600px) { 
-      .whatsapp-float { 
-        width: 56px; 
-        height: 56px; 
-        bottom: 1.5rem; 
-        right: 1.5rem; 
+
+    @keyframes pulse-whatsapp {
+      0% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5);
       }
+      50% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
+
       .whatsapp-float svg {
         width: 1.75rem;
         height: 1.75rem;
@@ -1388,7 +1440,10 @@
       justify-content: center;
       padding: 1.5rem;
     }
-    .modal.active { display: flex; }
+
+    .modal.active {
+      display: flex;
+    }
     
     .modal-content {
       background: #8B0000;
@@ -1403,9 +1458,16 @@
       animation: slideIn 0.3s ease;
       position: relative;
     }
+
     @keyframes slideIn {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+      from {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     .modal-header {
@@ -1417,15 +1479,17 @@
       border-bottom: 2px solid #f1f5f9;
       gap: 1rem;
     }
-    .modal-title { 
-      font-size: 1.5rem; 
-      font-weight: 700; 
-      line-height: 1.3; 
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
       color: #ffffff;
       background-color: #000000;
       padding: 0.5rem 1rem;
       border-radius: var(--radius-sm);
     }
+
     .modal-close {
       background: none;
       border: none;
@@ -1436,10 +1500,14 @@
       border-radius: 50%;
       transition: all var(--transition-fast);
       line-height: 1;
-      width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
+
     .modal-close:hover,
     .modal-close:focus {
       background: #f1f5f9;
@@ -1447,7 +1515,10 @@
       outline: none;
     }
 
-    .form-group-modal { margin-bottom: 1.25rem; }
+    .form-group-modal {
+      margin-bottom: 1.25rem;
+    }
+
     .form-group-modal label {
       display: block;
       margin-bottom: 0.5rem;
@@ -1455,6 +1526,7 @@
       color: #ffffff;
       font-size: 0.95rem;
     }
+
     .form-group-modal input,
     .form-group-modal textarea {
       width: 100%;
@@ -1467,14 +1539,19 @@
       background: #fff;
       color: #1e293b;
     }
+
     .form-group-modal input::placeholder,
-    .form-group-modal textarea::placeholder { color: #94a3b8; }
+    .form-group-modal textarea::placeholder {
+      color: #94a3b8;
+    }
+
     .form-group-modal input:focus,
     .form-group-modal textarea:focus {
       outline: none;
       border-color: #8B0000;
       box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.25);
     }
+
     .form-group-modal input.is-invalid,
     .form-group-modal textarea.is-invalid {
       border-color: #ff6b6b;
@@ -1498,16 +1575,19 @@
       justify-content: center;
       gap: 0.5rem;
     }
+
     .cta-modal:hover,
     .cta-modal:focus {
       transform: translateY(-2px);
       box-shadow: 0 12px 30px rgba(139, 0, 0, 0.5);
       outline: none;
     }
+
     .cta-modal:disabled {
       opacity: 0.6;
       cursor: not-allowed;
     }
+
     .cta-modal svg {
       width: 1rem;
       height: 1rem;
@@ -1521,26 +1601,44 @@
       color: #fff;
       border-radius: var(--radius-md);
     }
-    .success-message svg { 
+
+    .success-message svg {
       width: 3rem;
       height: 3rem;
       margin: 0 auto 0.75rem;
     }
-    .success-message h4 { margin-bottom: 0.5rem; font-size: 1.25rem; }
-    .success-message p { opacity: 0.95; }
 
-    .form-message { 
-      margin-top: 0.75rem; 
-      font-size: 0.875rem; 
-      text-align: center; 
-      min-height: 1.2em; 
+    .success-message h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
     }
-    .form-message.success { color: var(--color-green); }
-    .form-message.error { color: #ff6b6b; }
+
+    .success-message p {
+      opacity: 0.95;
+    }
+
+    .form-message {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      text-align: center;
+      min-height: 1.2em;
+    }
+
+    .form-message.success {
+      color: var(--color-green);
+    }
+
+    .form-message.error {
+      color: #ff6b6b;
+    }
 
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* ============================================
@@ -1657,7 +1755,7 @@
 <header class="header" id="header">
     <div class="container nav-container">
         <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
-            <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+            <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="480" height="120"/>
         </a>
         
         <nav aria-label="Navegación principal">
@@ -1703,7 +1801,7 @@
                                 <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
                             </a>
                             <ul class="dropdown-submenu-menu">
-                                <li><a href="consumibles.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
+                                <li><a href="consumables.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
                                 <li><a href="design-jet.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-designjet"/></svg> DesignJet</a></li>
                                 <li><a href="page-wide.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-pagewide"/></svg> PageWide</a></li>
                             </ul>
@@ -1722,7 +1820,7 @@
                 </li>
                 <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
                 <li><a href="../../index.html#casos">Casos</a></li>
-                <li><a href="#contacto" class="textbutton-trigger">Contáctanos</a></li>
+                <li><a href="#contacto" class="textbutton-trigger" type="button">Contáctanos</a></li>
             </ul>
         </nav>
         
@@ -1949,9 +2047,9 @@
       </div>
 
       <div class="portfolio-tabs" role="tablist">
-        <button class="tab-btn active" data-tab="designjet" role="tab" aria-selected="true" aria-controls="panel-designjet">DesignJet</button>
-        <button class="tab-btn" data-tab="pagewide" role="tab" aria-selected="false" aria-controls="panel-pagewide">PageWide XL</button>
-        <button class="tab-btn" data-tab="pagewide-pro" role="tab" aria-selected="false" aria-controls="panel-pagewide-pro">PageWide XL Pro</button>
+        <button class="tab-btn active" id="tab-designjet" data-tab="designjet" role="tab" aria-selected="true" aria-controls="panel-designjet">DesignJet</button>
+        <button class="tab-btn" id="tab-pagewide" data-tab="pagewide" role="tab" aria-selected="false" aria-controls="panel-pagewide">PageWide XL</button>
+        <button class="tab-btn" id="tab-pagewide-pro" data-tab="pagewide-pro" role="tab" aria-selected="false" aria-controls="panel-pagewide-pro">PageWide XL Pro</button>
       </div>
 
       <!-- Panel DesignJet -->
@@ -1959,7 +2057,7 @@
         <article class="product-card">
           <span class="product-badge">DesignJet</span>
           <h3 class="product-name">T850</h3>
-          <img src="../../assets/images/images_home-hp/designjet_t850.avif" alt="HP DesignJet T850" class="product-image" loading="lazy" />
+          <img src="../../assets/images/images_home-hp/designjet_t850.avif" alt="HP DesignJet T850 - Impresora compacta para pequeñas oficinas" class="product-image" loading="lazy" />
           <p class="product-description">Pequeñas oficinas. Impresión técnica de calidad compacta.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill" style="width: 33%;"></div></div>
@@ -1974,6 +2072,7 @@
         <article class="product-card">
           <span class="product-badge">DesignJet</span>
           <h3 class="product-name">T950</h3>
+          <img src="../../assets/images/images_home-hp/designjet_t950.avif" alt="HP DesignJet T950 - Equipo de trabajo con mayor velocidad" class="product-image" loading="lazy" />
           <p class="product-description">Equipos de trabajo. Mayor velocidad y conectividad avanzada.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill" style="width: 66%;"></div></div>
@@ -1988,6 +2087,7 @@
         <article class="product-card">
           <span class="product-badge">DesignJet</span>
           <h3 class="product-name">XL 3600</h3>
+          <img src="../../assets/images/images_home-hp/designjet_xl3600.avif" alt="HP DesignJet XL 3600 - Multirrollo para departamentos corporativos" class="product-image" loading="lazy" />
           <p class="product-description">Departamentos corporativos. Multirrollo, gran volumen.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill" style="width: 100%;"></div></div>
@@ -2005,6 +2105,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL</span>
           <h3 class="product-name">4250</h3>
+          <img src="../../assets/images/images_home-hp/pagewide_4250.avif" alt="HP PageWide XL 4250 - Entrada a producción de alto volumen" class="product-image" loading="lazy" />
           <p class="product-description">Entrada a producción. Velocidad y calidad a menor inversión.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 33%;"></div></div>
@@ -2019,6 +2120,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL</span>
           <h3 class="product-name">5200</h3>
+          <img src="../../assets/images/images_home-hp/pagewide_5200.avif" alt="HP PageWide XL 5200 - Alta producción con excelente costo por página" class="product-image" loading="lazy" />
           <p class="product-description">Alta producción. 30 A1/min con excelente costo por página.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 66%;"></div></div>
@@ -2033,6 +2135,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL</span>
           <h3 class="product-name">8200</h3>
+          <img src="../../assets/images/images_home-hp/pagewide_8200.avif" alt="HP PageWide XL 8200 - Producción masiva con doble rollo" class="product-image" loading="lazy" />
           <p class="product-description">Producción masiva. Doble rollo, máximo rendimiento.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 100%;"></div></div>
@@ -2050,6 +2153,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL Pro</span>
           <h3 class="product-name">5200 Pro</h3>
+          <img src="../../assets/images/images_home-hp/pagewide_pro_5200.avif" alt="HP PageWide XL Pro 5200 - Técnica y gráfica con colores de alto impacto" class="product-image" loading="lazy" />
           <p class="product-description">Técnica + gráfica. Colores de alto impacto en producción.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 33%;"></div></div>
@@ -2064,6 +2168,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL Pro</span>
           <h3 class="product-name">8200 Pro</h3>
+          <img src="../../assets/images/images_home-hp/pagewide_pro_8200.avif" alt="HP PageWide XL Pro 8200 - Alta producción gráfica con calidad fotográfica" class="product-image" loading="lazy" />
           <p class="product-description">Alta producción gráfica. Calidad fotográfica a escala.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 66%;"></div></div>
@@ -2078,6 +2183,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL Pro</span>
           <h3 class="product-name">10000 Pro</h3>
+          <img src="../../assets/images/images_home-hp/pagewide_pro_10000.avif" alt="HP PageWide XL Pro 10000 - Líder de velocidad en producción industrial" class="product-image" loading="lazy" />
           <p class="product-description">Producción industrial. El líder de velocidad en su clase.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 100%;"></div></div>
