@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadgraphics - Autodesk Platinum Partner | Realidad Digital</title>
+    <meta name="description" content="Como Platinum Partner de Autodesk, Cadgraphics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           1. VARIABLES Y RESET
+           ============================================ */
+        :root {
+            --color-yellow: #E8FF00;
+            --color-yellow-dark: #C8DC00;
+            --color-black: #000000;
+            --color-black-light: #0a0a0a;
+            --color-black-card: #111111;
+            --color-black-hover: #1a1a1a;
+            --color-white: #ffffff;
+            --color-gray: #888888;
+            --color-gray-light: #aaaaaa;
+            --color-gray-dark: #333333;
+            --color-blue-specialized: #2E86AB;
+            
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            --spacing-2xl: 8rem;
+            
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-white);
+            background-color: var(--color-black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* ============================================
+           2. UTILIDADES
+           ============================================ */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--color-yellow);
+        }
+
+        .section-label--light {
+            color: var(--color-gray);
+        }
+
+        .section-label--dark {
+            color: var(--color-gray);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .section-title .highlight {
+            color: var(--color-yellow);
+        }
+
+        .section-title .underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title .underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0.05em;
+            left: 0;
+            width: 100%;
+            height: 0.15em;
+            background-color: var(--color-yellow);
+            z-index: -1;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            color: var(--color-gray);
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .bg-grid {
+            position: relative;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .bg-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+        }
+
+        /* ============================================
+           3. BOTONES
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.125rem 2rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: 2px solid transparent;
+            white-space: nowrap;
+        }
+
+        .btn--primary {
+            background-color: var(--color-yellow);
+            color: var(--color-black);
+            border-color: var(--color-yellow);
+        }
+
+        .btn--primary:hover {
+            background-color: var(--color-white);
+            border-color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .btn--primary:hover .btn__arrow {
+            transform: translateX(4px);
+        }
+
+        .btn--outline {
+            background-color: transparent;
+            color: var(--color-white);
+            border-color: var(--color-gray-dark);
+        }
+
+        .btn--outline:hover {
+            border-color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .btn--dark {
+            background-color: var(--color-black);
+            color: var(--color-yellow);
+            border-color: var(--color-black);
+        }
+
+        .btn--dark:hover {
+            background-color: var(--color-black-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn__arrow {
+            transition: transform var(--transition-fast);
+            font-size: 1.2em;
+        }
+
+        /* ============================================
+           4. HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+            overflow: hidden;
+            background-color: var(--color-black);
+        }
+
+        .hero__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) brightness(0.3) contrast(1.2);
+            z-index: 0;
+        }
+
+        .hero__background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%);
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero__partner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__partner-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .hero__partner-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .hero__partner-logo-text {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+
+        .hero__partner-sub {
+            font-size: 0.9rem;
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .hero__title {
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .hero__title .highlight {
+            color: var(--color-yellow);
+            display: block;
+        }
+
+        .hero__subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: var(--color-gray-light);
+            max-width: 750px;
+            margin: 0 auto var(--spacing-lg);
+            line-height: 1.6;
+        }
+
+        .hero__cta {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero__badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero__badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--color-gray-light);
+        }
+
+        .hero__badge svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-yellow);
+            flex-shrink: 0;
+        }
+
+        .hero__scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-yellow);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+            50% { opacity: 0.5; transform: translateX(-50%) scale(1.5); }
+        }
+
+        /* ============================================
+           5. PORTFOLIO - COLECCIONES
+           ============================================ */
+        .portfolio {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .portfolio .section-label {
+            color: var(--color-gray);
+        }
+
+        .portfolio .section-subtitle {
+            color: var(--color-gray);
+        }
+
+        .portfolio__header {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background-color: var(--color-gray-dark);
+            border: 2px solid var(--color-black);
+        }
+
+        .collection-card {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            padding: var(--spacing-lg);
+            position: relative;
+            transition: all var(--transition-normal);
+            overflow: hidden;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 40px 40px 0;
+            border-color: transparent var(--color-yellow) transparent transparent;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .collection-card:hover::before {
+            opacity: 1;
+        }
+
+        .collection-card__number {
+            position: absolute;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--color-yellow);
+            opacity: 0.7;
+        }
+
+        .collection-card__logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .collection-card__logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .collection-card__logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .collection-card__logo-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .collection-card__title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+
+        .collection-card__desc {
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.5;
+        }
+
+        .collection-card__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .collection-card__tag {
+            padding: 0.4rem 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            border: 1px solid var(--color-gray-dark);
+            color: var(--color-gray-light);
+            transition: all var(--transition-fast);
+        }
+
+        .collection-card:hover .collection-card__tag {
+            border-color: var(--color-yellow);
+            color: var(--color-yellow);
+        }
+
+        .portfolio__cta {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        .portfolio__cta .btn {
+            min-width: 320px;
+        }
+
+        /* ============================================
+           6. VENTAJAS
+           ============================================ */
+        .advantages {
+            padding: var(--spacing-2xl) 0;
+            position: relative;
+        }
+
+        .advantages__header {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .advantage-card {
+            background-color: var(--color-black);
+            padding: var(--spacing-lg);
+            position: relative;
+            transition: all var(--transition-normal);
+            border: 1px solid transparent;
+        }
+
+        .advantage-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: var(--spacing-lg);
+            width: 0;
+            height: 2px;
+            background-color: var(--color-yellow);
+            transition: width var(--transition-normal);
+        }
+
+        .advantage-card:hover {
+            background-color: var(--color-black-hover);
+        }
+
+        .advantage-card:hover::after {
+            width: 60px;
+        }
+
+        .advantage-card__icon {
+            width: 56px;
+            height: 56px;
+            border: 1.5px solid var(--color-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            transition: all var(--transition-normal);
+        }
+
+        .advantage-card:hover .advantage-card__icon {
+            background-color: var(--color-yellow);
+        }
+
+        .advantage-card__icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-yellow);
+            transition: color var(--transition-normal);
+        }
+
+        .advantage-card:hover .advantage-card__icon svg {
+            color: var(--color-black);
+        }
+
+        .advantage-card__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
+        }
+
+        .advantage-card__text {
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            line-height: 1.6;
+        }
+
+        .advantage-card--stats {
+            background-color: var(--color-yellow);
+            color: var(--color-black);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .advantage-card--stats::after {
+            display: none;
+        }
+
+        .advantage-card--stats:hover {
+            background-color: var(--color-yellow);
+        }
+
+        .stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .stat-item__number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item__label {
+            font-size: 0.9rem;
+            color: var(--color-black);
+            opacity: 0.8;
+        }
+
+        /* ============================================
+           7. CTA SECTION
+           ============================================ */
+        .cta-section {
+            padding: var(--spacing-2xl) 0;
+            position: relative;
+        }
+
+        .cta-box {
+            background-color: var(--color-black);
+            border: 2px solid var(--color-gray-dark);
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            text-align: center;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .cta-box::before,
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-color: var(--color-yellow);
+            border-style: solid;
+        }
+
+        .cta-box::before {
+            top: -2px;
+            left: -2px;
+            border-width: 4px 0 0 4px;
+        }
+
+        .cta-box::after {
+            bottom: -2px;
+            right: -2px;
+            border-width: 0 4px 4px 0;
+        }
+
+        .cta-box__label {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            color: var(--color-yellow);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-box__title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-box__subtitle {
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-box__actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+           8. CREDENCIALES
+           ============================================ */
+        .credentials {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            padding: var(--spacing-2xl) 0;
+            overflow: hidden;
+        }
+
+        .credentials .section-label {
+            color: var(--color-gray);
+        }
+
+        .credentials .section-subtitle {
+            color: var(--color-gray);
+        }
+
+        .credentials__header {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .credentials__carousel {
+            display: flex;
+            gap: var(--spacing-md);
+            overflow-x: auto;
+            padding: var(--spacing-md) 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .credentials__carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .credential-badge {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            width: 200px;
+            height: 220px;
+            position: relative;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .credential-badge:hover {
+            transform: translateY(-8px);
+        }
+
+        .badge-shape {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+            text-align: center;
+        }
+
+        .badge-shape--rect {
+            background-color: #4a4a4a;
+            clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
+        }
+
+        .badge-shape--hex {
+            background-color: transparent;
+            border: 3px solid #999;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        .badge-shape--shield {
+            background-color: #666;
+            clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
+        }
+
+        .badge__logo {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            color: var(--color-white);
+        }
+
+        .badge__title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .badge__subtitle {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .badge__bottom {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-white);
+            background-color: rgba(0,0,0,0.3);
+            padding: 0.25rem 0.75rem;
+            white-space: nowrap;
+        }
+
+        .credential-badge:hover .badge-shape--rect {
+            background-color: var(--color-black);
+        }
+
+        .credential-badge:hover .badge-shape--hex {
+            border-color: #6366f1;
+        }
+
+        .credential-badge:hover .badge-shape--shield {
+            background-color: var(--color-black);
+        }
+
+        .credential-badge[data-type="specialized"]:hover .badge__bottom {
+            background-color: var(--color-blue-specialized);
+        }
+
+        .credentials__table {
+            margin-top: var(--spacing-xl);
+            border: 1px solid #e5e5e5;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .credentials__table-cell {
+            padding: var(--spacing-lg);
+            border-right: 1px solid #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-sm);
+            transition: all var(--transition-normal);
+            cursor: default;
+        }
+
+        .credentials__table-cell:last-child {
+            border-right: none;
+        }
+
+        .credentials__table-cell:hover {
+            background-color: var(--color-black);
+            color: var(--color-yellow);
+        }
+
+        .credentials__table-cell:hover .table-cell__label {
+            color: var(--color-gray);
+        }
+
+        .credentials__table-cell:hover .table-cell__value {
+            color: var(--color-yellow);
+        }
+
+        .table-cell__label {
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            transition: color var(--transition-normal);
+        }
+
+        .table-cell__value {
+            font-size: 1.25rem;
+            font-weight: 800;
+            transition: color var(--transition-normal);
+        }
+
+        .table-cell__value .number {
+            display: block;
+            font-size: 1.5rem;
+        }
+
+        /* ============================================
+           9. CASOS DE ÉXITO
+           ============================================ */
+        .cases {
+            padding: var(--spacing-2xl) 0;
+            position: relative;
+        }
+
+        .cases__header {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background-color: rgba(255,255,255,0.05);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .case-card {
+            background-color: var(--color-black);
+            position: relative;
+        }
+
+        .case-card__image {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .case-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: all var(--transition-slow);
+        }
+
+        .case-card:hover .case-card__image img {
+            filter: brightness(0.5);
+            transform: scale(1.05);
+        }
+
+        .case-card__result {
+            position: absolute;
+            top: var(--spacing-md);
+            left: var(--spacing-md);
+            background-color: var(--color-yellow);
+            color: var(--color-black);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .case-card__play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            border: 2px solid var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: all var(--transition-normal);
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        .case-card:hover .case-card__play {
+            border-color: var(--color-yellow);
+            background-color: rgba(232, 255, 0, 0.2);
+        }
+
+        .case-card__play svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-white);
+            margin-left: 4px;
+        }
+
+        .case-card__content {
+            padding: var(--spacing-lg);
+        }
+
+        .case-card__client {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-sm);
+            text-transform: uppercase;
+        }
+
+        .case-card__title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.3;
+        }
+
+        .case-card__text {
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .case-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-yellow);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: gap var(--transition-fast);
+        }
+
+        .case-card__link:hover {
+            gap: 0.75rem;
+        }
+
+        .cases__cta {
+            text-align: center;
+        }
+
+        .cases__cta .btn {
+            min-width: 320px;
+        }
+
+        /* ============================================
+           10. ANIMACIONES
+           ============================================ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.1s; }
+        .fade-in-delay-2 { transition-delay: 0.2s; }
+        .fade-in-delay-3 { transition-delay: 0.3s; }
+        .fade-in-delay-4 { transition-delay: 0.4s; }
+
+        /* ============================================
+           11. RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .collections-grid,
+            .advantages-grid,
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials__table {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials__table-cell {
+                border-right: none;
+                border-bottom: 1px solid #e5e5e5;
+            }
+
+            .credentials__table-cell:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero__badges {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .cta-box__actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-box__actions .btn {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="hero__background"></div>
+        
+        <div class="hero__content">
+            <div class="hero__partner fade-in">
+                <div class="hero__partner-logo">
+                    <svg viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M4 28L16 4L28 28H4Z" fill="currentColor"/>
+                        <path d="M10 22H22L16 10L10 22Z" fill="white"/>
+                    </svg>
+                    <span class="hero__partner-logo-text">AUTODESK</span>
+                </div>
+                <span class="hero__partner-sub">Platinum Partner</span>
+            </div>
+
+            <h1 class="hero__title fade-in fade-in-delay-1">
+                Transformamos tu visión en
+                <span class="highlight">Realidad Digital</span>
+            </h1>
+
+            <p class="hero__subtitle fade-in fade-in-delay-2">
+                Como Platinum Partner de Autodesk, Cadgraphics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción con soporte técnico especializado y entrenamientos certificados.
+            </p>
+
+            <div class="hero__cta fade-in fade-in-delay-3">
+                <a href="#contacto" class="btn btn--primary">
+                    Solicitar Cotización
+                    <span class="btn__arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero__badges fade-in fade-in-delay-4">
+            <div class="hero__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <span>Soporte 24/7</span>
+            </div>
+            <div class="hero__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <span>Entrenamientos Certificados</span>
+            </div>
+            <div class="hero__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <span>Descuentos por Volumen</span>
+            </div>
+        </div>
+
+        <div class="hero__scroll-indicator"></div>
+    </section>
+
+    <!-- ============================================
+         PORTFOLIO - COLECCIONES
+         ============================================ -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="portfolio__header">
+                <div class="section-label section-label--dark fade-in">Portfolio</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    Colecciones de <span class="underline">Autodesk</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Accede a las mejores herramientas de diseño, ingeniería y creatividad del mercado
+                </p>
+            </div>
+
+            <div class="collections-grid">
+                <!-- Card 01 -->
+                <article class="collection-card fade-in">
+                    <span class="collection-card__number">01</span>
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="4" fill="#2E86AB"/>
+                                <path d="M10 25L20 10L30 25H10Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="collection-card__logo-text">
+                            AUTODESK<br>
+                            Architecture, Engineering<br>
+                            & Construction Collection
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Architecture, Engineering & Construction</h3>
+                    <p class="collection-card__desc">Soluciones integrales para diseño arquitectónico, ingeniería civil y gestión de construcción.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">AutoCAD</span>
+                        <span class="collection-card__tag">Revit</span>
+                        <span class="collection-card__tag">Civil 3D</span>
+                        <span class="collection-card__tag">BIM 360</span>
+                        <span class="collection-card__tag">Navisworks</span>
+                    </div>
+                </article>
+
+                <!-- Card 02 -->
+                <article class="collection-card fade-in fade-in-delay-1">
+                    <span class="collection-card__number">02</span>
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="4" fill="#E87722"/>
+                                <path d="M10 25L20 10L30 25H10Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="collection-card__logo-text">
+                            AUTODESK<br>
+                            Product Design &<br>
+                            Manufacturing Collection
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Product Design & Manufacturing</h3>
+                    <p class="collection-card__desc">Herramientas avanzadas para diseño de productos, simulación y manufactura digital.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">Inventor</span>
+                        <span class="collection-card__tag">Fusion 360</span>
+                        <span class="collection-card__tag">AutoCAD Mechanical</span>
+                        <span class="collection-card__tag">Vault</span>
+                    </div>
+                </article>
+
+                <!-- Card 03 -->
+                <article class="collection-card fade-in">
+                    <span class="collection-card__number">03</span>
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="4" fill="#5BA4CF"/>
+                                <path d="M10 25L20 10L30 25H10Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="collection-card__logo-text">
+                            AUTODESK<br>
+                            Media & Entertainment<br>
+                            Collection
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Media & Entertainment</h3>
+                    <p class="collection-card__desc">Software profesional para animación 3D, efectos visuales y producción creativa.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">Maya</span>
+                        <span class="collection-card__tag">3ds Max</span>
+                        <span class="collection-card__tag">MotionBuilder</span>
+                        <span class="collection-card__tag">Arnold</span>
+                    </div>
+                </article>
+
+                <!-- Card 04 -->
+                <article class="collection-card fade-in fade-in-delay-1">
+                    <span class="collection-card__number">04</span>
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="4" fill="white"/>
+                                <path d="M8 28L20 8L32 28H8Z" fill="black"/>
+                            </svg>
+                        </div>
+                        <div class="collection-card__logo-text" style="color: white; font-size: 1.1rem; font-weight: 800;">
+                            AUTODESK<br>Forma
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Autodesk Forma</h3>
+                    <p class="collection-card__desc">Plataforma de planificación y diseño urbano que conecta datos, equipos y flujos de trabajo en tiempo real.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">Planificación urbana</span>
+                        <span class="collection-card__tag">Análisis de sitios</span>
+                        <span class="collection-card__tag">Diseño conceptual</span>
+                        <span class="collection-card__tag">Colaboración cloud</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="portfolio__cta fade-in">
+                <a href="#" class="btn btn--dark">
+                    Explorar todas las soluciones
+                    <span class="btn__arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VENTAJAS
+         ============================================ -->
+    <section class="advantages bg-grid" id="ventajas">
+        <div class="container">
+            <div class="advantages__header">
+                <div class="section-label section-label--light fade-in">Ventajas</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    ¿Por qué elegir <span class="highlight">Cadgraphics?</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Más que un distribuidor, somos tu socio estratégico para el éxito
+                </p>
+            </div>
+
+            <div class="advantages-grid">
+                <!-- Card 1 -->
+                <article class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Soporte Técnico Especializado</h3>
+                    <p class="advantage-card__text">Equipo de expertos certificados disponibles para resolver tus consultas técnicas de forma rápida y eficiente.</p>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="advantage-card fade-in fade-in-delay-1">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Facturación Simplificada</h3>
+                    <p class="advantage-card__text">Proceso de facturación ágil y transparente adaptado a las necesidades de tu empresa.</p>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Entrenamientos, Cursos y Webinars</h3>
+                    <p class="advantage-card__text">Programas de capacitación certificados impartidos por instructores autorizados de Autodesk.</p>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="advantage-card fade-in fade-in-delay-1">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Servicio Preventa y Postventa</h3>
+                    <p class="advantage-card__text">Asesoría completa antes y después de tu compra con seguimiento continuo y soporte dedicado.</p>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Descuentos por Volumen</h3>
+                    <p class="advantage-card__text">Precios preferenciales en compras corporativas y licencias múltiples con planes flexibles.</p>
+                </article>
+
+                <!-- Card 6 - Stats -->
+                <article class="advantage-card advantage-card--stats fade-in fade-in-delay-1">
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <div class="stat-item__number">+500</div>
+                            <div class="stat-item__label">Clientes satisfechos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item__number">+1000</div>
+                            <div class="stat-item__label">Licencias activas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item__number">15+</div>
+                            <div class="stat-item__label">Años de experiencia</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         ============================================ -->
+    <section class="cta-section bg-grid" id="contacto">
+        <div class="container">
+            <div class="cta-box fade-in">
+                <div class="cta-box__label">PLATINUM PARTNER · AUTODESK</div>
+                <h2 class="cta-box__title">¿Listo para llevar tu empresa al siguiente nivel?</h2>
+                <p class="cta-box__subtitle">Descubre cómo nuestras soluciones Autodesk pueden transformar tus procesos de trabajo</p>
+                <div class="cta-box__actions">
+                    <a href="#" class="btn btn--primary">
+                        Contactar a un especialista
+                        <span class="btn__arrow">→</span>
+                    </a>
+                    <a href="#" class="btn btn--outline">Ver demostraciones</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CREDENCIALES
+         ============================================ -->
+    <section class="credentials" id="credenciales">
+        <div class="container">
+            <div class="credentials__header">
+                <div class="section-label section-label--dark fade-in">Credenciales</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    Certificaciones y <span class="underline">Especializaciones</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia y compromiso con la excelencia
+                </p>
+            </div>
+
+            <div class="credentials__carousel fade-in" id="credentialsCarousel">
+                <!-- Badge 1 -->
+                <div class="credential-badge" data-type="specialized">
+                    <div class="badge-shape badge-shape--rect">
+                        <div class="badge__logo">AUTODESK</div>
+                        <div class="badge__title">TRANSPORTATION<br>INFRASTRUCTURE</div>
+                        <div class="badge__bottom">SPECIALIZED</div>
+                    </div>
+                </div>
+
+                <!-- Badge 2 -->
+                <div class="credential-badge" data-type="skills">
+                    <div class="badge-shape badge-shape--hex">
+                        <div class="badge__logo">AUTODESK</div>
+                        <div class="badge__title">CUSTOMER<br>SUCCESS</div>
+                        <div class="badge__subtitle">ACCREDITED<br>SKILLS</div>
+                    </div>
+                </div>
+
+                <!-- Badge 3 -->
+                <div class="credential-badge" data-type="skills">
+                    <div class="badge-shape badge-shape--hex">
+                        <div class="badge__logo">AUTODESK</div>
+                        <div class="badge__title">CONSULTING<br>IMPLEMENTATION<br>FRAMEWORK</div>
+                        <div class="badge__subtitle">ACCREDITED<br>SKILLS</div>
+                    </div>
+                </div>
+
+                <!-- Badge 4 -->
+                <div class="credential-badge" data-type="platinum">
+                    <div class="badge-shape badge-shape--shield">
+                        <div class="badge__logo">AUTODESK</div>
+                        <div class="badge__title">PLATINUM</div>
+                        <div class="badge__bottom">SOLUTION PROVIDER</div>
+                    </div>
+                </div>
+
+                <!-- Badge 5 -->
+                <div class="credential-badge" data-type="specialized">
+                    <div class="badge-shape badge-shape--rect">
+                        <div class="badge__logo">AUTODESK</div>
+                        <div class="badge__title">BUILDING<br>ARCHITECTURE</div>
+                        <div class="badge__bottom">SPECIALIZED</div>
+                    </div>
+                </div>
+
+                <!-- Badge 6 -->
+                <div class="credential-badge" data-type="specialized">
+                    <div class="badge-shape badge-shape--rect">
+                        <div class="badge__logo">AUTODESK</div>
+                        <div class="badge__title">CONSTRUCTION</div>
+                        <div class="badge__bottom">SPECIALIZED</div>
+                    </div>
+                </div>
+
+                <!-- Badge 7 -->
+                <div class="credential-badge" data-type="specialized">
+                    <div class="badge-shape badge-shape--rect">
+                        <div class="badge__logo">AUTODESK</div>
+                        <div class="badge__title">MECHANICAL,<br>ELECTRICAL &<br>PLUMBING</div>
+                        <div class="badge__bottom">SPECIALIZED</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="credentials__table fade-in">
+                <div class="credentials__table-cell">
+                    <span class="table-cell__label">Partner<br>Certificado</span>
+                    <span class="table-cell__value">Desde<br><span class="number">2010</span></span>
+                </div>
+                <div class="credentials__table-cell">
+                    <span class="table-cell__label">Especializaciones<br>activas</span>
+                    <span class="table-cell__value"><span class="number">7</span>Credenciales</span>
+                </div>
+                <div class="credentials__table-cell">
+                    <span class="table-cell__label">Nivel de<br>partnership</span>
+                    <span class="table-cell__value">Platinum</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CASOS DE ÉXITO
+         ============================================ -->
+    <section class="cases bg-grid" id="casos">
+        <div class="container">
+            <div class="cases__header">
+                <div class="section-label section-label--light fade-in">Resultados</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    Casos de <span class="highlight">Éxito</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Historias reales de empresas que transformaron sus procesos con nuestras soluciones
+                </p>
+            </div>
+
+            <div class="cases-grid">
+                <!-- Case 1 -->
+                <article class="case-card fade-in">
+                    <div class="case-card__image">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Equipo de construcción en obra">
+                        <div class="case-card__result">-40% tiempo de entrega</div>
+                        <button class="case-card__play" aria-label="Ver video">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="case-card__content">
+                        <div class="case-card__client">Grupo Constructor ABC</div>
+                        <h3 class="case-card__title">Transformación Digital en Construcción</h3>
+                        <p class="case-card__text">Implementamos BIM 360 y Revit para optimizar la gestión de proyectos, reduciendo tiempos de entrega en un 40% y mejorando la colaboración entre equipos multidisciplinarios.</p>
+                        <a href="#" class="case-card__link">
+                            Ver documental completo
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Case 2 -->
+                <article class="case-card fade-in fade-in-delay-1">
+                    <div class="case-card__image">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="Diseño de producto en escritorio">
+                        <div class="case-card__result">-60% tiempo de prototipado</div>
+                        <button class="case-card__play" aria-label="Ver video">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="case-card__content">
+                        <div class="case-card__client">Industrias Manufactura XYZ</div>
+                        <h3 class="case-card__title">Innovación en Diseño de Productos</h3>
+                        <p class="case-card__text">La implementación de Fusion 360 e Inventor aceleró el proceso de prototipado en un 60% y redujo costos de producción significativamente.</p>
+                        <a href="#" class="case-card__link">
+                            Ver documental completo
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="cases__cta fade-in">
+                <a href="#" class="btn btn--outline">Ver todos los casos de éxito</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /**
+         * Cadgraphics Landing Page Controller
+         * Autor: Experto en Marcado (20+ años)
+         * Descripción: Controlador principal para animaciones al scroll,
+         *              carrusel de credenciales y efectos de interacción.
+         */
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. ANIMACIONES AL SCROLL (Intersection Observer)
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            // 2. CARRUSEL DE CREDENCIALES CON DRAG
+            const carousel = document.getElementById('credentialsCarousel');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.style.cursor = 'grabbing';
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+            });
+
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+            });
+
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+
+            // Cursor grab por defecto
+            carousel.style.cursor = 'grab';
+
+            // 3. SCROLL SUAVE PARA ENLACES INTERNOS
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // 4. PARALLAX SUTIL EN HERO
+            const heroBackground = document.querySelector('.hero__background');
+            let ticking = false;
+
+            const updateParallax = () => {
+                const scrolled = window.pageYOffset;
+                if (scrolled < window.innerHeight) {
+                    heroBackground.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+                ticking = false;
+            };
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            });
+
+            // 5. BOTONES PLAY DE CASOS DE ÉXITO
+            const playButtons = document.querySelectorAll('.case-card__play');
+            playButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Aquí se integraría el modal de video
+                    console.log('Reproduciendo video del caso de éxito');
+                });
+            });
+
+            // 6. INDICADOR DE SCROLL - OCULTAR AL HACER SCROLL
+            const scrollIndicator = document.querySelector('.hero__scroll-indicator');
+            if (scrollIndicator) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100) {
+                        scrollIndicator.style.opacity = '0';
+                    } else {
+                        scrollIndicator.style.opacity = '1';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
