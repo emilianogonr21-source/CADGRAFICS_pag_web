@@ -784,6 +784,14 @@
             line-height: 1.3;
         }
 
+        .collection-card__logo-image {
+            display: block;
+            width: 100%;
+            max-width: 260px;
+            height: auto;
+            object-fit: contain;
+        }
+
         .collection-card__title {
             font-size: 1.5rem;
             font-weight: 800;
@@ -1866,11 +1874,12 @@
                                 <path d="M10 25L20 10L30 25H10Z" fill="white"/>
                             </svg>
                         </div>
-                        <div class="collection-card__logo-text">
-                            AUTODESK<br>
-                            Architecture, Engineering<br>
-                            & Construction Collection
-                        </div>
+                        <img
+                            class="collection-card__logo-image"
+                            src="../../assets/images/images_home-autodesk/aec_logo.png"
+                            alt="Autodesk AEC Collection"
+                            loading="lazy"
+                        >
                     </div>
                     <h3 class="collection-card__title">Architecture, Engineering & Construction</h3>
                     <p class="collection-card__desc">Soluciones integrales para diseño arquitectónico, ingeniería civil y gestión de construcción.</p>
