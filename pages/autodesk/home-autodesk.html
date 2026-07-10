@@ -642,14 +642,17 @@
         .collection-logo { 
             display: flex; 
             align-items: center; 
+            min-height: 56px;
             gap: 12px; 
             margin-bottom: 16px; 
         }
         
 .collection-logo-icon { 
-            width: 200px;
+            display: block;
+            width: clamp(150px, 20vw, 220px);
             height: auto; 
             flex-shrink: 0; 
+            object-fit: contain;
             filter: drop-shadow(0 2px 8px rgba(0,0,0,.2)); 
             transition: transform var(--ease), filter var(--ease); 
         }
