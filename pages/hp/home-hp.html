@@ -574,8 +574,8 @@
        ============================================ */
     .hero {
       position: relative;
-      min-height: 100vh;
-      padding: 80px 0 60px;
+      min-height: 76vh;
+      padding: 56px 0 36px;
       background:
         linear-gradient(135deg, rgba(0, 34, 51, 0.85) 0%, rgba(0, 51, 78, 0.75) 50%, rgba(0, 34, 51, 0.6) 100%),
         url('https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=1920&q=80') center/cover no-repeat;
@@ -602,15 +602,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 16px;
+      padding: 6px 12px;
       background-color: rgba(0, 150, 214, 0.2);
       border: 1px solid rgba(0, 150, 214, 0.4);
       border-radius: 50px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
       backdrop-filter: blur(10px);
     }
 
@@ -624,10 +624,10 @@
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(2rem, 4.6vw, 3.4rem);
       font-weight: 800;
       line-height: 1.05;
-      margin-bottom: 24px;
+      margin-bottom: 14px;
       letter-spacing: -0.02em;
     }
 
@@ -636,29 +636,29 @@
     }
 
     .hero-description {
-      font-size: 1.15rem;
-      line-height: 1.7;
+      font-size: 0.98rem;
+      line-height: 1.6;
       color: rgba(255, 255, 255, 0.85);
-      margin-bottom: 40px;
-      max-width: 680px;
+      margin-bottom: 20px;
+      max-width: 640px;
     }
 
     .hero-cta {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 60px;
+      gap: 10px;
+      margin-bottom: 24px;
     }
 
     .hero-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      max-width: 860px;
     }
 
     .stat-card {
-      padding: 24px;
+      padding: 14px 16px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: var(--radius-md);
@@ -1653,11 +1653,20 @@
 
     @media (max-width: 768px) {
       .hero {
-        padding: 60px 0 40px;
+        min-height: auto;
+        padding: 48px 0 32px;
+      }
+
+      .hero-badge {
+        margin-bottom: 16px;
       }
 
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
+      }
+
+      .hero-description {
+        margin-bottom: 24px;
       }
 
       .hero-cta {
