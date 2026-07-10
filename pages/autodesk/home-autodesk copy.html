@@ -1,239 +1,273 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
+    <!-- ============================================
+         METADATOS Y SEO
+         ============================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CADGRAFICS - Autodesk Platinum Partner | Realidad Digital</title>
-    <meta name="description" content="Como Platinum Partner de Autodesk, Cadgrafics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción.">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Cadgrafics - Platinum Partner de Autodesk. Soluciones avanzadas en diseño, ingeniería y construcción para los sectores AEC y MFG en México.">
+    <meta name="author" content="Cadgrafics S.A. de C.V.">
+    <meta name="theme-color" content="#7a0000">
     
-    <!-- SEO & Social Media -->
-    <link rel="canonical" href="https://cadgrafics.com.mx/">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <meta property="og:title" content="CADGRAFICS | Autodesk Platinum Partner">
-    <meta property="og:description" content="Transforma, diseña, produce y opera con tecnología especializada. Distribuidor oficial Adobe, Autodesk, Microsoft, HP y Dell.">
-    <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/og-image.jpg">
-    <meta property="og:url" content="https://cadgrafics.com.mx/">
+    <title>CADGRAFICS | Platinum Partner Autodesk - Soluciones BIM AEC y MFG</title>
+    
+    <link rel="canonical" href="https://cadgrafics.com/">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cadgrafics | Platinum Partner Autodesk">
+    <meta property="og:description" content="Soluciones avanzadas en diseño, ingeniería y construcción con soporte técnico especializado para los sectores AEC y MFG.">
+    <meta property="og:image" content="https://cadgrafics.com/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://cadgrafics.com/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Cadgrafics">
+    
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cadgrafics | Platinum Partner Autodesk">
+    <meta name="twitter:description" content="Soluciones avanzadas en diseño, ingeniería y construcción con soporte técnico especializado.">
+    <meta name="twitter:image" content="https://cadgrafics.com/assets/images/og-image.jpg">
     <meta name="twitter:site" content="@cadgrafics">
     
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-REEMPLAZAR_DESDE_SERVIDOR'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src https://fonts.gstatic.com; media-src 'self';">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    
-    <!-- Preconnect & Fonts -->
+    <!-- Preconnect para fuentes -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Cadgrafics",
+        "url": "https://cadgrafics.com",
+        "logo": "https://cadgrafics.com/assets/images/logo_cadgrafics.png",
+        "description": "Platinum Partner de Autodesk. Soluciones avanzadas en diseño, ingeniería y construcción para los sectores AEC y MFG en México.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Norte 56-A # 5204, Col. Tablas de San Agustín",
+            "addressLocality": "Ciudad de México",
+            "postalCode": "07860",
+            "addressCountry": "MX"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+52-55-2000-2550",
+            "contactType": "customer service",
+            "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+            "https://linkedin.com/company/cadgrafics",
+            "https://youtube.com/@cadgrafics1639",
+            "https://x.com/cadgrafics",
+            "https://facebook.com/Cadgrafics",
+            "https://instagram.com/cadgrafics"
+        ]
+    }
+    </script>
+    
+    <!-- ============================================
+         ESTILOS CSS CONSOLIDADOS
+         ============================================ -->
     <style>
-        /* ============================================
-           1. VARIABLES - CONSOLIDADAS
-           ============================================ */
+        /* ==========================================
+           VARIABLES GLOBALES
+           ========================================== */
         :root {
-            /* Colores principales */
-            --color-yellow: #E8FF00;
-            --color-yellow-dark: #C8DC00;
-            --color-black: #000000;
-            --color-black-light: #0a0a0a;
-            --color-black-card: #111111;
-            --color-black-hover: #1a1a1a;
-            --color-white: #ffffff;
-            --color-gray: #888888;
-            --color-gray-light: #aaaaaa;
-            --color-gray-dark: #333333;
-            --color-blue-specialized: #2E86AB;
-            
-            /* Colores adicionales */
-            --primary-red: #FF0000;
-            --secondary-red: #CC0000;
-            --dark-red: #990000;
-            --charcoal: #2A0000;
-            --color-dark: #0a0a0a;
-            --color-red: #5B0010;
-            --color-red-deep: #3d000a;
-            --color-red-light: #7B0015;
-            --color-green: #18FF5C;
-            --color-green-dark: #0d3d1f;
-            --color-green-glow: #00ff41;
-            --color-gold: #FFD700;
-            
-            /* Efectos */
-            --glow-red: rgba(255, 0, 0, 0.6);
-            --glass-bg: rgba(30, 41, 59, 0.98);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-primary: #FFFFFF;
-            --text-secondary: #C8C8C8;
-            --text-muted: #999999;
+            /* Colores */
+            --black: #000;
+            --white: #fff;
+            --gray-light: #f5f5f5;
+            --gray: #666;
+            --red-dark: #4a0000;
+            --red: #7a0000;
+            --red-bright: #a01010;
+            --red-cta: #dc2626;
+            --yellow: #ffff00;
+            --gold: #c9a227;
             
             /* Tipografía */
             --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-            --font-mono: 'Inter', system-ui, -apple-system, sans-serif;
             
-            /* Espaciado */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 1.5rem;
-            --spacing-lg: 3rem;
-            --spacing-xl: 5rem;
-            --spacing-2xl: 8rem;
+            /* Gradientes */
+            --grad-dark: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #2a0000 100%);
+            --grad-hero: linear-gradient(135deg, #2a0000 0%, #4a0000 30%, #3d2817 70%, #1a1a00 100%);
+            --grad-card: linear-gradient(145deg, #1a0000 0%, #6a0000 100%);
+            --grad-gold: linear-gradient(135deg, #c9a227 0%, #ffdd00 50%, #c9a227 100%);
             
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2.5rem;
+            /* Sombras */
+            --shadow-md: 0 4px 20px rgba(0,0,0,.15);
+            --shadow-lg: 0 8px 40px rgba(0,0,0,.3);
+            --shadow-glow: 0 0 30px rgba(255,255,0,.2);
             
-            /* Bordes y sombras */
-            --radius-sm: 6px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
-            --shadow-glow: 0 20px 50px rgba(255, 0, 0, 0.25);
-            --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
+            /* Bordes */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
             
             /* Transiciones */
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-            --transition-base: 0.25s ease;
+            --ease: .3s ease;
+            --transition-base: background-color .3s ease, color .3s ease, border-color .3s ease, transform .3s ease, box-shadow .3s ease, opacity .3s ease;
             
             /* Layout */
             --header-height: 120px;
+            --container-max: 1200px;
         }
 
-        /* ============================================
-           2. RESET & BASE
-           ============================================ */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-        }
-
-        body {
+        /* ==========================================
+           RESET Y BASE
+           ========================================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { 
             font-family: var(--font-main);
-            color: var(--color-white);
-            background-color: var(--color-black);
+            font-size: 1rem;
             line-height: 1.6;
-            font-size: 1rem;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
+            color: var(--black); 
+            overflow-x: hidden; 
+            background: var(--white); 
+        }
+        
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        button { font: inherit; cursor: pointer; border: none; background: none; }
+
+        /* ==========================================
+           UTILIDADES
+           ========================================== */
+        .visually-hidden { 
+            position: absolute; 
+            width: 1px; 
+            height: 1px; 
+            padding: 0; 
+            margin: -1px; 
+            overflow: hidden; 
+            clip: rect(0,0,0,0); 
+            white-space: nowrap; 
+            border: 0; 
+        }
+        
+        .text-yellow { color: var(--yellow); }
+        .text-red { color: #8b0000; }
+        .container { 
+            width: 100%; 
+            max-width: var(--container-max); 
+            margin: 0 auto; 
+            padding: 0 20px; 
         }
 
-        p {
-            font-size: 1rem;
-            line-height: 1.7;
+        /* ==========================================
+           ACCESIBILIDAD
+           ========================================== */
+        :focus-visible { 
+            outline: 3px solid var(--yellow); 
+            outline-offset: 2px; 
+            border-radius: 4px; 
         }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-main);
-            line-height: 1.2;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-            height: auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button {
-            font-family: inherit;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-        }
-
-        /* ============================================
-           3. ACCESSIBILITY
-           ============================================ */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--color-dark);
-            color: var(--color-white);
-            padding: 1rem 2rem;
-            border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-            z-index: 10000;
-            font-weight: 600;
-            transition: top var(--transition-fast);
-        }
-
-        .skip-link:focus {
-            top: 0;
-            outline: 3px solid var(--color-green);
-            outline-offset: 2px;
-        }
-
-        :focus-visible {
-            outline: 3px solid var(--color-green);
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
-
+        
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms;
-                animation-iteration-count: 1;
-                transition-duration: 0.01ms;
+            *, *::before, *::after { 
+                animation-duration: .01ms !important; 
+                animation-iteration-count: 1 !important; 
+                transition-duration: .01ms !important; 
+                scroll-behavior: auto !important; 
             }
+            .fade-in { opacity: 1 !important; transform: none !important; }
+            .cert-carousel-track { animation: none !important; }
         }
 
-        /* ============================================
-           4. HEADER STYLES
-           ============================================ */
+        /* ==========================================
+           TIPOGRAFÍA
+           ========================================== */
+        .section-title { 
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem); 
+            font-weight: 700; 
+            line-height: 1.2; 
+            text-align: center; 
+            margin-bottom: 1rem; 
+        }
+        
+        .section-subtitle { 
+            font-size: clamp(1rem, 1.5vw, 1.125rem); 
+            text-align: center; 
+            max-width: 700px; 
+            margin: 0 auto 2.5rem; 
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           BOTONES
+           ========================================== */
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px; 
+            padding: 14px 28px; 
+            font-size: .95rem; 
+            font-weight: 700; 
+            border: 2px solid transparent;
+            border-radius: var(--radius-sm); 
+            cursor: pointer; 
+            transition: var(--transition-base); 
+            text-align: center; 
+            font-family: var(--font-main); 
+        }
+        
+        .btn-primary { 
+            background: var(--red); 
+            color: var(--yellow); 
+            box-shadow: var(--shadow-md); 
+        }
+        
+        .btn-primary:hover { 
+            background: var(--red-bright); 
+            transform: translateY(-2px); 
+            box-shadow: var(--shadow-lg), var(--shadow-glow); 
+        }
+        
+        .btn-outline { 
+            background: transparent; 
+            color: var(--white); 
+            border: 2px solid rgba(255,255,255,.3); 
+        }
+        
+        .btn-outline:hover { 
+            border-color: var(--yellow); 
+            color: var(--yellow); 
+            transform: translateY(-2px); 
+        }
+        
+        .btn--block { width: 100%; justify-content: center; }
+
+        /* ==========================================
+           HEADER Y NAVEGACIÓN
+           ========================================== */
         .header {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             background: rgba(0,0,0,0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 0.75rem 0;
-            transition: all var(--transition-normal);
+            padding: 0;
+            transition: var(--transition-base);
             border-bottom: 1px solid #8B0000;
+            min-height: var(--header-height);
         }
-
+        
         .header.scrolled {
             background: rgba(110, 4, 4, 0.95);
             border-color: rgba(255,255,255,0.1);
@@ -244,19 +278,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 56px;
+            min-height: var(--header-height);
         }
 
         .header .logo {
-            height: 72px;
+            height: var(--header-height);
             width: auto;
             flex-shrink: 0;
-            transition: transform var(--transition-normal);
+            transition: transform var(--ease);
             display: block;
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
-
+        
         .header .logo:hover {
             transform: scale(1.05);
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
@@ -270,43 +304,44 @@
         }
 
         .nav-menu a {
-            color: var(--text-secondary);
+            color: #C8C8C8;
             text-decoration: none;
             font-weight: 500;
             padding: 0.5rem 1rem;
-            border-radius: var(--radius-sm);
-            transition: all var(--transition-fast);
+            border-radius: 8px;
+            transition: background-color .15s ease, color .15s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-
+        
         .nav-menu a:hover,
         .nav-menu a:focus {
-            color: var(--color-white);
-            background: var(--dark-red);
+            color: var(--white);
+            background: #990000;
         }
 
+        /* Dropdowns */
         .nav-item { position: relative; }
-        
+
         .dropdown-menu,
         .dropdown-submenu-menu {
             position: absolute;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
+            background: rgba(30, 41, 59, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             min-width: 240px;
             list-style: none;
             padding: 0.75rem 0;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-8px);
-            transition: all var(--transition-normal);
+            transition: opacity .3s ease, visibility .3s ease, transform .3s ease;
             z-index: 1001;
-            box-shadow: var(--shadow-modal);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
         }
-
+        
         .dropdown-menu { top: 100%; left: 0; margin-top: 0.5rem; }
         .dropdown-submenu-menu { top: 0; left: 100%; }
 
@@ -322,24 +357,24 @@
         .dropdown-menu a,
         .dropdown-submenu-menu a {
             padding: 0.85rem 1.25rem;
-            color: var(--text-secondary);
+            color: #C8C8C8;
             background: transparent;
             border-radius: 0;
             justify-content: flex-start;
         }
-
+        
         .dropdown-menu a:hover,
         .dropdown-menu a:focus,
         .dropdown-submenu-menu a:hover,
         .dropdown-submenu-menu a:focus {
             background: rgba(110, 4, 4, 0.5);
-            color: var(--color-white);
+            color: var(--white);
             padding-left: 1.5rem;
         }
-
+        
         .dropdown-menu a svg,
         .dropdown-submenu-menu a svg {
-            color: var(--color-green);
+            color: #18FF5C;
             width: 1.25rem;
             height: 1.25rem;
             text-align: center;
@@ -347,44 +382,1069 @@
         }
 
         .cta-header {
-            background: linear-gradient(135deg, #25d366, #128c7e);
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
             padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-md);
+            border-radius: 12px;
             font-weight: 600;
-            color: var(--color-white);
+            color: var(--white);
+            transition: var(--transition-base);
         }
-
+        
         .cta-header:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+            box-shadow: 0 10px 25px rgba(122, 0, 0, 0.4);
         }
 
         .mobile-toggle {
             display: none;
             background: none;
             border: none;
-            color: var(--color-white);
+            color: var(--white);
             font-size: 1.5rem;
             cursor: pointer;
             padding: 0.5rem;
-            border-radius: var(--radius-sm);
+            border-radius: 8px;
+            transition: background-color var(--ease);
         }
-
+        
         .mobile-toggle:hover,
         .mobile-toggle:focus {
             background: rgba(255,255,255,0.1);
         }
 
+        /* ==========================================
+           HERO
+           ========================================== */
+        .hero { 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 140px 2rem 80px;
+            position: relative;
+            background: var(--grad-hero);
+        }
+        
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 3rem;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: left;
+            flex: 1;
+        }
+        
+        .hero-logo {
+            max-width: 200px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+        }
+        
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+.hero-video-container {
+            width: 100%;
+            max-width: 1100px;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.15);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-video-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4), 0 12px 30px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.15);
+        }
+        
+        .hero-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+        
+        .hero-video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-title { 
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700; 
+            line-height: 1.2; 
+            margin-bottom: 1rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-title .highlight { 
+            display: inline;
+            color: var(--yellow);
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .hero-cta { margin-bottom: 2rem; }
+        
+        .btn-hero {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: var(--red-cta);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: #b91c1c;
+        }
+        
+        .btn-hero svg { width: 24px; height: 24px; }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        .hero-badge-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(201, 162, 39, 0.2);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+        }
+        
+        .hero-badge-icon svg { width: 24px; height: 24px; }
+        
+        .hero-badge span {
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* ==========================================
+           COLECCIONES
+           ========================================== */
+        .collections { padding: 80px 0; background: var(--white); }
+        .collections .section-title { color: var(--black); }
+        .collections .section-subtitle { color: var(--gray); }
+        
+        .collections-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+            margin-bottom: 32px; 
+        }
+        
+        .collection-card { 
+            background: var(--grad-card); 
+            border-radius: var(--radius-md); 
+            padding: 28px 24px; 
+            color: var(--white); 
+            transition: var(--transition-base); 
+            position: relative; 
+            overflow: hidden; 
+            border: 1px solid rgba(201,162,39,.15); 
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .collection-card::before { 
+            content: ''; 
+            position: absolute; 
+            inset: 0; 
+            background: radial-gradient(circle at top right,rgba(255,255,255,.05) 0%,transparent 60%); 
+            pointer-events: none; 
+        }
+        
+        .collection-card::after { 
+            content: ''; 
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            bottom: 0; 
+            width: 4px; 
+            background: var(--grad-gold); 
+            opacity: .7; 
+            transform-origin: left;
+            transition: transform var(--ease), opacity var(--ease);
+        }
+        
+        .collection-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: var(--shadow-lg), 0 0 40px rgba(255,255,0,.15); 
+            border-color: rgba(201,162,39,.4); 
+        }
+        
+        .collection-card:hover::after { 
+            transform: scaleX(1.5);
+            opacity: 1; 
+        }
+        
+        .collection-logo { 
+            display: flex; 
+            align-items: center; 
+            min-height: 56px;
+            gap: 12px; 
+            margin-bottom: 16px; 
+        }
+        
+.collection-logo-icon { 
+            display: block;
+            width: clamp(150px, 20vw, 220px);
+            height: auto; 
+            flex-shrink: 0; 
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,.2)); 
+            transition: transform var(--ease), filter var(--ease); 
+        }
+        
+        .collection-card:hover .collection-logo-icon {
+            transform: scale(1.08);
+            filter: drop-shadow(0 4px 16px rgba(255,255,0,.4));
+        }
+        
+        .collection-card h3 { 
+            font-size: 1.3rem; 
+            font-weight: 800; 
+            margin-bottom: 12px; 
+            line-height: 1.3; 
+        }
+        
+        .collection-card p { 
+            font-size: .9rem; 
+            line-height: 1.5; 
+            opacity: .85; 
+            margin-bottom: 16px; 
+            flex: 1;
+        }
+        
+        .collection-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        
+        .tag { 
+            padding: 5px 12px; 
+            background: rgba(255,255,0,.2); 
+            border: 1px solid rgba(255,255,0,.4); 
+            border-radius: 20px; 
+            font-size: .75rem; 
+            font-weight: 600; 
+            color: var(--yellow); 
+        }
+
+        /* ==========================================
+           POR QUÉ ELEGIRNOS
+           ========================================== */
+        .why-us { 
+            padding: 80px 0;
+            background: var(--grad-dark);
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .why-us::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            right: 0; 
+            width: 500px; 
+            height: 500px; 
+            background: radial-gradient(circle,rgba(160,16,16,.4) 0%,transparent 70%); 
+            pointer-events: none; 
+        }
+        
+        .why-us .section-title { color: var(--white); }
+        .why-us .section-subtitle { color: rgba(255,255,255,.8); }
+        
+        .why-grid { 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 16px; 
+            position: relative; 
+            z-index: 2; 
+        }
+        
+        .why-card { 
+            background: rgba(139,0,0,.2); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(201,162,39,.3); 
+            border-radius: var(--radius-md); 
+            padding: 20px 16px; 
+            transition: var(--transition-base); 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .why-card:hover { 
+            border-color: var(--gold); 
+            transform: translateY(-6px); 
+            background: rgba(139,0,0,.35); 
+            box-shadow: 0 12px 30px rgba(255,255,0,.2);
+        }
+        
+        .why-icon { 
+            width: 48px; 
+            height: 48px; 
+            background: var(--grad-gold); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 14px; 
+            box-shadow: 0 4px 15px rgba(255,255,0,.3); 
+            flex-shrink: 0;
+        }
+        
+        .why-icon svg { color: var(--black); width: 22px; height: 22px; }
+        
+        .why-card h3 { 
+            font-size: 1.05rem; 
+            font-weight: 800; 
+            color: var(--white); 
+            margin-bottom: 10px; 
+            line-height: 1.3; 
+        }
+        
+        .why-card p { 
+            font-size: .82rem; 
+            color: rgba(255,255,255,.85); 
+            line-height: 1.5; 
+            margin-bottom: 0;
+        }
+
+        /* ==========================================
+           CERTIFICACIONES
+           ========================================== */
+        .certifications { 
+            padding: 80px 0;
+            background: var(--white);
+            position: relative;
+        }
+        
+        .certifications::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 30% 0%, rgba(139, 0, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 100%, rgba(201, 162, 39, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .certifications .section-title { color: var(--black); }
+        .certifications .section-subtitle { color: var(--gray); }
+        
+        .cert-carousel { 
+            display: flex;
+            gap: 20px;
+            padding: 16px 0 32px;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .cert-carousel-track {
+            display: flex;
+            gap: 20px;
+            animation: carouselScroll 25s linear infinite;
+            width: max-content;
+        }
+        
+        .cert-carousel-track:hover,
+        .cert-carousel-track:focus {
+            animation-play-state: paused;
+        }
+        
+        @keyframes carouselScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .cert-showcase-img {
+            width: 220px;
+            height: 140px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease, filter 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .cert-showcase-img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 12px rgba(6, 150, 215, 0.4));
+        }
+        
+        .platinum-card { 
+            background: linear-gradient(145deg, #0a0000 0%, #3d0000 50%, #1a0000 100%);
+            border-radius: var(--radius-lg); 
+            padding: 48px 40px; 
+            text-align: center; 
+            color: var(--white); 
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+        
+        .platinum-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(201, 162, 39, 0.1) 0%, transparent 50%);
+            animation: platinumShimmer 4s ease-in-out infinite;
+        }
+        
+        @keyframes platinumShimmer {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
+        }
+        
+        .platinum-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.6), transparent);
+        }
+        
+        .platinum-card h3 { 
+            font-size: clamp(1.4rem, 2.8vw, 1.8rem); 
+            font-weight: 800; 
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .platinum-card p { 
+            font-size: 1rem; 
+            opacity: 0.85; 
+            max-width: 650px; 
+            margin: 0 auto 32px; 
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .platinum-badges { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .platinum-badge { 
+            padding: 14px 24px; 
+            background: rgba(255, 255, 0, 0.15); 
+            border: 1px solid rgba(255, 255, 0, 0.3); 
+            border-radius: 30px; 
+            font-size: .95rem; 
+            font-weight: 600; 
+            color: var(--yellow); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            transition: var(--transition-base);
+        }
+        
+        .platinum-badge:hover {
+            background: rgba(255, 255, 0, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 0, 0.2);
+        }
+        
+        .platinum-badge svg { width: 16px; height: 16px; }
+
+        /* ==========================================
+           CASOS DE ÉXITO
+           ========================================== */
+        .success-stories { 
+            padding: 80px 0;
+            background: var(--grad-dark);
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .success-stories::before { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 400px; 
+            height: 400px; 
+            background: radial-gradient(circle,rgba(160,16,16,.5) 0%,transparent 70%); 
+            pointer-events: none; 
+        }
+        
+        .success-stories .section-title { color: var(--white); }
+        .success-stories .section-subtitle { color: rgba(255,255,255,.8); }
+        
+        .stories-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 24px; 
+            margin-bottom: 32px; 
+            position: relative; 
+            z-index: 2; 
+        }
+        
+        .story-card { 
+            background: rgba(139,0,0,.2); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(201,162,39,.3); 
+            border-radius: var(--radius-md); 
+            overflow: hidden; 
+            transition: var(--transition-base); 
+        }
+        
+        .story-card:hover { 
+            border-color: var(--gold); 
+            transform: translateY(-4px); 
+        }
+        
+        .story-video { 
+            position: relative; 
+            width: 100%; 
+            height: 180px; 
+            background: linear-gradient(135deg,#2a2a2a,#1a1a1a); 
+            overflow: hidden; 
+        }
+        
+        .story-video img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            opacity: .8; 
+            transition: opacity var(--ease), transform var(--ease); 
+        }
+        
+        .story-card:hover .story-video img { 
+            opacity: 1; 
+            transform: scale(1.05); 
+        }
+        
+        .play-button { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%,-50%); 
+            width: 60px; 
+            height: 60px; 
+            background: var(--red); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: var(--transition-base); 
+            box-shadow: 0 4px 20px rgba(0,0,0,.4); 
+            color: var(--yellow); 
+        }
+        
+        .play-button:hover { 
+            transform: translate(-50%,-50%) scale(1.1); 
+            background: var(--red-bright); 
+        }
+        
+        .play-button:focus-visible { 
+            outline: 3px solid var(--yellow); 
+            outline-offset: 4px; 
+        }
+        
+        .play-button svg { width: 24px; height: 24px; margin-left: 4px; }
+        
+        .story-content { padding: 24px; }
+        
+        .story-content h3 { 
+            font-size: 1.25rem; 
+            font-weight: 800; 
+            color: var(--white); 
+            margin-bottom: 6px; 
+            line-height: 1.3; 
+        }
+        
+        .story-content .company { 
+            font-size: 1rem; 
+            font-weight: 700; 
+            color: var(--yellow); 
+            margin-bottom: 12px; 
+        }
+        
+        .story-content p { 
+            font-size: .9rem; 
+            color: rgba(255,255,255,.8); 
+            line-height: 1.6; 
+            margin-bottom: 16px; 
+        }
+
+        /* ==========================================
+           CTA FINAL
+           ========================================== */
+        .final-cta { 
+            background: linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%); 
+            color: var(--white); 
+            padding: 80px 0;
+            text-align: center; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        
+        .final-cta::before { 
+            content: ''; 
+            position: absolute; 
+            top: -100px; 
+            right: -100px; 
+            width: 300px; 
+            height: 300px; 
+            background: radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%); 
+            border-radius: 50%; 
+        }
+        
+        .final-cta h2 { 
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem); 
+            margin-bottom: 1rem; 
+            font-weight: 700; 
+            line-height: 1.2; 
+        }
+        
+        .final-cta p { 
+            font-size: 1rem; 
+            opacity: .95; 
+            max-width: 700px; 
+            margin: 0 auto 2rem; 
+            line-height: 1.6; 
+        }
+        
+        .final-cta-buttons { 
+            display: flex; 
+            gap: 1.2rem; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+
+        /* ==========================================
+           FOOTER
+           ========================================== */
+        .site-footer { 
+            background: #000000; 
+            color: #ffffff; 
+            padding: 4rem 0 1.5rem; 
+        }
+        
+        .site-footer .footer-content { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 2rem; 
+            margin-bottom: 3rem; 
+            text-align: left; 
+        }
+        
+        .site-footer h3, 
+        .site-footer h4 { 
+            font-size: 1rem; 
+            font-weight: 700; 
+            line-height: 1.6; 
+            color: #ffffff; 
+            margin-bottom: 1rem; 
+        }
+        
+        .site-footer p { 
+            font-size: 1rem; 
+            font-weight: 400; 
+            line-height: 1.6; 
+            color: #ffffff; 
+            margin-bottom: 1rem; 
+        }
+        
+        .site-footer a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .site-footer a:hover { opacity: 0.8; }
+        
+        .footer-contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-contact-link:hover { color: #18FF5C; opacity: 1; }
+        
+        .footer-contact-link svg {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .site-footer .social-links { 
+            display: flex; 
+            gap: 1rem; 
+            flex-wrap: wrap; 
+        }
+        
+        .site-footer .social-links a { 
+            width: 40px; 
+            height: 40px; 
+            background: rgba(255,255,255,0.1); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #ffffff; 
+            transition: background-color 0.3s ease, transform 0.3s ease; 
+        }
+        
+        .site-footer .social-links a:hover { 
+            background: #8B0000; 
+            transform: translateY(-3px); 
+        }
+        
+        .site-footer .social-links svg { width: 18px; height: 18px; }
+        
+        .site-footer .copyright { 
+            text-align: center; 
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            color: #ffffff;
+            font-size: 0.85rem; 
+        }
+        
+        .site-footer .copyright a:hover {
+            color: #8B0000;
+            opacity: 1;
+        }
+
+        /* ==========================================
+           WHATSAPP FLOTANTE
+           ========================================== */
+        .whatsapp-float { 
+            position: fixed; 
+            width: 60px; 
+            height: 60px; 
+            bottom: 2rem; 
+            right: 2rem; 
+            background: linear-gradient(135deg, #25d366, #128c7e); 
+            color: var(--white); 
+            border-radius: 50%; 
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4); 
+            z-index: 9999; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: var(--transition-base); 
+            text-decoration: none; 
+            animation: pulse-whatsapp 2s infinite; 
+        }
+        
+        .whatsapp-float svg { 
+            width: 2rem; 
+            height: 2rem; 
+        }
+        
+        .whatsapp-float:hover, 
+        .whatsapp-float:focus { 
+            transform: scale(1.1); 
+            box-shadow: 0 8px 30px rgba(37,211,102,0.5); 
+            outline: none; 
+            animation: none; 
+        }
+        
+        @keyframes pulse-whatsapp { 
+            0% { 
+                box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.5); 
+            } 
+            50% { 
+                box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0); 
+            } 
+            100% { 
+                box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.5); 
+            } 
+        }
+
+        /* ==========================================
+           MODALES
+           ========================================== */
+        .modal-overlay { 
+            position: fixed; 
+            inset: 0; 
+            background: rgba(0,0,0,.7); 
+            display: none; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 2000; 
+            backdrop-filter: blur(4px); 
+            padding: 1rem; 
+        }
+        
+        .modal-overlay.active { display: flex; }
+        
+        .modal { 
+            background: var(--white); 
+            border-radius: var(--radius-md); 
+            padding: 2rem; 
+            max-width: 500px; 
+            width: 100%; 
+            position: relative; 
+            animation: modalIn .3s ease; 
+            color: var(--black); 
+            max-height: 90vh; 
+            overflow-y: auto; 
+        }
+        
+        @keyframes modalIn { 
+            from { opacity: 0; transform: scale(.9) translateY(20px); } 
+            to { opacity: 1; transform: scale(1) translateY(0); } 
+        }
+        
+        .modal-close { 
+            position: absolute; 
+            top: 1rem; 
+            right: 1rem; 
+            font-size: 1.5rem; 
+            color: var(--gray); 
+            width: 36px; 
+            height: 36px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: background-color .2s ease, color .2s ease; 
+        }
+        
+        .modal-close:hover { 
+            background: var(--gray-light); 
+            color: var(--black); 
+        }
+        
+        .modal h3 { 
+            font-size: 1.4rem; 
+            margin-bottom: .8rem; 
+            color: var(--black); 
+            padding-right: 2rem; 
+        }
+        
+        .modal p { color: var(--gray); margin-bottom: 1.2rem; }
+        
+        .modal-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .modal-form input, .modal-form textarea { 
+            width: 100%; 
+            padding: .7rem .9rem; 
+            border: 1px solid #e5e7eb; 
+            border-radius: var(--radius-sm); 
+            margin-bottom: .8rem; 
+            font-family: inherit; 
+            font-size: .95rem; 
+            transition: border-color .2s ease, box-shadow .2s ease; 
+        }
+        
+        .modal-form input:focus, .modal-form textarea:focus { 
+            outline: none; 
+            border-color: var(--red); 
+            box-shadow: 0 0 0 3px rgba(217,15,26,.1); 
+        }
+        
+        .modal-form input.is-invalid, .modal-form textarea.is-invalid { 
+            border-color: #DC2626; 
+            box-shadow: 0 0 0 3px rgba(220,38,38,.1); 
+        }
+        
+        .modal-form .form-message { 
+            margin-top: .5rem; 
+            font-size: .85rem; 
+            text-align: center; 
+            min-height: 1.2em; 
+        }
+        
+        .modal-form .form-message.success { color: #059669; }
+        .modal-form .form-message.error { color: #DC2626; }
+
+        .video-modal-overlay { 
+            position: fixed; 
+            inset: 0; 
+            background: rgba(0,0,0,.9); 
+            display: none; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 3000; 
+            padding: 1rem; 
+        }
+        
+        .video-modal-overlay.active { display: flex; }
+        
+        .video-modal { 
+            background: var(--black); 
+            border-radius: var(--radius-md); 
+            max-width: 900px; 
+            width: 100%; 
+            position: relative; 
+            animation: modalIn .3s ease; 
+            overflow: hidden; 
+        }
+        
+        .video-modal-close { 
+            position: absolute; 
+            top: 1rem; 
+            right: 1rem; 
+            background: rgba(0,0,0,.5); 
+            font-size: 1.5rem; 
+            color: var(--white); 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: background-color .2s ease; 
+            z-index: 10; 
+        }
+        
+        .video-modal-close:hover { background: rgba(0,0,0,.8); }
+        
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            height: 0; 
+            overflow: hidden; 
+        }
+        
+        .video-container iframe { 
+            position: absolute; 
+            inset: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
+
+        /* ==========================================
+           ANIMACIONES
+           ========================================== */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: opacity .8s ease, transform .8s ease; 
+        }
+        
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        .collections-grid .collection-card.fade-in:nth-child(1) { transition-delay: .1s; }
+        .collections-grid .collection-card.fade-in:nth-child(2) { transition-delay: .25s; }
+        .collections-grid .collection-card.fade-in:nth-child(3) { transition-delay: .4s; }
+        .collections-grid .collection-card.fade-in:nth-child(4) { transition-delay: .55s; }
+        
+        .collection-card.fade-in { 
+            transform: translateX(-50px); 
+            transition: opacity .6s cubic-bezier(.25,.46,.45,.94), transform .6s cubic-bezier(.25,.46,.45,.94); 
+        }
+        
+        .collection-card.fade-in.visible { 
+            transform: translateX(0); 
+            opacity: 1; 
+        }
+
+        /* ==========================================
+           RESPONSIVE
+           ========================================== */
+        @media (max-width: 1200px) {
+            .why-grid { grid-template-columns: repeat(5, 1fr); gap: 12px; }
+            .why-card { padding: 16px 12px; }
+            .why-card h3 { font-size: .95rem; }
+            .why-card p { font-size: .75rem; }
+            .why-icon { width: 40px; height: 40px; margin-bottom: 10px; }
+            .why-icon svg { width: 18px; height: 18px; }
+        }
+
+        @media (max-width: 1024px) { 
+            .collections-grid { grid-template-columns: repeat(2, 1fr); } 
+        }
+        
         @media (max-width: 768px) {
-            :root { --header-height: 64px; }
-            
             .mobile-toggle { display: block; }
-            
+
             .nav-menu {
                 position: fixed;
-                top: var(--header-height);
-                left: 0; right: 0;
-                height: calc(100vh - var(--header-height));
+                top: 64px;
+                left: 0;
+                right: 0;
+                height: calc(100vh - 64px);
                 background: rgba(15, 23, 42, 0.98);
                 flex-direction: column;
                 justify-content: flex-start;
@@ -392,12 +1452,12 @@
                 gap: 0.5rem;
                 overflow-y: auto;
                 transform: translateY(-100%);
-                transition: transform var(--transition-normal);
+                transition: transform 0.3s ease;
                 z-index: 999;
             }
-
-            .nav-menu.active { transform: translateY(0); }
             
+            .nav-menu.active { transform: translateY(0); }
+
             .dropdown-menu,
             .dropdown-submenu-menu {
                 position: static;
@@ -413,17 +1473,17 @@
                 min-width: auto;
                 max-height: 0;
                 overflow: hidden;
-                transition: max-height var(--transition-normal);
+                transition: max-height 0.3s ease;
             }
-
+            
             .nav-item.active > .dropdown-menu,
             .dropdown-submenu.active > .dropdown-submenu-menu {
                 max-height: 500px;
                 padding: 0.5rem 0 0.5rem 1.5rem;
                 margin-top: 0.25rem;
-                border-left: 2px solid var(--color-green);
+                border-left: 2px solid #18FF5C;
             }
-            
+
             .nav-item > a::after {
                 content: '';
                 width: 0;
@@ -432,11 +1492,11 @@
                 border-right: 5px solid transparent;
                 border-top: 5px solid currentColor;
                 margin-left: auto;
-                transition: transform var(--transition-fast);
+                transition: transform 0.15s ease;
             }
-
-            .nav-item.active > a::after { transform: rotate(180deg); }
             
+            .nav-item.active > a::after { transform: rotate(180deg); }
+
             .dropdown-submenu > a::after {
                 border-left: 4px solid currentColor;
                 border-top: 4px solid transparent;
@@ -444,1336 +1504,102 @@
                 border-right: 0;
                 margin-left: 0.25rem;
             }
-
+            
             .dropdown-submenu.active > a::after { transform: rotate(90deg); }
-        }
-
-        /* ============================================
-           5. UTILIDADES
-           ============================================ */
-        .section-label {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .section-label::before {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background-color: var(--color-yellow);
-        }
-
-        .section-label--light { color: var(--color-gray); }
-        .section-label--dark { color: var(--color-gray); }
-
-        .section-title {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .section-title .highlight { color: var(--color-yellow); }
-
-        .section-title .underline {
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title .underline::after {
-            content: '';
-            position: absolute;
-            bottom: 0.05em;
-            left: 0;
-            width: 100%;
-            height: 0.15em;
-            background-color: var(--color-yellow);
-            z-index: -1;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--color-gray);
-            max-width: 720px;
-            line-height: 1.6;
-        }
-
-        .bg-grid {
-            position: relative;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        .bg-grid::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%);
-            pointer-events: none;
-        }
-
-        /* ============================================
-           6. BOTONES
-           ============================================ */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 1.125rem 2rem;
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: all var(--transition-normal);
-            cursor: pointer;
-            border: 2px solid transparent;
-            white-space: nowrap;
-        }
-
-        .btn--primary {
-            background-color: var(--color-yellow);
-            color: var(--color-black);
-            border-color: var(--color-yellow);
-        }
-
-        .btn--primary:hover {
-            background-color: var(--color-white);
-            border-color: var(--color-white);
-            transform: translateY(-2px);
-        }
-
-        .btn--primary:hover .btn__arrow { transform: translateX(4px); }
-
-        .btn--outline {
-            background-color: transparent;
-            color: var(--color-white);
-            border-color: var(--color-gray-dark);
-        }
-
-        .btn--outline:hover {
-            border-color: var(--color-white);
-            transform: translateY(-2px);
-        }
-
-        .btn--dark {
-            background-color: var(--color-black);
-            color: var(--color-yellow);
-            border-color: var(--color-black);
-        }
-
-        .btn--dark:hover {
-            background-color: var(--color-black-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn__arrow {
-            transition: transform var(--transition-fast);
-            font-size: 1.2em;
-        }
-
-        /* ============================================
-           7. HERO SECTION
-           ============================================ */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: var(--spacing-xl) var(--spacing-md);
-            overflow: hidden;
-            background-color: var(--color-black);
-        }
-
-        .hero__background {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            object-position: center;
-            opacity: 0.4;
-            z-index: 0;
-        }
-
-        .hero__background::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.7) 100%);
-            z-index: 1;
-        }
-
-        .hero__content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-        }
-
-        .hero__partner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: var(--spacing-lg);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero__partner-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .hero__partner-logo svg { width: 32px; height: 32px; }
-
-        .hero__partner-logo-text {
-            font-size: 1.75rem;
-            font-weight: 800;
-            letter-spacing: 0.05em;
-        }
-
-        .hero__partner-sub {
-            font-size: 0.9rem;
-            color: var(--color-white);
-            font-weight: 500;
-        }
-
-        .hero__logo {
-            display: block;
-            max-width: 200px;
-            height: auto;
-            margin: var(--spacing-lg) auto var(--spacing-xl);
-            object-fit: contain;
-        }
-
-        .hero__title {
-            font-size: clamp(1.8rem, 4vw, 3rem);
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-        }
-
-        .hero__title .highlight {
-            color: var(--color-yellow);
-            display: block;
-        }
-
-        .hero__subtitle {
-            font-size: 1rem;
-            color: var(--color-gray-light);
-            max-width: 480px;
-            margin: 0 auto var(--spacing-lg);
-            line-height: 1.6;
-        }
-
-        .hero__cta { margin-bottom: var(--spacing-xl); }
-
-        .hero__badges {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero__badge {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            color: var(--color-gray-light);
-        }
-
-        .hero__badge svg {
-            width: 20px; height: 20px;
-            color: var(--color-yellow);
-            flex-shrink: 0;
-        }
-
-        .hero__scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-            width: 8px; height: 8px;
-            background-color: var(--color-yellow);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.5; transform: translateX(-50%) scale(1.5); }
-        }
-
-        /* ============================================
-           8. PORTFOLIO
-           ============================================ */
-        .portfolio {
-            background-color: var(--color-white);
-            color: var(--color-black);
-            padding: var(--spacing-2xl) 0;
-        }
-
-        .portfolio .section-label { color: var(--color-gray); }
-        .portfolio .section-subtitle { color: var(--color-gray); }
-        .portfolio__header { margin-bottom: var(--spacing-xl); }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            background-color: var(--color-gray-dark);
-            border: 2px solid var(--color-black);
-        }
-
-        .collection-card {
-            background-color: var(--color-black);
-            color: var(--color-white);
-            padding: var(--spacing-lg);
-            position: relative;
-            transition: all var(--transition-normal);
-            overflow: hidden;
-        }
-
-        .collection-card::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
-            width: 0; height: 0;
-            border-style: solid;
-            border-width: 0 40px 40px 0;
-            border-color: transparent var(--color-yellow) transparent transparent;
-            opacity: 0;
-            transition: opacity var(--transition-normal);
-        }
-
-        .collection-card:hover::before { opacity: 1; }
-
-        .collection-card__number {
-            position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-md);
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            color: var(--color-yellow);
-            opacity: 0.7;
-        }
-
-        .collection-card__logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .collection-card__logo-icon {
-            width: 40px; height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .collection-card__logo-icon svg { width: 100%; height: 100%; }
-
-        .collection-card__logo-text {
-            font-size: 0.8rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .collection-card__logo-image-wrap {
-            display: flex;
-            align-items: center;
-            min-height: 48px;
-        }
-
-        .collection-card__logo-image {
-            display: block;
-            width: clamp(140px, 20vw, 220px);
-            height: auto;
-            object-fit: contain;
-            filter: brightness(1.05) contrast(1.05);
-        }
-
-        .collection-card__title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.3;
-        }
-
-        .collection-card__desc {
-            font-size: 1rem;
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.6;
-        }
-
-        .collection-card__tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .collection-card__tag {
-            padding: 0.4rem 0.75rem;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            border: 1px solid var(--color-gray-dark);
-            color: var(--color-gray-light);
-            transition: all var(--transition-fast);
-        }
-
-        .collection-card:hover .collection-card__tag {
-            border-color: var(--color-yellow);
-            color: var(--color-yellow);
-        }
-
-        .portfolio__cta {
-            text-align: center;
-            margin-top: var(--spacing-xl);
-        }
-
-        .portfolio__cta .btn { min-width: 320px; }
-
-        /* ============================================
-           9. VENTAJAS
-           ============================================ */
-        .advantages {
-            padding: var(--spacing-2xl) 0;
-            position: relative;
-        }
-
-        .advantages__header { margin-bottom: var(--spacing-xl); }
-
-        .advantages-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            background-color: rgba(255,255,255,0.05);
-        }
-
-        .advantage-card {
-            background-color: var(--color-black);
-            padding: var(--spacing-lg);
-            position: relative;
-            transition: all var(--transition-normal);
-            border: 1px solid transparent;
-        }
-
-        .advantage-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: var(--spacing-lg);
-            width: 0; height: 2px;
-            background-color: var(--color-yellow);
-            transition: width var(--transition-normal);
-        }
-
-        .advantage-card:hover { background-color: var(--color-black-hover); }
-        .advantage-card:hover::after { width: 60px; }
-
-        .advantage-card__icon {
-            width: 56px; height: 56px;
-            border: 1.5px solid var(--color-yellow);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: var(--spacing-md);
-            transition: all var(--transition-normal);
-        }
-
-        .advantage-card:hover .advantage-card__icon {
-            background-color: var(--color-yellow);
-        }
-
-        .advantage-card__icon svg {
-            width: 24px; height: 24px;
-            color: var(--color-yellow);
-            transition: color var(--transition-normal);
-        }
-
-        .advantage-card:hover .advantage-card__icon svg {
-            color: var(--color-black);
-        }
-
-        .advantage-card__title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.3;
-        }
-
-        .advantage-card__text {
-            font-size: 1rem;
-            color: var(--color-gray);
-            line-height: 1.6;
-        }
-
-        .advantage-card--stats {
-            background-color: var(--color-yellow);
-            color: var(--color-black);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .advantage-card--stats::after { display: none; }
-        .advantage-card--stats:hover { background-color: var(--color-yellow); }
-
-        .stats-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-        }
-
-        .stat-item__number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            line-height: 1;
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-item__label {
-            font-size: 0.9rem;
-            color: var(--color-black);
-            opacity: 0.8;
-        }
-
-        /* ============================================
-           10. CTA SECTION
-           ============================================ */
-        .cta-section {
-            padding: var(--spacing-2xl) 0;
-            position: relative;
-        }
-
-        .cta-box {
-            background-color: var(--color-black);
-            border: 2px solid var(--color-gray-dark);
-            padding: var(--spacing-2xl) var(--spacing-lg);
-            text-align: center;
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .cta-box::before,
-        .cta-box::after {
-            content: '';
-            position: absolute;
-            width: 40px; height: 40px;
-            border-color: var(--color-yellow);
-            border-style: solid;
-        }
-
-        .cta-box::before {
-            top: -2px; left: -2px;
-            border-width: 4px 0 0 4px;
-        }
-
-        .cta-box::after {
-            bottom: -2px; right: -2px;
-            border-width: 0 4px 4px 0;
-        }
-
-        .cta-box__label {
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            color: var(--color-yellow);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .cta-box__title {
-            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-md);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-box__subtitle {
-            font-size: 1.125rem;
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-lg);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-box__actions {
-            display: flex;
-            gap: var(--spacing-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ============================================
-           11. CREDENCIALES
-           ============================================ */
-        .credentials {
-            background-color: var(--color-white);
-            color: var(--color-black);
-            padding: var(--spacing-2xl) 0;
-            overflow: hidden;
-        }
-
-        .credentials .section-label { color: var(--color-gray); }
-        .credentials .section-subtitle { color: var(--color-gray); }
-        .credentials__header { margin-bottom: var(--spacing-xl); }
-
-        .credentials__carousel {
-            display: flex;
-            gap: var(--spacing-md);
-            overflow-x: auto;
-            padding: var(--spacing-md) 0;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .credentials__carousel::-webkit-scrollbar { display: none; }
-
-        .credential-badge {
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            width: 200px; height: 220px;
-            position: relative;
-            transition: all var(--transition-normal);
-            cursor: pointer;
-        }
-
-        .credential-badge:hover { transform: translateY(-8px); }
-
-        .badge-shape {
-            width: 100%; height: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-md);
-            text-align: center;
-        }
-
-        .badge-shape--rect {
-            background-color: #4a4a4a;
-            clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
-        }
-
-        .badge-shape--hex {
-            background-color: transparent;
-            border: 3px solid #999;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        }
-
-        .badge-shape--shield {
-            background-color: #666;
-            clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
-        }
-
-        .badge__logo {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-            color: var(--color-white);
-        }
-
-        .badge__title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--color-white);
-            margin-bottom: 0.5rem;
-        }
-
-        .badge__subtitle {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.7);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .badge__bottom {
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--color-white);
-            background-color: rgba(0,0,0,0.3);
-            padding: 0.25rem 0.75rem;
-            white-space: nowrap;
-        }
-
-        .credential-badge:hover .badge-shape--rect { background-color: var(--color-black); }
-        .credential-badge:hover .badge-shape--hex { border-color: #6366f1; }
-        .credential-badge:hover .badge-shape--shield { background-color: var(--color-black); }
-
-        .credential-badge[data-type="specialized"]:hover .badge__bottom {
-            background-color: var(--color-blue-specialized);
-        }
-
-        .credentials__table {
-            margin-top: var(--spacing-xl);
-            border: 1px solid #e5e5e5;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .credentials__table-cell {
-            padding: var(--spacing-lg);
-            border-right: 1px solid #e5e5e5;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--spacing-sm);
-            transition: all var(--transition-normal);
-            cursor: default;
-        }
-
-        .credentials__table-cell:last-child { border-right: none; }
-
-        .credentials__table-cell:hover {
-            background-color: var(--color-black);
-            color: var(--color-yellow);
-        }
-
-        .credentials__table-cell:hover .table-cell__label { color: var(--color-gray); }
-        .credentials__table-cell:hover .table-cell__value { color: var(--color-yellow); }
-
-        .table-cell__label {
-            font-size: 0.9rem;
-            color: var(--color-gray);
-            transition: color var(--transition-normal);
-        }
-
-        .table-cell__value {
-            font-size: 1.25rem;
-            font-weight: 800;
-            transition: color var(--transition-normal);
-        }
-
-        .table-cell__value .number {
-            display: block;
-            font-size: 1.5rem;
-        }
-
-        /* ============================================
-           12. CASOS DE ÉXITO
-           ============================================ */
-        .cases {
-            padding: var(--spacing-2xl) 0;
-            position: relative;
-        }
-
-        .cases__header { margin-bottom: var(--spacing-xl); }
-
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2px;
-            background-color: rgba(255,255,255,0.05);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .case-card {
-            background-color: var(--color-black);
-            position: relative;
-        }
-
-        .case-card__image {
-            position: relative;
-            height: 320px;
-            overflow: hidden;
-        }
-
-        .case-card__image img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.7);
-            transition: all var(--transition-slow);
-        }
-
-        .case-card:hover .case-card__image img {
-            filter: brightness(0.5);
-            transform: scale(1.05);
-        }
-
-        .case-card__result {
-            position: absolute;
-            top: var(--spacing-md);
-            left: var(--spacing-md);
-            background-color: var(--color-yellow);
-            color: var(--color-black);
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            z-index: 2;
-        }
-
-        .case-card__play {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px; height: 70px;
-            border: 2px solid var(--color-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            transition: all var(--transition-normal);
-            background-color: rgba(0,0,0,0.3);
-        }
-
-        .case-card:hover .case-card__play {
-            border-color: var(--color-yellow);
-            background-color: rgba(232, 255, 0, 0.2);
-        }
-
-        .case-card__play svg {
-            width: 24px; height: 24px;
-            color: var(--color-white);
-            margin-left: 4px;
-        }
-
-        .case-card__content { padding: var(--spacing-lg); }
-
-        .case-card__client {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-sm);
-            text-transform: uppercase;
-        }
-
-        .case-card__title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.3;
-        }
-
-        .case-card__text {
-            font-size: 0.95rem;
-            color: var(--color-gray);
-            line-height: 1.6;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .case-card__link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--color-yellow);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: gap var(--transition-fast);
-        }
-
-        .case-card__link:hover { gap: 0.75rem; }
-
-        .cases__cta { text-align: center; }
-        .cases__cta .btn { min-width: 320px; }
-
-        /* ============================================
-           13. ANIMACIONES
-           ============================================ */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-in-delay-1 { transition-delay: 0.1s; }
-        .fade-in-delay-2 { transition-delay: 0.2s; }
-        .fade-in-delay-3 { transition-delay: 0.3s; }
-        .fade-in-delay-4 { transition-delay: 0.4s; }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* ============================================
-           14. FOOTER
-           ============================================ */
-        .site-footer {
-            background: #000000;
-            color: #ffffff;
-            padding: 4rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-
-        .site-footer h3,
-        .site-footer h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            line-height: 1.6;
-            color: var(--color-white);
-            margin-bottom: 1rem;
-        }
-
-        .site-footer p {
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--color-white);
-            margin-bottom: 1rem;
-        }
-
-        .site-footer a {
-            color: inherit;
-            text-decoration: none;
-            transition: opacity var(--transition-fast);
-        }
-
-        .site-footer a:hover { opacity: 0.8; }
-
-        .footer-contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-contact-link:hover { color: var(--color-green); }
-
-        .footer-contact-link svg {
-            flex-shrink: 0;
-            width: 18px; height: 18px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            width: 40px; height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            transition: var(--transition-base);
-        }
-
-        .social-links a:hover {
-            background: var(--color-red);
-            transform: translateY(-3px);
-        }
-
-        .social-links svg { width: 18px; height: 18px; }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #ffffff;
-            font-size: 0.85rem;
-        }
-
-        .copyright a:hover {
-            color: #8B0000;
-            opacity: 1;
-        }
-
-        /* ============================================
-           15. WHATSAPP FLOAT
-           ============================================ */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px; height: 60px;
-            bottom: 2rem; right: 2rem;
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: var(--color-white);
-            border-radius: 50%;
-            box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-base);
-            text-decoration: none;
-            animation: pulse-whatsapp 2s infinite;
-        }
-
-        .whatsapp-float svg { width: 2rem; height: 2rem; }
-
-        .whatsapp-float:hover,
-        .whatsapp-float:focus {
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(37,211,102,0.5);
-            outline: none;
-            animation: none;
-        }
-
-        @keyframes pulse-whatsapp {
-            0% {
-                box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.5);
-            }
-            50% {
-                box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0);
-            }
-            100% {
-                box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.5);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .whatsapp-float {
-                width: 56px; height: 56px;
-                bottom: 1.5rem; right: 1.5rem;
-            }
-            .whatsapp-float svg { width: 1.75rem; height: 1.75rem; }
-        }
-
-        /* ============================================
-           16. MODAL
-           ============================================ */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .modal.active { display: flex; }
-
-        .modal-content {
-            background: #8B0000;
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            max-width: 520px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-modal);
-            color: #ffffff;
-            animation: slideIn 0.3s ease;
-            position: relative;
-        }
-
-        @keyframes slideIn {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #f1f5f9;
-            gap: 1rem;
-        }
-
-        .modal-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: #ffffff;
-            background-color: #000000;
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-sm);
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.75rem;
-            color: #64748b;
-            cursor: pointer;
-            padding: 0.25rem;
-            border-radius: 50%;
-            transition: all var(--transition-fast);
-            line-height: 1;
-            width: 36px; height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .modal-close:hover,
-        .modal-close:focus {
-            background: #f1f5f9;
-            color: #ef4444;
-            outline: none;
-        }
-
-        .form-group { margin-bottom: 1.25rem; }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #ffffff;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: var(--radius-sm);
-            font-size: 1rem;
-            transition: all var(--transition-fast);
-            font-family: inherit;
-            background: #fff;
-            color: #1e293b;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder { color: #94a3b8; }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #8B0000;
-            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.25);
-        }
-
-        .form-group input.is-invalid,
-        .form-group textarea.is-invalid {
-            border-color: #ff6b6b;
-            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
-        }
-
-        .cta-modal {
-            width: 100%;
-            background: linear-gradient(135deg, #FF4444, #8B0000);
-            color: #fff;
-            padding: 1rem;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .cta-modal:hover,
-        .cta-modal:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(139, 0, 0, 0.5);
-            outline: none;
-        }
-
-        .cta-modal:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .cta-modal svg { width: 1rem; height: 1rem; }
-
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #FF4444, #8B0000);
-            color: #fff;
-            border-radius: var(--radius-md);
-        }
-
-        .success-message svg {
-            width: 3rem; height: 3rem;
-            margin: 0 auto 0.75rem;
-        }
-
-        .success-message h4 { margin-bottom: 0.5rem; font-size: 1.25rem; }
-        .success-message p { opacity: 0.95; }
-
-        .form-message {
-            margin-top: 0.75rem;
-            font-size: 0.875rem;
-            text-align: center;
-            min-height: 1.2em;
-        }
-
-        .form-message.error { color: #ff6b6b; }
-
-        /* ============================================
-           17. RESPONSIVE
-           ============================================ */
-        @media (max-width: 1024px) {
-            .collections-grid,
-            .advantages-grid,
-            .cases-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .credentials__table {
-                grid-template-columns: 1fr;
-            }
-
-            .credentials__table-cell {
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-            }
-
-            .credentials__table-cell:last-child {
-                border-bottom: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero__badges {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-
-            .cta-box__actions {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-box__actions .btn {
-                width: 100%;
-                max-width: 320px;
-            }
 
-            .section-title {
-                font-size: 2.5rem;
-            }
+            .hero { padding: 100px 1.5rem 40px; }
+            .hero-badges { gap: 2rem; }
+            .hero-badge { flex: 1; min-width: 120px; }
+            
+            .collections-grid { grid-template-columns: 1fr; }
+            .collection-logo { gap: 10px; }
+            .collection-logo-icon { width: 90px; }
+            
+            .why-grid, .stories-grid { grid-template-columns: 1fr; gap: 16px; }
+            .collection-card, .why-card, .story-card { padding: 24px 20px; }
+            
+            .platinum-badges { flex-direction: column; align-items: center; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2rem; }
+            .btn-hero { padding: 1rem 2rem; font-size: 1rem; width: 100%; }
+            .hero-badges { flex-direction: column; gap: 1.5rem; }
+            .btn { padding: 12px 20px; font-size: .85rem; width: 100%; }
+            .platinum-card { padding: 36px 24px; }
+            .cert-showcase-img { width: 180px; height: 115px; }
         }
     </style>
 </head>
 <body>
 
-<!-- Skip Link para Accesibilidad -->
-<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-
-<!-- SVG Sprite (solo iconos utilizados) -->
+<!-- ============================================
+     SPRITE SVG - ICONOS
+     ============================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
-    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
-    <symbol id="icon-adobe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></symbol>
-    <symbol id="icon-autodesk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></symbol>
-    <symbol id="icon-forma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
-    <symbol id="icon-aec" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
-    <symbol id="icon-mfg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></symbol>
-    <symbol id="icon-microsoft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
-    <symbol id="icon-azure" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></symbol>
-    <symbol id="icon-m365" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><polyline points="16 21 12 17 8 21"/></symbol>
-    <symbol id="icon-hp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
-    <symbol id="icon-consumibles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/></symbol>
-    <symbol id="icon-designjet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
-    <symbol id="icon-pagewide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
-    <symbol id="icon-dell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
-    <symbol id="icon-workstation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
-    <symbol id="icon-perifericos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/></symbol>
-    <symbol id="icon-storage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
     <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
-    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
-    <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
-    <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
-    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
     <symbol id="icon-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
     <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
     <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
     <symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></symbol>
+    <symbol id="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></symbol>
+    <symbol id="icon-graduation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="icon-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></symbol>
+    <symbol id="icon-autodesk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 7v14M21 7v14"/></symbol>
+    <symbol id="icon-adobe" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h6l2-4h4l2 4h6L12 2zm0 6l3 8H9l3-8z"/></symbol>
+    <symbol id="icon-forma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="icon-aec" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+    <symbol id="icon-mfg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></symbol>
+    <symbol id="icon-microsoft" viewBox="0 0 24 24" fill="currentColor"><rect x="1" y="1" width="10" height="10"/><rect x="13" y="1" width="10" height="10"/><rect x="1" y="13" width="10" height="10"/><rect x="13" y="13" width="10" height="10"/></symbol>
+    <symbol id="icon-azure" viewBox="0 0 24 24" fill="currentColor"><path d="M13.05 4.24L7.56 12.65c-.38.58-.38 1.33 0 1.91l5.49 8.41L6.3 23h-.01L.6 14.59c-.38-.58-.38-1.33 0-1.91L6.3 4.27l6.75-.03z"/></symbol>
+    <symbol id="icon-m365" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3L12 12l9 9V3zM3 12l9-9v18l-9-9z"/></symbol>
+    <symbol id="icon-hp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 8v8M12 6v12M16 8v8"/></symbol>
+    <symbol id="icon-consumibles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="icon-designjet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 6V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"/><line x1="2" y1="12" x2="22" y2="12"/></symbol>
+    <symbol id="icon-pagewide" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="icon-dell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></symbol>
+    <symbol id="icon-workstation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="icon-perifericos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M6 14h12"/></symbol>
+    <symbol id="icon-storage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
 </svg>
 
 <!-- ============================================
-     HEADER 
+     HEADER
      ============================================ -->
 <header class="header" id="header">
     <div class="container nav-container">
-        <a href="#" aria-label="Ir a inicio de Cadgrafics">
-            <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+        <a href="/index.html" aria-label="Ir a inicio de Cadgrafics">
+            <img src="/assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="240" height="120"/>
         </a>
         
         <nav aria-label="Navegación principal">
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
-                    <a href="./pages/Adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
-                        Adobe <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./pages/Adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
-                        <li><a href="./pages/Adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#portfolio" aria-haspopup="true" aria-expanded="false">
+                    <a href="#marcas" aria-haspopup="true" aria-expanded="false">
                         Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href="/pages/adobe/home-adobe.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
                         <li class="dropdown-submenu">
                             <a href="#" aria-haspopup="true" aria-expanded="false">
                                 <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
                             </a>
                             <ul class="dropdown-submenu-menu">
-                                <li><a href="./pages/autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
-                                <li><a href="./pages/autodesk/forma.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-forma"/></svg> Forma</a></li>
-                                <li><a href="./pages/autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
-                                <li><a href="./pages/autodesk/mfg-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-mfg"/></svg> MFG Collection</a></li>
-                                <li><a href="./pages/autodesk/mye-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> MYE Collection</a></li>
+                                <li><a href="/pages/autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
+                                <li><a href="/pages/autodesk/forma.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-forma"/></svg> Forma</a></li>
+                                <li><a href="/pages/autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
+                                <li><a href="/pages/autodesk/mfg-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-mfg"/></svg> MFG Collection</a></li>
+                                <li><a href="/pages/autodesk/mye-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> MYE Collection</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
@@ -1781,9 +1607,9 @@
                                 <svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Microsoft <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
                             </a>
                             <ul class="dropdown-submenu-menu">
-                                <li><a href="./pages/microsoft/azure.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-azure"/></svg> Azure</a></li>
-                                <li><a href="./pages/microsoft/microsoft-365.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-m365"/></svg> Microsoft 365</a></li>
-                                <li><a href="./pages/microsoft/windows-pro.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Windows Pro</a></li>
+                                <li><a href="/pages/microsoft/azure.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-azure"/></svg> Azure</a></li>
+                                <li><a href="/pages/microsoft/microsoft-365.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-m365"/></svg> Microsoft 365</a></li>
+                                <li><a href="/pages/microsoft/windows-pro.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Windows Pro</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
@@ -1791,9 +1617,9 @@
                                 <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
                             </a>
                             <ul class="dropdown-submenu-menu">
-                                <li><a href="./pages/hp/consumibles.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
-                                <li><a href="./pages/hp/design-jet.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-designjet"/></svg> DesignJet</a></li>
-                                <li><a href="./pages/hp/page-wide.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-pagewide"/></svg> PageWide</a></li>
+                                <li><a href="/pages/hp/consumibles.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
+                                <li><a href="/pages/hp/design-jet.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-designjet"/></svg> DesignJet</a></li>
+                                <li><a href="/pages/hp/page-wide.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-pagewide"/></svg> PageWide</a></li>
                             </ul>
                         </li>
                         <li class="dropdown-submenu">
@@ -1801,20 +1627,24 @@
                                 <svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Dell <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
                             </a>
                             <ul class="dropdown-submenu-menu">
-                                <li><a href="./pages/dell/workstation.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-workstation"/></svg> Workstations</a></li>
-                                <li><a href="./pages/dell/perifericos.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-perifericos"/></svg> Periféricos</a></li>
-                                <li><a href="./pages/dell/storage.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-storage"/></svg> Storage</a></li>
+                                <li><a href="/pages/dell/workstation.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-workstation"/></svg> Workstations</a></li>
+                                <li><a href="/pages/dell/perifericos.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-perifericos"/></svg> Periféricos</a></li>
+                                <li><a href="/pages/dell/storage.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-storage"/></svg> Storage</a></li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li><a href="#ventajas">Ventajas</a></li>
+                <li><a href="#servicios">Soluciones Claves</a></li>
                 <li><a href="#casos">Casos</a></li>
-                <li><a href="#contacto" class="textbutton-trigger">Contáctanos</a></li>
+                <li><a href="#" class="cta-header" data-modal-trigger="cotizacion">Contáctanos</a></li>
             </ul>
         </nav>
         
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <button class="mobile-toggle" 
+                id="mobileToggle" 
+                aria-label="Abrir menú" 
+                aria-expanded="false" 
+                aria-controls="navMenu">
             <svg width="24" height="24" aria-hidden="true" class="icon-menu">
                 <use href="#icon-menu"/>
             </svg>
@@ -1823,441 +1653,317 @@
 </header>
 
 <!-- ============================================
-     MAIN CONTENT 
+     CONTENIDO PRINCIPAL
      ============================================ -->
 <main id="main-content">
+    
+<!-- HERO -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="hero-container">
+            <div class="hero-content">
+                <img src="/assets/images/images_home-autodesk/autodesk_logo.png" 
+                     alt="Autodesk" 
+                     class="hero-logo"
+                     width="200" 
+                     height="60"
+                     fetchpriority="high">
+                
+                <h1 class="hero-title fade-in" id="hero-title">
+                    Transformamos tu visión en <span class="highlight">Realidad Digital</span>
+                </h1>
+                
+                <p class="hero-subtitle fade-in">
+                    Como Platinum Partner de Autodesk, Cadgrafics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción con soporte técnico especializado y entrenamientos certificados.
+                </p>
+                
+                <div class="hero-cta fade-in">
+                    <button class="btn btn-hero" data-modal-trigger="cotizacion">
+                        Diagnóstico Gratuito
+                        <svg aria-hidden="true"><use href="#icon-arrow"/></svg>
+                    </button>
+                </div>
+                
+                <div class="hero-badges fade-in">
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">
+                            <svg aria-hidden="true"><use href="#icon-check"/></svg>
+                        </div>
+                        <span>Soporte<br>especializado</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">
+                            <svg aria-hidden="true"><use href="#icon-check"/></svg>
+                        </div>
+                        <span>Entrenamientos<br>Certificados</span>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">
+                            <svg aria-hidden="true"><use href="#icon-check"/></svg>
+                        </div>
+                        <span>Descuentos<br>por Volumen</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-right">
+                <div class="hero-video-container">
+                    <video autoplay muted loop playsinline preload="metadata" poster="../../assets/images/video-poster.jpg">
+                        <source src="../../assets/video/videos-home_autodesk/video_home_autodesk.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento video.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero">
-        <video class="hero__background" autoplay muted loop playsinline>
-            <source src="../../assets/video/videos-home_autodesk/video_home_autodesk.mp4" type="video/mp4">
-        </video>
-        
-        <div class="hero__content">
-            <div class="hero__partner fade-in">
-
-            <img src="../../assets/images/images_home-autodesk/autodesk_logo.png" alt="Autodesk Logo" class="hero__logo fade-in fade-in-delay-1">
-
-            <h1 class="hero__title fade-in fade-in-delay-1">
-                Transformamos tu visión en
-                <span class="highlight">Realidad Digital</span>
-            </h1>
-
-            <p class="hero__subtitle fade-in fade-in-delay-2">
-                Como Platinum Partner de Autodesk, Cadgrafics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción con soporte técnico especializado y entrenamientos certificados.
+    <!-- COLECCIONES -->
+    <section class="collections" id="colecciones" aria-labelledby="collections-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="collections-title">
+                Colecciones de <span class="text-red">Autodesk</span>
+            </h2>
+            <p class="section-subtitle fade-in">
+                Accede a las mejores herramientas de diseño, ingeniería y creatividad del mercado
             </p>
-
-            <div class="hero__cta fade-in fade-in-delay-3">
-                <a href="#contacto" class="btn btn--primary">
-                    Solicitar Cotización
-                    <span class="btn__arrow">→</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="hero__badges fade-in fade-in-delay-4">
-            <div class="hero__badge">
-                <svg width="20" height="20" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span>Soporte Prioritario</span>
-            </div>
-            <div class="hero__badge">
-                <svg width="20" height="20" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span>Entrenamientos Certificados</span>
-            </div>
-            <div class="hero__badge">
-                <svg width="20" height="20" aria-hidden="true"><use href="#icon-check"/></svg>
-                <span>Descuentos por Volumen</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO - COLECCIONES -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="portfolio__header">
-                <div class="section-label section-label--dark fade-in">Portfolio</div>
-                <h2 class="section-title fade-in fade-in-delay-1">
-                    Colecciones de <span class="underline">Autodesk</span>
-                </h2>
-                <p class="section-subtitle fade-in fade-in-delay-2">
-                    Accede a las mejores herramientas de diseño, ingeniería y creatividad del mercado
-                </p>
-            </div>
-
-            <div class="collections-grid">
-                <article class="collection-card fade-in">
-                    <div class="collection-card__logo">
-                        <div class="collection-card__logo-image-wrap">
-                            <img
-                                src="/assets/images/images_home-autodesk/aec_logo.png"
-                                alt="Architecture, Engineering and Construction Collection"
-                                class="collection-card__logo-image"
-                                loading="lazy"
-                                decoding="async"
-                                width="220"
-                                height="60"
-                            >
-                        </div>
+            
+<div class="collections-grid">
+                <div class="collection-card fade-in">
+                    <div class="collection-logo">
+                        <img src="/assets/images/images_home-autodesk/aec_logo.png" 
+                             alt="AEC Collection" 
+                             class="collection-logo-icon" 
+                             loading="lazy"
+                             decoding="async"
+                             width="200" 
+                             height="60">
                     </div>
-                    <h3 class="collection-card__title">Architecture, Engineering & Construction</h3>
-                    <p class="collection-card__desc">Soluciones integrales para diseño arquitectónico, ingeniería civil y gestión de construcción.</p>
-                    <div class="collection-card__tags">
-                        <span class="collection-card__tag">AutoCAD</span>
-                        <span class="collection-card__tag">Revit</span>
-                        <span class="collection-card__tag">Civil 3D</span>
-                        <span class="collection-card__tag">BIM 360</span>
-                        <span class="collection-card__tag">Navisworks</span>
+                    <p>Soluciones integrales para diseño arquitectónico, ingeniería civil y gestión de construcción.</p>
+                    <div class="collection-tags">
+                        <span class="tag">AutoCAD</span>
+                        <span class="tag">Revit</span>
+                        <span class="tag">Civil 3D</span>
+                        <span class="tag">BIM 360</span>
+                        <span class="tag">Navisworks</span>
                     </div>
-                </article>
-
-                <article class="collection-card fade-in fade-in-delay-1">
-                    <div class="collection-card__logo">
-                        <div class="collection-card__logo-image-wrap">
-                            <img
-                                src="/assets/images/images_home-autodesk/pdm_logo.png"
-                                alt="Product Design and Manufacturing Collection"
-                                class="collection-card__logo-image"
-                                loading="lazy"
-                                decoding="async"
-                                width="220"
-                                height="60"
-                            >
-                        </div>
+                </div>
+                
+                <div class="collection-card fade-in">
+                    <div class="collection-logo">
+                        <img src="/assets/images/images_home-autodesk/pdm_logo.png" 
+                             alt="Product Design & Manufacturing Collection" 
+                             class="collection-logo-icon" 
+                             loading="lazy"
+                             decoding="async"
+                             width="200" 
+                             height="60">
                     </div>
-                    <h3 class="collection-card__title">Product Design & Manufacturing</h3>
-                    <p class="collection-card__desc">Herramientas avanzadas para diseño de productos, simulación y manufactura digital.</p>
-                    <div class="collection-card__tags">
-                        <span class="collection-card__tag">Inventor</span>
-                        <span class="collection-card__tag">Fusion 360</span>
-                        <span class="collection-card__tag">AutoCAD Mechanical</span>
-                        <span class="collection-card__tag">Vault</span>
+                    <p>Herramientas avanzadas para diseño de productos, simulación y manufactura digital.</p>
+                    <div class="collection-tags">
+                        <span class="tag">Inventor</span>
+                        <span class="tag">Fusion 360</span>
+                        <span class="tag">AutoCAD Mechanical</span>
+                        <span class="tag">Vault</span>
                     </div>
-                </article>
-
-                <article class="collection-card fade-in">
-                    <div class="collection-card__logo">
-                        <div class="collection-card__logo-image-wrap">
-                            <img
-                                src="/assets/images/images_home-autodesk/mye_logo.png"
-                                alt="Media and Entertainment Collection"
-                                class="collection-card__logo-image"
-                                loading="lazy"
-                                decoding="async"
-                                width="220"
-                                height="60"
-                            >
-                        </div>
+                </div>
+                
+                <div class="collection-card fade-in">
+                    <div class="collection-logo">
+                        <img src="/assets/images/images_home-autodesk/mye_logo.png" 
+                             alt="Media & Entertainment Collection" 
+                             class="collection-logo-icon" 
+                             loading="lazy"
+                             decoding="async"
+                             width="200" 
+                             height="60">
                     </div>
-                    <h3 class="collection-card__title">Media & Entertainment</h3>
-                    <p class="collection-card__desc">Software profesional para animación 3D, efectos visuales y producción creativa.</p>
-                    <div class="collection-card__tags">
-                        <span class="collection-card__tag">Maya</span>
-                        <span class="collection-card__tag">3ds Max</span>
-                        <span class="collection-card__tag">MotionBuilder</span>
-                        <span class="collection-card__tag">Arnold</span>
+                    <p>Software profesional para animación 3D, efectos visuales y producción creativa.</p>
+                    <div class="collection-tags">
+                        <span class="tag">Maya</span>
+                        <span class="tag">3ds Max</span>
+                        <span class="tag">MotionBuilder</span>
+                        <span class="tag">Arnold</span>
                     </div>
-                </article>
-
-                <article class="collection-card fade-in fade-in-delay-1">
-                    <div class="collection-card__logo">
-                        <div class="collection-card__logo-image-wrap">
-                            <img
-                                src="/assets/images/images_home-autodesk/forma_logo.png"
-                                alt="Autodesk Forma"
-                                class="collection-card__logo-image"
-                                loading="lazy"
-                                decoding="async"
-                                width="220"
-                                height="60"
-                            >
-                        </div>
+                </div>
+                
+                <div class="collection-card fade-in">
+                    <div class="collection-logo">
+                        <img src="/assets/images/images_home-autodesk/forma_logo.png" 
+                             alt="Autodesk Forma - Planificación urbana" 
+                             class="collection-logo-icon" 
+                             loading="lazy"
+                             decoding="async"
+                             width="200" 
+                             height="60">
                     </div>
-                    <h3 class="collection-card__title">Autodesk Forma</h3>
-                    <p class="collection-card__desc">Plataforma de planificación y diseño urbano que conecta datos, equipos y flujos de trabajo en tiempo real.</p>
-                    <div class="collection-card__tags">
-                        <span class="collection-card__tag">Planificación urbana</span>
-                        <span class="collection-card__tag">Análisis de sitios</span>
-                        <span class="collection-card__tag">Diseño conceptual</span>
-                        <span class="collection-card__tag">Colaboración cloud</span>
+                    <p>Plataforma de planificación y diseño urbano que conecta datos, equipos y flujos de trabajo en tiempo real.</p>
+                    <div class="collection-tags">
+                        <span class="tag">Planificación urbana</span>
+                        <span class="tag">Análisis de sitios</span>
+                        <span class="tag">Diseño conceptual</span>
+                        <span class="tag">Colaboración en la nube</span>
                     </div>
-                </article>
-            </div>
-
-            <div class="portfolio__cta fade-in">
-                <a href="#" class="btn btn--dark">
-                    Explorar todas las soluciones
-                    <span class="btn__arrow">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- VENTAJAS -->
-    <section class="advantages bg-grid" id="ventajas">
-        <div class="container">
-            <div class="advantages__header">
-                <div class="section-label section-label--light fade-in">Ventajas</div>
-                <h2 class="section-title fade-in fade-in-delay-1">
-                    ¿Por qué elegir <span class="highlight">Cadgrafics?</span>
-                </h2>
-                <p class="section-subtitle fade-in fade-in-delay-2">
-                    Más que un distribuidor, somos tu socio estratégico para el éxito
-                </p>
-            </div>
-
-            <div class="advantages-grid">
-                <article class="advantage-card fade-in">
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-                        </svg>
-                    </div>
-                    <h3 class="advantage-card__title">Soporte Técnico Especializado</h3>
-                    <p class="advantage-card__text">Equipo de expertos certificados disponibles para resolver tus consultas técnicas de forma rápida y eficiente.</p>
-                </article>
-
-                <article class="advantage-card fade-in fade-in-delay-1">
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                            <polyline points="14 2 14 8 20 8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
-                            <polyline points="10 9 9 9 8 9"/>
-                        </svg>
-                    </div>
-                    <h3 class="advantage-card__title">Facturación Simplificada</h3>
-                    <p class="advantage-card__text">Proceso de facturación ágil y transparente adaptado a las necesidades de tu empresa.</p>
-                </article>
-
-                <article class="advantage-card fade-in">
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                        </svg>
-                    </div>
-                    <h3 class="advantage-card__title">Entrenamientos, Cursos y Webinars</h3>
-                    <p class="advantage-card__text">Programas de capacitación certificados impartidos por instructores autorizados de Autodesk.</p>
-                </article>
-
-                <article class="advantage-card fade-in fade-in-delay-1">
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M9 12l2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3 class="advantage-card__title">Servicio Preventa y Postventa</h3>
-                    <p class="advantage-card__text">Asesoría completa antes y después de tu compra con seguimiento continuo y soporte dedicado.</p>
-                </article>
-
-                <article class="advantage-card fade-in">
-                    <div class="advantage-card__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <h3 class="advantage-card__title">Descuentos por Volumen</h3>
-                    <p class="advantage-card__text">Precios preferenciales en compras corporativas y licencias múltiples con planes flexibles.</p>
-                </article>
-
-                <article class="advantage-card advantage-card--stats fade-in fade-in-delay-1">
-                    <div class="stats-list">
-                        <div class="stat-item">
-                            <div class="stat-item__number">+500</div>
-                            <div class="stat-item__label">Clientes satisfechos</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-item__number">+1000</div>
-                            <div class="stat-item__label">Licencias activas</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-item__number">15+</div>
-                            <div class="stat-item__label">Años de experiencia</div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="cta-section bg-grid" id="contacto">
-        <div class="container">
-            <div class="cta-box fade-in">
-                <div class="cta-box__label">PLATINUM PARTNER · AUTODESK</div>
-                <h2 class="cta-box__title">¿Listo para llevar tu empresa al siguiente nivel?</h2>
-                <p class="cta-box__subtitle">Descubre cómo nuestras soluciones Autodesk pueden transformar tus procesos de trabajo</p>
-                <div class="cta-box__actions">
-                    <a href="#" class="btn btn--primary textbutton-trigger">
-                        Contactar a un especialista
-                        <span class="btn__arrow">→</span>
-                    </a>
-                    <a href="#" class="btn btn--outline">Ver demostraciones</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CREDENCIALES -->
-    <section class="credentials" id="credenciales">
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section class="why-us" id="por-que" aria-labelledby="why-title">
         <div class="container">
-            <div class="credentials__header">
-                <div class="section-label section-label--dark fade-in">Credenciales</div>
-                <h2 class="section-title fade-in fade-in-delay-1">
-                    Certificaciones y <span class="underline">Especializaciones</span>
-                </h2>
-                <p class="section-subtitle fade-in fade-in-delay-2">
-                    Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia y compromiso con la excelencia
-                </p>
+            <h2 class="section-title fade-in" id="why-title">
+                ¿Por qué elegir <span class="text-yellow">Cadgrafics?</span>
+            </h2>
+            <p class="section-subtitle fade-in">
+                Más que un distribuidor, somos tu socio estratégico para el éxito
+            </p>
+            
+            <div class="why-grid">
+                <article class="why-card fade-in">
+                    <div class="why-icon">
+                        <svg aria-hidden="true"><use href="#icon-headphones"/></svg>
+                    </div>
+                    <h3>Soporte Técnico Especializado</h3>
+                    <p>Equipo de expertos certificados disponibles para resolver tus consultas técnicas de forma rápida y eficiente. Asistencia personalizada para maximizar el rendimiento de tus herramientas.</p>
+                </article>
+                
+                <article class="why-card fade-in">
+                    <div class="why-icon">
+                        <svg aria-hidden="true"><use href="#icon-file"/></svg>
+                    </div>
+                    <h3>Facturación Simplificada</h3>
+                    <p>Proceso de facturación ágil y transparente adaptado a las necesidades de tu empresa. Múltiples opciones de pago y gestión administrativa sin complicaciones.</p>
+                </article>
+                
+                <article class="why-card fade-in">
+                    <div class="why-icon">
+                        <svg aria-hidden="true"><use href="#icon-graduation"/></svg>
+                    </div>
+                    <h3>Entrenamientos, Cursos y Webinars</h3>
+                    <p>Programas de capacitación certificados impartidos por instructores autorizados de Autodesk. Mantén a tu equipo actualizado con las últimas tecnologías y mejores prácticas.</p>
+                </article>
+                
+                <article class="why-card fade-in">
+                    <div class="why-icon">
+                        <svg aria-hidden="true"><use href="#icon-users"/></svg>
+                    </div>
+                    <h3>Servicio Preventa y Postventa</h3>
+                    <p>Asesoría completa antes y después de tu compra. Te ayudamos a elegir la solución perfecta y garantizamos tu éxito con seguimiento continuo y soporte dedicado.</p>
+                </article>
+                
+                <article class="why-card fade-in">
+                    <div class="why-icon">
+                        <svg aria-hidden="true"><use href="#icon-trending"/></svg>
+                    </div>
+                    <h3>Descuentos por Volumen</h3>
+                    <p>Obtén precios preferenciales en compras corporativas y licencias múltiples. Planes flexibles diseñados para optimizar tu inversión y maximizar el ROI de tu organización.</p>
+                </article>
             </div>
+        </div>
+    </section>
 
-            <div class="credentials__carousel fade-in" id="credentialsCarousel">
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">TRANSPORTATION<br>INFRASTRUCTURE</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="skills">
-                    <div class="badge-shape badge-shape--hex">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">CUSTOMER<br>SUCCESS</div>
-                        <div class="badge__subtitle">ACCREDITED<br>SKILLS</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="skills">
-                    <div class="badge-shape badge-shape--hex">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">CONSULTING<br>IMPLEMENTATION<br>FRAMEWORK</div>
-                        <div class="badge__subtitle">ACCREDITED<br>SKILLS</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="platinum">
-                    <div class="badge-shape badge-shape--shield">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">PLATINUM</div>
-                        <div class="badge__bottom">SOLUTION PROVIDER</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">BUILDING<br>ARCHITECTURE</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">CONSTRUCTION</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">MECHANICAL,<br>ELECTRICAL &<br>PLUMBING</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
+    <!-- CERTIFICACIONES -->
+    <section class="certifications" id="certificaciones" aria-labelledby="cert-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="cert-title">Certificaciones y <span class="text-red">Especializaciones</span></h2>
+            <p class="section-subtitle fade-in">Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia y compromiso con la excelencia</p>
+            <div class="cert-carousel fade-in" aria-label="Carrusel de certificaciones Autodesk">
+                <div class="cert-carousel-track" id="certTrack" tabindex="0">
+                    <img src="/assets/images/images_home-autodesk/1_autodesk.png" alt="Certificación Autodesk Construction" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="/assets/images/images_home-autodesk/2_autodesk.png" alt="Certificación Autodesk MEP" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="/assets/images/images_home-autodesk/3_autodesk.png" alt="Certificación Autodesk Infrastructure" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="/assets/images/images_home-autodesk/4_autodesk.png" alt="Certificación Autodesk Manufacturing" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="/assets/images/images_home-autodesk/5_autodesk.png" alt="Certificación Autodesk Product Design" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="/assets/images/images_home-autodesk/6_autodesk.png" alt="Certificación Autodesk AEC" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="/assets/images/images_home-autodesk/7_autodesk.png" alt="Certificación Autodesk Customer Success" class="cert-showcase-img" loading="lazy" width="220" height="140">
                 </div>
             </div>
-
-            <div class="credentials__table fade-in">
-                <div class="credentials__table-cell">
-                    <span class="table-cell__label">Partner<br>Certificado</span>
-                    <span class="table-cell__value">Desde<br><span class="number">2010</span></span>
-                </div>
-                <div class="credentials__table-cell">
-                    <span class="table-cell__label">Especializaciones<br>activas</span>
-                    <span class="table-cell__value"><span class="number">7</span>Credenciales</span>
-                </div>
-                <div class="credentials__table-cell">
-                    <span class="table-cell__label">Nivel de<br>partnership</span>
-                    <span class="table-cell__value">Platinum</span>
+            <div class="platinum-card fade-in">
+                <h3>Platinum Partner con Certificación Completa</h3>
+                <p>Como Platinum Partner de Autodesk, contamos con las especializaciones más avanzadas en AEC, Manufacturing, BIM y servicios en la nube, garantizando el más alto nivel de expertise para nuestros clientes.</p>
+                <div class="platinum-badges">
+                    <div class="platinum-badge"><svg aria-hidden="true"><use href="#icon-check"/></svg> Partner Certificado desde 2010</div>
+                    <div class="platinum-badge"><svg aria-hidden="true"><use href="#icon-check"/></svg> +500 Clientes Satisfechos</div>
+                    <div class="platinum-badge"><svg aria-hidden="true"><use href="#icon-check"/></svg> +1000 Licencias Activas</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CASOS DE ÉXITO -->
-    <section class="cases bg-grid" id="casos">
+    <section class="success-stories" id="casos" aria-labelledby="stories-title">
         <div class="container">
-            <div class="cases__header">
-                <div class="section-label section-label--light fade-in">Resultados</div>
-                <h2 class="section-title fade-in fade-in-delay-1">
-                    Casos de <span class="highlight">Éxito</span>
-                </h2>
-                <p class="section-subtitle fade-in fade-in-delay-2">
-                    Historias reales de empresas que transformaron sus procesos con nuestras soluciones
-                </p>
-            </div>
-
-            <div class="cases-grid">
-                <article class="case-card fade-in">
-                    <div class="case-card__image">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Equipo de construcción en obra">
-                        <div class="case-card__result">-40% tiempo de entrega</div>
-                        <button class="case-card__play" aria-label="Ver video">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
+            <h2 class="section-title fade-in" id="stories-title">
+                Casos de <span class="text-yellow">Éxito</span>
+            </h2>
+            <p class="section-subtitle fade-in">
+                Historias reales de empresas que transformaron sus procesos con nuestras soluciones
+            </p>
+            
+            <div class="stories-grid">
+                <article class="story-card fade-in">
+                    <div class="story-video">
+                        <img src="/assets/images/case-construction.jpg" 
+                             alt="Transformación Digital en Construcción BIM - Grupo IDINSA" 
+                             loading="lazy"
+                             decoding="async"
+                             width="600" 
+                             height="400">
+                        <button class="play-button" 
+                                data-video-url="https://www.youtube.com/embed/cgwuOv4rOEs" 
+                                aria-label="Reproducir video de Transformación Digital en Construcción BIM">
+                            <svg aria-hidden="true"><use href="#icon-play"/></svg>
                         </button>
                     </div>
-                    <div class="case-card__content">
-                        <div class="case-card__client">Grupo Constructor ABC</div>
-                        <h3 class="case-card__title">Transformación Digital en Construcción</h3>
-                        <p class="case-card__text">Implementamos BIM 360 y Revit para optimizar la gestión de proyectos, reduciendo tiempos de entrega en un 40% y mejorando la colaboración entre equipos multidisciplinarios.</p>
-                        <a href="#" class="case-card__link">
-                            Ver documental completo
-                            <span>→</span>
-                        </a>
+                    <div class="story-content">
+                        <h3>Transformación Digital en Construcción</h3>
+                        <div class="company">Grupo IDINSA</div>
+                        <p>Descubre cómo implementamos BIM 360 y Revit para optimizar la gestión de proyectos, reduciendo tiempos de entrega en un 40% y mejorando la colaboración entre equipos multidisciplinarios.</p>
                     </div>
                 </article>
-
-                <article class="case-card fade-in fade-in-delay-1">
-                    <div class="case-card__image">
-                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="Diseño de producto en escritorio">
-                        <div class="case-card__result">-60% tiempo de prototipado</div>
-                        <button class="case-card__play" aria-label="Ver video">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
+                
+                <article class="story-card fade-in">
+                    <div class="story-video">
+                        <img src="/assets/images/case-manufacturing.jpg" 
+                             alt="Innovación en Diseño de Productos - Grupo ALBA" 
+                             loading="lazy"
+                             decoding="async"
+                             width="600" 
+                             height="400">
+                        <button class="play-button" 
+                                data-video-url="https://www.youtube.com/embed/-wPrzTvsZm8" 
+                                aria-label="Reproducir video de Innovación en Diseño de Productos">
+                            <svg aria-hidden="true"><use href="#icon-play"/></svg>
                         </button>
                     </div>
-                    <div class="case-card__content">
-                        <div class="case-card__client">Industrias Manufactura XYZ</div>
-                        <h3 class="case-card__title">Innovación en Diseño de Productos</h3>
-                        <p class="case-card__text">La implementación de Fusion 360 e Inventor aceleró el proceso de prototipado en un 60% y redujo costos de producción significativamente.</p>
-                        <a href="#" class="case-card__link">
-                            Ver documental completo
-                            <span>→</span>
-                        </a>
+                    <div class="story-content">
+                        <h3>Innovación en Diseño de Productos</h3>
+                        <div class="company">Grupo ALBA</div>
+                        <p>Conoce el caso de éxito en la implementación de Fusion 360 e Inventor, que permitió acelerar el proceso de prototipado en un 60% y reducir costos de producción significativamente.</p>
                     </div>
                 </article>
-            </div>
-
-            <div class="cases__cta fade-in">
-                <a href="#" class="btn btn--outline">Ver todos los casos de éxito</a>
             </div>
         </div>
     </section>
 
+    <!-- CTA FINAL -->
+    <section class="final-cta" aria-labelledby="final-cta-title">
+        <div class="container">
+            <h2 id="final-cta-title">¿Listo para transformar tu empresa con Autodesk?</h2>
+            <p>Solicita un diagnóstico gratuito y descubre cómo nuestras soluciones pueden optimizar tus procesos de diseño y construcción.</p>
+            <div class="final-cta-buttons">
+                <button class="btn btn-primary" data-modal-trigger="diagnostico">
+                    Diagnóstico Gratuito
+                    <svg class="arrow" width="18" height="18" aria-hidden="true"><use href="#icon-arrow"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
 </main>
 
 <!-- ============================================
-     FOOTER 
+     FOOTER
      ============================================ -->
-<footer class="site-footer">
+<footer class="site-footer" role="contentinfo">
     <div class="container">
         <div class="footer-content">
             <div>
@@ -2305,424 +2011,465 @@
                 </div>
             </div>
         </div>
-        <div class="copyright">&copy; 2026 Cadgrafics | Todos los derechos reservados | <a href="aviso_privacidad.html">Aviso de Privacidad</a>.</div>
+        <div class="copyright">&copy; <span id="year"></span> Cadgrafics. Todos los derechos reservados | <a href="/aviso_privacidad.html">Aviso de Privacidad</a>.</div>
     </div>
 </footer>
 
-<!-- WhatsApp Float -->
-<a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20y%20quiero%20información" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 55 3112 0508">
-    <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/525520002550?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20de%20Autodesk%20y%20quiero%20información" 
+   class="whatsapp-float" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="Contactar por WhatsApp: +52 (55) 2000-2550">
+    <svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>
 </a>
 
-<!-- ============================================
-     MODAL
-     ============================================ -->
-<div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
-    <div class="modal-content" role="document">
-        <div class="modal-header">
-            <h3 class="modal-title" id="modalTitle">Cuéntanos sobre tu proyecto</h3>
-            <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar formulario">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form id="leadForm" novalidate>
-            <div id="formFields">
-                <div class="form-group">
-                    <label for="name">Nombre completo *</label>
-                    <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name" aria-describedby="name-error-modal"/>
-                    <p id="name-error-modal" class="form-message error" role="alert" style="display:none;"></p>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo electrónico *</label>
-                    <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" aria-describedby="email-error-modal"/>
-                    <p id="email-error-modal" class="form-message error" role="alert" style="display:none;"></p>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Celular *</label>
-                    <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678" aria-describedby="phone-error-modal"/>
-                    <p id="phone-error-modal" class="form-message error" role="alert" style="display:none;"></p>
-                </div>
-                <div class="form-group">
-                    <label for="company">Empresa *</label>
-                    <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa" aria-describedby="company-error-modal"/>
-                    <p id="company-error-modal" class="form-message error" role="alert" style="display:none;"></p>
-                </div>
-                <div class="form-group">
-                    <label for="message">Tu requerimiento</label>
-                    <textarea id="message" name="message" rows="4" maxlength="500" placeholder="Ej: Necesito licencias Autodesk para equipo de diseño..."></textarea>
-                </div>
-                <button type="submit" class="cta-modal">
-                    <svg width="16" height="16" aria-hidden="true"><use href="#icon-send"/></svg> Enviar consulta
-                </button>
-                <p class="form-message" id="modalFormMessage" role="status" aria-live="polite"></p>
+<!-- MODAL FORMULARIO -->
+<div class="modal-overlay" 
+     id="modal-universal" 
+     role="dialog" 
+     aria-modal="true" 
+     aria-labelledby="modal-title-dynamic" 
+     aria-describedby="modal-description-dynamic">
+    <div class="modal">
+        <button class="modal-close" data-modal-close aria-label="Cerrar modal">&times;</button>
+        <h3 id="modal-title-dynamic">Título dinámico</h3>
+        <p id="modal-description-dynamic">Descripción dinámica</p>
+        <form class="modal-form" id="modal-form-dynamic" novalidate>
+            <div class="visually-hidden">
+                <label for="honeypot">Deja este campo vacío</label>
+                <input type="text" name="fax_number" id="honeypot" tabindex="-1" autocomplete="off" />
             </div>
-            <div class="success-message" id="successMessage" role="alert" aria-live="polite">
-                <svg width="48" height="48" aria-hidden="true"><use href="#icon-check"/></svg>
-                <h4>¡Listo!</h4>
-                <p>Recibimos tu consulta. Te contactaremos en breve.</p>
-            </div>
+            <label for="modal-input-nombre" class="visually-hidden">Nombre completo</label>
+            <input type="text" 
+                   id="modal-input-nombre" 
+                   placeholder="Nombre completo" 
+                   required 
+                   maxlength="100" 
+                   autocomplete="name"
+                   aria-required="true">
+            <label for="modal-input-email" class="visually-hidden">Correo electrónico</label>
+            <input type="email" 
+                   id="modal-input-email" 
+                   placeholder="Correo electrónico" 
+                   required 
+                   maxlength="100" 
+                   autocomplete="email"
+                   aria-required="true">
+            <label for="modal-input-empresa" class="visually-hidden">Empresa</label>
+            <input type="text" 
+                   id="modal-input-empresa" 
+                   placeholder="Empresa" 
+                   maxlength="100" 
+                   autocomplete="organization">
+            <label for="modal-input-extra" class="visually-hidden">Campo adicional</label>
+            <input type="text" 
+                   id="modal-input-extra" 
+                   placeholder="Campo adicional" 
+                   maxlength="100">
+            <label for="modal-input-mensaje" class="visually-hidden">Mensaje</label>
+            <textarea id="modal-input-mensaje" 
+                      rows="3" 
+                      placeholder="Mensaje" 
+                      maxlength="500"></textarea>
+            <button type="submit" class="btn btn-primary btn--block">Enviar solicitud</button>
+            <p class="form-message" id="modal-form-message" role="status" aria-live="polite"></p>
         </form>
     </div>
 </div>
 
+<!-- MODAL VIDEO -->
+<div class="video-modal-overlay" 
+     id="video-modal" 
+     role="dialog" 
+     aria-modal="true" 
+     aria-label="Reproductor de video">
+    <div class="video-modal">
+        <button class="video-modal-close" id="video-modal-close" aria-label="Cerrar video">&times;</button>
+        <div class="video-container">
+            <iframe id="video-iframe" 
+                    src="" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    title="Video de caso de éxito"></iframe>
+        </div>
+    </div>
+</div>
+
 <!-- ============================================
-     JAVASCRIPT UNIFICADO
+     JAVASCRIPT
      ============================================ -->
-<script nonce="REEMPLAZAR_DESDE_SERVIDOR">
-(function () {
-    'use strict';
+<script>
+'use strict';
 
-    // ===== Manejo global de errores =====
-    window.addEventListener('error', (e) => {
-        console.error('Error global capturado:', e.error);
-    });
-
-    window.addEventListener('unhandledrejection', (e) => {
-        console.error('Promise rechazada sin manejar:', e.reason);
-    });
-
-    // ===== Utilidades DOM =====
-    const $ = (sel, ctx = document) => ctx.querySelector(sel);
-    const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-
-    // ===== Header scroll effect =====
-    const header = $('#header');
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // AÑO DINÁMICO EN COPYRIGHT
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // STACK DE MODALES (contador para overflow)
+    let modalStack = 0;
+    const lockScroll = () => { 
+        if (++modalStack === 1) document.body.style.overflow = 'hidden'; 
+    };
+    const unlockScroll = () => { 
+        if (--modalStack === 0) document.body.style.overflow = ''; 
+    };
+    
+    // HEADER SCROLL
+    const header = document.getElementById('header');
     let ticking = false;
-
-    const updateHeader = () => {
-        const currentScroll = window.scrollY;
-        header?.classList.toggle('scrolled', currentScroll > 50);
-        ticking = false;
+    
+    const updateHeader = () => { 
+        header?.classList.toggle('scrolled', window.scrollY > 50); 
+        ticking = false; 
     };
-
-    const onScroll = () => {
-        if (!ticking) {
-            window.requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
+    
+    const onScroll = () => { 
+        if (!ticking) { 
+            requestAnimationFrame(updateHeader); 
+            ticking = true; 
+        } 
     };
-
-    if (header) {
-        window.addEventListener('scroll', onScroll, { passive: true });
-        updateHeader();
+    
+    if (header) { 
+        window.addEventListener('scroll', onScroll, { passive: true }); 
+        updateHeader(); 
     }
 
-    // ===== Mobile menu toggle =====
-    const mobileToggle = $('#mobileToggle');
-    const navMenu = $('#navMenu');
+    // MENÚ MÓVIL
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
     
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             const isActive = navMenu.classList.toggle('active');
             mobileToggle.setAttribute('aria-expanded', String(isActive));
             mobileToggle.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
+            if (isActive) lockScroll(); else unlockScroll();
             
-            document.body.style.overflow = isActive ? 'hidden' : '';
-            
-            const icon = mobileToggle.querySelector('svg use');
-            if (icon) {
-                icon.setAttribute('href', isActive ? '#icon-close' : '#icon-menu');
-            }
-            
-            if (!isActive) {
-                $$('.nav-item.active, .dropdown-submenu.active').forEach(el => el.classList.remove('active'));
-                $$('[aria-expanded="true"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
-            }
+            const iconUse = mobileToggle.querySelector('use');
+            if (iconUse) iconUse.setAttribute('href', isActive ? '#icon-close' : '#icon-menu');
         });
     }
 
-    // ===== Dropdown menus =====
-    const setupDropdown = (selector, parentSelector) => {
-        $$(selector).forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    const parent = link.closest(parentSelector);
-                    const isActive = parent?.classList.toggle('active');
-                    link.setAttribute('aria-expanded', String(!!isActive));
-                    
-                    $$(`${parentSelector}.active`).forEach(sib => {
-                        if (sib !== parent) {
-                            sib.classList.remove('active');
-                            sib.querySelector('a')?.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                }
-            });
-
-            link.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    const parent = link.closest(parentSelector);
-                    const dropdown = parent?.querySelector('.dropdown-menu, .dropdown-submenu-menu');
-                    if (dropdown) {
-                        e.preventDefault();
-                        const isActive = parent.classList.toggle('active');
-                        link.setAttribute('aria-expanded', String(isActive));
-                    }
-                }
-            });
-        });
-    };
-
-    setupDropdown('.nav-item > a', '.nav-item');
-    setupDropdown('.dropdown-submenu > a', '.dropdown-submenu');
-
-    // ===== Smooth scroll para anchors internos (con offset de header) =====
-    $$('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            const targetId = anchor.getAttribute('href');
-            if (targetId === '#' || targetId.length < 2) return;
-
-            const target = $(targetId);
-            if (!target) return;
-
-            e.preventDefault();
-            const headerOffset = 80;
-            const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
-
-            window.scrollTo({ top, behavior: 'smooth' });
-        });
-    });
-
-    // ===== Animaciones al hacer scroll (IntersectionObserver) =====
-    const fadeElements = $$('.fade-in');
-    
-    if (fadeElements.length) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        fadeElements.forEach(el => observer.observe(el));
-    }
-
-    // ===== Carrusel de credenciales con drag =====
-    const carousel = $('#credentialsCarousel');
-    if (carousel) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        carousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            carousel.style.cursor = 'grabbing';
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-        });
-
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2;
-            carousel.scrollLeft = scrollLeft - walk;
-        });
-
-        carousel.style.cursor = 'grab';
-    }
-
-    // ===== Parallax sutil en Hero =====
-    const heroBackground = $('.hero__background');
-    let parallaxTicking = false;
-
-    const updateParallax = () => {
-        const scrolled = window.pageYOffset;
-        if (scrolled < window.innerHeight && heroBackground) {
-            heroBackground.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-        parallaxTicking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-        if (!parallaxTicking) {
-            window.requestAnimationFrame(updateParallax);
-            parallaxTicking = true;
-        }
-    });
-
-    // ===== Botones Play de casos de éxito =====
-    const playButtons = $$('.case-card__play');
-    playButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Reproduciendo video del caso de éxito');
-        });
-    });
-
-    // ===== Indicador de scroll - ocultar al hacer scroll =====
-    const scrollIndicator = $('.hero__scroll-indicator');
-    if (scrollIndicator) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
-            }
-        });
-    }
-
-    // ===== Modal de contacto =====
-    const modal = $('#formModal');
-    const modalClose = $('#modalClose');
-    const leadForm = $('#leadForm');
-    const formFields = $('#formFields');
-    const successMessage = $('#successMessage');
-    const modalFormMessage = $('#modalFormMessage');
-    let lastFocusedElement = null;
-    
-    const sanitize = (str) => {
-        const div = document.createElement('div');
-        div.textContent = String(str || '');
-        return div.innerHTML.trim().slice(0, 500);
-    };
-
-    const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    const isValidPhone = (phone) => /^[\d\s+\-()]{10,20}$/.test(phone);
-
-    const openModal = (e) => {
-        e?.preventDefault();
-        lastFocusedElement = document.activeElement;
-        modal?.classList.add('active');
-        modal?.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => $('#name')?.focus(), 100);
-    };
-
-    const closeModal = () => {
-        modal?.classList.remove('active');
-        modal?.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-            lastFocusedElement.focus();
-        }
-    };
-
-    // Triggers del modal
-    $$('.textbutton-trigger').forEach(btn => btn.addEventListener('click', openModal));
-    
-    // Cierre del modal
-    modalClose?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    
-    // Accesibilidad del modal: Escape y focus trap
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal?.classList.contains('active')) {
-            closeModal();
-        }
-        if (modal?.classList.contains('active') && e.key === 'Tab') {
-            const focusable = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-            const first = focusable[0], last = focusable[focusable.length - 1];
-            if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault(); last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault(); first.focus();
-            }
-        }
-    });
-
-    // Validación del formulario del modal
-    $$('#leadForm input, #leadForm textarea').forEach(input => {
-        input.addEventListener('input', () => input.classList.remove('is-invalid'));
-    });
-
-    leadForm?.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    // DROPDOWNS - NAVEGACIÓN POR TECLADO Y DESKTOP
+    const navItems = document.querySelectorAll('.nav-item, .dropdown-submenu');
+    navItems.forEach(item => {
+        const link = item.querySelector(':scope > a');
+        const submenu = item.querySelector(':scope > ul');
         
+        if (link && submenu) {
+            // Desktop: actualizar aria-expanded en hover
+            link.addEventListener('mouseenter', () => {
+                link.setAttribute('aria-expanded', 'true');
+            });
+            link.addEventListener('mouseleave', () => {
+                link.setAttribute('aria-expanded', 'false');
+            });
+            
+            // Teclado: navegación con Enter, Space, ArrowDown, Escape
+            link.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    item.classList.add('active');
+                    const firstLink = submenu.querySelector('a');
+                    if (firstLink) firstLink.focus();
+                } else if (e.key === 'Escape') {
+                    item.classList.remove('active');
+                    link.focus();
+                }
+            });
+            
+            submenu.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    item.classList.remove('active');
+                    link.focus();
+                }
+            });
+        }
+    });
+
+    // ANIMACIONES SCROLL
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { 
+        root: null, 
+        rootMargin: '0px 0px -80px 0px', 
+        threshold: 0.1 
+    });
+    
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // CARRUSEL INFINITO - Clonar imágenes para loop continuo
+    const certTrack = document.getElementById('certTrack');
+    if (certTrack) {
+        const originalItems = Array.from(certTrack.children);
+        originalItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            certTrack.appendChild(clone);
+        });
+    }
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // MODAL VIDEO
+    const videoModal = document.getElementById('video-modal');
+    const videoIframe = document.getElementById('video-iframe');
+    const videoModalClose = document.getElementById('video-modal-close');
+    
+    const openVideoModal = url => {
+        videoIframe.src = url + '?autoplay=1';
+        videoModal.classList.add('active');
+        lockScroll();
+        setTimeout(() => videoModalClose.focus(), 100);
+        
+        // Focus trap para video modal
+        videoModal.addEventListener('keydown', trapVideoFocus);
+    };
+    
+    const closeVideoModal = () => {
+        videoIframe.src = '';
+        videoModal.classList.remove('active');
+        unlockScroll();
+        videoModal.removeEventListener('keydown', trapVideoFocus);
+    };
+    
+    const trapVideoFocus = (e) => {
+        if (e.key !== 'Tab') return;
+        const focusable = videoModal.querySelectorAll('button, [href], iframe, [tabindex]:not([tabindex="-1"])');
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    };
+    
+    document.querySelectorAll('[data-video-url]').forEach(btn => 
+        btn.addEventListener('click', function() { 
+            openVideoModal(this.getAttribute('data-video-url')); 
+        })
+    );
+    
+    videoModalClose.addEventListener('click', closeVideoModal);
+    videoModal.addEventListener('click', e => { 
+        if (e.target === videoModal) closeVideoModal(); 
+    });
+
+    // CONFIGURACIÓN MODALES
+    const modalConfigs = {
+        diagnostico: { 
+            title: 'Solicita tu diagnóstico gratuito', 
+            description: 'Completa el formulario y un especialista te contactará en menos de 24 horas.', 
+            extraPlaceholder: 'Empresa', 
+            messagePlaceholder: '¿En qué podemos ayudarte?', 
+            buttonText: 'Enviar solicitud' 
+        },
+        cotizacion: { 
+            title: 'Solicitar Cotización', 
+            description: 'Cuéntanos qué necesitas y te enviaremos una propuesta personalizada.', 
+            extraPlaceholder: 'Producto de interés (ej: AEC Collection)', 
+            messagePlaceholder: 'Detalles adicionales...', 
+            buttonText: 'Solicitar cotización' 
+        }
+    };
+    
+    const modal = document.getElementById('modal-universal');
+    const modalTitle = document.getElementById('modal-title-dynamic');
+    const modalDescription = document.getElementById('modal-description-dynamic');
+    const modalForm = document.getElementById('modal-form-dynamic');
+    const modalFormMessage = document.getElementById('modal-form-message');
+    const modalInputExtra = document.getElementById('modal-input-extra');
+    const modalInputMensaje = document.getElementById('modal-input-mensaje');
+    const modalSubmitBtn = modalForm.querySelector('button[type="submit"]');
+    const closeBtn = modal.querySelector('[data-modal-close]');
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    let triggerElement = null;
+
+    const openModal = function(e) {
+        if (e) { 
+            e.preventDefault(); 
+            triggerElement = e.currentTarget; 
+        }
+        
+        const triggerType = this.getAttribute('data-modal-trigger') || 'diagnostico';
+        const config = modalConfigs[triggerType] || modalConfigs.diagnostico;
+        
+        modalTitle.textContent = config.title;
+        modalDescription.textContent = config.description;
+        modalInputExtra.placeholder = config.extraPlaceholder;
+        modalInputMensaje.placeholder = config.messagePlaceholder;
+        modalSubmitBtn.textContent = config.buttonText;
         modalFormMessage.textContent = '';
         modalFormMessage.className = 'form-message';
         
-        const fd = new FormData(leadForm);
-        const data = {
-            name: sanitize(fd.get('name')),
-            email: sanitize(fd.get('email')),
-            phone: sanitize(fd.get('phone')),
-            company: sanitize(fd.get('company')),
-            message: sanitize(fd.get('message'))
-        };
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        lockScroll();
+        
+        setTimeout(() => { 
+            closeBtn.focus(); 
+            modal.addEventListener('keydown', trapFocus); 
+        }, 100);
+    };
 
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        unlockScroll();
+        modal.removeEventListener('keydown', trapFocus);
+        modalForm.reset();
+        
+        if (triggerElement) triggerElement.focus();
+    };
+
+    const trapFocus = e => {
+        if (e.key !== 'Tab') return;
+        
+        const focusableContent = Array.from(modal.querySelectorAll(focusableSelector));
+        if (focusableContent.length === 0) return;
+        
+        const firstFocusable = focusableContent[0];
+        const lastFocusable = focusableContent[focusableContent.length - 1];
+        
+        if (!focusableContent.includes(document.activeElement)) { 
+            e.preventDefault(); 
+            firstFocusable.focus(); 
+            return; 
+        }
+        
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) { 
+                lastFocusable.focus(); 
+                e.preventDefault(); 
+            }
+        } else {
+            if (document.activeElement === lastFocusable) { 
+                firstFocusable.focus(); 
+                e.preventDefault(); 
+            }
+        }
+    };
+
+    document.querySelectorAll('[data-modal-trigger]').forEach(t => t.addEventListener('click', openModal));
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { 
+        if (e.target === modal) closeModal(); 
+    });
+
+    // VALIDACIÓN FORMULARIO
+    const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    
+    modalForm.querySelectorAll('input, textarea').forEach(input => 
+        input.addEventListener('input', () => input.classList.remove('is-invalid'))
+    );
+
+    // ENVÍO FORMULARIO
+    modalForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        modalFormMessage.textContent = '';
+        modalFormMessage.className = 'form-message';
+        
+        const honeypot = modalForm.querySelector('#honeypot');
+        if (honeypot && honeypot.value) { 
+            console.log('Spam detectado'); 
+            return; 
+        }
+        
+        const nombreInput = document.getElementById('modal-input-nombre');
+        const emailInput = document.getElementById('modal-input-email');
         let hasError = false;
-
-        if (!data.name || data.name.length < 3) {
-            $('#name').classList.add('is-invalid');
+        
+        if (!nombreInput.value.trim() || nombreInput.value.trim().length < 3) {
+            nombreInput.classList.add('is-invalid');
+            if (!hasError) { 
+                modalFormMessage.textContent = 'Por favor ingresa tu nombre completo.'; 
+                modalFormMessage.className = 'form-message error'; 
+            }
             hasError = true;
         }
-        if (!isValidEmail(data.email)) {
-            $('#email').classList.add('is-invalid');
+        
+        if (!isValidEmail(emailInput.value)) {
+            emailInput.classList.add('is-invalid');
+            if (!hasError) { 
+                modalFormMessage.textContent = 'Por favor ingresa un correo electrónico válido.'; 
+                modalFormMessage.className = 'form-message error'; 
+            }
             hasError = true;
         }
-        if (!isValidPhone(data.phone)) {
-            $('#phone').classList.add('is-invalid');
-            hasError = true;
-        }
-        if (!data.company || data.company.length < 2) {
-            $('#company').classList.add('is-invalid');
-            hasError = true;
-        }
-
-        if (hasError) {
-            modalFormMessage.textContent = 'Por favor completa todos los campos obligatorios correctamente.';
-            modalFormMessage.className = 'form-message error';
-            return;
-        }
-
-        const submitBtn = leadForm.querySelector('.cta-modal');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<svg width="16" height="16" style="animation: spin 1s linear infinite;" aria-hidden="true"><use href="#icon-send"/></svg> Enviando...';
-
+        
+        if (hasError) return;
+        
+        const originalHTML = modalSubmitBtn.innerHTML;
+        modalSubmitBtn.innerHTML = 'Enviando...';
+        modalSubmitBtn.disabled = true;
+        
         try {
-            const response = await fetch('/api/leads', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ ...data, source: 'modal' })
-            });
-
-            if (!response.ok) throw new Error('Error en el servidor');
-
-            const whatsappText = encodeURIComponent('Hola Cadgrafics, acabo de enviar un requerimiento desde su sitio web. ¿Podrían contactarme?');
-            window.open(`https://wa.me/525531120508?text=${whatsappText}`, '_blank', 'noopener,noreferrer');
+            await new Promise(resolve => setTimeout(resolve, 1000));
             
-            formFields.style.display = 'none';
-            successMessage.style.display = 'block';
+            modalSubmitBtn.innerHTML = '✓ Enviado correctamente';
+            modalSubmitBtn.style.background = '#059669';
+            modalSubmitBtn.style.borderColor = '#059669';
+            modalFormMessage.textContent = '¡Gracias! Tu solicitud ha sido enviada.';
+            modalFormMessage.className = 'form-message success';
             
             setTimeout(() => {
+                modalForm.reset();
+                modalSubmitBtn.innerHTML = originalHTML;
+                modalSubmitBtn.style.background = '';
+                modalSubmitBtn.style.borderColor = '';
+                modalSubmitBtn.disabled = false;
                 closeModal();
-                setTimeout(() => {
-                    leadForm.reset();
-                    formFields.style.display = '';
-                    successMessage.style.display = 'none';
-                }, 300);
-            }, 3000);
+            }, 1500);
         } catch (error) {
-            console.error('Error al enviar formulario:', error);
+            console.error('Error al enviar:', error);
+            modalSubmitBtn.innerHTML = '✗ Error al enviar';
+            modalSubmitBtn.style.background = '#DC2626';
+            modalSubmitBtn.style.borderColor = '#DC2626';
             modalFormMessage.textContent = 'Error al enviar. Por favor intenta de nuevo.';
             modalFormMessage.className = 'form-message error';
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
+            modalSubmitBtn.disabled = false;
+            
+            setTimeout(() => {
+                modalSubmitBtn.innerHTML = originalHTML;
+                modalSubmitBtn.style.background = '';
+                modalSubmitBtn.style.borderColor = '';
+            }, 2000);
         }
     });
-})();
+
+    // CERRAR CON ESCAPE
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            if (modal.classList.contains('active')) closeModal();
+            if (videoModal.classList.contains('active')) closeVideoModal();
+        }
+    });
+});
 </script>
+
 </body>
 </html>
