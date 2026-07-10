@@ -951,7 +951,161 @@
         }
 
         /* ============================================
-           10. CTA SECTION
+           10. CERTIFICACIONES
+           ============================================ */
+        .certifications {
+            padding: var(--spacing-2xl) 0;
+            position: relative;
+        }
+
+        .certifications__header {
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .certifications__header .section-label {
+            justify-content: center;
+        }
+
+        .certifications__header .section-label::before {
+            display: none;
+        }
+
+        .cert-carousel {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0 var(--spacing-xl);
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .cert-carousel-track {
+            display: flex;
+            gap: var(--spacing-md);
+            animation: carouselScroll 25s linear infinite;
+            width: max-content;
+        }
+
+        .cert-carousel-track:hover,
+        .cert-carousel-track:focus {
+            animation-play-state: paused;
+        }
+
+        @keyframes carouselScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .cert-showcase-img {
+            width: 220px;
+            height: 140px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+            transition: transform var(--transition-normal), filter var(--transition-normal);
+            flex-shrink: 0;
+            background: var(--color-white);
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+        }
+
+        .cert-showcase-img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 12px rgba(232, 255, 0, 0.4));
+        }
+
+        .platinum-card {
+            background: linear-gradient(145deg, var(--color-black-card) 0%, var(--color-black-hover) 50%, var(--color-black) 100%);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            color: var(--color-white);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(232, 255, 0, 0.2);
+        }
+
+        .platinum-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(232, 255, 0, 0.1) 0%, transparent 50%);
+            animation: platinumShimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes platinumShimmer {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
+        }
+
+        .platinum-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(232, 255, 0, 0.6), transparent);
+        }
+
+        .platinum-card__title {
+            font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .platinum-card__text {
+            font-size: 1rem;
+            opacity: 0.85;
+            max-width: 650px;
+            margin: 0 auto var(--spacing-xl);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        .platinum-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .platinum-badge {
+            padding: 0.875rem 1.5rem;
+            background: rgba(232, 255, 0, 0.15);
+            border: 1px solid rgba(232, 255, 0, 0.3);
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--color-yellow);
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            transition: all var(--transition-normal);
+        }
+
+        .platinum-badge:hover {
+            background: rgba(232, 255, 0, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(232, 255, 0, 0.2);
+        }
+
+        .platinum-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ============================================
+           11. CTA SECTION
            ============================================ */
         .cta-section {
             padding: var(--spacing-2xl) 0;
@@ -1023,162 +1177,122 @@
         }
 
         /* ============================================
-           11. CREDENCIALES
+           12. CREDENCIALES (TABLA RESUMEN)
            ============================================ */
-        .credentials {
+        .credentials-summary {
             background-color: var(--color-white);
             color: var(--color-black);
             padding: var(--spacing-2xl) 0;
-            overflow: hidden;
         }
 
-        .credentials .section-label { color: var(--color-gray); }
-        .credentials .section-subtitle { color: var(--color-gray); }
-        .credentials__header { margin-bottom: var(--spacing-xl); }
-
-        .credentials__carousel {
-            display: flex;
-            gap: var(--spacing-md);
-            overflow-x: auto;
-            padding: var(--spacing-md) 0;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+        .credentials-summary .section-label { color: var(--color-gray); }
+        .credentials-summary .section-subtitle { color: var(--color-gray); }
+        .credentials-summary__header { 
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
         }
 
-        .credentials__carousel::-webkit-scrollbar { display: none; }
-
-        .credential-badge {
-            flex-shrink: 0;
-            scroll-snap-align: start;
-            width: 200px; height: 220px;
-            position: relative;
-            transition: all var(--transition-normal);
-            cursor: pointer;
+        .credentials-summary__header .section-label {
+            justify-content: center;
         }
 
-        .credential-badge:hover { transform: translateY(-8px); }
+        .credentials-summary__header .section-label::before {
+            display: none;
+        }
 
-        .badge-shape {
-            width: 100%; height: 100%;
-            position: relative;
+        .credentials-summary__header .section-title {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .credentials-summary__header .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .credentials__table {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 2px solid var(--color-black);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .credentials__table-cell {
+            padding: var(--spacing-xl) var(--spacing-lg);
+            border-right: 1px solid #e5e5e5;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: var(--spacing-md);
-            text-align: center;
-        }
-
-        .badge-shape--rect {
-            background-color: #4a4a4a;
-            clip-path: polygon(15% 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 15%);
-        }
-
-        .badge-shape--hex {
-            background-color: transparent;
-            border: 3px solid #999;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-        }
-
-        .badge-shape--shield {
-            background-color: #666;
-            clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 80%, 50% 100%, 0 80%, 0 20%);
-        }
-
-        .badge__logo {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-            color: var(--color-white);
-        }
-
-        .badge__title {
-            font-size: 0.85rem;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--color-white);
-            margin-bottom: 0.5rem;
-        }
-
-        .badge__subtitle {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.7);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .badge__bottom {
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--color-white);
-            background-color: rgba(0,0,0,0.3);
-            padding: 0.25rem 0.75rem;
-            white-space: nowrap;
-        }
-
-        .credential-badge:hover .badge-shape--rect { background-color: var(--color-black); }
-        .credential-badge:hover .badge-shape--hex { border-color: #6366f1; }
-        .credential-badge:hover .badge-shape--shield { background-color: var(--color-black); }
-
-        .credential-badge[data-type="specialized"]:hover .badge__bottom {
-            background-color: var(--color-blue-specialized);
-        }
-
-        .credentials__table {
-            margin-top: var(--spacing-xl);
-            border: 1px solid #e5e5e5;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .credentials__table-cell {
-            padding: var(--spacing-lg);
-            border-right: 1px solid #e5e5e5;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             gap: var(--spacing-sm);
             transition: all var(--transition-normal);
             cursor: default;
+            text-align: center;
+            position: relative;
         }
 
         .credentials__table-cell:last-child { border-right: none; }
+
+        .credentials__table-cell::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: var(--color-yellow);
+            transition: width var(--transition-normal);
+        }
 
         .credentials__table-cell:hover {
             background-color: var(--color-black);
             color: var(--color-yellow);
         }
 
-        .credentials__table-cell:hover .table-cell__label { color: var(--color-gray); }
+        .credentials__table-cell:hover::before {
+            width: 60%;
+        }
+
+        .credentials__table-cell:hover .table-cell__label { color: var(--color-gray-light); }
         .credentials__table-cell:hover .table-cell__value { color: var(--color-yellow); }
 
         .table-cell__label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             color: var(--color-gray);
             transition: color var(--transition-normal);
+            line-height: 1.4;
         }
 
         .table-cell__value {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 800;
             transition: color var(--transition-normal);
+            line-height: 1.2;
         }
 
         .table-cell__value .number {
             display: block;
-            font-size: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+            color: var(--color-black);
+            transition: color var(--transition-normal);
+        }
+
+        .credentials__table-cell:hover .table-cell__value .number {
+            color: var(--color-yellow);
         }
 
         /* ============================================
-           12. CASOS DE ÉXITO
+           13. CASOS DE ÉXITO
            ============================================ */
         .cases {
             padding: var(--spacing-2xl) 0;
@@ -1299,7 +1413,7 @@
         .cases__cta .btn { min-width: 320px; }
 
         /* ============================================
-           13. ANIMACIONES
+           14. ANIMACIONES
            ============================================ */
         .fade-in {
             opacity: 0;
@@ -1323,7 +1437,7 @@
         }
 
         /* ============================================
-           14. FOOTER
+           15. FOOTER
            ============================================ */
         .site-footer {
             background: #000000;
@@ -1416,7 +1530,7 @@
         }
 
         /* ============================================
-           15. WHATSAPP FLOAT
+           16. WHATSAPP FLOAT
            ============================================ */
         .whatsapp-float {
             position: fixed;
@@ -1466,7 +1580,7 @@
         }
 
         /* ============================================
-           16. MODAL
+           17. MODAL
            ============================================ */
         .modal {
             display: none;
@@ -1643,7 +1757,7 @@
         .form-message.error { color: #ff6b6b; }
 
         /* ============================================
-           17. RESPONSIVE
+           18. RESPONSIVE
            ============================================ */
         @media (max-width: 1024px) {
             .collections-grid,
@@ -1684,6 +1798,24 @@
 
             .section-title {
                 font-size: 2.5rem;
+            }
+
+            .credentials__table-cell {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .table-cell__value .number {
+                font-size: 2rem;
+            }
+
+            .platinum-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cert-showcase-img {
+                width: 180px;
+                height: 115px;
             }
         }
     </style>
@@ -2067,6 +2199,52 @@
         </div>
     </section>
 
+    <!-- CERTIFICACIONES Y ESPECIALIZACIONES -->
+    <section class="certifications bg-grid" id="certificaciones">
+        <div class="container">
+            <div class="certifications__header">
+                <div class="section-label section-label--light fade-in">Acreditaciones</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    Certificaciones y <span class="highlight">Especializaciones</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia y compromiso con la excelencia
+                </p>
+            </div>
+
+            <div class="cert-carousel fade-in" aria-label="Carrusel de certificaciones Autodesk">
+                <div class="cert-carousel-track" id="certTrack" tabindex="0">
+                    <img src="../../assets/images/images_home-autodesk/1_autodesk.png" alt="Certificación Autodesk Construction" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="../../assets/images/images_home-autodesk/2_autodesk.png" alt="Certificación Autodesk MEP" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="../../assets/images/images_home-autodesk/3_autodesk.png" alt="Certificación Autodesk Infrastructure" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="../../assets/images/images_home-autodesk/4_autodesk.png" alt="Certificación Autodesk Manufacturing" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="../../assets/images/images_home-autodesk/5_autodesk.png" alt="Certificación Autodesk Product Design" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="../../assets/images/images_home-autodesk/6_autodesk.png" alt="Certificación Autodesk AEC" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                    <img src="../../assets/images/images_home-autodesk/7_autodesk.png" alt="Certificación Autodesk Customer Success" class="cert-showcase-img" loading="lazy" width="220" height="140">
+                </div>
+            </div>
+
+            <div class="platinum-card fade-in">
+                <h3 class="platinum-card__title">Platinum Partner con Certificación Completa</h3>
+                <p class="platinum-card__text">Como Platinum Partner de Autodesk, contamos con las especializaciones más avanzadas en AEC, Manufacturing, BIM y servicios en la nube, garantizando el más alto nivel de expertise para nuestros clientes.</p>
+                <div class="platinum-badges">
+                    <div class="platinum-badge">
+                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-check"/></svg>
+                        Partner Certificado desde 2010
+                    </div>
+                    <div class="platinum-badge">
+                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-check"/></svg>
+                        +500 Clientes Satisfechos
+                    </div>
+                    <div class="platinum-badge">
+                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-check"/></svg>
+                        +1000 Licencias Activas
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA SECTION -->
     <section class="cta-section bg-grid" id="contacto">
         <div class="container">
@@ -2085,88 +2263,30 @@
         </div>
     </section>
 
-    <!-- CREDENCIALES -->
-    <section class="credentials" id="credenciales">
+    <!-- RESUMEN DE CREDENCIALES -->
+    <section class="credentials-summary" id="credenciales">
         <div class="container">
-            <div class="credentials__header">
-                <div class="section-label section-label--dark fade-in">Credenciales</div>
+            <div class="credentials-summary__header">
+                <div class="section-label section-label--dark fade-in">Nuestro Respaldo</div>
                 <h2 class="section-title fade-in fade-in-delay-1">
-                    Certificaciones y <span class="underline">Especializaciones</span>
+                    Números que <span class="underline">nos avalan</span>
                 </h2>
                 <p class="section-subtitle fade-in fade-in-delay-2">
-                    Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia y compromiso con la excelencia
+                    Más de una década como Platinum Partner de Autodesk nos respaldan
                 </p>
-            </div>
-
-            <div class="credentials__carousel fade-in" id="credentialsCarousel">
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">TRANSPORTATION<br>INFRASTRUCTURE</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="skills">
-                    <div class="badge-shape badge-shape--hex">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">CUSTOMER<br>SUCCESS</div>
-                        <div class="badge__subtitle">ACCREDITED<br>SKILLS</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="skills">
-                    <div class="badge-shape badge-shape--hex">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">CONSULTING<br>IMPLEMENTATION<br>FRAMEWORK</div>
-                        <div class="badge__subtitle">ACCREDITED<br>SKILLS</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="platinum">
-                    <div class="badge-shape badge-shape--shield">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">PLATINUM</div>
-                        <div class="badge__bottom">SOLUTION PROVIDER</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">BUILDING<br>ARCHITECTURE</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">CONSTRUCTION</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
-                </div>
-
-                <div class="credential-badge" data-type="specialized">
-                    <div class="badge-shape badge-shape--rect">
-                        <div class="badge__logo">AUTODESK</div>
-                        <div class="badge__title">MECHANICAL,<br>ELECTRICAL &<br>PLUMBING</div>
-                        <div class="badge__bottom">SPECIALIZED</div>
-                    </div>
-                </div>
             </div>
 
             <div class="credentials__table fade-in">
                 <div class="credentials__table-cell">
-                    <span class="table-cell__label">Partner<br>Certificado</span>
-                    <span class="table-cell__value">Desde<br><span class="number">2010</span></span>
+                    <span class="table-cell__label">Partner Certificado</span>
+                    <span class="table-cell__value">Desde<span class="number">2010</span></span>
                 </div>
                 <div class="credentials__table-cell">
-                    <span class="table-cell__label">Especializaciones<br>activas</span>
+                    <span class="table-cell__label">Especializaciones Activas</span>
                     <span class="table-cell__value"><span class="number">7</span>Credenciales</span>
                 </div>
                 <div class="credentials__table-cell">
-                    <span class="table-cell__label">Nivel de<br>partnership</span>
+                    <span class="table-cell__label">Nivel de Partnership</span>
                     <span class="table-cell__value">Platinum</span>
                 </div>
             </div>
@@ -2490,41 +2610,6 @@
         fadeElements.forEach(el => observer.observe(el));
     }
 
-    // ===== Carrusel de credenciales con drag =====
-    const carousel = $('#credentialsCarousel');
-    if (carousel) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        carousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            carousel.style.cursor = 'grabbing';
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-        });
-
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2;
-            carousel.scrollLeft = scrollLeft - walk;
-        });
-
-        carousel.style.cursor = 'grab';
-    }
-
     // ===== Parallax sutil en Hero =====
     const heroBackground = $('.hero__background');
     let parallaxTicking = false;
@@ -2543,6 +2628,17 @@
             parallaxTicking = true;
         }
     });
+
+    // ===== Carrusel infinito de certificaciones =====
+    const certTrack = $('#certTrack');
+    if (certTrack) {
+        const originalItems = Array.from(certTrack.children);
+        originalItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            certTrack.appendChild(clone);
+        });
+    }
 
     // ===== Botones Play de casos de éxito =====
     const playButtons = $$('.case-card__play');
