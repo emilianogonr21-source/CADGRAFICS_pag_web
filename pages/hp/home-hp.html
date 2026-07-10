@@ -26,6 +26,23 @@
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
+  <!-- Datos Estructurados JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Soluciones HP de Impresión de Gran Formato",
+    "brand": {"@type": "Brand", "name": "HP"},
+    "description": "Distribuidor autorizado HP México. DesignJet, PageWide XL y PageWide XL Pro.",
+    "category": "Impresoras de gran formato",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "MXN",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
+  
   <style>
     /* ============================================
        0. VARIABLES GLOBALES
@@ -324,7 +341,7 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(20px);
       z-index: 1000;
       padding: 0.75rem 0;
@@ -974,6 +991,48 @@
       min-height: 48px;
     }
 
+    .product-carousel {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      background: linear-gradient(135deg, var(--bg-light) 0%, #f1f5f9 100%);
+      margin-bottom: 20px;
+      padding: 8px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .product-carousel-track {
+      display: flex;
+      width: max-content;
+      animation: product-carousel-scroll 18s linear infinite;
+      will-change: transform;
+    }
+
+    .product-carousel-group {
+      display: flex;
+      flex-shrink: 0;
+      gap: 10px;
+      padding: 2px;
+    }
+
+    .product-carousel-slide {
+      flex: 0 0 min(100%, 260px);
+      width: min(100%, 260px);
+    }
+
+    .product-carousel-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-card:hover .product-carousel-track {
+      animation-play-state: paused;
+    }
+
     .product-level {
       display: flex;
       align-items: center;
@@ -1004,6 +1063,21 @@
       font-size: 0.85rem;
       color: var(--text-light);
       white-space: nowrap;
+    }
+
+    @keyframes product-carousel-scroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .product-carousel-image {
+        height: 180px;
+      }
     }
 
     /* ============================================
@@ -1905,7 +1979,7 @@
         <!-- Card DesignJet -->
         <article class="solution-card">
           <div class="solution-image">
-            <img src="../../assets/images/images_home-hp/image1.png" alt="Ingeniero revisando planos técnicos" loading="lazy" />
+            <img src="../../assets/images/images_home-hp/image1.png" alt="Ingeniero revisando planos técnicos" loading="lazy" width="400" height="260" />
             <span class="solution-badge">HP DesignJet</span>
           </div>
           <div class="solution-body">
@@ -1943,7 +2017,7 @@
         <!-- Card PageWide XL -->
         <article class="solution-card">
           <div class="solution-image">
-            <img src="../../assets/images/images_home-hp/image2.png" alt="Impresora industrial de gran formato" loading="lazy" />
+            <img src="../../assets/images/images_home-hp/image2.png" alt="Impresora industrial de gran formato" loading="lazy" width="400" height="260" />
             <span class="solution-badge dark">HP PageWide XL</span>
           </div>
           <div class="solution-body">
@@ -2062,11 +2136,11 @@
       </div>
 
       <!-- Panel DesignJet -->
-      <div class="portfolio-panel active" id="panel-designjet" role="tabpanel" aria-labelledby="tab-designjet">
+      <div class="portfolio-panel active" id="panel-designjet" role="tabpanel" aria-labelledby="tab-designjet" tabindex="0">
         <article class="product-card">
           <span class="product-badge">DesignJet</span>
           <h3 class="product-name">T850</h3>
-          <img src="../../assets/images/images_home-hp/images_designjet/images_T850/image1.avif" alt="HP DesignJet T850 - Impresora compacta para pequeñas oficinas" class="product-image" loading="lazy" />
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/images_designjet/images_T850/image1.avif, ../../assets/images/images_home-hp/images_designjet/images_T850/image2.avif, ../../assets/images/images_home-hp/images_designjet/images_T850/image3.avif"></div>
           <p class="product-description">Pequeñas oficinas. Impresión técnica de calidad compacta.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill" style="width: 33%;"></div></div>
@@ -2081,7 +2155,9 @@
         <article class="product-card">
           <span class="product-badge">DesignJet</span>
           <h3 class="product-name">T950</h3>
-          <img src="../../assets/images/images_home-hp/images_designjet/images_T950/image1.png" alt="HP DesignJet T950 - Equipo de trabajo con mayor velocidad" class="product-image" loading="lazy" />
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/images_designjet/images_T950/image1.png, 
+          ../../assets/images/images_home-hp/images_designjet/images_T950/image2.png, 
+          ../../assets/images/images_home-hp/images_designjet/images_T950/image3.png"></div>
           <p class="product-description">Equipos de trabajo. Mayor velocidad y conectividad avanzada.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill" style="width: 66%;"></div></div>
@@ -2096,7 +2172,7 @@
         <article class="product-card">
           <span class="product-badge">DesignJet</span>
           <h3 class="product-name">XL 3600</h3>
-          <img src="../../assets/images/images_home-hp/images_designjet/images_XL3600/image1.jpg" alt="HP DesignJet XL 3600 - Multirollo para departamentos corporativos" class="product-image" loading="lazy" />
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/images_designjet/images_XL3600/image1.png, ../../assets/images/images_home-hp/images_designjet/images_XL3600/image2.png"></div>
           <p class="product-description">Departamentos corporativos. Multirollo, gran volumen.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill" style="width: 100%;"></div></div>
@@ -2110,11 +2186,11 @@
       </div>
 
       <!-- Panel PageWide XL -->
-      <div class="portfolio-panel" id="panel-pagewide" role="tabpanel" aria-labelledby="tab-pagewide">
+      <div class="portfolio-panel" id="panel-pagewide" role="tabpanel" aria-labelledby="tab-pagewide" tabindex="0">
         <article class="product-card">
           <span class="product-badge dark">PageWide XL</span>
           <h3 class="product-name">4250</h3>
-          <img src="../../assets/images/images_home-hp/images_pagewide_xl/images_pagewide_xl_4250/image1.png" alt="HP PageWide XL 4250 - Entrada a producción de alto volumen" class="product-image" loading="lazy" />
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/images_pagewide_xl/images_pagewide_xl_4250/image1.png, ../../assets/images/images_home-hp/images_pagewide_xl/images_pagewide_xl_4250/image2.png, ../../assets/images/images_home-hp/images_pagewide_xl/images_pagewide_xl_4250/image3.png"></div>
           <p class="product-description">Entrada a producción. Velocidad y calidad a menor inversión.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 33%;"></div></div>
@@ -2129,7 +2205,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL</span>
           <h3 class="product-name">5200</h3>
-          <img src="../../assets/images/images_home-hp/images_pagewide_xl/images_pagewide_xl_5200/image1.avif" alt="HP PageWide XL 5200 - Alta producción con excelente costo por página" class="product-image" loading="lazy" />
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/image1.png, ../../assets/images/images_home-hp/image2.png"></div>
           <p class="product-description">Alta producción. 30 A1/min con excelente costo por página.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 66%;"></div></div>
@@ -2144,7 +2220,7 @@
         <article class="product-card">
           <span class="product-badge dark">PageWide XL</span>
           <h3 class="product-name">8200</h3>
-          <img src="../../assets/images/images_home-hp/pagewide_8200.avif" alt="HP PageWide XL 8200 - Producción masiva con doble rollo" class="product-image" loading="lazy" />
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/image1.png, ../../assets/images/images_home-hp/image2.png"></div>
           <p class="product-description">Producción masiva. Doble rollo, máximo rendimiento.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 100%;"></div></div>
@@ -2158,11 +2234,11 @@
       </div>
 
       <!-- Panel PageWide XL Pro -->
-      <div class="portfolio-panel" id="panel-pagewide-pro" role="tabpanel" aria-labelledby="tab-pagewide-pro">
+      <div class="portfolio-panel" id="panel-pagewide-pro" role="tabpanel" aria-labelledby="tab-pagewide-pro" tabindex="0">
         <article class="product-card">
           <span class="product-badge dark">PageWide XL Pro</span>
           <h3 class="product-name">5200 Pro</h3>
-          <img src="../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_5200/1.webp" alt="HP PageWide XL Pro 5200 - Técnica y gráfica con colores de alto impacto" class="product-image" loading="lazy" />
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_5200/1.webp, ../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_5200/2.webp, ../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_5200/3.webp"></div>
           <p class="product-description">Técnica + gráfica. Colores de alto impacto en producción.</p>
           <div class="product-level">
             <div class="level-bar"><div class="level-bar-fill dark" style="width: 33%;"></div></div>
@@ -2176,12 +2252,12 @@
 
         <article class="product-card">
           <span class="product-badge dark">PageWide XL Pro</span>
-          <h3 class="product-name">8200 Pro</h3>
-          <img src="../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_82000/image1.png" alt="HP PageWide XL Pro 8200 - Alta producción gráfica con calidad fotográfica" class="product-image" loading="lazy" />
-          <p class="product-description">Alta producción gráfica. Calidad fotográfica a escala.</p>
+          <h3 class="product-name">10000 Pro</h3>
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_10000/image1.png, ../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_10000/image2.png, ../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_10000/image3.png"></div>
+          <p class="product-description">Producción industrial. El líder de velocidad en su clase.</p>
           <div class="product-level">
-            <div class="level-bar"><div class="level-bar-fill dark" style="width: 66%;"></div></div>
-            <span class="level-label">Media producción</span>
+            <div class="level-bar"><div class="level-bar-fill dark" style="width: 100%;"></div></div>
+            <span class="level-label">Alta producción</span>
           </div>
           <a href="#contacto" class="btn-link">
             Solicitar información
@@ -2191,12 +2267,12 @@
 
         <article class="product-card">
           <span class="product-badge dark">PageWide XL Pro</span>
-          <h3 class="product-name">10000 Pro</h3>
-          <img src="../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_10000/image1.png" alt="HP PageWide XL Pro 10000 - Líder de velocidad en producción industrial" class="product-image" loading="lazy" />
-          <p class="product-description">Producción industrial. El líder de velocidad en su clase.</p>
+          <h3 class="product-name">8200 Pro</h3>
+          <div class="product-carousel" data-images="../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_82000/image1.png, ../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_82000/image2.png, ../../assets/images/images_home-hp/images_pagewide_xl_pro/images_pagewide_xl_pro_82000/image3.png"></div>
+          <p class="product-description">Alta producción gráfica. Calidad fotográfica a escala.</p>
           <div class="product-level">
-            <div class="level-bar"><div class="level-bar-fill dark" style="width: 100%;"></div></div>
-            <span class="level-label">Alta producción</span>
+            <div class="level-bar"><div class="level-bar-fill dark" style="width: 66%;"></div></div>
+            <span class="level-label">Media producción</span>
           </div>
           <a href="#contacto" class="btn-link">
             Solicitar información
@@ -2290,7 +2366,7 @@
               </span>
               <div>
                 <div class="method-label">Teléfono</div>
-                <div class="method-value">+52 55 1234 5678</div>
+                <div class="method-value">+52  55 3112 0508</div>
               </div>
             </li>
             <li>
@@ -2299,7 +2375,7 @@
               </span>
               <div>
                 <div class="method-label">Correo</div>
-                <div class="method-value">ventas@cadgrafics.com.mx</div>
+                <div class="method-value">marketing@cadgrafics.com.mx</div>
               </div>
             </li>
             <li>
@@ -2309,6 +2385,7 @@
               <div>
                 <div class="method-label">Ubicación</div>
                 <div class="method-value">Ciudad de México — CDMX</div>
+                <div class="method-value">Jalisco — Guadalajara</div>
               </div>
             </li>
           </ul>
@@ -2326,11 +2403,11 @@
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="nombre">Nombre completo <span class="required">*</span></label>
-                <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Juan García" required aria-required="true" />
+                <input type="text" id="nombre" name="name" class="form-input" placeholder="Juan García" required aria-required="true" />
               </div>
               <div class="form-group">
                 <label class="form-label" for="empresa">Empresa <span class="required">*</span></label>
-                <input type="text" id="empresa" name="empresa" class="form-input" placeholder="Tu empresa S.A." required aria-required="true" />
+                <input type="text" id="empresa" name="company" class="form-input" placeholder="Tu empresa S.A." required aria-required="true" />
               </div>
             </div>
 
@@ -2341,12 +2418,12 @@
 
             <div class="form-group">
               <label class="form-label" for="telefono">Teléfono <span class="required">*</span></label>
-              <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+52 55 0000 0000" required aria-required="true" />
+              <input type="tel" id="telefono" name="phone" class="form-input" placeholder="+52 55 0000 0000" required aria-required="true" />
             </div>
 
             <div class="form-group">
               <label class="form-label" for="volumen">Volumen de impresión <span class="required">*</span></label>
-              <select id="volumen" name="volumen" class="form-select" required aria-required="true">
+              <select id="volumen" name="volume" class="form-select" required aria-required="true">
                 <option value="">Selecciona tu volumen mensual</option>
                 <option value="bajo">Menos de 100 planos</option>
                 <option value="medio">100 – 500 planos</option>
@@ -2357,7 +2434,7 @@
 
             <div class="form-group">
               <label class="form-label" for="equipo">Equipo de interés</label>
-              <select id="equipo" name="equipo" class="form-select">
+              <select id="equipo" name="equipment" class="form-select">
                 <option value="">Selecciona una línea (opcional)</option>
                 <option value="designjet">HP DesignJet</option>
                 <option value="pagewide">HP PageWide XL</option>
@@ -2608,6 +2685,49 @@
     });
   });
 
+  // ===== CAROUSELES INFINITOS DEL PORTAFOLIO =====
+  $$('.product-carousel[data-images]').forEach(function (carousel) {
+    const card = carousel.closest('.product-card');
+    const imageList = carousel.getAttribute('data-images')?.split(',').map(function (image) {
+      return image.trim();
+    }).filter(Boolean) || [];
+
+    if (!card || !imageList.length) return;
+
+    const track = document.createElement('div');
+    track.className = 'product-carousel-track';
+
+    const renderGroup = function (images, isDuplicate) {
+      const group = document.createElement('div');
+      group.className = 'product-carousel-group';
+      if (isDuplicate) {
+        group.setAttribute('aria-hidden', 'true');
+      }
+
+      images.forEach(function (src, index) {
+        const slide = document.createElement('div');
+        slide.className = 'product-carousel-slide';
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = card.querySelector('.product-name')?.textContent + ' - imagen ' + (index + 1);
+        img.className = 'product-carousel-image';
+        img.loading = 'lazy';
+        img.width = 600;
+        img.height = 400;
+
+        slide.appendChild(img);
+        group.appendChild(slide);
+      });
+
+      return group;
+    };
+
+    track.appendChild(renderGroup(imageList, false));
+    track.appendChild(renderGroup(imageList, true));
+    carousel.appendChild(track);
+  });
+
   // ===== TABS DEL PORTAFOLIO =====
   const tabButtons = $$('.tab-btn');
   const tabPanels = $$('.portfolio-panel');
@@ -2616,18 +2736,15 @@
     btn.addEventListener('click', function () {
       const targetTab = btn.getAttribute('data-tab');
 
-      // Desactivar todos los botones
       tabButtons.forEach(function (b) {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
       });
 
-      // Ocultar todos los paneles
       tabPanels.forEach(function (panel) {
         panel.classList.remove('active');
       });
 
-      // Activar botón y panel correspondiente
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
 
@@ -2645,7 +2762,6 @@
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Validación básica HTML5
       if (!contactForm.checkValidity()) {
         contactForm.reportValidity();
         return;
@@ -2654,7 +2770,6 @@
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData.entries());
 
-      // Aquí iría el envío real al backend
       console.log('Datos del formulario:', data);
 
       const submitBtn = contactForm.querySelector('.form-submit');
@@ -2663,7 +2778,6 @@
       submitBtn.innerHTML = 'Enviando...';
       submitBtn.disabled = true;
 
-      // Simulación de envío
       setTimeout(function () {
         submitBtn.innerHTML = '✓ Solicitud enviada';
         submitBtn.style.backgroundColor = '#10b981';
@@ -2687,7 +2801,6 @@
   const modalFormMessage = $('#modalFormMessage');
   let lastFocusedElement = null;
   
-  // Sanitización contra XSS
   const sanitize = (str) => {
     const div = document.createElement('div');
     div.textContent = String(str || '');
@@ -2715,14 +2828,11 @@
     }
   };
 
-  // Triggers del modal
   $$('.textbutton-trigger').forEach(btn => btn.addEventListener('click', openModal));
   
-  // Cierre del modal
   modalClose?.addEventListener('click', closeModal);
   modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
   
-  // Accesibilidad del modal: Escape y focus trap
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal?.classList.contains('active')) {
       closeModal();
@@ -2738,7 +2848,6 @@
     }
   });
 
-  // Validación del formulario del modal
   $$('#leadForm input, #leadForm textarea').forEach(input => {
     input.addEventListener('input', () => input.classList.remove('is-invalid'));
   });
@@ -2798,7 +2907,6 @@
 
         if (!response.ok) throw new Error('Error en el servidor');
 
-        // Abrir WhatsApp como fallback de contacto
         const whatsappText = encodeURIComponent('Hola Cadgrafics, acabo de enviar un requerimiento desde su sitio web (HP). ¿Podrían contactarme?');
         window.open(`https://wa.me/525531120508?text=${whatsappText}`, '_blank', 'noopener,noreferrer');
         
