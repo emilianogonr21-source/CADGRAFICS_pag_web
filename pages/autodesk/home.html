@@ -217,14 +217,18 @@
         }
 
         .header .logo {
-            height: 72px;
+            height: 120px;
             width: auto;
             flex-shrink: 0;
             transition: transform var(--transition-normal);
+            display: block;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .header .logo:hover {
             transform: scale(1.05);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
         }
 
         .nav-menu {
@@ -405,7 +409,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: calc(var(--spacing-xl) + 2rem) var(--spacing-md) var(--spacing-xl);
+            padding: calc(120px + 3.5rem) var(--spacing-md) var(--spacing-xl);
             overflow: hidden;
             background-color: var(--color-black);
         }
@@ -429,15 +433,17 @@
         .hero__content {
             position: relative;
             z-index: 1;
-            max-width: 980px;
+            max-width: 1100px;
             width: 100%;
         }
 
         .hero__heading {
             position: relative;
             display: block;
-            margin-bottom: 1rem;
-            min-height: 5.5rem;
+            width: 100%;
+            margin: 0 0 1rem;
+            padding-inline: clamp(9.5rem, 18vw, 14rem);
+            box-sizing: border-box;
         }
 
         .hero__title {
@@ -445,9 +451,11 @@
             font-weight: 700;
             line-height: 1.2;
             letter-spacing: -0.02em;
-            margin: 0 auto 1rem;
+            margin: 0 auto;
             text-align: center;
-            max-width: 16ch;
+            max-width: 18ch;
+            position: relative;
+            z-index: 1;
         }
 
         .hero__title .highlight {
@@ -458,10 +466,11 @@
         .hero__logo {
             position: absolute;
             top: 50%;
-            left: calc(50% + min(9.5ch, 28%) + 1.75rem);
+            right: 0;
+            z-index: 2;
             transform: translateY(-50%);
             display: block;
-            width: clamp(130px, 15vw, 190px);
+            width: clamp(140px, 14vw, 200px);
             height: auto;
             margin: 0;
             object-fit: contain;
@@ -1395,8 +1404,7 @@
 
         @media (max-width: 768px) {
             .hero__heading {
-                padding-top: 4.5rem;
-                min-height: 0;
+                padding-inline: 0;
             }
 
             .hero__title {
@@ -1404,10 +1412,13 @@
             }
 
             .hero__logo {
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 150px;
+                position: static;
+                top: auto;
+                right: auto;
+                transform: none;
+                display: block;
+                width: min(160px, 52vw);
+                margin: 0 auto 1rem;
             }
 
             .hero__badges {
@@ -1587,8 +1598,8 @@
 <!-- HEADER -->
 <header class="header" id="header">
     <div class="container nav-container">
-        <a href="#" aria-label="Ir a inicio">
-            <img src="/assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" width="288" height="72">
+        <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
+            <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
         </a>
         
         <nav aria-label="Navegación principal">
@@ -1622,7 +1633,7 @@
                     <span class="highlight">Realidad Digital</span>
                 </h1>
 
-                <img src="/assets/images/images_home-autodesk/autodesk_logo.png"
+                <img src="../../assets/images/images_home-autodesk/autodesk_logo.png"
                      alt="Autodesk Platinum Partner"
                      class="hero__logo fade-in"
                      width="220"
