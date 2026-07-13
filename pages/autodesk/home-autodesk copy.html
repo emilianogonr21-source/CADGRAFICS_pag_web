@@ -727,12 +727,23 @@
         .portfolio {
             background-color: var(--color-white);
             color: var(--color-black);
-            padding: var(--spacing-2xl) 0;
+            padding: var(--spacing-xl) 0;
         }
 
-        .portfolio .section-label { color: var(--color-gray); }
-        .portfolio .section-subtitle { color: var(--color-gray); }
-        .portfolio__header { margin-bottom: var(--spacing-xl); }
+        .portfolio .section-label {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .portfolio .section-title { margin-bottom: 0.75rem; }
+
+        .portfolio .section-subtitle {
+            color: var(--color-gray);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .portfolio__header { margin-bottom: var(--spacing-lg); }
 
         .collections-grid {
             display: grid;
@@ -745,10 +756,12 @@
         .collection-card {
             background-color: var(--color-black);
             color: var(--color-white);
-            padding: var(--spacing-lg);
+            padding: 1.25rem 1.5rem;
             position: relative;
             transition: all var(--transition-normal);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .collection-card::before {
@@ -778,8 +791,8 @@
         .collection-card__logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: var(--spacing-md);
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .collection-card__logo-icon {
@@ -798,35 +811,37 @@
         }
 
         .collection-card__logo-text img {
-            width: 200px;
+            width: 170px;
+            max-width: 100%;
             height: auto;
             display: block;
         }
 
         .collection-card__title {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
         }
 
         .collection-card__desc {
-            font-size: 1rem;
+            font-size: 0.875rem;
             color: var(--color-gray);
-            margin-bottom: var(--spacing-md);
-            line-height: 1.6;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            flex: 1;
         }
 
         .collection-card__tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.35rem;
         }
 
         .collection-card__tag {
-            padding: 0.4rem 0.75rem;
+            padding: 0.3rem 0.55rem;
             font-family: var(--font-mono);
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             border: 1px solid var(--color-gray-dark);
             color: var(--color-gray-light);
             transition: all var(--transition-fast);
@@ -839,7 +854,7 @@
 
         .portfolio__cta {
             text-align: center;
-            margin-top: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
         }
 
         .portfolio__cta .btn { min-width: 320px; }
@@ -1784,6 +1799,30 @@
             .hero__badges {
                 flex-direction: column;
                 gap: var(--spacing-sm);
+            }
+
+            .portfolio {
+                padding: var(--spacing-lg) 0;
+            }
+
+            .portfolio__header {
+                margin-bottom: var(--spacing-md);
+            }
+
+            .portfolio .collection-card {
+                padding: 1rem 1.25rem;
+            }
+
+            .portfolio .collection-card__logo-text img {
+                width: 150px;
+            }
+
+            .portfolio .collection-card__title {
+                font-size: 1rem;
+            }
+
+            .portfolio .collection-card__desc {
+                font-size: 0.8125rem;
             }
 
             .cta-box__actions {
