@@ -984,169 +984,7 @@
         }
 
         /* ============================================
-           10. CERTIFICACIONES
-           ============================================ */
-        .certifications {
-            background-color: var(--color-black);
-            color: var(--color-white);
-            padding: var(--spacing-xl) 0 0;
-            position: relative;
-        }
-
-        .certifications .section-label {
-            color: var(--color-gray);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .certifications__header {
-            margin-bottom: var(--spacing-lg);
-            text-align: left;
-        }
-
-        .certifications__header .section-title {
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 0;
-            color: var(--color-white);
-        }
-
-        .certifications__title::after {
-            content: '';
-            display: block;
-            width: min(100%, 520px);
-            height: 2px;
-            background-color: var(--color-yellow);
-            margin: 0.75rem 0 1rem;
-        }
-
-        .certifications__header .section-subtitle {
-            margin: 0;
-            max-width: 720px;
-            font-size: 1.125rem;
-            color: var(--color-gray-light);
-            line-height: 1.6;
-        }
-
-        .cert-carousel {
-            display: flex;
-            gap: var(--spacing-md);
-            padding: 0 0 var(--spacing-md);
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .certifications__showcase {
-            background-color: var(--color-white);
-            color: var(--color-black);
-            margin-top: var(--spacing-lg);
-            padding: var(--spacing-lg) 0 var(--spacing-xl);
-        }
-
-        .certifications__showcase .cert-carousel {
-            padding: 0 var(--spacing-md) var(--spacing-md);
-        }
-
-        .certifications__divider {
-            border: none;
-            border-top: 1px solid #e5e5e5;
-            margin: 0;
-        }
-
-        .certifications .credentials__table {
-            max-width: 100%;
-            margin: 0;
-            border: 1px solid #e5e5e5;
-            border-top: none;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            background-color: var(--color-white);
-            box-shadow: none;
-        }
-
-        .certifications .credentials__table-cell {
-            padding: 1.25rem 1.5rem;
-            border-right: 1px solid #e5e5e5;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            text-align: left;
-        }
-
-        .certifications .credentials__table-cell:last-child {
-            border-right: none;
-        }
-
-        .certifications .table-cell__label {
-            font-size: 0.875rem;
-            font-weight: 400;
-            letter-spacing: 0;
-            text-transform: none;
-            color: #9a9a9a;
-            line-height: 1.35;
-            flex: 1;
-            max-width: 9rem;
-        }
-
-        .certifications .table-cell__value {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--color-black);
-            line-height: 1.2;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            text-align: right;
-            flex-shrink: 0;
-        }
-
-        .certifications .table-cell__value .number {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 0.15rem;
-            color: var(--color-black);
-        }
-
-        .cert-carousel-track {
-            display: flex;
-            gap: var(--spacing-md);
-            animation: carouselScroll 25s linear infinite;
-            width: max-content;
-        }
-
-        .cert-carousel-track:hover,
-        .cert-carousel-track:focus {
-            animation-play-state: paused;
-        }
-
-        @keyframes carouselScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .cert-showcase-img {
-            width: 220px;
-            height: 140px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-            transition: transform var(--transition-normal), filter var(--transition-normal);
-            flex-shrink: 0;
-            background: var(--color-white);
-            padding: var(--spacing-sm);
-            border-radius: var(--radius-sm);
-        }
-
-        .cert-showcase-img:hover {
-            transform: scale(1.05);
-            filter: drop-shadow(0 4px 12px rgba(232, 255, 0, 0.4));
-        }
-
-        /* ============================================
-           11. CTA SECTION
+           10. CTA SECTION
            ============================================ */
         .cta-section {
             padding: var(--spacing-xl) 0;
@@ -1219,7 +1057,7 @@
         }
 
         /* ============================================
-           12. CASOS DE ÉXITO
+           11. CASOS DE ÉXITO
            ============================================ */
         .cases {
             padding: var(--spacing-2xl) 0;
@@ -1692,19 +1530,6 @@
             .cases-grid {
                 grid-template-columns: 1fr;
             }
-
-            .credentials__table {
-                grid-template-columns: 1fr;
-            }
-
-            .certifications .credentials__table-cell {
-                border-right: none;
-                border-bottom: 1px solid #e5e5e5;
-            }
-
-            .certifications .credentials__table-cell:last-child {
-                border-bottom: none;
-            }
         }
 
         @media (max-width: 768px) {
@@ -1816,28 +1641,6 @@
 
             .section-title {
                 font-size: 2.5rem;
-            }
-
-            .cert-showcase-img {
-                width: 180px;
-                height: 115px;
-            }
-
-            .certifications .credentials__table-cell {
-                padding: 1rem 1.25rem;
-            }
-
-            .certifications .table-cell__label {
-                font-size: 0.8125rem;
-                max-width: 7.5rem;
-            }
-
-            .certifications .table-cell__value {
-                font-size: 1rem;
-            }
-
-            .certifications .table-cell__value .number {
-                font-size: 1.25rem;
             }
         }
     </style>
@@ -2226,60 +2029,6 @@
         </div>
     </section>
 
-    <!-- CERTIFICACIONES Y ESPECIALIZACIONES -->
-    <section class="certifications bg-grid" id="certificaciones">
-        <div class="container">
-            <div class="certifications__header">
-                <div class="section-label section-label--light fade-in">Credenciales</div>
-                <h2 class="section-title certifications__title fade-in fade-in-delay-1">
-                    Certificaciones y<br>Especializaciones
-                </h2>
-                <p class="section-subtitle fade-in fade-in-delay-2">
-                    Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia y compromiso con la excelencia
-                </p>
-            </div>
-        </div>
-
-        <div class="certifications__showcase">
-            <div class="cert-carousel fade-in fade-in-delay-2" aria-label="Carrusel de certificaciones Autodesk">
-                <div class="cert-carousel-track" id="certTrack" tabindex="0">
-                    <img src="/assets/images/images_home-autodesk/1_autodesk.png" alt="Certificación Autodesk Construction" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                    <img src="/assets/images/images_home-autodesk/2_autodesk.png" alt="Certificación Autodesk MEP" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                    <img src="/assets/images/images_home-autodesk/3_autodesk.png" alt="Certificación Autodesk Infrastructure" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                    <img src="/assets/images/images_home-autodesk/4_autodesk.png" alt="Certificación Autodesk Manufacturing" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                    <img src="/assets/images/images_home-autodesk/5_autodesk.png" alt="Certificación Autodesk Product Design" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                    <img src="/assets/images/images_home-autodesk/6_autodesk.png" alt="Certificación Autodesk AEC" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                    <img src="/assets/images/images_home-autodesk/7_autodesk.png" alt="Certificación Autodesk Customer Success" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                </div>
-            </div>
-
-            <hr class="certifications__divider" aria-hidden="true">
-
-            <div class="container">
-                <div class="credentials__table fade-in" id="credenciales">
-                    <div class="credentials__table-cell">
-                        <span class="table-cell__label">Partner Certificado</span>
-                        <span class="table-cell__value">
-                            <span>Desde</span>
-                            <span class="number">2010</span>
-                        </span>
-                    </div>
-                    <div class="credentials__table-cell">
-                        <span class="table-cell__label">Especializaciones activas</span>
-                        <span class="table-cell__value">
-                            <span class="number">7</span>
-                            <span>Credenciales</span>
-                        </span>
-                    </div>
-                    <div class="credentials__table-cell">
-                        <span class="table-cell__label">Nivel de partnership</span>
-                        <span class="table-cell__value">Platinum</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CASOS DE ÉXITO -->
     <section class="cases bg-grid" id="casos">
         <div class="container">
@@ -2611,17 +2360,6 @@
             parallaxTicking = true;
         }
     });
-
-    // ===== Carrusel infinito de certificaciones =====
-    const certTrack = $('#certTrack');
-    if (certTrack) {
-        const originalItems = Array.from(certTrack.children);
-        originalItems.forEach(item => {
-            const clone = item.cloneNode(true);
-            clone.setAttribute('aria-hidden', 'true');
-            certTrack.appendChild(clone);
-        });
-    }
 
     // ===== Botones Play de casos de éxito =====
     const playButtons = $$('.case-card__play');
