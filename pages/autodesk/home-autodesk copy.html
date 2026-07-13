@@ -863,11 +863,24 @@
            9. VENTAJAS
            ============================================ */
         .advantages {
-            padding: var(--spacing-2xl) 0;
+            padding: var(--spacing-xl) 0;
             position: relative;
         }
 
-        .advantages__header { margin-bottom: var(--spacing-xl); }
+        .advantages .section-label {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .advantages .section-title {
+            margin-bottom: 0.75rem;
+        }
+
+        .advantages .section-subtitle {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .advantages__header { margin-bottom: var(--spacing-lg); }
 
         .advantages-grid {
             display: grid;
@@ -878,17 +891,19 @@
 
         .advantage-card {
             background-color: var(--color-black);
-            padding: var(--spacing-lg);
+            padding: 1.25rem 1.5rem;
             position: relative;
             transition: all var(--transition-normal);
             border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
         }
 
         .advantage-card::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: var(--spacing-lg);
+            left: 1.5rem;
             width: 0; height: 2px;
             background-color: var(--color-yellow);
             transition: width var(--transition-normal);
@@ -898,13 +913,14 @@
         .advantage-card:hover::after { width: 60px; }
 
         .advantage-card__icon {
-            width: 56px; height: 56px;
+            width: 44px; height: 44px;
             border: 1.5px solid var(--color-yellow);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: var(--spacing-md);
+            margin-bottom: 0.75rem;
+            flex-shrink: 0;
             transition: all var(--transition-normal);
         }
 
@@ -913,7 +929,7 @@
         }
 
         .advantage-card__icon svg {
-            width: 24px; height: 24px;
+            width: 20px; height: 20px;
             color: var(--color-yellow);
             transition: color var(--transition-normal);
         }
@@ -923,16 +939,17 @@
         }
 
         .advantage-card__title {
-            font-size: 1.125rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
         }
 
         .advantage-card__text {
-            font-size: 1rem;
+            font-size: 0.875rem;
             color: var(--color-gray);
-            line-height: 1.6;
+            line-height: 1.5;
+            flex: 1;
         }
 
         .advantage-card--stats {
@@ -941,6 +958,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 1.25rem 1.5rem;
         }
 
         .advantage-card--stats::after { display: none; }
@@ -949,18 +967,18 @@
         .stats-list {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-md);
+            gap: 0.75rem;
         }
 
         .stat-item__number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 900;
             line-height: 1;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
 
         .stat-item__label {
-            font-size: 0.9rem;
+            font-size: 0.8125rem;
             color: var(--color-black);
             opacity: 0.8;
         }
@@ -969,27 +987,53 @@
            10. CERTIFICACIONES
            ============================================ */
         .certifications {
+            background-color: var(--color-white);
+            color: var(--color-black);
             padding: var(--spacing-2xl) 0;
             position: relative;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .certifications .section-label {
+            color: var(--color-gray);
+            margin-bottom: var(--spacing-md);
         }
 
         .certifications__header {
-            margin-bottom: var(--spacing-xl);
-            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            text-align: left;
         }
 
-        .certifications__header .section-label {
-            justify-content: center;
+        .certifications__header .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 0;
+            color: var(--color-black);
         }
 
-        .certifications__header .section-label::before {
-            display: none;
+        .certifications__title::after {
+            content: '';
+            display: block;
+            width: min(100%, 520px);
+            height: 2px;
+            background-color: var(--color-yellow);
+            margin: 0.75rem 0 1rem;
+        }
+
+        .certifications__header .section-subtitle {
+            margin: 0;
+            max-width: 720px;
+            font-size: 1.125rem;
+            color: var(--color-gray);
+            line-height: 1.6;
         }
 
         .cert-carousel {
             display: flex;
             gap: var(--spacing-md);
-            padding: var(--spacing-md) 0 var(--spacing-xl);
+            padding: var(--spacing-md) 0 var(--spacing-lg);
             overflow: hidden;
             width: 100%;
         }
@@ -1026,97 +1070,6 @@
         .cert-showcase-img:hover {
             transform: scale(1.05);
             filter: drop-shadow(0 4px 12px rgba(232, 255, 0, 0.4));
-        }
-
-        .platinum-card {
-            background: linear-gradient(145deg, var(--color-black-card) 0%, var(--color-black-hover) 50%, var(--color-black) 100%);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-            color: var(--color-white);
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(232, 255, 0, 0.2);
-        }
-
-        .platinum-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(232, 255, 0, 0.1) 0%, transparent 50%);
-            animation: platinumShimmer 4s ease-in-out infinite;
-        }
-
-        @keyframes platinumShimmer {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
-            50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
-        }
-
-        .platinum-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(232, 255, 0, 0.6), transparent);
-        }
-
-        .platinum-card__title {
-            font-size: clamp(1.4rem, 2.8vw, 1.8rem);
-            font-weight: 800;
-            margin-bottom: var(--spacing-md);
-            position: relative;
-            z-index: 2;
-        }
-
-        .platinum-card__text {
-            font-size: 1rem;
-            opacity: 0.85;
-            max-width: 650px;
-            margin: 0 auto var(--spacing-xl);
-            line-height: 1.7;
-            position: relative;
-            z-index: 2;
-        }
-
-        .platinum-badges {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--spacing-md);
-            position: relative;
-            z-index: 2;
-        }
-
-        .platinum-badge {
-            padding: 0.875rem 1.5rem;
-            background: rgba(232, 255, 0, 0.15);
-            border: 1px solid rgba(232, 255, 0, 0.3);
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--color-yellow);
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-            transition: all var(--transition-normal);
-        }
-
-        .platinum-badge:hover {
-            background: rgba(232, 255, 0, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(232, 255, 0, 0.2);
-        }
-
-        .platinum-badge svg {
-            width: 16px;
-            height: 16px;
         }
 
         /* ============================================
@@ -1825,6 +1778,49 @@
                 font-size: 0.8125rem;
             }
 
+            .advantages {
+                padding: var(--spacing-lg) 0;
+            }
+
+            .advantages__header {
+                margin-bottom: var(--spacing-md);
+            }
+
+            .advantages .advantage-card {
+                padding: 1rem 1.25rem;
+            }
+
+            .advantages .advantage-card::after {
+                left: 1.25rem;
+            }
+
+            .advantages .advantage-card__icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 0.625rem;
+            }
+
+            .advantages .advantage-card__icon svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .advantages .advantage-card__title {
+                font-size: 0.9375rem;
+            }
+
+            .advantages .advantage-card__text {
+                font-size: 0.8125rem;
+            }
+
+            .advantages .stat-item__number {
+                font-size: 1.75rem;
+            }
+
+            .advantages .stats-list {
+                gap: 0.625rem;
+            }
+
             .cta-box__actions {
                 flex-direction: column;
                 align-items: center;
@@ -1845,11 +1841,6 @@
 
             .table-cell__value .number {
                 font-size: 2rem;
-            }
-
-            .platinum-badges {
-                flex-direction: column;
-                align-items: center;
             }
 
             .cert-showcase-img {
@@ -2216,7 +2207,7 @@
                             <div class="stat-item__label">Licencias activas</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-item__number">15+</div>
+                            <div class="stat-item__number">30+</div>
                             <div class="stat-item__label">Años de experiencia</div>
                         </div>
                     </div>
@@ -2229,16 +2220,16 @@
     <section class="certifications bg-grid" id="certificaciones">
         <div class="container">
             <div class="certifications__header">
-                <div class="section-label section-label--light fade-in">Acreditaciones</div>
-                <h2 class="section-title fade-in fade-in-delay-1">
-                    Certificaciones y <span class="highlight">Especializaciones</span>
+                <div class="section-label section-label--dark fade-in">Credenciales</div>
+                <h2 class="section-title certifications__title fade-in fade-in-delay-1">
+                    Certificaciones y<br>Especializaciones
                 </h2>
                 <p class="section-subtitle fade-in fade-in-delay-2">
                     Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia y compromiso con la excelencia
                 </p>
             </div>
 
-            <div class="cert-carousel fade-in" aria-label="Carrusel de certificaciones Autodesk">
+            <div class="cert-carousel fade-in fade-in-delay-2" aria-label="Carrusel de certificaciones Autodesk">
                 <div class="cert-carousel-track" id="certTrack" tabindex="0">
                     <img src="/assets/images/images_home-autodesk/1_autodesk.png" alt="Certificación Autodesk Construction" class="cert-showcase-img" loading="lazy" width="220" height="140">
                     <img src="/assets/images/images_home-autodesk/2_autodesk.png" alt="Certificación Autodesk MEP" class="cert-showcase-img" loading="lazy" width="220" height="140">
@@ -2247,25 +2238,6 @@
                     <img src="/assets/images/images_home-autodesk/5_autodesk.png" alt="Certificación Autodesk Product Design" class="cert-showcase-img" loading="lazy" width="220" height="140">
                     <img src="/assets/images/images_home-autodesk/6_autodesk.png" alt="Certificación Autodesk AEC" class="cert-showcase-img" loading="lazy" width="220" height="140">
                     <img src="/assets/images/images_home-autodesk/7_autodesk.png" alt="Certificación Autodesk Customer Success" class="cert-showcase-img" loading="lazy" width="220" height="140">
-                </div>
-            </div>
-
-            <div class="platinum-card fade-in">
-                <h3 class="platinum-card__title">Platinum Partner con Certificación Completa</h3>
-                <p class="platinum-card__text">Como Platinum Partner de Autodesk, contamos con las especializaciones más avanzadas en AEC, Manufacturing, BIM y servicios en la nube, garantizando el más alto nivel de expertise para nuestros clientes.</p>
-                <div class="platinum-badges">
-                    <div class="platinum-badge">
-                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-check"/></svg>
-                        Partner Certificado desde 2010
-                    </div>
-                    <div class="platinum-badge">
-                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-check"/></svg>
-                        +500 Clientes Satisfechos
-                    </div>
-                    <div class="platinum-badge">
-                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-check"/></svg>
-                        +1000 Licencias Activas
-                    </div>
                 </div>
             </div>
         </div>
