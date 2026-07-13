@@ -35,8 +35,8 @@
            ============================================ */
         :root {
             /* Colores principales */
-            --color-yellow: #E8FF00;
-            --color-yellow-dark: #C8DC00;
+            --color-yellow: #ffff00ff;
+            --color-yellow-dark: #e6e600;
             --color-black: #000000;
             --color-black-light: #0a0a0a;
             --color-black-card: #111111;
@@ -107,7 +107,13 @@
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-main);
+            font-weight: 700;
             line-height: 1.2;
+        }
+
+        p {
+            font-family: var(--font-main);
+            line-height: 1.6;
         }
 
         img {
@@ -292,7 +298,7 @@
         .section-title {
             font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             font-weight: 700;
-            letter-spacing: -0.02em;
+            line-height: 1.2;
             margin-bottom: 1rem;
         }
 
@@ -437,8 +443,9 @@
         .hero__title {
             font-size: clamp(1.8rem, 4vw, 3rem);
             font-weight: 700;
+            line-height: 1.2;
             letter-spacing: -0.02em;
-            margin: 0 auto;
+            margin: 0 auto 1rem;
             text-align: center;
             max-width: 16ch;
         }
@@ -467,6 +474,7 @@
             color: var(--color-gray-light);
             max-width: 480px;
             margin: 0 auto var(--spacing-lg);
+            line-height: 1.6;
         }
 
         .hero__cta { margin-bottom: var(--spacing-xl); }
@@ -504,17 +512,6 @@
 
         .portfolio .section-label {
             margin-bottom: 0.75rem;
-        }
-
-        .portfolio .section-title {
-            margin-bottom: 0.5rem;
-            font-size: clamp(1.6rem, 3vw, 2.1rem);
-        }
-
-        .portfolio .section-subtitle {
-            font-size: 0.95rem;
-            line-height: 1.45;
-            max-width: 560px;
         }
 
         .portfolio__header {
@@ -559,17 +556,17 @@
         }
 
         .collection-card__title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.4rem;
-            line-height: 1.25;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .collection-card__desc {
-            font-size: 0.8125rem;
+            font-size: 0.95rem;
             color: var(--color-gray);
-            margin-bottom: 0.65rem;
-            line-height: 1.45;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
             flex: 1;
         }
 
@@ -612,16 +609,6 @@
 
         .advantages .section-label {
             margin-bottom: 0.75rem;
-        }
-
-        .advantages .section-title {
-            margin-bottom: 0.5rem;
-            font-size: clamp(1.6rem, 3vw, 2.1rem);
-        }
-
-        .advantages .section-subtitle {
-            font-size: 0.95rem;
-            line-height: 1.45;
         }
 
         .advantages__header {
@@ -688,16 +675,16 @@
         }
 
         .advantage-card__title {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.4rem;
-            line-height: 1.25;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .advantage-card__text {
-            font-size: 0.8125rem;
+            font-size: 0.95rem;
             color: var(--color-gray);
-            line-height: 1.45;
+            line-height: 1.6;
             flex: 1;
         }
 
@@ -748,16 +735,9 @@
             margin-bottom: 0.75rem;
         }
 
-        .credentials .section-title {
-            margin-bottom: 0.5rem;
-            font-size: clamp(1.6rem, 3vw, 2.1rem);
-        }
-
         .credentials .section-subtitle {
-            max-width: 620px;
+            max-width: 720px;
             margin: 0 auto;
-            font-size: 0.95rem;
-            line-height: 1.45;
         }
 
         .credentials__carousel-wrapper {
@@ -772,14 +752,13 @@
             display: flex;
             overflow: hidden;
             width: 100%;
-            padding: 0.75rem 0;
+            padding: 1.25rem 0;
         }
 
         .credentials__carousel-track {
             display: flex;
-            gap: 1rem;
             width: max-content;
-            animation: credentialsMarquee 32s linear infinite;
+            animation: credentialsMarquee 40s linear infinite;
             will-change: transform;
         }
 
@@ -798,13 +777,19 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 width: 100%;
+                gap: 1.75rem;
+            }
+
+            .credentials__carousel-track .credential-badge {
+                margin-right: 0;
             }
         }
 
         .credential-badge {
             flex-shrink: 0;
-            width: 128px;
-            height: 145px;
+            width: 190px;
+            height: 220px;
+            margin-right: 2.5rem;
             border: none;
             border-radius: 0;
             display: flex;
@@ -924,13 +909,13 @@
             }
 
             .credential-badge {
-                width: 108px;
-                height: 124px;
+                width: 150px;
+                height: 174px;
+                margin-right: 1.75rem;
             }
 
             .credentials__carousel-track {
-                gap: 0.75rem;
-                animation-duration: 26s;
+                animation-duration: 34s;
             }
         }
 
@@ -980,23 +965,24 @@
         }
 
         .cta-box__title {
-            font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 0.55rem;
-            max-width: 580px;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .cta-box__subtitle {
-            font-size: 0.9rem;
+            font-size: 1.25rem;
             color: var(--color-gray);
-            margin-bottom: 1rem;
-            max-width: 500px;
+            margin-bottom: 1.25rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.45;
+            line-height: 1.6;
         }
 
         .cta-box__actions {
@@ -1020,16 +1006,6 @@
 
         .cases .section-label {
             margin-bottom: 0.75rem;
-        }
-
-        .cases .section-title {
-            margin-bottom: 0.5rem;
-            font-size: clamp(1.6rem, 3vw, 2.1rem);
-        }
-
-        .cases .section-subtitle {
-            font-size: 0.95rem;
-            line-height: 1.45;
         }
 
         .cases__header {
@@ -1095,7 +1071,7 @@
 
         .case-card:hover .case-card__play {
             border-color: var(--color-yellow);
-            background-color: rgba(232, 255, 0, 0.2);
+            background-color: rgba(255, 255, 0, 0.2);
         }
 
         .case-card__play svg {
@@ -1118,17 +1094,17 @@
         }
 
         .case-card__title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-            line-height: 1.25;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
         }
 
         .case-card__text {
-            font-size: 0.8125rem;
+            font-size: 0.95rem;
             color: var(--color-gray);
-            margin-bottom: 0.65rem;
-            line-height: 1.45;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
         }
 
         .case-card__link {
@@ -1357,7 +1333,7 @@
 
         .cta-modal:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(232, 255, 0, 0.3);
+            box-shadow: 0 12px 30px rgba(255, 255, 0, 0.3);
         }
 
         .cta-modal:disabled {
@@ -1463,11 +1439,11 @@
             }
 
             .cases .case-card__title {
-                font-size: 1rem;
+                font-size: 1.25rem;
             }
 
             .cases .case-card__text {
-                font-size: 0.75rem;
+                font-size: 0.95rem;
             }
 
             .cases .case-card__play {
@@ -1495,13 +1471,13 @@
             }
 
             .cta-section .cta-box__title {
-                font-size: 1.25rem;
-                margin-bottom: 0.45rem;
+                font-size: clamp(1.8rem, 4vw, 2.25rem);
+                margin-bottom: 0.75rem;
             }
 
             .cta-section .cta-box__subtitle {
-                font-size: 0.8125rem;
-                margin-bottom: 0.85rem;
+                font-size: 1.125rem;
+                margin-bottom: 1rem;
             }
 
             .cta-box__actions .btn {
@@ -1526,11 +1502,11 @@
             }
 
             .portfolio .collection-card__title {
-                font-size: 0.9375rem;
+                font-size: 1.1rem;
             }
 
             .portfolio .collection-card__desc {
-                font-size: 0.75rem;
+                font-size: 0.95rem;
             }
 
             .portfolio__cta .btn {
@@ -1567,11 +1543,11 @@
             }
 
             .advantages .advantage-card__title {
-                font-size: 0.9rem;
+                font-size: 1.1rem;
             }
 
             .advantages .advantage-card__text {
-                font-size: 0.75rem;
+                font-size: 0.95rem;
             }
 
             .advantages .stat-item__number {
@@ -1583,7 +1559,7 @@
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: clamp(1.8rem, 3.5vw, 2.5rem);
             }
         }
     </style>
@@ -1842,7 +1818,7 @@
                             <div class="stat-item__label">Licencias activas</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-item__number">15+</div>
+                            <div class="stat-item__number">30+</div>
                             <div class="stat-item__label">Años de experiencia</div>
                         </div>
                     </div>
@@ -1869,78 +1845,78 @@
                     <div class="credentials__carousel-track" id="credentialsTrack">
                     <div class="credential-badge">
                         <div class="credential-badge__icon">
-                            <img src="/assets/images/images_home-autodesk/2_autodesk.png"
+                            <img src="../../assets/images/images_home-autodesk/2_autodesk.png"
                                  alt="Autodesk Customer Success Accredited Skills"
                                  loading="lazy"
                                  decoding="async"
-                                 width="140"
-                                 height="160">
+                                 width="190"
+                                 height="220">
                         </div>
                     </div>
 
                     <div class="credential-badge credential-badge--platinum">
                         <div class="credential-badge__icon">
-                            <img src="/assets/images/images_home-autodesk/1_autodesk.png"
+                            <img src="../../assets/images/images_home-autodesk/1_autodesk.png"
                                  alt="Autodesk Platinum Solution Provider"
                                  loading="lazy"
                                  decoding="async"
-                                 width="140"
-                                 height="160">
+                                 width="190"
+                                 height="220">
                         </div>
                     </div>
 
                     <div class="credential-badge">
                         <div class="credential-badge__icon">
-                            <img src="/assets/images/images_home-autodesk/3_autodesk.png"
+                            <img src="../../assets/images/images_home-autodesk/3_autodesk.png"
                                  alt="Autodesk Consulting Implementation Framework Accredited Skills"
                                  loading="lazy"
                                  decoding="async"
-                                 width="140"
-                                 height="160">
+                                 width="190"
+                                 height="220">
                         </div>
                     </div>
 
                     <div class="credential-badge credential-badge--specialized">
                         <div class="credential-badge__icon">
-                            <img src="/assets/images/images_home-autodesk/4_autodesk.png"
+                            <img src="../../assets/images/images_home-autodesk/4_autodesk.png"
                                  alt="Autodesk Building Architecture Specialized"
                                  loading="lazy"
                                  decoding="async"
-                                 width="140"
-                                 height="160">
+                                 width="190"
+                                 height="220">
                         </div>
                     </div>
 
                     <div class="credential-badge credential-badge--specialized">
                         <div class="credential-badge__icon">
-                            <img src="/assets/images/images_home-autodesk/5_autodesk.png"
+                            <img src="../../assets/images/images_home-autodesk/5_autodesk.png"
                                  alt="Autodesk Construction Specialized"
                                  loading="lazy"
                                  decoding="async"
-                                 width="140"
-                                 height="160">
+                                 width="190"
+                                 height="220">
                         </div>
                     </div>
 
                     <div class="credential-badge credential-badge--specialized">
                         <div class="credential-badge__icon">
-                            <img src="/assets/images/images_home-autodesk/6_autodesk.png"
+                            <img src="../../assets/images/images_home-autodesk/6_autodesk.png"
                                  alt="Autodesk Mechanical, Electrical & Plumbing Specialized"
                                  loading="lazy"
                                  decoding="async"
-                                 width="140"
-                                 height="160">
+                                 width="190"
+                                 height="220">
                         </div>
                     </div>
 
                     <div class="credential-badge credential-badge--specialized">
                         <div class="credential-badge__icon">
-                            <img src="/assets/images/images_home-autodesk/7_autodesk.png"
+                            <img src="../../assets/images/images_home-autodesk/7_autodesk.png"
                                  alt="Autodesk Transportation Infrastructure Specialized"
                                  loading="lazy"
                                  decoding="async"
-                                 width="140"
-                                 height="160">
+                                 width="190"
+                                 height="220">
                         </div>
                     </div>
                     </div>
@@ -1999,17 +1975,24 @@
                     <div class="case-card__image">
                         <img src="../../assets/images/images_home-autodesk/caso_éxito_1.png" alt="Construcción" width="800" height="500">
                         <div class="case-card__result">-40% tiempo de entrega</div>
-                        <button class="case-card__play" type="button" aria-label="Ver video">
+                        <a href="https://www.youtube.com/watch?v=cgwuOv4rOEs"
+                           class="case-card__play"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Ver video: Grupo IDINSA">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <polygon points="5 3 19 12 5 21 5 3"/>
                             </svg>
-                        </button>
+                        </a>
                     </div>
                     <div class="case-card__content">
                         <div class="case-card__client">Grupo IDINSA</div>
                         <h3 class="case-card__title">Gabriela Ortíz | Directora General</h3>
-                        <p class="case-card__text"></p>"La gestión BIM y el soporte de Cadgrafics fueron clave para lograr la precisión y calidad que este proyecto exigía."</p>
-                        <a href="#" class="case-card__link">
+                        <p class="case-card__text">"La gestión BIM y el soporte de Cadgrafics fueron clave para lograr la precisión y calidad que este proyecto exigía."</p>
+                        <a href="https://www.youtube.com/watch?v=cgwuOv4rOEs"
+                           class="case-card__link"
+                           target="_blank"
+                           rel="noopener noreferrer">
                             Ver documental completo
                             <span>→</span>
                         </a>
@@ -2020,17 +2003,24 @@
                     <div class="case-card__image">
                         <img src="../../assets/images/images_home-autodesk/caso_éxito_2.png" alt="Manufactura" width="800" height="500">
                         <div class="case-card__result">-60% tiempo de prototipado</div>
-                        <button class="case-card__play" type="button" aria-label="Ver video">
+                        <a href="https://www.youtube.com/watch?v=-wPrzTvsZm8"
+                           class="case-card__play"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Ver video: Grupo ALBA">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <polygon points="5 3 19 12 5 21 5 3"/>
                             </svg>
-                        </button>
+                        </a>
                     </div>
                     <div class="case-card__content">
                         <div class="case-card__client">Grupo ALBA</div>
                         <h3 class="case-card__title">Federico Alba | CEO</h3>
                         <p class="case-card__text">"Con el acompañamiento de Cadgrafics logramos un control total de la información y una coordinación estructural mucho más eficiente."</p>
-                        <a href="#" class="case-card__link">
+                        <a href="https://www.youtube.com/watch?v=-wPrzTvsZm8"
+                           class="case-card__link"
+                           target="_blank"
+                           rel="noopener noreferrer">
                             Ver documental completo
                             <span>→</span>
                         </a>
