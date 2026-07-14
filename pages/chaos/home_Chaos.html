@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SketchUp by Cadgraphics One — Partner Autorizado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+
+    /* ============ VARIABLES ============ */
+    :root {
+      --blue: #2D7BB6;
+      --blue-hover: #24689c;
+      --dark: #000;
+      --dark-2: #0a0a0a;
+      --dark-3: #111;
+      --dark-4: #1a1a1a;
+      --gray: #888;
+      --gray-light: #aaa;
+      --gray-border: #2a2a2a;
+      --light: #fff;
+      --light-bg: #f7f7f8;
+      --text-muted: #999;
+      --max-width: 1280px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============ HEADER ============ */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .logo-main {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .logo-main span { color: var(--blue); }
+    .logo-sub {
+      font-size: 10px;
+      color: var(--gray-light);
+      letter-spacing: 1.5px;
+      margin-top: 3px;
+      font-weight: 500;
+    }
+    .nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ccc;
+      transition: color 0.2s;
+    }
+    .nav a:hover { color: #fff; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--blue-hover); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline:hover { border-color: #fff; }
+    .btn-white {
+      background: #fff;
+      color: var(--blue);
+    }
+    .btn-white:hover { background: #f0f0f0; }
+    .btn-large {
+      padding: 18px 36px;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+    .btn-full { width: 100%; }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 140px 0 80px;
+      overflow: hidden;
+      background: #000;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border: 1px solid rgba(45,123,182,0.5);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--blue);
+      margin-bottom: 32px;
+      background: rgba(45,123,182,0.08);
+    }
+    .badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+    .hero h1 .accent { color: var(--blue); }
+    .hero p {
+      font-size: 17px;
+      color: #bbb;
+      max-width: 620px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 100px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-value {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--gray-light);
+    }
+
+    /* ============ CONTACT FORM ============ */
+    .contact {
+      padding: 100px 0;
+      background: #000;
+    }
+    .contact-card {
+      background: #0a0a0a;
+      border: 1px solid var(--gray-border);
+      border-radius: 16px;
+      padding: 48px;
+    }
+    .contact-card h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .contact-card > p {
+      color: var(--gray-light);
+      margin-bottom: 40px;
+      font-size: 15px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gray-light);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select {
+      background: #111;
+      border: 1px solid var(--gray-border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-group input::placeholder { color: #555; }
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      color: #555;
+    }
+    .form-submit { margin-top: 24px; }
+    .form-note {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: 16px;
+    }
+
+    /* ============ PLANS ============ */
+    .plans {
+      padding: 100px 0;
+      background: #fff;
+      color: #000;
+    }
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--blue);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .plans h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .plans > .container > p {
+      font-size: 16px;
+      color: #555;
+      max-width: 720px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      padding: 14px 24px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+      transition: all 0.2s;
+    }
+    .tab:hover { border-color: var(--blue); }
+    .tab.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .tab .tag {
+      font-size: 11px;
+      margin-left: 6px;
+      opacity: 0.85;
+      font-weight: 500;
+    }
+    .plan-content {
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+    .plan-content.dark {
+      background: #000;
+      color: #fff;
+      border-color: var(--blue);
+      border-width: 2px;
+    }
+    .plan-content.dark p { color: #bbb; }
+    .plan-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .plan-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+    .plan-content p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+    .plan-note {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 24px;
+    }
+    .plan-content.dark .plan-note { color: #999; }
+
+    .tools-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .tools-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tool-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--light-bg);
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .tool-item svg {
+      flex-shrink: 0;
+      color: var(--blue);
+    }
+    .tool-item.disabled {
+      color: #bbb;
+      background: transparent;
+      padding-left: 0;
+    }
+    .tool-item.disabled svg { color: #ccc; }
+
+    /* ============ COMPARISON TABLE ============ */
+    .comparison {
+      padding: 80px 0 100px;
+      background: #fff;
+      color: #000;
+    }
+    .comparison h3 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+    thead th {
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #666;
+      border-bottom: 2px solid #eee;
+    }
+    thead th:first-child { color: #888; }
+    thead th:last-child { color: var(--blue); }
+    tbody td {
+      padding: 18px 20px;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+      color: #333;
+    }
+    tbody td:not(:first-child) { text-align: center; }
+    tbody tr:hover { background: #fafafa; }
+    .check { color: var(--blue); }
+    .dash { color: #ccc; }
+
+    .table-note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* ============ INDUSTRIES ============ */
+    .industries {
+      padding: 100px 0;
+      background: #000;
+    }
+    .industries-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 60px;
+    }
+    .industries h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+    .industries-header p {
+      color: var(--gray-light);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #1a1a1a;
+      border: 1px solid #1a1a1a;
+    }
+    .industry-card {
+      background: #000;
+      padding: 40px;
+      transition: background 0.3s;
+    }
+    .industry-card:hover { background: #0a0a0a; }
+    .industry-icon {
+      width: 48px; height: 48px;
+      border: 1px solid var(--blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: var(--blue);
+    }
+    .industry-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+    }
+    .industry-card p {
+      color: var(--gray-light);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ============ GALLERY ============ */
+    .gallery {
+      padding: 100px 0;
+      background: #fff;
+      color: #000;
+    }
+    .gallery-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+    .gallery h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+    }
+    .gallery-header p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 16/10;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: #fff;
+    }
+    .gallery-item-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--blue);
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .gallery-item-tag.light {
+      background: rgba(255,255,255,0.9);
+      color: #000;
+    }
+    .gallery-item-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* ============ CTA ============ */
+    .cta {
+      padding: 120px 0;
+      background: var(--blue);
+      text-align: center;
+    }
+    .cta-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .cta h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      background: #000;
+      padding: 60px 0 30px;
+      border-top: 1px solid #1a1a1a;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      font-size: 14px;
+      color: #aaa;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #666;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero-stats { grid-template-columns: 1fr; gap: 24px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .industries-header,
+      .gallery-header { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .contact-card { padding: 28px; }
+      .plan-content { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-main">Sketch<span>Up</span></div>
+        <div class="logo-sub">BY CADGRAFICS ONE</div>
+      </a>
+      <nav class="nav">
+        <a href="#planes">Planes</a>
+        <a href="#industrias">Industrias</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a href="#contacto" class="btn btn-primary">Solicitar cotización</a>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="badge">PARTNER AUTORIZADO SKETCHUP · CADGRAFICS ONE</div>
+        <h1>El modelador 3D <span class="accent">más utilizado</span> del mundo.</h1>
+        <p>SketchUp combina una interfaz intuitiva con herramientas profesionales de precisión para arquitectos, diseñadores de interiores, ingenieros y constructores. Como Partner Autorizado, en Cadgraphics One te ofrecemos todas las suscripciones, soporte especializado y capacitación.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-outline btn-large">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Ver demo del producto
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="stat-value">2.4M</div>
+          <div class="stat-label">Usuarios activos mensuales</div>
+        </div>
+        <div>
+          <div class="stat-value">588K</div>
+          <div class="stat-label">Clientes anuales</div>
+        </div>
+        <div>
+          <div class="stat-value">20+</div>
+          <div class="stat-label">Años de historia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="contact-card">
+        <h2>Habla con un especialista</h2>
+        <p>Completa el formulario y te contactamos con una cotización personalizada.</p>
+
+        <form class="form-grid" onsubmit="event.preventDefault(); alert('Consulta enviada. Te contactaremos pronto.');">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Ana García" required />
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="+52 55 0000 0000" />
+          </div>
+          <div class="form-group full">
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="ana@estudio.com" required />
+          </div>
+          <div class="form-group full">
+            <label>Empresa</label>
+            <input type="text" placeholder="Estudio de Arquitectura S.A." />
+          </div>
+          <div class="form-group full">
+            <label>¿Qué deseas saber?</label>
+            <select required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option>Cotización de licencias</option>
+              <option>Soporte técnico</option>
+              <option>Capacitación</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group full form-submit">
+            <button type="submit" class="btn btn-primary btn-large btn-full">
+              Enviar consulta
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </form>
+        <p class="form-note">Tus datos están protegidos. No compartimos tu información con terceros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PLANS ========== -->
+  <section class="plans" id="planes">
+    <div class="container">
+      <div class="section-label">Suscripciones</div>
+      <h2>Elige tu plan</h2>
+      <p>SketchUp utiliza un modelo de suscripción por usuario. Cada licencia corresponde a un usuario real con su Trimble ID. Contáctanos para obtener cotización personalizada y asesoría sobre el plan que mejor se adapta a tus necesidades.</p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab" data-plan="pro">Pro</button>
+        <button class="tab" data-plan="proscan">Pro Scan</button>
+        <button class="tab" data-plan="proadvanced">Pro Advanced</button>
+        <button class="tab active" data-plan="studio">Studio <span class="tag">Más completo</span></button>
+      </div>
+
+      <div class="plan-content dark" id="plan-display">
+        <!-- Se llena con JS -->
+      </div>
+
+      <div class="tools-title">Herramientas incluidas</div>
+      <div class="tools-list" id="tools-list">
+        <!-- Se llena con JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMPARISON TABLE ========== -->
+  <section class="comparison">
+    <div class="container">
+      <h3>Tabla comparativa completa</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Herramienta</th>
+              <th>Pro</th>
+              <th>Pro Scan</th>
+              <th>Pro Advanced</th>
+              <th>Studio</th>
+            </tr>
+          </thead>
+          <tbody id="comparison-body">
+            <!-- Se llena con JS -->
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Pro Scan, Pro Advanced Workflows y Studio: solo disponibles como suscripciones anuales. Todas se renuevan automáticamente.</p>
+    </div>
+  </section>
+
+  <!-- ========== INDUSTRIES ========== -->
+  <section class="industries" id="industrias">
+    <div class="container">
+      <div class="industries-header">
+        <div>
+          <div class="section-label">Industrias</div>
+          <h2>SketchUp en tu sector</h2>
+        </div>
+        <p>Una herramienta versátil que se adapta a cualquier flujo de trabajo profesional.</p>
+      </div>
+
+      <div class="industries-grid">
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"/></svg>
+          </div>
+          <h3>Arquitectura</h3>
+          <p>Del concepto al plano. Modela, documenta y presenta con LayOut sin salir del ecosistema SketchUp.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a2 2 0 012-2h14a2 2 0 012 2v6M3 18h18M5 10V6a2 2 0 012-2h10a2 2 0 012 2v4"/></svg>
+          </div>
+          <h3>Diseño de Interiores</h3>
+          <p>Planifica distribuciones, selecciona materiales y presenta renders fotorrealistas a tus clientes.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+          </div>
+          <h3>Construcción</h3>
+          <p>Coordina proyectos, estima costos y reduce errores en campo con mockups virtuales y BIM.</p>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-6h6v6M12 4v4"/></svg>
+          </div>
+          <h3>Ingeniería Civil</h3>
+          <p>Modela infraestructura y comunica proyectos ante autoridades con visualizaciones precisas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section class="gallery" id="galeria">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <div class="section-label">Galería</div>
+          <h2>Proyectos reales</h2>
+        </div>
+        <p>Proyectos creados por profesionales usando SketchUp Studio y V-Ray for SketchUp.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=80" alt="Casa Montaña" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag">V-Ray Studio</span>
+            <div class="gallery-item-title">Casa Montaña — Monterrey</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Villa Residencial" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag light">Exterior</span>
+            <div class="gallery-item-title">Villa Residencial — CDMX</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=80" alt="Interior moderno" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag">V-Ray Studio</span>
+            <div class="gallery-item-title">Loft Contemporáneo — Guadalajara</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=80" alt="Sala de estar" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag light">Interior</span>
+            <div class="gallery-item-title">Residencia del Valle — Querétaro</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80" alt="Cocina moderna" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag">V-Ray Studio</span>
+            <div class="gallery-item-title">Cocina Integral — Puebla</div>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80" alt="Casa con alberca" />
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-tag light">Exterior</span>
+            <div class="gallery-item-title">Casa del Lago — Valle de Bravo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-label">Cadgraphics One · Partner Autorizado</div>
+      <h2>¿Listo para diseñar con SketchUp?</h2>
+      <p>Te ayudamos a elegir el plan correcto y a sacar el máximo provecho de tu inversión con capacitación y soporte especializado.</p>
+      <a href="#contacto" class="btn btn-white btn-large">Solicitar cotización personalizada</a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo">
+            <div class="logo-main">Sketch<span>Up</span></div>
+            <div class="logo-sub">BY CADGRAFICS ONE</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Planes</h4>
+          <ul>
+            <li><a href="#planes">Pro</a></li>
+            <li><a href="#planes">Pro Scan</a></li>
+            <li><a href="#planes">Pro Advanced</a></li>
+            <li><a href="#planes">Studio</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Industrias</h4>
+          <ul>
+            <li><a href="#industrias">Arquitectura</a></li>
+            <li><a href="#industrias">Interiores</a></li>
+            <li><a href="#industrias">Construcción</a></li>
+            <li><a href="#industrias">Ingeniería Civil</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Recursos</h4>
+          <ul>
+            <li><a href="#">Documentación</a></li>
+            <li><a href="#">Tutoriales</a></li>
+            <li><a href="#">Soporte</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Cadgraphics One</h4>
+          <ul>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#">Términos</a></li>
+            <li><a href="#">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2025 Cadgraphics One. Partner Autorizado de SketchUp.</div>
+        <div>Hecho con precisión en México.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // ============ DATA ============
+    const plansData = {
+      pro: {
+        title: 'SketchUp Pro',
+        dark: false,
+        description: 'Ideal para arquitectos y diseñadores que trabajan con SketchUp como herramienta principal de modelado, documentación y colaboración.',
+        tools: [
+          'SketchUp Web', 'SketchUp Desktop', 'SketchUp for iPad',
+          'LayOut', 'Extension Warehouse', '3D Warehouse',
+          'Trimble Connect', 'PreDesign'
+        ],
+        disabledTools: ['Scan Essentials', 'Revit Importer', 'V-Ray (render)']
+      },
+      proscan: {
+        title: 'SketchUp Pro Scan',
+        dark: false,
+        description: 'Agrega Scan Essentials al plan Pro. Ideal para profesionales que trabajan con nubes de puntos (LiDAR), levantamientos As Built y remodelaciones.',
+        tools: [
+          'SketchUp Web', 'SketchUp Desktop', 'SketchUp for iPad',
+          'LayOut', 'Extension Warehouse', '3D Warehouse',
+          'Trimble Connect', 'PreDesign', 'Scan Essentials'
+        ],
+        disabledTools: ['Revit Importer', 'V-Ray (render)']
+      },
+      proadvanced: {
+        title: 'SketchUp Pro Advanced',
+        dark: false,
+        description: 'Incorpora Scan Essentials y Revit Importer. Para oficinas en entornos mixtos Revit + SketchUp que necesitan importar archivos .rvt directamente.',
+        tools: [
+          'SketchUp Web', 'SketchUp Desktop', 'SketchUp for iPad',
+          'LayOut', 'Extension Warehouse', '3D Warehouse',
+          'Trimble Connect', 'PreDesign', 'Scan Essentials', 'Revit Importer'
+        ],
+        disabledTools: ['V-Ray (render)']
+      },
+      studio: {
+        title: 'SketchUp Studio',
+        dark: true,
+        tag: 'MÁS COMPLETO',
+        note: 'Nota: V-Ray, Scan Essentials y Revit Importer disponibles solo en Windows.',
+        description: 'El plan más completo. Añade V-Ray for SketchUp para rendering fotorrealista de alto nivel, conectividad BIM completa y nube de puntos.',
+        tools: [
+          'SketchUp Web', 'SketchUp Desktop', 'SketchUp for iPad',
+          'LayOut', 'Extension Warehouse', '3D Warehouse',
+          'Trimble Connect', 'PreDesign', 'Scan Essentials',
+          'Revit Importer', 'V-Ray (render)'
+        ],
+        disabledTools: []
+      }
+    };
+
+    const comparisonData = [
+      ['SketchUp Web', true, true, true, true],
+      ['SketchUp Desktop', true, true, true, true],
+      ['SketchUp for iPad', true, true, true, true],
+      ['LayOut', true, true, true, true],
+      ['Extension Warehouse', true, true, true, true],
+      ['3D Warehouse', true, true, true, true],
+      ['Trimble Connect', true, true, true, true],
+      ['PreDesign', true, true, true, true],
+      ['Scan Essentials', false, true, true, true],
+      ['Revit Importer', false, false, true, true],
+      ['V-Ray (render)', false, false, false, true]
+    ];
+
+    // ============ RENDER PLAN ============
+    function renderPlan(planKey) {
+      const plan = plansData[planKey];
+      const display = document.getElementById('plan-display');
+      const toolsList = document.getElementById('tools-list');
+
+      display.className = 'plan-content' + (plan.dark ? ' dark' : '');
+
+      let html = `
+        <div class="plan-title">
+          ${plan.title}
+          ${plan.tag ? `<span class="plan-tag">${plan.tag}</span>` : ''}
+        </div>
+        <p>${plan.description}</p>
+        ${plan.note ? `<div class="plan-note">${plan.note}</div>` : ''}
+        <a href="#contacto" class="btn btn-primary btn-large btn-full">Solicitar cotización</a>
+      `;
+      display.innerHTML = html;
+
+      let toolsHtml = '';
+      plan.tools.forEach(t => {
+        toolsHtml += `
+          <div class="tool-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            ${t}
+          </div>`;
+      });
+      plan.disabledTools.forEach(t => {
+        toolsHtml += `
+          <div class="tool-item disabled">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            ${t}
+          </div>`;
+      });
+      toolsList.innerHTML = toolsHtml;
+    }
+
+    // ============ RENDER COMPARISON TABLE ============
+    function renderComparison() {
+      const tbody = document.getElementById('comparison-body');
+      let html = '';
+      comparisonData.forEach(row => {
+        html += `<tr><td>${row[0]}</td>`;
+        for (let i = 1; i <= 4; i++) {
+          html += row[i]
+            ? `<td><svg class="check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></td>`
+            : `<td><span class="dash">—</span></td>`;
+        }
+        html += `</tr>`;
+      });
+      tbody.innerHTML = html;
+    }
+
+    // ============ TABS ============
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        renderPlan(tab.dataset.plan);
+      });
+    });
+
+    // ============ INIT ============
+    renderPlan('studio');
+    renderComparison();
+  </script>
+</body>
+</html>
