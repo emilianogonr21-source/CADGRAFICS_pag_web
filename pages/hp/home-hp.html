@@ -121,8 +121,11 @@
       --transition-slow: 0.4s ease;
       --transition-base: 0.3s ease;
 
-      /* Layout */
-      --header-height: 120px;
+      /* Layout — logo asset is 1080×1080 with content bbox y:218–802 */
+      --logo-size: 120px;
+      --logo-content-top: calc(var(--logo-size) * 218 / 1080);
+      --logo-content-height: calc(var(--logo-size) * 585 / 1080);
+      --header-height: calc(var(--logo-content-height) + 8px);
       --container-max: 1280px;
     }
 
@@ -344,7 +347,7 @@
       background: rgba(0, 0, 0, 0.75);
       backdrop-filter: blur(20px);
       z-index: 1000;
-      padding: 0.75rem 0;
+      padding: 0;
       transition: all var(--transition-normal);
       border-bottom: 1px solid #8B0000;
     }
@@ -359,16 +362,28 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      min-height: 56px;
+      min-height: var(--header-height);
+      height: var(--header-height);
+    }
+
+    .header .logo-link {
+      display: block;
+      height: var(--header-height);
+      overflow: hidden;
+      flex-shrink: 0;
+      line-height: 0;
     }
 
     .header .logo {
-      height: 120px;
+      height: var(--logo-size);
       width: auto;
-      flex-shrink: 0;
-      transition: transform var(--transition-normal);
       display: block;
       object-fit: contain;
+      margin-top: calc(
+        (var(--header-height) - var(--logo-content-height)) / 2
+        - var(--logo-content-top)
+      );
+      transition: transform var(--transition-normal);
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
 
@@ -504,7 +519,8 @@
     /* Responsive Header */
     @media (max-width: 768px) {
       :root {
-        --header-height: 64px;
+        --logo-size: 96px;
+        --header-height: calc(var(--logo-content-height) + 6px);
       }
       
       .mobile-toggle {
@@ -1889,7 +1905,7 @@
      ============================================ -->
 <header class="header" id="header">
     <div class="container nav-container">
-        <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
+        <a href="../../index.html" class="logo-link" aria-label="Ir a inicio de Cadgrafics">
             <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="480" height="120"/>
         </a>
         
@@ -2730,7 +2746,7 @@
       if (!target) return;
 
       e.preventDefault();
-      const headerOffset = 100;
+      const headerOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72;
       const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
 
       window.scrollTo({ top, behavior: 'smooth' });
