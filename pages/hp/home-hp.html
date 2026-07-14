@@ -947,21 +947,34 @@
        8. PORTAFOLIO SECTION
        ============================================ */
     .portfolio {
-      padding: 100px 0;
+      padding: 48px 0;
       background-color: var(--bg-white);
+    }
+
+    .portfolio .section-label {
+      margin-bottom: 8px;
+    }
+
+    .portfolio .section-title {
+      margin-bottom: 8px;
+    }
+
+    .portfolio .section-subtitle {
+      margin-bottom: 0;
+      font-size: 0.95rem;
     }
 
     .portfolio-tabs {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 48px 0 40px;
+      gap: 6px;
+      margin: 20px 0 18px;
     }
 
     .tab-btn {
-      padding: 12px 24px;
-      font-size: 0.95rem;
+      padding: 6px 14px;
+      font-size: 0.82rem;
       font-weight: 600;
       color: var(--text-muted);
       background-color: var(--bg-light);
@@ -989,62 +1002,64 @@
 
     .portfolio-panel.active {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
     }
 
     .product-card {
       background-color: var(--bg-white);
       border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 32px;
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
       transition: all var(--transition-normal);
     }
 
     .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
       border-color: var(--border-medium);
     }
 
     .product-badge {
       display: inline-block;
-      padding: 6px 14px;
+      padding: 3px 8px;
       background-color: var(--hp-blue);
       color: var(--bg-white);
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       border-radius: 50px;
-      margin-bottom: 20px;
+      margin-bottom: 6px;
     }
 
     .product-badge.dark {
       background-color: var(--hp-blue-deep);
     }
 
-    .product-name {
-      font-size: 2rem;
+    .product-card .product-name {
+      font-size: 1.2rem;
       font-weight: 800;
       color: var(--text-dark);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
+      line-height: 1.2;
     }
 
     .product-description {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 24px;
-      min-height: 48px;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+      min-height: 0;
+      line-height: 1.4;
     }
 
     .product-carousel {
       overflow: hidden;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-sm);
       border: 1px solid var(--border-light);
       background: linear-gradient(135deg, var(--bg-light) 0%, #f1f5f9 100%);
-      margin-bottom: 20px;
-      padding: 8px;
+      margin-bottom: 10px;
+      padding: 4px;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
@@ -1058,21 +1073,21 @@
     .product-carousel-group {
       display: flex;
       flex-shrink: 0;
-      gap: 10px;
-      padding: 2px;
+      gap: 6px;
+      padding: 1px;
     }
 
     .product-carousel-slide {
-      flex: 0 0 min(100%, 260px);
-      width: min(100%, 260px);
+      flex: 0 0 min(100%, 180px);
+      width: min(100%, 180px);
     }
 
     .product-carousel-image {
       width: 100%;
-      height: 220px;
+      height: 130px;
       object-fit: cover;
       display: block;
-      border-radius: var(--radius-md);
+      border-radius: 4px;
       box-shadow: var(--shadow-sm);
     }
 
@@ -1083,13 +1098,13 @@
     .product-level {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 8px;
+      margin-bottom: 10px;
     }
 
     .level-bar {
       flex: 1;
-      height: 4px;
+      height: 3px;
       background-color: var(--border-light);
       border-radius: 2px;
       overflow: hidden;
@@ -1107,7 +1122,7 @@
     }
 
     .level-label {
-      font-size: 0.85rem;
+      font-size: 0.72rem;
       color: var(--text-light);
       white-space: nowrap;
     }
@@ -1123,7 +1138,11 @@
 
     @media (max-width: 640px) {
       .product-carousel-image {
-        height: 180px;
+        height: 120px;
+      }
+
+      .product-card {
+        padding: 12px 14px;
       }
     }
 
@@ -1131,67 +1150,123 @@
        9. SECTORES SECTION
        ============================================ */
     .sectors {
-      padding: 100px 0 60px;
+      padding: 56px 0 48px;
       background-color: var(--hp-blue-deep);
       color: var(--bg-white);
     }
 
+    .sectors .section-label {
+      margin-bottom: 10px;
+    }
+
     .sectors .section-title {
       color: var(--bg-white);
+      margin-bottom: 12px;
     }
 
     .sectors .section-subtitle {
       color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0;
+      font-size: 1rem;
     }
 
     .sectors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 48px;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
     }
 
     .sector-card {
-      padding: 32px;
+      padding: 16px 14px;
       background-color: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       transition: all var(--transition-normal);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 0;
     }
 
     .sector-card:hover {
       background-color: rgba(255, 255, 255, 0.08);
       border-color: rgba(0, 150, 214, 0.4);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
     }
 
     .sector-icon {
-      width: 48px;
-      height: 48px;
-      padding: 12px;
+      width: 36px;
+      height: 36px;
+      padding: 8px;
       background-color: rgba(0, 150, 214, 0.15);
       border-radius: var(--radius-sm);
       color: var(--hp-blue);
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      flex-shrink: 0;
     }
 
     .sector-title {
-      font-size: 1.2rem;
+      font-size: 0.92rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      line-height: 1.25;
     }
 
     .sector-description {
       color: rgba(255, 255, 255, 0.6);
-      font-size: 0.95rem;
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1100px) {
+      .sectors-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .sector-card {
+        text-align: left;
+        align-items: flex-start;
+        padding: 16px 18px;
+      }
+
+      .sector-title {
+        font-size: 1rem;
+      }
+
+      .sector-description {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .sectors-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .sector-card {
+        padding: 14px 12px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .sector-title {
+        font-size: 0.88rem;
+      }
+
+      .sector-description {
+        font-size: 0.75rem;
+      }
     }
 
     .sectors-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 32px;
-      margin-top: 80px;
-      padding-top: 60px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+      padding-top: 32px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
@@ -1200,40 +1275,46 @@
     }
 
     .stat-item-icon {
-      width: 32px;
-      height: 32px;
+      width: 26px;
+      height: 26px;
       color: var(--hp-blue);
-      margin: 0 auto 16px;
+      margin: 0 auto 10px;
     }
 
     .stat-item-value {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       font-weight: 800;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      line-height: 1.25;
     }
 
     .stat-item-label {
       color: rgba(255, 255, 255, 0.5);
-      font-size: 0.9rem;
+      font-size: 0.82rem;
     }
 
     /* ============================================
        10. CONTACTO SECTION
        ============================================ */
     .contact {
-      padding: 100px 0;
+      padding: 56px 0;
       background-color: var(--bg-white);
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 64px;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 40px;
       align-items: start;
     }
 
+    .contact-info .section-label {
+      margin-bottom: 10px;
+    }
+
     .contact-info .section-title {
-      margin-bottom: 24px;
+      margin-bottom: 14px;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
     }
 
     .contact-info .section-title .highlight {
@@ -1242,26 +1323,26 @@
 
     .contact-description {
       color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-bottom: 40px;
-      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.55;
     }
 
     .contact-methods {
       list-style: none;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
 
     .contact-methods li {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 12px 0;
+      gap: 12px;
+      padding: 8px 0;
     }
 
     .contact-methods .icon-box {
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1272,32 +1353,32 @@
     }
 
     .contact-methods .icon-box svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
 
     .contact-methods .method-label {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
     .contact-methods .method-value {
       font-weight: 600;
       color: var(--text-dark);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
     .contact-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .contact-badge {
-      padding: 8px 16px;
+      padding: 6px 12px;
       background-color: var(--bg-blue-light);
       color: var(--hp-blue);
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       font-weight: 600;
       border-radius: 50px;
     }
@@ -1305,18 +1386,18 @@
     .contact-form-wrapper {
       background-color: var(--bg-light);
       border-radius: var(--radius-lg);
-      padding: 40px;
+      padding: 28px;
       border: 1px solid var(--border-light);
     }
 
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 12px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
 
     .form-group.full {
@@ -1325,12 +1406,12 @@
 
     .form-label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--text-dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .form-label .required {
@@ -1340,8 +1421,8 @@
     .form-input,
     .form-select {
       width: 100%;
-      padding: 14px 16px;
-      font-size: 0.95rem;
+      padding: 11px 14px;
+      font-size: 0.9rem;
       font-family: inherit;
       color: var(--text-dark);
       background-color: var(--bg-white);
@@ -1366,22 +1447,22 @@
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 16px center;
-      padding-right: 40px;
+      background-position: right 14px center;
+      padding-right: 36px;
     }
 
     .form-submit {
       width: 100%;
-      padding: 16px;
-      font-size: 1rem;
-      margin-top: 8px;
+      padding: 12px;
+      font-size: 0.95rem;
+      margin-top: 4px;
     }
 
     .form-note {
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-light);
-      margin-top: 16px;
+      margin-top: 12px;
     }
 
     /* ============================================
@@ -1768,7 +1849,7 @@
     @media (max-width: 968px) {
       .contact-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 32px;
       }
     }
 
@@ -1814,6 +1895,18 @@
         padding: 48px 0;
       }
 
+      .portfolio {
+        padding: 40px 0;
+      }
+
+      .sectors {
+        padding: 44px 0 36px;
+      }
+
+      .contact {
+        padding: 44px 0;
+      }
+
       .form-row {
         grid-template-columns: 1fr;
       }
@@ -1844,7 +1937,7 @@
       }
 
       .contact-form-wrapper {
-        padding: 24px;
+        padding: 20px;
       }
     }
 
