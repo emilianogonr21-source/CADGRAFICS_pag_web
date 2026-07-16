@@ -32,43 +32,27 @@
     <style>
         /* ===== CSS VARIABLES ===== */
         :root {
-            --primary-red: #FF0000;
-            --secondary-red: #CC0000;
             --dark-red: #990000;
-            --charcoal: #2A0000;
             --color-dark: #0a0a0a;
-            --color-dark-2: #141414;
             --color-red: #5B0010;
-            --color-red-deep: #3d000a;
-            --color-red-light: #7B0015;
             --color-green: #18FF5C;
-            --color-green-dark: #0d3d1f;
-            --color-green-glow: #00ff41;
             --color-white: #ffffff;
             --color-gray: #4b5563;
             --color-gray-light: #f8f9fa;
-            --color-gold: #FFD700;
-            
-            --glow-red: rgba(255, 0, 0, 0.6);
+
             --glass-bg: rgba(30, 41, 59, 0.98);
             --glass-border: rgba(255, 255, 255, 0.1);
-            --text-primary: #FFFFFF;
             --text-secondary: #C8C8C8;
-            --text-muted: #999999;
-            
+
             --header-height: 120px;
-            --container-max: 1200px;
+            --container-max: 1280px;
             --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
             --space-lg: 1.5rem;
             --space-xl: 2.5rem;
             --radius-sm: 6px;
             --radius-md: 12px;
             --radius-lg: 20px;
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
             --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
             --shadow-glow: 0 20px 50px rgba(255, 0, 0, 0.25);
             --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
@@ -86,7 +70,7 @@
         a { color: inherit; text-decoration: none; }
         button { font-family: inherit; cursor: pointer; border: none; background: none; }
         ul { list-style: none; }
-        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 1.5rem; }
 
         /* ===== ACCESSIBILITY ===== */
         .visually-hidden {
@@ -251,18 +235,6 @@
             height: 1.25rem;
             text-align: center;
             flex-shrink: 0;
-        }
-
-        .cta-header {
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            color: var(--color-white);
-        }
-        .cta-header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37,211,102,0.4);
         }
 
         .mobile-toggle {
@@ -628,16 +600,22 @@
             opacity: 1;
         }
         
-        .feature-card.animate-in {
+        .feature-card.animate-in,
+        .problem-card.animate-in,
+        .process-card.animate-in,
+        .case-card.animate-in {
             opacity: 0;
             transform: translateY(24px);
         }
-        
-        .feature-card.animate-in.visible {
+
+        .feature-card.animate-in.visible,
+        .problem-card.animate-in.visible,
+        .process-card.animate-in.visible,
+        .case-card.animate-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .feature-card:hover {
             transform: translateY(-4px);
             background: rgba(255, 255, 255, 0.08);
@@ -752,14 +730,6 @@
             border: 2px solid #FF0000; 
             box-shadow: var(--shadow-glow);
         }
-        .problem-card.animate-in {
-            opacity: 0;
-            transform: translateY(24px);
-        }
-        .problem-card.animate-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         .problem-card:hover { 
             transform: translateY(-6px); 
             box-shadow: var(--shadow-lg); 
@@ -819,14 +789,6 @@
             border: 1px solid rgba(0, 0, 0, 0.04); 
             transition: transform var(--transition-base), opacity 0.6s ease; 
             opacity: 1;
-        }
-        .process-card.animate-in {
-            opacity: 0;
-            transform: translateY(24px);
-        }
-        .process-card.animate-in.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
         .process-card:hover { transform: translateY(-6px); }
         .process-number { 
@@ -896,10 +858,6 @@
         }
         
         .success-cases .section-title {
-            color: var(--color-white);
-        }
-        
-        .success-cases .section-title span {
             color: var(--color-white);
         }
         
@@ -1005,35 +963,6 @@
             font-size: 0.9rem;
             line-height: 1.5;
             margin-bottom: 1rem;
-        }
-        
-        .btn-view-case {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #8B0000, #5B0010);
-            color: var(--color-gold);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: var(--radius-md);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-        }
-        
-        .btn-view-case:hover {
-            background: linear-gradient(135deg, #990000, #6B0015);
-            border-color: var(--color-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
-        }
-        
-        .btn-view-case svg {
-            width: 0.875rem;
-            height: 0.875rem;
         }
         
         @media (max-width: 900px) {
@@ -1458,12 +1387,12 @@
         <nav aria-label="Navegación principal">
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item">
-                    <a href="./pages/Adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                    <a href="./pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
                         Adobe <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="./pages/Adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
-                        <li><a href="./pages/Adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
+                        <li><a href="./pages/adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
+                        <li><a href="./pages/adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -1522,9 +1451,9 @@
         </nav>
         
         <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-            <svg width="24" height="24" aria-hidden="true" class="icon-menu">
-                <use href="#icon-menu"/>
-            </svg>
+                <svg width="24" height="24" aria-hidden="true">
+                    <use href="#icon-menu"/>
+                </svg>
         </button>
     </div>
 </header>
@@ -1549,19 +1478,16 @@
                     </div>
                     <div class="form-fields">
                         <label for="nombre" class="visually-hidden">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required aria-label="Nombre completo" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-describedby="nombre-error" />
-                        <p id="nombre-error" class="form-message error" role="alert" style="display:none;"></p>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required aria-label="Nombre completo" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" />
                         
                         <label for="empresa" class="visually-hidden">Empresa</label>
                         <input type="text" id="empresa" name="empresa" placeholder="Empresa" aria-label="Empresa" />
                         
                         <label for="email" class="visually-hidden">Correo electrónico</label>
-                        <input type="email" id="email" name="email" placeholder="Correo electrónico" required aria-label="Correo electrónico" aria-describedby="email-error" />
-                        <p id="email-error" class="form-message error" role="alert" style="display:none;"></p>
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico" required aria-label="Correo electrónico" />
                         
                         <label for="telefono" class="visually-hidden">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required aria-label="Teléfono" class="input-full" pattern="[0-9\s\+\-\(\)]{10,20}" aria-describedby="telefono-error" />
-                        <p id="telefono-error" class="form-message error" role="alert" style="display:none;"></p>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required aria-label="Teléfono" class="input-full" pattern="[0-9\s\+\-\(\)]{10,20}" />
                     </div>
                     <button type="submit" class="btn-primary">Enviar</button>
                     <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
@@ -1805,7 +1731,7 @@
         </div>
     </section>
 
-    <section class="cta-final">
+    <section class="cta-final" id="contacto">
         <div class="container cta-content">
             <h2 class="cta-title">¿Listo para transformar tu empresa?</h2>
             <p class="cta-subtitle">Comienza tu viaje hacia la excelencia tecnológica hoy mismo</p>
@@ -1886,23 +1812,19 @@
             <div id="formFields">
                 <div class="form-group">
                     <label for="name">Nombre completo *</label>
-                    <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name" aria-describedby="name-error-modal"/>
-                    <p id="name-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+                    <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name"/>
                 </div>
                 <div class="form-group">
-                    <label for="email">Correo electrónico *</label>
-                    <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" aria-describedby="email-error-modal"/>
-                    <p id="email-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+                    <label for="modal-email">Correo electrónico *</label>
+                    <input type="email" id="modal-email" name="email" required aria-required="true" autocomplete="email"/>
                 </div>
                 <div class="form-group">
                     <label for="phone">Celular *</label>
-                    <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678" aria-describedby="phone-error-modal"/>
-                    <p id="phone-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678"/>
                 </div>
                 <div class="form-group">
                     <label for="company">Empresa *</label>
-                    <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa" aria-describedby="company-error-modal"/>
-                    <p id="company-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+                    <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa"/>
                 </div>
                 <div class="form-group">
                     <label for="message">Tu requerimiento</label>
@@ -1925,15 +1847,6 @@
 <script nonce="REEMPLAZAR_DESDE_SERVIDOR">
 (function () {
     'use strict';
-
-    // ===== Manejo global de errores =====
-    window.addEventListener('error', (e) => {
-        console.error('Error global capturado:', e.error);
-    });
-
-    window.addEventListener('unhandledrejection', (e) => {
-        console.error('Promise rechazada sin manejar:', e.reason);
-    });
 
     // ===== Utilidades DOM =====
     const $ = (sel, ctx = document) => ctx.querySelector(sel);
@@ -2075,9 +1988,9 @@
         const email = formData.get('email').trim();
         const telefono = formData.get('telefono').trim();
 
-        const nombreInput = $('#nombre');
-        const emailInput = $('#email');
-        const telefonoInput = $('#telefono');
+        const nombreInput = consultForm.querySelector('#nombre');
+        const emailInput = consultForm.querySelector('#email');
+        const telefonoInput = consultForm.querySelector('#telefono');
 
         let hasError = false;
 
@@ -2246,19 +2159,19 @@
         let hasError = false;
 
         if (!data.name || data.name.length < 3) {
-            $('#name').classList.add('is-invalid');
+            leadForm.querySelector('#name')?.classList.add('is-invalid');
             hasError = true;
         }
         if (!isValidEmail(data.email)) {
-            $('#email').classList.add('is-invalid');
+            leadForm.querySelector('#modal-email')?.classList.add('is-invalid');
             hasError = true;
         }
         if (!isValidPhone(data.phone)) {
-            $('#phone').classList.add('is-invalid');
+            leadForm.querySelector('#phone')?.classList.add('is-invalid');
             hasError = true;
         }
         if (!data.company || data.company.length < 2) {
-            $('#company').classList.add('is-invalid');
+            leadForm.querySelector('#company')?.classList.add('is-invalid');
             hasError = true;
         }
 

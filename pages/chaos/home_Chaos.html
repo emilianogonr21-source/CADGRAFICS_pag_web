@@ -26,8 +26,6 @@
     :root {
       --blue: #2D7BB6;
       --blue-hover: #24689c;
-      --gray-light: #aaa;
-      --gray-border: #2a2a2a;
       --light-bg: #f7f7f8;
       --max-width: 1280px;
       --font-main: 'Inter', system-ui, -apple-system, sans-serif;
@@ -551,6 +549,7 @@
       to { transform: rotate(360deg); }
     }
 
+    /* ============ BUTTONS ============ */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -567,12 +566,6 @@
       color: #fff;
     }
     .btn-primary:hover { background: var(--blue-hover); }
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-    .btn-outline:hover { border-color: #fff; }
     .btn-white {
       background: #fff;
       color: var(--blue);
@@ -585,12 +578,10 @@
     }
     .btn-full { width: 100%; }
 
-    /* ============ HERO ============ */
+    /* ============ HERO + CONTACT ============ */
     .hero {
       position: relative;
-      min-height: auto;
-      padding: 110px 0 48px;
-      overflow: hidden;
+      padding: 120px 0 56px;
       background: #000;
     }
     .hero-bg {
@@ -599,138 +590,164 @@
       background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80');
       background-size: cover;
       background-position: center;
-      opacity: 0.35;
+      opacity: 0.4;
       z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
     }
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.9) 100%);
+      background: linear-gradient(105deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 48%, rgba(0,0,0,0.72) 100%);
     }
-    .hero-content {
+    .hero > .container {
       position: relative;
       z-index: 1;
-      max-width: 720px;
     }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      align-items: center;
+      width: 100%;
+    }
+    .hero-main {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-content { max-width: 620px; }
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 16px;
-      border: 1px solid rgba(45,123,182,0.5);
+      border: 1px solid rgba(45,123,182,0.55);
       border-radius: 100px;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 1.5px;
       color: var(--blue);
       margin-bottom: 18px;
-      background: rgba(45,123,182,0.08);
+      background: rgba(0, 0, 0, 0.35);
     }
     .badge::before {
       content: '';
       width: 6px; height: 6px;
       background: var(--blue);
       border-radius: 50%;
+      flex-shrink: 0;
     }
     .hero .accent { color: var(--blue); }
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
 
     .hero__stats {
-      position: relative;
-      z-index: 1;
       display: flex;
-      gap: 36px;
+      gap: 40px;
       flex-wrap: wrap;
       margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
-
-    .stat {
-      min-width: 0;
-    }
-
+    .stat { min-width: 0; }
     .stat__number {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 800;
-      color: var(--blue);
+      color: #fff;
       line-height: 1;
       margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
-
     .stat__label {
       font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.35;
     }
 
-    /* ============ CONTACT FORM ============ */
-    .contact {
-      padding: 56px 0;
-      background: #000;
+    .hero .contact-card {
+      min-width: 0;
+      width: 100%;
+      max-width: 400px;
+      margin-left: auto;
+      background: rgba(12, 12, 14, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
     }
-    .contact-card {
-      background: #0a0a0a;
-      border: 1px solid var(--gray-border);
-      border-radius: 12px;
-      padding: 28px;
+    .hero .contact-card .section-title {
+      font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+      margin-bottom: 0.35rem;
+      color: #fff;
     }
-    .contact-card .section-subtitle {
-      color: var(--gray-light);
-      margin-bottom: 1.5rem;
+    .hero .contact-card .section-subtitle {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+      line-height: 1.45;
     }
-    .form-grid {
+    .hero .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0.65rem;
     }
-    .form-group { display: flex; flex-direction: column; }
+    .form-group { display: flex; flex-direction: column; min-width: 0; }
     .form-group.full { grid-column: 1 / -1; }
-    .form-group label {
-      font-size: 0.7rem;
+    .hero .form-group label {
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--gray-light);
-      margin-bottom: 6px;
+      letter-spacing: 1.2px;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 4px;
       text-transform: uppercase;
     }
-    .form-group input,
-    .form-group select {
-      background: #111;
-      border: 1px solid var(--gray-border);
+    .hero .form-group input,
+    .hero .form-group select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 8px;
-      padding: 11px 14px;
+      padding: 0.65rem 0.75rem;
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-family: inherit;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
-    .form-group input::placeholder { color: #555; }
-    .form-group input:focus,
-    .form-group select:focus {
+    .form-group input::placeholder { color: #777; }
+    .hero .form-group input:focus,
+    .hero .form-group select:focus {
       outline: none;
       border-color: var(--blue);
+      background: rgba(255, 255, 255, 0.06);
     }
-    .form-group select {
+    .hero .form-group select {
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 14px center;
-      padding-right: 36px;
-      color: #555;
+      background-position: right 12px center;
+      padding-right: 2rem;
+      color: #888;
     }
-    .form-submit { margin-top: 14px; }
-    .form-note {
+    .form-group select:valid { color: #fff; }
+    .hero .form-submit { margin-top: 0.15rem; }
+    .hero .form-submit .btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+    }
+    .hero .form-submit .btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+    .hero .form-note {
       text-align: center;
-      font-size: 0.75rem;
-      color: #666;
-      margin-top: 12px;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.45);
+      margin-top: 0.75rem;
+      line-height: 1.4;
     }
 
     /* ============ PLANS ============ */
@@ -776,10 +793,8 @@
       border: 1px solid #e5e5e5;
       border-radius: 10px;
       padding: 20px;
-      margin-bottom: 0;
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
     .plan-content.dark {
       background: #000;
@@ -824,7 +839,6 @@
       margin-bottom: 0.85rem;
       line-height: 1.45;
     }
-    .plan-content.dark .plan-note { color: #999; }
     .plan-content .btn-full {
       margin-top: 0.25rem;
     }
@@ -1175,25 +1189,40 @@
     }
 
     /* ============ RESPONSIVE ============ */
-    @media (max-width: 900px) {
-      .hero__stats { gap: 32px; }
+    @media (max-width: 980px) {
+      .hero { padding: 100px 0 40px; }
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.75rem;
+      }
+      .hero-content { max-width: none; }
+      .hero__stats { gap: 28px; margin-top: 28px; padding-top: 22px; }
       .stat__number { font-size: 2rem; }
+      .hero .contact-card {
+        max-width: none;
+        margin-left: 0;
+        padding: 1.25rem;
+      }
+    }
+
+    @media (max-width: 900px) {
       .plans-layout {
         grid-template-columns: 1fr;
         gap: 16px;
       }
       .tools-list { grid-template-columns: 1fr 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
+      .hero .form-grid { grid-template-columns: 1fr; }
       .industries-header,
       .gallery-header { grid-template-columns: 1fr; }
       .industries-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr; }
-      .contact-card { padding: 20px; }
       .plan-content { padding: 16px; }
     }
 
     @media (max-width: 520px) {
       .tools-list { grid-template-columns: 1fr; }
+      .hero__stats { gap: 20px; }
+      .stat__number { font-size: 1.75rem; }
     }
   </style>
 </head>
@@ -1316,81 +1345,74 @@
 
   <main id="main-content">
 
-  <!-- ========== HERO ========== -->
-  <section class="hero">
+  <!-- ========== HERO + CONTACT ========== -->
+  <section class="hero" id="contacto">
     <div class="hero-bg"></div>
     <div class="container">
-      <div class="hero-content">
-        <div class="badge">PARTNER AUTORIZADO SKETCHUP · CADGRAFICS ONE</div>
-        <h1 class="hero-title">El modelador 3D <span class="accent">más utilizado</span> del mundo.</h1>
-        <p class="hero-description">SketchUp combina una interfaz intuitiva con herramientas profesionales de precisión para arquitectos, diseñadores de interiores, ingenieros y constructores. Como Partner Autorizado, en Cadgraphics One te ofrecemos todas las suscripciones, soporte especializado y capacitación.</p>
-        <div class="hero-actions">
-          <a href="#" class="btn btn-outline btn-large">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            Ver demo del producto
-          </a>
-        </div>
-      </div>
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="hero-content">
+            <div class="badge">PARTNER AUTORIZADO SKETCHUP · CADGRAFICS ONE</div>
+            <h1 class="hero-title">El modelador 3D <span class="accent">más utilizado</span> del mundo.</h1>
+            <p class="hero-description">SketchUp combina una interfaz intuitiva con herramientas profesionales de precisión para arquitectos, diseñadores de interiores, ingenieros y constructores. Como Partner Autorizado, en Cadgraphics One te ofrecemos todas las suscripciones, soporte especializado y capacitación.</p>
+          </div>
 
-      <div class="hero__stats" aria-label="Estadísticas de SketchUp">
-        <div class="stat">
-          <div class="stat__number" data-target="40" data-suffix="M+" aria-live="polite">0M+</div>
-          <div class="stat__label">usuarios activos</div>
+          <div class="hero__stats" aria-label="Estadísticas">
+            <div class="stat">
+              <div class="stat__number" data-target="2.4" data-decimals="1" data-suffix="M" aria-live="polite">0M</div>
+              <div class="stat__label">Usuarios activos mensuales</div>
+            </div>
+            <div class="stat">
+              <div class="stat__number" data-target="588" data-suffix="K" aria-live="polite">0K</div>
+              <div class="stat__label">Clientes anuales</div>
+            </div>
+            <div class="stat">
+              <div class="stat__number" data-target="20" data-suffix="+" aria-live="polite">0+</div>
+              <div class="stat__label">Años de historia</div>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat__number" data-target="180" data-suffix="+" aria-live="polite">0+</div>
-          <div class="stat__label">países</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number" data-target="95" data-suffix="%" aria-live="polite">0%</div>
-          <div class="stat__label">satisfacción cliente</div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ========== CONTACT ========== -->
-  <section class="contact" id="contacto">
-    <div class="container">
-      <div class="contact-card">
-        <h2 class="section-title">Habla con un especialista</h2>
-        <p class="section-subtitle">Completa el formulario y te contactamos con una cotización personalizada.</p>
+        <aside class="contact-card" aria-labelledby="contact-title">
+          <h2 class="section-title" id="contact-title">Habla con un especialista</h2>
+          <p class="section-subtitle">Completa el formulario y te contactamos con una cotización personalizada.</p>
 
-        <form class="form-grid" onsubmit="event.preventDefault(); alert('Consulta enviada. Te contactaremos pronto.');">
-          <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" placeholder="Ana García" required />
-          </div>
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input type="tel" placeholder="+52 55 0000 0000" />
-          </div>
-          <div class="form-group full">
-            <label>Correo electrónico</label>
-            <input type="email" placeholder="ana@estudio.com" required />
-          </div>
-          <div class="form-group full">
-            <label>Empresa</label>
-            <input type="text" placeholder="Estudio de Arquitectura S.A." />
-          </div>
-          <div class="form-group full">
-            <label>¿Qué deseas saber?</label>
-            <select required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option>Cotización de licencias</option>
-              <option>Soporte técnico</option>
-              <option>Capacitación</option>
-              <option>Otro</option>
-            </select>
-          </div>
-          <div class="form-group full form-submit">
-            <button type="submit" class="btn btn-primary btn-large btn-full">
-              Enviar consulta
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </form>
-        <p class="form-note">Tus datos están protegidos. No compartimos tu información con terceros.</p>
+          <form class="form-grid" onsubmit="event.preventDefault(); alert('Consulta enviada. Te contactaremos pronto.');">
+            <div class="form-group">
+              <label>Nombre</label>
+              <input type="text" placeholder="Ana García" required />
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input type="tel" placeholder="+52 55 0000 0000" />
+            </div>
+            <div class="form-group full">
+              <label>Correo electrónico</label>
+              <input type="email" placeholder="ana@estudio.com" required />
+            </div>
+            <div class="form-group full">
+              <label>Empresa</label>
+              <input type="text" placeholder="Estudio de Arquitectura S.A." />
+            </div>
+            <div class="form-group full">
+              <label>¿Qué deseas saber?</label>
+              <select required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option>Cotización de licencias</option>
+                <option>Soporte técnico</option>
+                <option>Capacitación</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group full form-submit">
+              <button type="submit" class="btn btn-primary btn-large btn-full">
+                Enviar consulta
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+              </button>
+            </div>
+          </form>
+          <p class="form-note">Tus datos están protegidos. No compartimos tu información con terceros.</p>
+        </aside>
       </div>
     </div>
   </section>
@@ -1608,23 +1630,19 @@
         <div id="formFields">
           <div class="form-group">
             <label for="name">Nombre completo *</label>
-            <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name" aria-describedby="name-error-modal"/>
-            <p id="name-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+            <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name"/>
           </div>
           <div class="form-group">
             <label for="email">Correo electrónico *</label>
-            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" aria-describedby="email-error-modal"/>
-            <p id="email-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email"/>
           </div>
           <div class="form-group">
             <label for="phone">Celular *</label>
-            <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678" aria-describedby="phone-error-modal"/>
-            <p id="phone-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678"/>
           </div>
           <div class="form-group">
             <label for="company">Empresa *</label>
-            <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa" aria-describedby="company-error-modal"/>
-            <p id="company-error-modal" class="form-message error" role="alert" style="display:none;"></p>
+            <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa"/>
           </div>
           <div class="form-group">
             <label for="message">Tu requerimiento</label>
@@ -1965,18 +1983,20 @@
       });
 
       // Counter animation (hero__stats)
-      const animateCounter = (element, target, suffix) => {
+      const formatStat = (value, decimals) =>
+        decimals > 0 ? value.toFixed(decimals) : String(Math.round(value));
+
+      const animateCounter = (element, target, suffix, decimals) => {
         let current = 0;
         const increment = target / 60;
         const timer = setInterval(() => {
           current += increment;
           if (current >= target) {
-            current = target;
             clearInterval(timer);
-            element.textContent = target + suffix;
+            element.textContent = formatStat(target, decimals) + suffix;
             return;
           }
-          element.textContent = Math.round(current) + suffix;
+          element.textContent = formatStat(current, decimals) + suffix;
         }, 25);
       };
 
@@ -1986,14 +2006,15 @@
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               document.querySelectorAll('.stat__number').forEach(stat => {
-                const target = parseInt(stat.dataset.target, 10);
+                const target = parseFloat(stat.dataset.target);
                 const suffix = stat.dataset.suffix || '';
-                animateCounter(stat, target, suffix);
+                const decimals = parseInt(stat.dataset.decimals || '0', 10);
+                animateCounter(stat, target, suffix, decimals);
               });
               statsObserver.disconnect();
             }
           });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.4 });
 
         statsObserver.observe(statsSection);
       }
