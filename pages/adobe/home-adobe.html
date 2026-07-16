@@ -39,7 +39,7 @@
 
 @layer base {
   :root {
-    --primary: #6e0404; --primary-dark: #5a0303; --dark-red: #990000;
+    --dark-red: #990000;
     --secondary: #10b981; --secondary-dark: #059669;
     --whatsapp: #25d366; --whatsapp-dark: #128c7e;
     --color-white: #ffffff; --color-green: #18FF5C;
@@ -47,16 +47,15 @@
     --adobe-red: #D90F1A; --adobe-red-dark: #B00D16; --adobe-red-deeper: #8F0A11;
     --dark-blue: #1A1F2E; --dark-blue-hover: #0f1219;
     --gray-light: #F8F9FA; --gray-text: #6B7280;
-    --acrobat-bg: #F0F4FF; --acrobat-blue: #2563EB; --acrobat-blue-light: #DBEAFE;
-    --acrobat-purple: #8B5CF6; --acrobat-purple-light: #F3E8FF; --acrobat-pink: #EC4899;
+    --acrobat-bg: #F0F4FF; --acrobat-blue: #2563EB;
+    --acrobat-purple: #8B5CF6; --acrobat-pink: #EC4899;
     --white: #ffffff;
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
     --shadow-lg: 0 10px 40px rgba(0,0,0,0.2);
     --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
     --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
     --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
-    --radius-sm: 8px; --radius-md: 12px; --radius-lg: 20px;
+    --radius-sm: 8px; --radius-md: 12px;
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --text-primary: #1e293b; --text-secondary: #475569; --text-muted: #94a3b8;
     --container-max: 1200px; --header-height: 100px;
@@ -246,7 +245,7 @@
   }
   .badge img:hover { transform: scale(1.05); }
 
-  .hero h1, .hero h2 {
+  .hero h1 {
     font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; line-height: 1.2;
     margin-bottom: 1rem; max-width: 600px; color: var(--white); letter-spacing: -0.02em;
   }
@@ -266,8 +265,6 @@
   .btn-primary:hover { background: var(--dark-blue-hover); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
   .btn-primary.red { background: var(--adobe-red); border-color: var(--adobe-red); }
   .btn-primary.red:hover { background: var(--adobe-red-dark); border-color: var(--adobe-red-dark); }
-  .btn-secondary { background: transparent; color: var(--white); border-color: var(--white); }
-  .btn-secondary:hover { background: var(--white); color: var(--adobe-red); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
   .btn-outline { background: var(--white); color: var(--adobe-red); border: 2px solid var(--adobe-red); }
   .btn-outline:hover { background: var(--adobe-red); color: var(--white); }
   .btn-gradient {
@@ -294,11 +291,10 @@
   }
   .stat-label { font-size: 1rem; color: rgba(255,255,255,0.9); font-weight: 500; }
 
-  .why-choose, .product-showcase, .firefly-section, .acrobat-section, .services, .licensing-section, .adobe-sign-section { padding: 2rem 0; }
+  .why-choose, .product-showcase, .firefly-section, .acrobat-section, .licensing-section, .adobe-sign-section { padding: 2rem 0; }
   .firefly-section { padding: 1.5rem 0; }
   .why-choose, .firefly-section, .adobe-sign-section { background: var(--white); }
   .product-showcase { background: #FAF5FF; }
-  .services { background: var(--gray-light); }
   .acrobat-section { background: var(--acrobat-bg); }
   
   .licensing-section {
@@ -338,7 +334,7 @@
   .etla-card:hover { border-color: rgba(239, 68, 68, 0.5); box-shadow: 0 15px 40px rgba(239, 68, 68, 0.2); }
 
   .card-header { margin-bottom: 1.25rem; }
-  .card-icon {
+  .licensing-section .card-icon {
     width: 48px; height: 48px; border-radius: 12px;
     display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;
   }
@@ -384,8 +380,7 @@
   .btn-consultation svg { transition: transform 0.3s ease; width: 16px; height: 16px; }
   .btn-consultation:hover svg { transform: translateX(4px); }
 
-  .adobe-sign-section { background: var(--white); padding: 2rem 0; }
-  .sign-intro { max-width: 800px; margin: 0 auto 1.5rem; font-size: 1rem; color: var(--text-secondary); line-height: 1.6; }
+  .adobe-sign-section { background: var(--white); }
   .sign-features-list { max-width: 800px; margin: 0 auto 1.5rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.5rem; }
   .sign-feature-item { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0; }
   .sign-feature-item .feature-icon-outline { flex-shrink: 0; width: 24px; height: 24px; margin-top: 1px; }
@@ -458,24 +453,18 @@
     box-shadow: var(--shadow-card); transition: var(--transition); border: 1px solid rgba(0, 0, 0, 0.04);
   }
   .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card-hover); }
-  .card-icon {
+  .card .card-icon {
     width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center;
     justify-content: center; margin-bottom: 1.5rem; transition: var(--transition);
   }
   .card:hover .card-icon { transform: scale(1.08); }
-  .card-icon svg { width: 28px; height: 28px; }
+  .card .card-icon svg { width: 28px; height: 28px; }
   .icon-red { background-color: #FEE2E2; color: #DC2626; }
   .icon-blue { background-color: #DBEAFE; color: #2563EB; }
   .icon-green { background-color: #D1FAE5; color: #059669; }
   .card h3 { font-size: 1.5rem; font-weight: 700; color: var(--dark-blue); margin-bottom: 1rem; line-height: 1.3; }
   .card p { font-size: 1rem; color: var(--gray-text); line-height: 1.7; }
 
-  .product-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.2rem;
-    border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem;
-    background: #F3E8FF; color: #7C3AED;
-  }
-  .product-badge img { width: 100px; height: 25px; object-fit: contain; }
   .product-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
   .product-card {
     background: var(--white); border-radius: 16px; padding: 1.5rem;
@@ -705,28 +694,17 @@
   .modal h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--dark-blue); padding-right: 2rem; }
   .modal p { color: var(--gray-text); margin-bottom: 1.5rem; }
 
-  .modal-form .form-field-container {
-    margin-bottom: 1rem;
-  }
-
   .modal-form input, .modal-form textarea {
     width: 100%; padding: 0.75rem 1rem; border: 1px solid #e5e7eb; border-radius: 8px;
     margin-bottom: 0.5rem; font-family: inherit; font-size: 1rem; transition: var(--transition);
     background-color: #ffffff; color: #1e293b; display: block; cursor: text;
     -webkit-appearance: none; appearance: none;
   }
-  
-  .modal-form input:hover, .modal-form textarea:hover,
-  .modal-form input:active, .modal-form textarea:active,
-  .modal-form input:focus, .modal-form textarea:focus {
-    outline: 2px solid var(--adobe-red); outline-offset: 2px; border-color: var(--adobe-red);
+
+  .modal-form input:hover, .modal-form textarea:hover {
+    border-color: var(--adobe-red);
   }
 
-  .modal-form label.visually-hidden {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
-  }
-  
   .modal-form input:focus, .modal-form textarea:focus {
     outline: none; border-color: var(--adobe-red); box-shadow: 0 0 0 3px rgba(217, 15, 26, 0.1);
   }
@@ -747,7 +725,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
   .hero .badge             { animation: fadeInUp 0.8s ease 0.1s backwards; }
-  .hero h1, .hero h2       { animation: fadeInUp 0.8s ease 0.2s backwards; }
+  .hero h1                 { animation: fadeInUp 0.8s ease 0.2s backwards; }
   .hero p                  { animation: fadeInUp 0.8s ease 0.3s backwards; }
   .hero .buttons-container { animation: fadeInUp 0.8s ease 0.4s backwards; }
 }
@@ -769,7 +747,7 @@
 @media (max-width: 768px) {
   :root { --header-height: 64px; }
   .container { padding: 0 1rem; }
-  .logo { height: 48px; }
+  .header .logo { height: 48px; }
   .whatsapp-float { bottom: 1rem; right: 1rem; width: 56px; height: 56px; }
   .whatsapp-float svg { width: 1.5rem; height: 1.5rem; }
   .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -778,7 +756,8 @@
   .buttons-container, .final-cta-buttons { flex-direction: column; width: 100%; }
   .btn { width: 100%; justify-content: center; }
   .cards-grid { grid-template-columns: 1fr; }
-  .why-choose, .product-showcase, .firefly-section, .acrobat-section, .services, .licensing-section, .adobe-sign-section { padding: 3rem 0; }
+  .product-cards-grid { grid-template-columns: 1fr; }
+  .why-choose, .product-showcase, .firefly-section, .acrobat-section, .licensing-section, .adobe-sign-section { padding: 3rem 0; }
   .acrobat-card { padding: 2rem 1.5rem; }
   .footer-content { text-align: center; }
   .social-links { justify-content: center; }
@@ -786,7 +765,7 @@
   .hero-content { max-width: 100%; text-align: center; }
   .hero-right { width: 100%; }
   .hero-video-container { max-width: 100%; }
-  .hero h1, .hero h2 { max-width: 100%; }
+  .hero h1 { max-width: 100%; }
   .hero p { max-width: 100%; }
   .licensing-card { padding: 2rem 1.5rem; }
   .card-header h3 { font-size: 2rem; }
@@ -897,7 +876,7 @@
     <nav aria-label="Navegación principal">
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="#marcas" aria-haspopup="true" aria-expanded="false">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
             Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
           </a>
           <ul class="dropdown-menu">
@@ -946,13 +925,13 @@
             </li>
           </ul>
         </li>
-        <li><a href="#servicios">Soluciones Claves</a></li>
-        <li><a href="#casos">Casos</a></li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
         <li><a href="#" data-modal-trigger="cotizacion" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
       </ul>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-      <svg width="24" height="24" aria-hidden="true" class="icon-menu"><use href="#icon-menu"/></svg>
+      <svg width="24" height="24" aria-hidden="true"><use href="#icon-menu"/></svg>
     </button>
   </div>
 </header>
@@ -979,7 +958,7 @@
           <h1>Transforma tu negocio con las soluciones Adobe</h1>
           <p>Como Adobe Platinum Partner, ofrecemos las mejores soluciones empresariales con soporte especializado y precios exclusivos.</p>
           <div class="buttons-container">
-            <button class="btn btn-primary" data-modal-trigger="cotizacion">
+            <button class="btn btn-primary" data-modal-trigger="diagnostico">
               Diagnóstico Gratuito
               <svg class="arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
             </button>
@@ -988,7 +967,7 @@
         <div class="hero-right">
           <div class="hero-video-container">
             <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" poster="../../assets/images/video-poster.webp" fetchpriority="high" width="620" height="349">
-              <source src="../../assets/video/video_home_adobe.mp4" type="video/mp4">
+              <source src="../../assets/video/videos-home_adobe/video_home_adobe.mp4" type="video/mp4">
               Tu navegador no soporta el elemento video.
             </video>
           </div>
@@ -1463,7 +1442,7 @@
       <h2>¿Listo para transformar tu empresa con Adobe?</h2>
       <p>Solicita un diagnóstico gratuito y descubre cómo nuestras soluciones pueden optimizar tus procesos creativos y de documentación.</p>
       <div class="final-cta-buttons">
-        <button class="btn btn-primary" data-modal-trigger="cotizacion">
+        <button class="btn btn-primary" data-modal-trigger="diagnostico">
           Diagnóstico Gratuito
           <svg class="arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
         </button>
@@ -1511,7 +1490,7 @@
         </div>
       </div>
       <div class="copyright">
-        &copy; <span id="current-year"></span> Todos los derechos reservados | <a href="../../aviso_privacidad.html">Aviso de Privacidad</a>.
+        &copy; <span id="current-year"></span> Todos los derechos reservados | <a href="../../aviso-privacidad.html">Aviso de Privacidad</a>.
       </div>
     </div>
   </footer>
@@ -1824,6 +1803,7 @@
     }
     requestAnimationFrame(() => {
       modalCloseBtn.focus();
+      modalOverlay.removeEventListener('keydown', trapFocus);
       modalOverlay.addEventListener('keydown', trapFocus);
     });
   }
@@ -1905,7 +1885,7 @@
     return message;
   }
   
-  modalForm.addEventListener('submit', async (e) => {
+  modalForm.addEventListener('submit', (e) => {
     e.preventDefault();
     modalFormMessage.textContent = '';
     modalFormMessage.className = 'form-message';
@@ -1950,7 +1930,7 @@
     modalSubmitBtn.disabled = true;
     
     try {
-      const modalType = triggerElement?.getAttribute('data-modal-trigger') || 'diagnostico';
+      const modalType = triggerElement?.getAttribute('data-modal-trigger') || 'cotizacion';
       const formData = new FormData(modalForm);
       const message = buildWhatsAppMessage(formData, modalType);
       const encodedMessage = encodeURIComponent(message);
