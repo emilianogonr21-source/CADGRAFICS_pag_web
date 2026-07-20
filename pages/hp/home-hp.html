@@ -1066,45 +1066,93 @@
     }
 
     .product-carousel {
+      position: relative;
       overflow: hidden;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border-light);
       background: linear-gradient(135deg, var(--bg-light) 0%, #f1f5f9 100%);
       margin-bottom: 10px;
-      padding: 4px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    }
-
-    .product-carousel-track {
-      display: flex;
-      width: max-content;
-      animation: product-carousel-scroll 18s linear infinite;
-      will-change: transform;
-    }
-
-    .product-carousel-group {
-      display: flex;
-      flex-shrink: 0;
-      gap: 6px;
-      padding: 1px;
+      aspect-ratio: 16 / 10;
     }
 
     .product-carousel-slide {
-      flex: 0 0 min(100%, 180px);
-      width: min(100%, 180px);
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition-normal), visibility var(--transition-normal);
+      pointer-events: none;
+    }
+
+    .product-carousel-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      z-index: 1;
     }
 
     .product-carousel-image {
       width: 100%;
-      height: 130px;
+      height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 4px;
-      box-shadow: var(--shadow-sm);
     }
 
-    .product-card:hover .product-carousel-track {
-      animation-play-state: paused;
+    .product-carousel-next {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background-color: rgba(0, 51, 78, 0.88);
+      color: var(--bg-white);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .product-carousel-next:hover {
+      background-color: var(--hp-blue);
+      transform: scale(1.05);
+    }
+
+    .product-carousel-next:focus-visible {
+      outline: 2px solid var(--hp-blue);
+      outline-offset: 2px;
+    }
+
+    .product-carousel-next svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
+    .product-carousel-counter {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      z-index: 2;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background-color: rgba(0, 51, 78, 0.75);
+      color: var(--bg-white);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .product-carousel[data-count="1"] .product-carousel-next,
+    .product-carousel[data-count="1"] .product-carousel-counter {
+      display: none;
     }
 
     .product-level {
@@ -1139,18 +1187,15 @@
       white-space: nowrap;
     }
 
-    @keyframes product-carousel-scroll {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-50%);
-      }
-    }
-
     @media (max-width: 640px) {
-      .product-carousel-image {
-        height: 120px;
+      .product-carousel-next {
+        width: 32px;
+        height: 32px;
+      }
+
+      .product-carousel-next svg {
+        width: 16px;
+        height: 16px;
       }
 
       .product-card {
@@ -2957,7 +3002,7 @@ blockquote,
     });
   });
 
-  // ===== CAROUSELES INFINITOS DEL PORTAFOLIO =====
+  // ===== GALERÍA DE IMÁGENES DEL PORTAFOLIO =====
   $$('.product-carousel[data-images]').forEach(function (carousel) {
     const card = carousel.closest('.product-card');
     const imageList = carousel.getAttribute('data-images')?.split(',').map(function (image) {
@@ -2966,38 +3011,62 @@ blockquote,
 
     if (!card || !imageList.length) return;
 
-    const track = document.createElement('div');
-    track.className = 'product-carousel-track';
+    const productName = card.querySelector('.product-name')?.textContent?.trim() || 'Producto';
+    let currentIndex = 0;
 
-    const renderGroup = function (images, isDuplicate) {
-      const group = document.createElement('div');
-      group.className = 'product-carousel-group';
-      if (isDuplicate) {
-        group.setAttribute('aria-hidden', 'true');
-      }
+    carousel.setAttribute('data-count', String(imageList.length));
+    carousel.setAttribute('aria-roledescription', 'carrusel');
+    carousel.setAttribute('aria-label', 'Imágenes de ' + productName);
 
-      images.forEach(function (src, index) {
-        const slide = document.createElement('div');
-        slide.className = 'product-carousel-slide';
+    const slides = imageList.map(function (src, index) {
+      const slide = document.createElement('div');
+      slide.className = 'product-carousel-slide' + (index === 0 ? ' is-active' : '');
+      slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
 
-        const img = document.createElement('img');
-        img.src = src;
-        img.alt = card.querySelector('.product-name')?.textContent + ' - imagen ' + (index + 1);
-        img.className = 'product-carousel-image';
-        img.loading = 'lazy';
-        img.width = 600;
-        img.height = 400;
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = productName + ' - imagen ' + (index + 1);
+      img.className = 'product-carousel-image';
+      img.loading = index === 0 ? 'eager' : 'lazy';
+      img.width = 600;
+      img.height = 400;
 
-        slide.appendChild(img);
-        group.appendChild(slide);
+      slide.appendChild(img);
+      carousel.appendChild(slide);
+      return slide;
+    });
+
+    if (imageList.length < 2) return;
+
+    const counter = document.createElement('span');
+    counter.className = 'product-carousel-counter';
+    counter.setAttribute('aria-live', 'polite');
+
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'product-carousel-next';
+    nextBtn.setAttribute('aria-label', 'Ver siguiente imagen de ' + productName);
+    nextBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+
+    const updateCarousel = function () {
+      slides.forEach(function (slide, index) {
+        const isActive = index === currentIndex;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
       });
-
-      return group;
+      counter.textContent = (currentIndex + 1) + ' / ' + imageList.length;
     };
 
-    track.appendChild(renderGroup(imageList, false));
-    track.appendChild(renderGroup(imageList, true));
-    carousel.appendChild(track);
+    nextBtn.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      currentIndex = (currentIndex + 1) % imageList.length;
+      updateCarousel();
+    });
+
+    carousel.appendChild(counter);
+    carousel.appendChild(nextBtn);
+    updateCarousel();
   });
 
   // ===== TABS DEL PORTAFOLIO =====
