@@ -134,7 +134,6 @@
       /* Paleta Acrobat */
       --red: #E8190C;
       --red-hover: #C7150A;
-      --red-deep: #990000;
       --bg-dark: #0B0B0B;
       --bg-card: #141414;
       --bg-light: #FAFAFA;
@@ -161,14 +160,9 @@
 
       /* Transiciones */
       --transition-fast: 0.15s ease;
-      --transition-base: 0.25s ease;
       --transition-normal: 0.3s ease;
-      --transition-slow: 0.4s ease;
 
       /* Sombras */
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.12);
-      --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.18);
       --shadow-modal: 0 30px 100px rgba(0, 0, 0, 0.5);
       --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.08);
     }
@@ -256,7 +250,7 @@
       line-height: 1.2;
       margin-bottom: 1rem;
     }
-    .section-title .accent { color: var(--red); }
+    .accent { color: var(--red); }
 
     /* ============================================================
        BOTONES
@@ -283,12 +277,6 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(232, 25, 12, 0.4);
     }
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    .btn-outline:hover { border-color: #fff; background: rgba(255, 255, 255, 0.04); }
 
     .btn-ghost {
       color: var(--red);
@@ -302,8 +290,6 @@
     .btn-ghost:hover { gap: 10px; }
     .btn-ghost .arrow { transition: transform var(--transition-normal); }
     .btn-ghost:hover .arrow { transform: translateX(4px); }
-
-    .btn-small { padding: 12px 24px; font-size: 14px; }
 
     /* ============================================================
        HEADER & NAVEGACIÓN (CADGRAFICS)
@@ -352,7 +338,6 @@
 
     .nav-menu a {
       color: var(--text-soft);
-      text-decoration: none;
       font-weight: 500;
       padding: 0.5rem 1rem;
       border-radius: var(--radius-sm);
@@ -559,7 +544,7 @@
       margin-bottom: 0.6rem;
       max-width: 760px;
     }
-    .hero h1 .accent { color: var(--red); display: inline-block; }
+    .hero h1 .accent { display: inline-block; }
 
     .hero-desc {
       font-size: 0.95rem;
@@ -662,13 +647,15 @@
     .feature-icon-2 img { width: 32px; height: 32px; object-fit: contain; }
 
     /* Sin fondo rojizo para IA Generativa y Adobe Express Premium */
-    .feature-card-2:nth-child(3) .feature-icon-2 {
+    .feature-card-2:nth-child(3) .feature-icon-2,
+    .feature-card-2:nth-child(5) .feature-icon-2 {
       background: transparent;
       width: auto;
       height: auto;
       padding: 0;
     }
-    .feature-card-2:nth-child(3) .feature-icon-2:hover {
+    .feature-card-2:nth-child(3):hover .feature-icon-2,
+    .feature-card-2:nth-child(5):hover .feature-icon-2 {
       background: transparent;
       transform: scale(1.12);
     }
@@ -716,33 +703,7 @@
       aspect-ratio: 16/9;
       background: #000;
     }
-    .demo-video-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; }
     .demo-video-container video { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .demo-video-overlay {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .play-btn-large {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--red);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; flex-shrink: 0;
-      transition: transform var(--transition-normal);
-    }
-    .play-btn-large:hover { transform: scale(1.1); }
-    .play-btn-large svg { width: 18px; height: 18px; margin-left: 3px; }
-
-    .demo-video-info { flex: 1; }
-    .demo-video-info strong { display: block; font-size: 14px; margin-bottom: 2px; color: #fff; }
-    .demo-video-info span { font-size: 12px; color: var(--text-muted); }
 
     .demo-content h2 {
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
@@ -777,7 +738,7 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
-    .tab-list li { gap: 12px; padding: 10px 0; font-size: 1rem; }
+    .tab-list li { gap: 12px; padding: 10px 0; }
     .tab-list li svg { width: 18px; height: 18px; margin-top: 3px; }
 
     /* ============================================================
@@ -822,7 +783,7 @@
     .tabs {
       display: inline-flex;
       background: #1A1A1A;
-      border: 1px solid #2A2A2A;
+      border: 1px solid var(--border);
       border-radius: var(--radius-pill);
       padding: 4px;
       margin-bottom: 24px;
@@ -881,6 +842,11 @@
        EN VIVO / VIDEOS
        ============================================================ */
     .live-section { padding: 16px 0 44px; }
+    .live-intro {
+      color: var(--text-soft);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
 
     .live-grid {
       display: grid;
@@ -1084,7 +1050,7 @@
       margin-bottom: 1rem;
     }
     .final-cta > p { color: var(--text-soft); font-size: 1rem; max-width: 560px; margin: 0 auto 1.5rem; line-height: 1.5; }
-    .final-cta .hero-ctas { justify-content: center; }
+    .final-cta .hero-ctas { justify-content: center; margin-top: 2.5rem; }
 
     /* ============================================================
        FOOTER
@@ -1319,132 +1285,7 @@
       .video-content h3 { font-size: 0.95rem; }
       .video-content p { font-size: 0.8rem; margin-bottom: 10px; }
     }
-  
-
-/* ===== TIPOGRAFÍA UNIFICADA (referencia: index.html) ===== */
-:root {
-  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  --font: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Inter', system-ui, -apple-system, sans-serif;
-}
-html { -webkit-font-smoothing: antialiased; }
-body {
-  font-family: var(--font-main);
-  line-height: 1.6;
-}
-/* H1 / Hero */
-h1,
-.hero-title,
-.hero h1,
-.hero-text h1,
-.hero-content h1,
-h1.heading-xl,
-.hero .heading-xl {
-  font-family: inherit;
-  font-size: clamp(1.8rem, 4vw, 3rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.02em;
-}
-/* H2 / Títulos de sección */
-h2.section-title,
-h2.heading-xl,
-.section-title,
-.heading-xl.section-title,
-.section-header h2,
-.product-showcase h2,
-.firefly-section h2,
-.acrobat-section h2,
-.capacidades .section-title,
-.solutions .section-title {
-  font-family: inherit;
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
-}
-/* CTA / títulos finales (mismo tamaño que hero en index) */
-.cta-title,
-.final-cta h2,
-.cta .cta-title,
-.cta-content .cta-title,
-.comparativo-title {
-  font-family: inherit;
-  font-size: clamp(1.8rem, 4vw, 3rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.02em;
-}
-/* Subtítulos */
-.section-subtitle,
-.section-header p,
-.hero-subtitle,
-.section-desc,
-.section-description,
-.product-showcase .subtitle,
-.firefly-section .subtitle,
-.acrobat-section .subtitle {
-  font-size: 1.125rem !important;
-  font-weight: 400 !important;
-  line-height: 1.6;
-}
-/* Párrafo de apoyo del hero */
-.hero-description,
-.hero-desc,
-.hero .lead,
-.cta-note {
-  font-size: 1rem !important;
-  line-height: 1.6;
-}
-.cta-subtitle {
-  font-size: 1.25rem !important;
-  line-height: 1.6;
-}
-/* H3 / títulos de tarjeta (no métricas) */
-.feature-card h3,
-.problem-card h3,
-.case-content h3,
-.benefit-card h3,
-.challenge-card h3,
-.product-card h3,
-.tab-content h3,
-.process-card h3,
-.solution-card h3 {
-  font-family: inherit;
-  font-size: 1.25rem !important;
-  font-weight: 700;
-  line-height: 1.3;
-}
-p {
-  font-family: inherit;
-  line-height: 1.6;
-}
-blockquote,
-.quote,
-.testimonial-quote,
-.testimonial-text,
-.testimonial p,
-.quote-text {
-  font-family: inherit !important;
-}
-/* Excepciones: números / métricas conservan tamaño propio */
-.stat-number,
-.stat-value,
-.tab-metric-value,
-.counter,
-.metric-value { font-family: inherit; }
-/* Título compacto en tarjeta de contacto del hero */
-.hero .contact-card .section-title,
-.hero .consult-form .form-title,
-.contact-card .section-title {
-  font-size: clamp(1.2rem, 1.8vw, 1.4rem) !important;
-  letter-spacing: normal;
-}
-.hero .contact-card .section-subtitle {
-  font-size: 0.95rem !important;
-}
-</style>
+  </style>
 </head>
 <body>
 
@@ -1473,15 +1314,8 @@ blockquote,
   <symbol id="icon-autodesk" viewBox="0 0 24 24" fill="currentColor">
     <path d="M6.5 18L2 22h5l2-4h-2.5zM17.5 18L22 22h-5l-2-4h2.5zM12 2l-5 10h3l2-4 2 4h3L12 2z"/>
   </symbol>
-  <symbol id="icon-microsoft" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
-  </symbol>
   <symbol id="icon-hp" viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-2 15h-2l3-7h2l-3 7zm6 0h-2l3-7h2l-3 7z"/>
-  </symbol>
-  <symbol id="icon-dell" viewBox="0 0 24 24" fill="currentColor">
-    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
-    <text x="12" y="16" text-anchor="middle" font-size="8" font-weight="700" fill="currentColor" font-family="Inter, sans-serif">DELL</text>
   </symbol>
   <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -1527,9 +1361,12 @@ blockquote,
   <symbol id="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/>
   </symbol>
-
-<symbol id="icon-aec" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
-<symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></symbol>
+  <symbol id="icon-aec" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+  </symbol>
+  <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+  </symbol>
 </svg>
 
 <!-- ============================================================
@@ -1578,7 +1415,7 @@ blockquote,
         </li>
         <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
         <li><a href="../../index.html#casos">Casos</a></li>
-        <li><a href="#contacto" class="textbutton-trigger modal-trigger" data-modal-trigger="cotizacion" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
       </ul>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
@@ -1802,7 +1639,7 @@ blockquote,
   <section class="live-section">
     <div class="container">
       <h2 class="section-title">Míralo en <span class="accent">acción.</span></h2>
-      <p style="color: var(--text-soft); max-width: 720px; margin-bottom: 24px;">Grabaciones de nuestros en vivos en redes sociales — casos reales, sin guion, con Acrobat Studio funcionando en directo.</p>
+      <p class="live-intro">Grabaciones de nuestros en vivos en redes sociales — casos reales, sin guion, con Acrobat Studio funcionando en directo.</p>
 
       <div class="live-grid">
         <article class="video-card">
@@ -1865,7 +1702,7 @@ blockquote,
         <article class="solution-card">
           <img src="../../assets/images/images_acrobat-studio/pro_adobe_isotipo.png" alt="" role="presentation" class="solution-tag-icon" />
           <h3>Adobe Acrobat Pro</h3>
-          <p>Crea, edita, protege, censura y firma documentos PDF con la solución lider del mercado.</p>
+          <p>Crea, edita, protege, censura y firma documentos PDF con la solución líder del mercado.</p>
           <ul class="solution-features">
             <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Firma electrónica integrada </li>
             <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Crea y edita PDF profesionales</li>
@@ -1881,7 +1718,7 @@ blockquote,
         <article class="solution-card">
           <img src="../../assets/images/images_acrobat-studio/logo_ai_assistant.png" alt="" role="presentation" class="solution-tag-icon" />
           <h3>Adobe AI Assistant</h3>
-          <p>Convierte tus documentos en conocimeinto accionable con inteligencia artificial generativa.</p>
+          <p>Convierte tus documentos en conocimiento accionable con inteligencia artificial generativa.</p>
           <ul class="solution-features">
             <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Resúmenes ejecutivos en segundos</li>
             <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Respuestas inteligentes sobre cualquier PDF</li>
@@ -1928,7 +1765,7 @@ blockquote,
     <div class="container">
       <h2>Veamos cómo mejorar la productividad de tu empresa con el Asistente de IA de Acrobat.</h2>
       <p>Únete a más de 6 millones de empresas que confían en Adobe Acrobat Studio para gestionar sus documentos más críticos.</p>
-      <div class="hero-ctas" style="margin-top: 2.5rem;">
+      <div class="hero-ctas">
         <a href="#contacto" class="btn btn-primary textbutton-trigger">
           Reservar una demostración
           <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
@@ -2131,15 +1968,25 @@ blockquote,
     return headerEl ? headerEl.offsetHeight : 80;
   };
 
-  $$('a[href^="#"]').forEach(anchor => {
+  $$('a[href^="#"]:not(.textbutton-trigger)').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const targetId = anchor.getAttribute('href');
-      if (targetId === '#' || targetId.length < 2) return;
+      if (!targetId || targetId === '#' || targetId.length < 2) return;
 
       const target = $(targetId);
       if (!target) return;
 
       e.preventDefault();
+
+      if (navMenu?.classList.contains('active') && mobileToggle) {
+        navMenu.classList.remove('active');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.setAttribute('aria-label', 'Abrir menú');
+        document.body.style.overflow = '';
+        const icon = $('svg use', mobileToggle);
+        if (icon) icon.setAttribute('href', '#icon-menu');
+      }
+
       const top = target.getBoundingClientRect().top + window.scrollY - getHeaderHeight();
       window.scrollTo({ top, behavior: 'smooth' });
     });
@@ -2156,6 +2003,7 @@ blockquote,
   let lastFocusedElement = null;
 
   function openModal() {
+    if (!modal) return;
     lastFocusedElement = document.activeElement;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -2163,11 +2011,12 @@ blockquote,
   }
 
   function closeModal() {
+    if (!modal) return;
     modal.classList.remove('active');
     document.body.style.overflow = '';
-    contactForm.reset();
-    contactForm.style.display = '';
-    successMessage.classList.remove('show');
+    contactForm?.reset();
+    if (contactForm) contactForm.style.display = '';
+    successMessage?.classList.remove('show');
     if (lastFocusedElement) lastFocusedElement.focus();
   }
 
