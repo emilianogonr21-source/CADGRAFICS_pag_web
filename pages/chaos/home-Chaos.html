@@ -1224,7 +1224,132 @@
       .hero__stats { gap: 20px; }
       .stat__number { font-size: 1.75rem; }
     }
-  </style>
+  
+
+/* ===== TIPOGRAFÍA UNIFICADA (referencia: index.html) ===== */
+:root {
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Inter', system-ui, -apple-system, sans-serif;
+}
+html { -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+/* H1 / Hero */
+h1,
+.hero-title,
+.hero h1,
+.hero-text h1,
+.hero-content h1,
+h1.heading-xl,
+.hero .heading-xl {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+/* H2 / Títulos de sección */
+h2.section-title,
+h2.heading-xl,
+.section-title,
+.heading-xl.section-title,
+.section-header h2,
+.product-showcase h2,
+.firefly-section h2,
+.acrobat-section h2,
+.capacidades .section-title,
+.solutions .section-title {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+/* CTA / títulos finales (mismo tamaño que hero en index) */
+.cta-title,
+.final-cta h2,
+.cta .cta-title,
+.cta-content .cta-title,
+.comparativo-title {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+/* Subtítulos */
+.section-subtitle,
+.section-header p,
+.hero-subtitle,
+.section-desc,
+.section-description,
+.product-showcase .subtitle,
+.firefly-section .subtitle,
+.acrobat-section .subtitle {
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6;
+}
+/* Párrafo de apoyo del hero */
+.hero-description,
+.hero-desc,
+.hero .lead,
+.cta-note {
+  font-size: 1rem !important;
+  line-height: 1.6;
+}
+.cta-subtitle {
+  font-size: 1.25rem !important;
+  line-height: 1.6;
+}
+/* H3 / títulos de tarjeta (no métricas) */
+.feature-card h3,
+.problem-card h3,
+.case-content h3,
+.benefit-card h3,
+.challenge-card h3,
+.product-card h3,
+.tab-content h3,
+.process-card h3,
+.solution-card h3 {
+  font-family: inherit;
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  line-height: 1.3;
+}
+p {
+  font-family: inherit;
+  line-height: 1.6;
+}
+blockquote,
+.quote,
+.testimonial-quote,
+.testimonial-text,
+.testimonial p,
+.quote-text {
+  font-family: inherit !important;
+}
+/* Excepciones: números / métricas conservan tamaño propio */
+.stat-number,
+.stat-value,
+.tab-metric-value,
+.counter,
+.metric-value { font-family: inherit; }
+/* Título compacto en tarjeta de contacto del hero */
+.hero .contact-card .section-title,
+.hero .consult-form .form-title,
+.contact-card .section-title {
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem) !important;
+  letter-spacing: normal;
+}
+.hero .contact-card .section-subtitle {
+  font-size: 0.95rem !important;
+}
+</style>
 </head>
 <body>
 
@@ -1260,88 +1385,64 @@
     <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
     <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
     <symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
-  </svg>
+  
+<symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></symbol>
+</svg>
 
   <!-- ========== HEADER (desde index.html) ========== -->
   <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
-        <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
-      </a>
-
-      <nav aria-label="Navegación principal">
-        <ul class="nav-menu" id="navMenu">
-          <li class="nav-item">
-            <a href="../Adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
-              Adobe <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a href="../Adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
-              <li><a href="../Adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
-              Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-submenu">
-                <a href="#" aria-haspopup="true" aria-expanded="false">
-                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
-                </a>
-                <ul class="dropdown-submenu-menu">
-                  <li><a href="../autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
-                  <li><a href="../autodesk/forma.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-forma"/></svg> Forma</a></li>
-                  <li><a href="../autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
-                  <li><a href="../autodesk/mfg-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-mfg"/></svg> MFG Collection</a></li>
-                  <li><a href="../autodesk/mye-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> MYE Collection</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a href="#" aria-haspopup="true" aria-expanded="false">
-                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Microsoft <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
-                </a>
-                <ul class="dropdown-submenu-menu">
-                  <li><a href="../microsoft/azure.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-azure"/></svg> Azure</a></li>
-                  <li><a href="../microsoft/microsoft-365.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-m365"/></svg> Microsoft 365</a></li>
-                  <li><a href="../microsoft/windows-pro.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Windows Pro</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a href="#" aria-haspopup="true" aria-expanded="false">
-                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
-                </a>
-                <ul class="dropdown-submenu-menu">
-                  <li><a href="../hp/consumibles.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
-                  <li><a href="../hp/design-jet.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-designjet"/></svg> DesignJet</a></li>
-                  <li><a href="../hp/page-wide.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-pagewide"/></svg> PageWide</a></li>
-                </ul>
-              </li>
-              <li class="dropdown-submenu">
-                <a href="#" aria-haspopup="true" aria-expanded="false">
-                  <svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Dell <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
-                </a>
-                <ul class="dropdown-submenu-menu">
-                  <li><a href="../dell/workstation.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-workstation"/></svg> Workstations</a></li>
-                  <li><a href="../dell/perifericos.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-perifericos"/></svg> Periféricos</a></li>
-                  <li><a href="../dell/storage.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-storage"/></svg> Storage</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
-          <li><a href="../../index.html#casos">Casos</a></li>
-          <li><a href="#contacto" class="textbutton-trigger" aria-haspopup="dialog" aria-controls="formModal">Contáctanos</a></li>
-        </ul>
-      </nav>
-
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-        <svg width="24" height="24" aria-hidden="true" class="icon-menu">
-          <use href="#icon-menu"/>
-        </svg>
-      </button>
-    </div>
-  </header>
+  <div class="container nav-container">
+    <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
+      <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="../adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../adobe/home-adobe.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
+                <li><a href="../adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
+                <li><a href="../adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
+                <li><a href="../autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../chaos/home-Chaos.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> Chaos
+              </a>
+            </li>
+            <li>
+              <a href="../hp/home-hp.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger modal-trigger" data-modal-trigger="cotizacion" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <svg width="24" height="24" aria-hidden="true"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+</header>
 
   <main id="main-content">
 

@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="../../assets/images/video-poster.webp" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 
 <style>
 @layer reset, base, components, utilities;
@@ -820,6 +820,131 @@
   .card-features li { font-size: 0.9rem; }
   .sign-stat-value { font-size: 1.75rem; }
 }
+
+
+/* ===== TIPOGRAFÍA UNIFICADA (referencia: index.html) ===== */
+:root {
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Inter', system-ui, -apple-system, sans-serif;
+}
+html { -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+/* H1 / Hero */
+h1,
+.hero-title,
+.hero h1,
+.hero-text h1,
+.hero-content h1,
+h1.heading-xl,
+.hero .heading-xl {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+/* H2 / Títulos de sección */
+h2.section-title,
+h2.heading-xl,
+.section-title,
+.heading-xl.section-title,
+.section-header h2,
+.product-showcase h2,
+.firefly-section h2,
+.acrobat-section h2,
+.capacidades .section-title,
+.solutions .section-title {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+/* CTA / títulos finales (mismo tamaño que hero en index) */
+.cta-title,
+.final-cta h2,
+.cta .cta-title,
+.cta-content .cta-title,
+.comparativo-title {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+/* Subtítulos */
+.section-subtitle,
+.section-header p,
+.hero-subtitle,
+.section-desc,
+.section-description,
+.product-showcase .subtitle,
+.firefly-section .subtitle,
+.acrobat-section .subtitle {
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6;
+}
+/* Párrafo de apoyo del hero */
+.hero-description,
+.hero-desc,
+.hero .lead,
+.cta-note {
+  font-size: 1rem !important;
+  line-height: 1.6;
+}
+.cta-subtitle {
+  font-size: 1.25rem !important;
+  line-height: 1.6;
+}
+/* H3 / títulos de tarjeta (no métricas) */
+.feature-card h3,
+.problem-card h3,
+.case-content h3,
+.benefit-card h3,
+.challenge-card h3,
+.product-card h3,
+.tab-content h3,
+.process-card h3,
+.solution-card h3 {
+  font-family: inherit;
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  line-height: 1.3;
+}
+p {
+  font-family: inherit;
+  line-height: 1.6;
+}
+blockquote,
+.quote,
+.testimonial-quote,
+.testimonial-text,
+.testimonial p,
+.quote-text {
+  font-family: inherit !important;
+}
+/* Excepciones: números / métricas conservan tamaño propio */
+.stat-number,
+.stat-value,
+.tab-metric-value,
+.counter,
+.metric-value { font-family: inherit; }
+/* Título compacto en tarjeta de contacto del hero */
+.hero .contact-card .section-title,
+.hero .consult-form .form-title,
+.contact-card .section-title {
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem) !important;
+  letter-spacing: normal;
+}
+.hero .contact-card .section-subtitle {
+  font-size: 0.95rem !important;
+}
 </style>
 </head>
 <body>
@@ -866,12 +991,14 @@
   <symbol id="icon-integration" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m4.22-10.22l4.24-4.24M6.34 6.34L2.1 2.1m17.8 17.8l-4.24-4.24M6.34 17.66l-4.24 4.24M23 12h-6m-6 0H1m20.24 4.24l-4.24-4.24M6.34 6.34L2.1 10.58"/></symbol>
   <symbol id="icon-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><polyline points="9 15 11 17 15 13"></polyline></symbol>
   <symbol id="icon-document" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></symbol>
+
+<symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></symbol>
 </svg>
 
 <header class="header" id="header">
   <div class="container nav-container">
     <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
-      <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics - Inicio" class="logo" loading="eager" fetchpriority="high" width="288" height="72" decoding="async"/>
+      <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
     </a>
     <nav aria-label="Navegación principal">
       <ul class="nav-menu" id="navMenu">
@@ -880,54 +1007,40 @@
             Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="./home-adobe.html" aria-current="page"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
             <li class="dropdown-submenu">
-              <a href="#" aria-haspopup="true" aria-expanded="false">
+              <a href="../adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../adobe/home-adobe.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
+                <li><a href="../adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
+                <li><a href="../adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
                 <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
               </a>
               <ul class="dropdown-submenu-menu">
                 <li><a href="../autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
-                <li><a href="../autodesk/forma.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-forma"/></svg> Forma</a></li>
                 <li><a href="../autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
-                <li><a href="../autodesk/mfg-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-mfg"/></svg> MFG Collection</a></li>
-                <li><a href="../autodesk/mye-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> MYE Collection</a></li>
               </ul>
             </li>
-            <li class="dropdown-submenu">
-              <a href="#" aria-haspopup="true" aria-expanded="false">
-                <svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Microsoft <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+            <li>
+              <a href="../chaos/home-Chaos.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> Chaos
               </a>
-              <ul class="dropdown-submenu-menu">
-                <li><a href="../microsoft/azure.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-azure"/></svg> Azure</a></li>
-                <li><a href="../microsoft/microsoft-365.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-m365"/></svg> Microsoft 365</a></li>
-                <li><a href="../microsoft/windows-pro.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Windows Pro</a></li>
-              </ul>
             </li>
-            <li class="dropdown-submenu">
-              <a href="#" aria-haspopup="true" aria-expanded="false">
-                <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+            <li>
+              <a href="../hp/home-hp.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP
               </a>
-              <ul class="dropdown-submenu-menu">
-                <li><a href="../hp/consumibles.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
-                <li><a href="../hp/design-jet.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-designjet"/></svg> DesignJet</a></li>
-                <li><a href="../hp/page-wide.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-pagewide"/></svg> PageWide</a></li>
-              </ul>
-            </li>
-            <li class="dropdown-submenu">
-              <a href="#" aria-haspopup="true" aria-expanded="false">
-                <svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Dell <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
-              </a>
-              <ul class="dropdown-submenu-menu">
-                <li><a href="../dell/workstation.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-workstation"/></svg> Workstations</a></li>
-                <li><a href="../dell/perifericos.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-perifericos"/></svg> Periféricos</a></li>
-                <li><a href="../dell/storage.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-storage"/></svg> Storage</a></li>
-              </ul>
             </li>
           </ul>
         </li>
         <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
         <li><a href="../../index.html#casos">Casos</a></li>
-        <li><a href="#" data-modal-trigger="cotizacion" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger modal-trigger" data-modal-trigger="cotizacion" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
       </ul>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">

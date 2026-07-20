@@ -122,7 +122,7 @@
   <link rel="preload" href="../../assets/video/videos-acrobat_studio/video-acrobat_studio.mp4" as="video" type="video/mp4" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     /* ============================================================
@@ -1319,7 +1319,132 @@
       .video-content h3 { font-size: 0.95rem; }
       .video-content p { font-size: 0.8rem; margin-bottom: 10px; }
     }
-  </style>
+  
+
+/* ===== TIPOGRAFÍA UNIFICADA (referencia: index.html) ===== */
+:root {
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Inter', system-ui, -apple-system, sans-serif;
+}
+html { -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+/* H1 / Hero */
+h1,
+.hero-title,
+.hero h1,
+.hero-text h1,
+.hero-content h1,
+h1.heading-xl,
+.hero .heading-xl {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+/* H2 / Títulos de sección */
+h2.section-title,
+h2.heading-xl,
+.section-title,
+.heading-xl.section-title,
+.section-header h2,
+.product-showcase h2,
+.firefly-section h2,
+.acrobat-section h2,
+.capacidades .section-title,
+.solutions .section-title {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+/* CTA / títulos finales (mismo tamaño que hero en index) */
+.cta-title,
+.final-cta h2,
+.cta .cta-title,
+.cta-content .cta-title,
+.comparativo-title {
+  font-family: inherit;
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em;
+}
+/* Subtítulos */
+.section-subtitle,
+.section-header p,
+.hero-subtitle,
+.section-desc,
+.section-description,
+.product-showcase .subtitle,
+.firefly-section .subtitle,
+.acrobat-section .subtitle {
+  font-size: 1.125rem !important;
+  font-weight: 400 !important;
+  line-height: 1.6;
+}
+/* Párrafo de apoyo del hero */
+.hero-description,
+.hero-desc,
+.hero .lead,
+.cta-note {
+  font-size: 1rem !important;
+  line-height: 1.6;
+}
+.cta-subtitle {
+  font-size: 1.25rem !important;
+  line-height: 1.6;
+}
+/* H3 / títulos de tarjeta (no métricas) */
+.feature-card h3,
+.problem-card h3,
+.case-content h3,
+.benefit-card h3,
+.challenge-card h3,
+.product-card h3,
+.tab-content h3,
+.process-card h3,
+.solution-card h3 {
+  font-family: inherit;
+  font-size: 1.25rem !important;
+  font-weight: 700;
+  line-height: 1.3;
+}
+p {
+  font-family: inherit;
+  line-height: 1.6;
+}
+blockquote,
+.quote,
+.testimonial-quote,
+.testimonial-text,
+.testimonial p,
+.quote-text {
+  font-family: inherit !important;
+}
+/* Excepciones: números / métricas conservan tamaño propio */
+.stat-number,
+.stat-value,
+.tab-metric-value,
+.counter,
+.metric-value { font-family: inherit; }
+/* Título compacto en tarjeta de contacto del hero */
+.hero .contact-card .section-title,
+.hero .consult-form .form-title,
+.contact-card .section-title {
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem) !important;
+  letter-spacing: normal;
+}
+.hero .contact-card .section-subtitle {
+  font-size: 0.95rem !important;
+}
+</style>
 </head>
 <body>
 
@@ -1402,6 +1527,9 @@
   <symbol id="icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/>
   </symbol>
+
+<symbol id="icon-aec" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+<symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></symbol>
 </svg>
 
 <!-- ============================================================
@@ -1410,23 +1538,53 @@
 <header class="header" id="header">
   <div class="container nav-container">
     <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
-      <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" decoding="async" width="288" height="120"/>
+      <img src="../../assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
     </a>
-    
     <nav aria-label="Navegación principal">
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#servicios">Capacidades</a></li>
-        <li><a href="#demo-video">Demo Interactiva</a></li>
-        <li><a href="#casos">Casos de Uso</a></li>
-        <li><a href="#soluciones">Soluciones</a></li>
-        <li><a href="#contacto" class="textbutton-trigger">Contáctanos</a></li>
+        <li class="nav-item">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="../adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../adobe/home-adobe.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
+                <li><a href="../adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
+                <li><a href="../adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
+                <li><a href="../autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../chaos/home-Chaos.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> Chaos
+              </a>
+            </li>
+            <li>
+              <a href="../hp/home-hp.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger modal-trigger" data-modal-trigger="cotizacion" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
       </ul>
     </nav>
-    
     <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-      <svg width="24" height="24" aria-hidden="true">
-        <use href="#icon-menu"/>
-      </svg>
+      <svg width="24" height="24" aria-hidden="true"><use href="#icon-menu"/></svg>
     </button>
   </div>
 </header>
