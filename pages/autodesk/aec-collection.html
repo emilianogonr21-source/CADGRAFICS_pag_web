@@ -642,6 +642,75 @@ ul {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.tool-card.flip-card {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    perspective: 1200px;
+}
+
+.tool-card.flip-card:hover,
+.tool-card.flip-card:focus-within {
+    border-color: transparent;
+    transform: none;
+    box-shadow: none;
+}
+
+.tool-card-inner {
+    position: relative;
+    width: 100%;
+    min-height: 220px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tool-card.flip-card:hover .tool-card-inner,
+.tool-card.flip-card:focus-within .tool-card-inner {
+    transform: rotateY(180deg);
+}
+
+.tool-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.tool-face-front {
+    background-color: transparent;
+}
+
+.tool-face-back {
+    background: linear-gradient(135deg, var(--color-black), #2a2a2a);
+    color: var(--color-white);
+    transform: rotateY(180deg);
+    justify-content: center;
+    gap: 8px;
+}
+
+.tool-face-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0;
+}
+
+.tool-face-description {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    max-width: 180px;
+}
+
 .tool-icon {
     width: 120px;
     height: 120px;
@@ -1801,116 +1870,244 @@ blockquote,
             </div>
 
             <div class="tools-grid">
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Forma_Data_Management.png" alt="Forma Data Management" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Forma Data Management">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Forma_Data_Management.png" alt="Forma Data Management" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Forma Data Management</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Forma Data Management</p>
+                            <p class="tool-face-description">Gestiona datos, versiones y entregables BIM desde una sola plataforma.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Forma Data Management</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Forma_Site_Design.png" alt="Forma Site Design" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Forma Site Design">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Forma_Site_Design.png" alt="Forma Site Design" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Forma Site Design</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Forma Site Design</p>
+                            <p class="tool-face-description">Modela entornos y análisis de sitio para proyectos urbanos.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Forma Site Design</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Autodesk_Drive.png" alt="Autodesk Drive" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Autodesk Drive">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Autodesk_Drive.png" alt="Autodesk Drive" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Autodesk Drive</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Autodesk Drive</p>
+                            <p class="tool-face-description">Almacena, comparte y gestiona archivos de proyecto en la nube.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Autodesk Drive</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Autodesk_Rendering.png" alt="Autodesk Rendering" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Autodesk Rendering">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Autodesk_Rendering.png" alt="Autodesk Rendering" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Autodesk Rendering</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Autodesk Rendering</p>
+                            <p class="tool-face-description">Genera visualizaciones fotorrealistas de alta calidad.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Autodesk Rendering</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/AutoCAD.png" alt="AutoCAD" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="AutoCAD">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/AutoCAD.png" alt="AutoCAD" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">AutoCAD</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">AutoCAD</p>
+                            <p class="tool-face-description">Diseña en 2D y 3D con precisión para documentación técnica.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">AutoCAD</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Fabrication_CADmep.png" alt="Fabrication CADmep" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Fabrication CADmep">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Fabrication_CADmep.png" alt="Fabrication CADmep" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Fabrication CADmep</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Fabrication CADmep</p>
+                            <p class="tool-face-description">Diseña y documenta sistemas de MEP con precisión.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Fabrication CADmep</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Robot_Structural_Analysis.png" alt="Robot Structural Analysis" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Robot Structural Analysis">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Robot_Structural_Analysis.png" alt="Robot Structural Analysis" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Robot Structural</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Robot Structural</p>
+                            <p class="tool-face-description">Analiza y valida estructuras complejas con mayor seguridad.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Robot Structural</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Max_3ds.png" alt="3ds Max" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="3ds Max">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Max_3ds.png" alt="3ds Max" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">3ds Max</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">3ds Max</p>
+                            <p class="tool-face-description">Crea modelado, animación y renderizado de alto impacto.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">3ds Max</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Advanced_Steel.png" alt="Advanced Steel" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Advanced Steel">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Advanced_Steel.png" alt="Advanced Steel" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Advanced Steel</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Advanced Steel</p>
+                            <p class="tool-face-description">Diseña detalles estructurales metálicos con eficiencia.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Advanced Steel</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Navisworks_Manage.png" alt="Navisworks Manage" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Navisworks">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Navisworks_Manage.png" alt="Navisworks Manage" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Navisworks</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Navisworks</p>
+                            <p class="tool-face-description">Revisa y coordina modelos BIM para detectar conflictos.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Navisworks</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Structural_Bridge.png" alt="Structural Bridge Design" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Structural Bridge">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Structural_Bridge.png" alt="Structural Bridge Design" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Structural Bridge</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Structural Bridge</p>
+                            <p class="tool-face-description">Diseña puentes y estructuras de transporte con mayor precisión.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Structural Bridge</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Revit.png" alt="Revit" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Revit">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Revit.png" alt="Revit" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Revit</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Revit</p>
+                            <p class="tool-face-description">Modela información de construcción en BIM desde el inicio del proyecto.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Revit</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Vehicle_Tracking.png" alt="Vehicle Tracking" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Vehicle Tracking">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Vehicle_Tracking.png" alt="Vehicle Tracking" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Vehicle Tracking</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Vehicle Tracking</p>
+                            <p class="tool-face-description">Analiza recorridos de vehículos y circulación para proyectos viarios.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Vehicle Tracking</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/civil_3D.png" alt="Civil 3D" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Civil 3D">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/civil_3D.png" alt="Civil 3D" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Civil 3D</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Civil 3D</p>
+                            <p class="tool-face-description">Diseña infraestructura civil en 3D con análisis territorial.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Civil 3D</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Infraworks.png" alt="Infraworks" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Infraworks">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Infraworks.png" alt="Infraworks" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Infraworks</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Infraworks</p>
+                            <p class="tool-face-description">Visualiza, analiza y comunica proyectos de infraestructura.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Infraworks</p>
                 </div>
 
-                <div class="tool-card animate-on-scroll">
-                    <div class="tool-icon">
-                        <img src="../../assets/images/images_aec-collection/Recap_Pro.png" alt="Recap Pro" loading="lazy" decoding="async" width="120" height="120">
+                <div class="tool-card flip-card animate-on-scroll" tabindex="0" role="button" aria-label="Recap Pro">
+                    <div class="tool-card-inner">
+                        <div class="tool-face tool-face-front">
+                            <div class="tool-icon">
+                                <img src="../../assets/images/images_aec-collection/Recap_Pro.png" alt="Recap Pro" loading="lazy" decoding="async" width="120" height="120">
+                            </div>
+                            <p class="tool-name">Recap Pro</p>
+                        </div>
+                        <div class="tool-face tool-face-back">
+                            <p class="tool-face-title">Recap Pro</p>
+                            <p class="tool-face-description">Captura, procesa y convierte nubes de puntos para modelado.</p>
+                        </div>
                     </div>
-                    <p class="tool-name">Recap Pro</p>
                 </div>
             </div>
         </div>
