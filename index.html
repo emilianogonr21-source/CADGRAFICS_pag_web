@@ -182,7 +182,8 @@
 
         /* Dropdowns */
         .nav-item { position: relative; }
-        
+        .dropdown-submenu { position: relative; }
+
         .dropdown-menu,
         .dropdown-submenu-menu {
             position: absolute;
@@ -201,15 +202,24 @@
             backdrop-filter: blur(10px);
         }
         .dropdown-menu { top: 100%; left: 0; margin-top: 0.5rem; }
-        .dropdown-submenu-menu { top: 0; left: 100%; }
+        .dropdown-submenu-menu {
+            top: 0;
+            left: 100%;
+            margin-left: 0.25rem;
+            transform: translateX(-8px);
+        }
 
-        .nav-item:hover .dropdown-menu,
-        .nav-item:focus-within .dropdown-menu,
-        .dropdown-submenu:hover .dropdown-submenu-menu,
-        .dropdown-submenu:focus-within .dropdown-submenu-menu {
+        .nav-item:hover > .dropdown-menu,
+        .nav-item:focus-within > .dropdown-menu,
+        .dropdown-submenu:hover > .dropdown-submenu-menu,
+        .dropdown-submenu:focus-within > .dropdown-submenu-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+        }
+        .dropdown-submenu:hover > .dropdown-submenu-menu,
+        .dropdown-submenu:focus-within > .dropdown-submenu-menu {
+            transform: translateX(0);
         }
 
         .dropdown-menu a,
@@ -1391,6 +1401,7 @@
                         Adobe <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a href="./pages/adobe/home-adobe.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
                         <li><a href="./pages/adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
                         <li><a href="./pages/adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
                     </ul>
@@ -1401,46 +1412,33 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-submenu">
-                            <a href="#" aria-haspopup="true" aria-expanded="false">
+                            <a href="./pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                                <svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                            </a>
+                            <ul class="dropdown-submenu-menu">
+                                <li><a href="./pages/adobe/home-adobe.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe</a></li>
+                                <li><a href="./pages/adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
+                                <li><a href="./pages/adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="./pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
                                 <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
                             </a>
                             <ul class="dropdown-submenu-menu">
                                 <li><a href="./pages/autodesk/home-autodesk.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk</a></li>
-                                <li><a href="./pages/autodesk/forma.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-forma"/></svg> Forma</a></li>
                                 <li><a href="./pages/autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
-                                <li><a href="./pages/autodesk/mfg-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-mfg"/></svg> MFG Collection</a></li>
-                                <li><a href="./pages/autodesk/mye-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> MYE Collection</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown-submenu">
-                            <a href="#" aria-haspopup="true" aria-expanded="false">
-                                <svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Microsoft <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                        <li>
+                            <a href="./pages/chaos/home_Chaos.html">
+                                <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> Chaos
                             </a>
-                            <ul class="dropdown-submenu-menu">
-                                <li><a href="./pages/microsoft/azure.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-azure"/></svg> Azure</a></li>
-                                <li><a href="./pages/microsoft/microsoft-365.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-m365"/></svg> Microsoft 365</a></li>
-                                <li><a href="./pages/microsoft/windows-pro.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-microsoft"/></svg> Windows Pro</a></li>
-                            </ul>
                         </li>
-                        <li class="dropdown-submenu">
-                            <a href="#" aria-haspopup="true" aria-expanded="false">
-                                <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+                        <li>
+                            <a href="./pages/hp/home-hp.html">
+                                <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP
                             </a>
-                            <ul class="dropdown-submenu-menu">
-                                <li><a href="./pages/hp/consumibles.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-consumibles"/></svg> Consumibles</a></li>
-                                <li><a href="./pages/hp/design-jet.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-designjet"/></svg> DesignJet</a></li>
-                                <li><a href="./pages/hp/page-wide.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-pagewide"/></svg> PageWide</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                            <a href="#" aria-haspopup="true" aria-expanded="false">
-                                <svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Dell <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
-                            </a>
-                            <ul class="dropdown-submenu-menu">
-                                <li><a href="./pages/dell/workstation.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-workstation"/></svg> Workstations</a></li>
-                                <li><a href="./pages/dell/perifericos.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-perifericos"/></svg> Periféricos</a></li>
-                                <li><a href="./pages/dell/storage.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-storage"/></svg> Storage</a></li>
-                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -1903,15 +1901,18 @@
         $$(selector).forEach(link => {
             link.addEventListener('click', (e) => {
                 if (window.innerWidth <= 768) {
-                    e.preventDefault();
                     const parent = link.closest(parentSelector);
-                    const isActive = parent?.classList.toggle('active');
-                    link.setAttribute('aria-expanded', String(!!isActive));
-                    
+                    const hasMenu = parent?.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
+                    if (!hasMenu) return;
+
+                    e.preventDefault();
+                    const isActive = parent.classList.toggle('active');
+                    link.setAttribute('aria-expanded', String(isActive));
+
                     $$(`${parentSelector}.active`).forEach(sib => {
                         if (sib !== parent) {
                             sib.classList.remove('active');
-                            sib.querySelector('a')?.setAttribute('aria-expanded', 'false');
+                            sib.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
                         }
                     });
                 }
@@ -1920,7 +1921,7 @@
             link.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     const parent = link.closest(parentSelector);
-                    const dropdown = parent?.querySelector('.dropdown-menu, .dropdown-submenu-menu');
+                    const dropdown = parent?.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
                     if (dropdown) {
                         e.preventDefault();
                         const isActive = parent.classList.toggle('active');
