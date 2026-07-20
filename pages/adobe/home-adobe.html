@@ -294,7 +294,41 @@
   .why-choose, .product-showcase, .firefly-section, .acrobat-section, .licensing-section, .adobe-sign-section { padding: 1.4rem 0; }
   .firefly-section { padding: 1.25rem 0; }
   .why-choose, .firefly-section, .adobe-sign-section { background: var(--white); }
-  .product-showcase { background: #FAF5FF; }
+  .product-showcase {
+    background-color: #F3F3F3;
+    background-image:
+      radial-gradient(rgba(0, 0, 0, 0.035) 0.6px, transparent 0.7px),
+      linear-gradient(180deg, #F7F7F7 0%, #F0F0F0 100%);
+    background-size: 3px 3px, 100% 100%;
+  }
+
+  .product-showcase .cc-brand-lockup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.85rem, 2.2vw, 1.4rem);
+    margin: 0.5rem auto 1.25rem;
+    max-width: 100%;
+  }
+
+  .product-showcase .cc-brand-icon {
+    width: clamp(56px, 9vw, 92px);
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 22%;
+    display: block;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.16));
+  }
+
+  .product-showcase .cc-brand-lockup h2 {
+    margin: 0;
+    color: #0B1220;
+    font-size: clamp(1.55rem, 3.4vw, 2.55rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-align: left;
+  }
   .acrobat-section { background: var(--acrobat-bg); }
   
   .licensing-section {
@@ -501,9 +535,20 @@
     font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--dark-blue);
     margin-bottom: 1.5rem; line-height: 1.2; letter-spacing: -0.02em;
   }
+  .product-showcase .cc-brand-lockup h2 {
+    margin-bottom: 0;
+    font-size: clamp(1.55rem, 3.4vw, 2.55rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
   .product-showcase .subtitle, .firefly-section .subtitle, .acrobat-section .subtitle {
     font-size: clamp(1.05rem, 1.8vw, 1.2rem); color: var(--dark-blue); opacity: 0.75;
     margin-bottom: 3rem; max-width: 700px; line-height: 1.6;
+  }
+  .product-showcase .subtitle {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .firefly-new-layout {
@@ -758,6 +803,12 @@
   .btn { width: 100%; justify-content: center; }
   .cards-grid { grid-template-columns: 1fr; }
   .product-cards-grid { grid-template-columns: 1fr; }
+  .product-showcase .cc-brand-lockup {
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    padding: 0 0.5rem;
+  }
+  .product-showcase .cc-brand-icon { width: clamp(48px, 14vw, 64px); }
   .why-choose, .product-showcase, .firefly-section, .acrobat-section, .licensing-section, .adobe-sign-section { padding: 3rem 0; }
   .acrobat-card { padding: 2rem 1.5rem; }
   .footer-content { text-align: center; }
@@ -865,6 +916,12 @@ h2.heading-xl,
   font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
   font-weight: 700 !important;
   line-height: 1.2 !important;
+}
+.product-showcase .cc-brand-lockup h2 {
+  font-size: clamp(1.55rem, 3.4vw, 2.55rem) !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em;
 }
 /* CTA / títulos finales (mismo tamaño que hero en index) */
 .cta-title,
@@ -1227,8 +1284,17 @@ blockquote,
   <section class="product-showcase" id="productos">
     <div class="container">
       <div class="section-header fade-in-up">
-        <img src="../../assets/images/images_home-adobe/logotipo_creative_cloud.png" alt="Adobe Creative Cloud" style="height: clamp(40px, 6vw, 60px); width: auto; display: block; margin: 2rem auto 1rem; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));" decoding="async" width="200" height="60">
-        <h2>Adobe Creative Cloud</h2>
+        <div class="cc-brand-lockup">
+          <img
+            src="../../assets/images/images_home-adobe/logotipo_creative_cloud.png"
+            alt=""
+            class="cc-brand-icon"
+            decoding="async"
+            width="92"
+            height="92"
+          >
+          <h2>Adobe Creative Cloud</h2>
+        </div>
         <p class="subtitle">Las herramientas profesionales más potentes para diseño, video, fotografía y contenido web.</p>
       </div>
       <div class="product-cards-grid">
