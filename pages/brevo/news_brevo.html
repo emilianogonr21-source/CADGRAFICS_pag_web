@@ -13,7 +13,7 @@
     --paper: #F4F2EE;
     --card: #FFFFFF;
     --blueprint: #2C5F82;
-    --amber: #E0972C;
+    --amber: #ffff00;
     --gray: #6B6B6E;
     --line: #DEDAD2;
   }
@@ -61,29 +61,34 @@
  
   /* ===== MASTHEAD ===== */
   .masthead{
-    background: var(--ink);
-    padding: 28px 32px 24px;
+    background: #000;
+    padding: 22px 32px 28px;
     position:relative;
     z-index:1;
   }
   .masthead-top{
     display:flex; justify-content:space-between; align-items:center;
-    margin-bottom: 20px;
+    gap: 16px;
+    margin-bottom: 22px;
   }
   .logo{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size: 20px;
-    color: #fff;
-    letter-spacing: -0.01em;
+    display: block;
+    height: 88px;
+    width: auto;
+    max-width: min(380px, 72%);
+    object-fit: contain;
+    object-position: left center;
+    flex-shrink: 0;
   }
-  .logo span{ color: var(--red); }
   .issue-tag{
     font-family:'IBM Plex Mono', monospace;
     font-size: 10px;
     letter-spacing: 0.1em;
     color: #9a9a9e;
     text-transform: uppercase;
+    white-space: nowrap;
+    align-self: flex-start;
+    padding-top: 6px;
   }
   .masthead h1{
     font-family:'Space Grotesk', sans-serif;
@@ -264,6 +269,14 @@
     display:flex; align-items:center; justify-content:center;
     overflow:hidden;
   }
+  .card-thumb img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
   .card-thumb .play{
     width:38px; height:38px;
     border-radius:50%;
@@ -313,20 +326,21 @@
   /* ===== PRODUCT / NOTES section ===== */
   .product-panel{
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
     gap: 24px;
-    align-items:center;
+    align-items:start;
   }
   .product-visual{
-    aspect-ratio: 4/3;
-    background: linear-gradient(160deg, #EDEAE3, #DCD7CC);
+    background: #0a0a12;
     border: 1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
     position:relative;
+    overflow:hidden;
+    line-height:0;
   }
-  .product-visual::before{
-    content:"01"; position:absolute; top:10px; left:10px;
-    font-family:'IBM Plex Mono', monospace; font-size:10px; color:#a8a39a;
+  .product-visual img{
+    width:100%;
+    height:auto;
+    display:block;
   }
   .product-copy h3{
     font-family:'Space Grotesk', sans-serif;
@@ -411,7 +425,7 @@
   <!-- MASTHEAD -->
 <div class="masthead">
 <div class="masthead-top">
-<div class="logo">CAD<span>GRAFICS</span></div>
+<img class="logo" src="cadgrafics_one.png" alt="Cadgrafics One" width="380" height="88"/>
 <div class="issue-tag">Edición · Agosto 2026</div>
 </div>
 <h1>Cadgrafics Informativo</h1>
@@ -467,11 +481,11 @@
 <li style="color:#e5e4e1; border-bottom-color:rgba(255,255,255,0.12);"><b>Expo</b> y eventos exclusivos de networking</li>
 </ul>
  
-          <a href="#" class="btn">
+          <a href="mailto:marketing@cadgrafics.com.mx?subject=Quiero%20mi%20c%C3%B3digo%20preferencial%20AU%202026" class="btn">
             Quiero mi código preferencial
 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2"/></svg>
 </a>
-<p style="font-size:11.5px; color:#8f8e8c; margin-top:10px; margin-bottom:0;">Responde este correo antes del 14 de agosto para recibir tu código.</p>
+<p style="font-size:11.5px; color:#fff; margin-top:10px; margin-bottom:0;">Responde este correo antes del 14 de agosto para recibir tu código.</p>
 </div>
 </div>
  
@@ -494,11 +508,11 @@
 </div>
  
     <div class="product-panel">
-<div class="product-visual" style="background:linear-gradient(160deg, #2C5F82, #17171A);">
-<svg width="60" height="60" viewBox="0 0 24 24" fill="none"><path d="M12 3a5 5 0 0 0-5 5c0 3 2 4 2 6.5a3 3 0 0 0 6 0c0-2.5 2-3.5 2-6.5a5 5 0 0 0-5-5Z" stroke="#fff" stroke-width="1.4"/><path d="M9.5 18.5h5" stroke="#fff" stroke-width="1.4"/></svg>
+<div class="product-visual">
+<img src="webinar_adobe_firely.jpeg" alt="Webinar Adobe Firefly: El futuro de la creatividad ya está aquí — 4 agosto 2026, 12:00 PM GMT-6 vía Zoom" width="1080" height="1920"/>
 </div>
 <div class="product-copy">
-<div class="hero-badge" style="margin-bottom:12px;">4 de agosto · sin costo</div>
+<div class="hero-badge" style="margin-bottom:12px; color:#fff;">4 de agosto · sin costo</div>
 <h3>Adobe Firefly: acelera tu producción creativa con IA</h3>
 <p>Cómo equipos de Marketing, Comunicación y Diseño están usando Firefly para producir más rápido sin sacrificar calidad — con Eduardo del Valle.</p>
 <ul class="spec-list">
@@ -552,6 +566,7 @@
  
       <div class="card">
 <div class="card-thumb">
+<img src="deteccion_de_interferencias.jpeg" alt="Miniatura del webinar: Detección de interferencias con Autodesk Navisworks Manage" width="300" height="188"/>
 <span class="kicker">4 min</span>
 <div class="play"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--ink)"><path d="M8 5v14l11-7z"/></svg></div>
 </div>
@@ -559,7 +574,7 @@
 <span class="cat">BIM · Naviswork</span>
 <h3>Detección oportuna de interferencias</h3>
 <p>Evita retrabajos y sobrecostos con Autodesk Naviswork Manage.</p>
-<a href="#" class="card-link">Ver grabación →</a>
+<a href="https://www.youtube.com/watch?v=daIt1jyG-j0" class="card-link" target="_blank" rel="noopener noreferrer">Ver grabación →</a>
 </div>
 </div>
  
