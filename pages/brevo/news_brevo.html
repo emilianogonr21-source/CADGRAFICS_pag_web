@@ -73,7 +73,7 @@
   }
   .logo{
     display: block;
-    height: 88px;
+    height: 70px;
     width: auto;
     max-width: min(380px, 72%);
     object-fit: contain;
@@ -174,9 +174,26 @@
  
   .hero-grid{
     display:grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1.15fr) minmax(180px, 0.85fr);
     gap: 18px;
+    align-items: stretch;
     margin-top: 6px;
+  }
+  .hero-visual{
+    position:relative;
+    overflow:hidden;
+    min-height: 280px;
+    background: #000;
+    margin: -6px -32px 0 0;
+  }
+  .hero-visual img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position: center 35%;
+    display:block;
   }
   .hero-badge{
     display:inline-flex; align-items:center; gap:6px;
@@ -195,14 +212,12 @@
     font-size: 28px;
     line-height:1.15;
     margin-bottom:10px;
-    max-width: 440px;
   }
   .hero h2 em{ color: var(--amber); font-style:normal; }
   .hero p{
     font-size:14px;
     color:#c7c6c3;
     line-height:1.55;
-    max-width: 420px;
     margin-bottom: 20px;
   }
   .meta-row{
@@ -410,7 +425,13 @@
   }
  
   @media (max-width: 480px){
-    .card-grid, .product-panel{ grid-template-columns: 1fr; }
+    .card-grid, .product-panel, .hero-grid{ grid-template-columns: 1fr; }
+    .hero-visual{
+      min-height: 220px;
+      order: -1;
+      aspect-ratio: 16 / 10;
+      margin: 0 -32px 8px;
+    }
     .masthead h1{ font-size:22px; }
     .hero h2{ font-size:23px; }
   }
@@ -425,10 +446,10 @@
   <!-- MASTHEAD -->
 <div class="masthead">
 <div class="masthead-top">
-<img class="logo" src="cadgrafics_one.png" alt="Cadgrafics One" width="380" height="88"/>
+<img class="logo" src="cadgrafics_one.png" alt="Cadgrafics One" width="302" height="70"/>
 <div class="issue-tag">Edición · Agosto 2026</div>
 </div>
-<h1>Cadgrafics Informativo</h1>
+<h1>Cadgrafics Tech</h1>
 <p class="sub">Lo esencial de este mes en IA, BIM y tu ecosistema de trabajo — en 3 minutos de lectura.</p>
 </div>
  
@@ -487,6 +508,9 @@
 </a>
 <p style="font-size:11.5px; color:#fff; margin-top:10px; margin-bottom:0;">Responde este correo antes del 14 de agosto para recibir tu código.</p>
 </div>
+<div class="hero-visual">
+<img src="autodesk_university.gif" alt="Autodesk University 2026 en Las Vegas" width="400" height="700"/>
+</div>
 </div>
  
       <div class="partner-strip">
@@ -509,7 +533,7 @@
  
     <div class="product-panel">
 <div class="product-visual">
-<img src="webinar_adobe_firely.jpeg" alt="Webinar Adobe Firefly: El futuro de la creatividad ya está aquí — 4 agosto 2026, 12:00 PM GMT-6 vía Zoom" width="1080" height="1920"/>
+<img src="webinar_adobe_firefly.gif" alt="Webinar Adobe Firefly: El futuro de la creatividad ya está aquí — 4 agosto 2026, 12:00 PM GMT-6 vía Zoom" width="1080" height="1920"/>
 </div>
 <div class="product-copy">
 <div class="hero-badge" style="margin-bottom:12px; color:#fff;">4 de agosto · sin costo</div>
@@ -564,21 +588,7 @@
 <a href="https://www.youtube.com/watch?v=mGxNXuKiMsk" class="card-link" target="_blank" rel="noopener noreferrer">Ver grabación →</a>
 </div>
 </div>
- 
-      <div class="card">
-<div class="card-thumb">
-<img src="deteccion_de_interferencias.jpeg" alt="Miniatura del webinar: Detección de interferencias con Autodesk Navisworks Manage" width="300" height="188"/>
-<span class="kicker">4 min</span>
-<div class="play"><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--ink)"><path d="M8 5v14l11-7z"/></svg></div>
-</div>
-<div class="card-body">
-<span class="cat">BIM · Naviswork</span>
-<h3>Detección oportuna de interferencias</h3>
-<p>Evita retrabajos y sobrecostos con Autodesk Naviswork Manage.</p>
-<a href="https://www.youtube.com/watch?v=daIt1jyG-j0" class="card-link" target="_blank" rel="noopener noreferrer">Ver grabación →</a>
-</div>
-</div>
- 
+
       <div class="card">
 <div class="card-thumb">
 <img src="cuantificaciones.png" alt="Miniatura: Cuantificaciones y presupuestos automáticos con Autodesk Forma Takeoff" width="1280" height="720"/>
