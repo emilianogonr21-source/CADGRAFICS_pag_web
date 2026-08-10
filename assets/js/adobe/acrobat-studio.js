@@ -29,6 +29,44 @@
   }
 
   /* ============================================================
+     HERO VIDEO AUTOPLAY
+     ============================================================ */
+  const heroVideos = $$('section.hero video');
+
+  const initializeHeroVideo = (video) => {
+    if (!video) return;
+
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('loop', '');
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise.catch(() => {
+          video.dataset.autoplayBlocked = 'true';
+        });
+      }
+    };
+
+    if (video.readyState >= 2) {
+      tryPlay();
+    } else {
+      video.addEventListener('loadeddata', tryPlay, { once: true });
+      video.addEventListener('canplay', tryPlay, { once: true });
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && video.paused) {
+        tryPlay();
+      }
+    }, { once: false });
+  };
+
+  heroVideos.forEach(initializeHeroVideo);
+
+  /* ============================================================
      MOBILE MENU TOGGLE
      ============================================================ */
   const mobileToggle = $('#mobileToggle');
