@@ -80,7 +80,7 @@
             </li>
             <li>
               <a href="../chaos/home-chaos.html">
-                <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> Sketchup
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> SketchUp
               </a>
             </li>
             <li>
@@ -135,41 +135,42 @@
           <h2 class="section-title" id="contact-title">Habla con un especialista</h2>
           <p class="section-subtitle">Completa el formulario y te contactamos con una cotización personalizada.</p>
 
-          <form class="form-grid" onsubmit="event.preventDefault(); alert('Consulta enviada. Te contactaremos pronto.');">
+          <form class="form-grid" id="heroLeadForm" novalidate>
             <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" placeholder="Ana García" required />
+              <label for="hero-nombre">Nombre <span aria-hidden="true">*</span></label>
+              <input type="text" id="hero-nombre" name="nombre" autocomplete="name" placeholder="Ana García" required aria-required="true" />
             </div>
             <div class="form-group">
-              <label>Teléfono</label>
-              <input type="tel" placeholder="+52 55 0000 0000" />
+              <label for="hero-telefono">Teléfono</label>
+              <input type="tel" id="hero-telefono" name="telefono" autocomplete="tel" placeholder="+52 55 0000 0000" />
             </div>
             <div class="form-group full">
-              <label>Correo electrónico</label>
-              <input type="email" placeholder="ana@estudio.com" required />
+              <label for="hero-email">Correo electrónico <span aria-hidden="true">*</span></label>
+              <input type="email" id="hero-email" name="email" autocomplete="email" placeholder="ana@estudio.com" required aria-required="true" />
             </div>
             <div class="form-group full">
-              <label>Empresa</label>
-              <input type="text" placeholder="Estudio de Arquitectura S.A." />
+              <label for="hero-empresa">Empresa</label>
+              <input type="text" id="hero-empresa" name="empresa" autocomplete="organization" placeholder="Estudio de Arquitectura S.A." />
             </div>
             <div class="form-group full">
-              <label>¿Qué deseas saber?</label>
-              <select required>
+              <label for="hero-interes">¿Qué deseas saber? <span aria-hidden="true">*</span></label>
+              <select id="hero-interes" name="interes" required aria-required="true">
                 <option value="" disabled selected>Selecciona una opción</option>
-                <option>Cotización de licencias</option>
-                <option>Soporte técnico</option>
-                <option>Capacitación</option>
-                <option>Otro</option>
+                <option value="cotizacion">Cotización de licencias</option>
+                <option value="soporte">Soporte técnico</option>
+                <option value="capacitacion">Capacitación</option>
+                <option value="otro">Otro</option>
               </select>
             </div>
             <div class="form-group full form-submit">
               <button type="submit" class="btn btn-primary btn-large btn-full">
                 Enviar consulta
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
               </button>
             </div>
+            <p class="form-message" id="heroFormMessage" role="status" aria-live="polite" hidden></p>
           </form>
-          <p class="form-note">Tus datos están protegidos. No compartimos tu información con terceros.</p>
+          <p class="form-note">Tus datos están protegidos. Consulta nuestro <a href="../../aviso-privacidad.html">aviso de privacidad</a>.</p>
         </aside>
       </div>
     </div>
@@ -182,15 +183,15 @@
       <h2 class="section-title">Elige tu plan</h2>
       <p class="section-subtitle">SketchUp utiliza un modelo de suscripción por usuario. Cada licencia corresponde a un usuario real con su Trimble ID. Contáctanos para obtener cotización personalizada y asesoría sobre el plan que mejor se adapta a tus necesidades.</p>
 
-      <div class="tabs" role="tablist">
-        <button class="tab" data-plan="pro">Pro</button>
-        <button class="tab" data-plan="proscan">Pro Scan</button>
-        <button class="tab" data-plan="proadvanced">Pro Advanced</button>
-        <button class="tab active" data-plan="studio">Studio <span class="tag">Más completo</span></button>
+      <div class="tabs" role="tablist" aria-label="Planes SketchUp">
+        <button type="button" class="tab" role="tab" id="tab-pro" data-plan="pro" aria-selected="false" aria-controls="plan-display" tabindex="-1">Pro</button>
+        <button type="button" class="tab" role="tab" id="tab-proscan" data-plan="proscan" aria-selected="false" aria-controls="plan-display" tabindex="-1">Pro Scan</button>
+        <button type="button" class="tab" role="tab" id="tab-proadvanced" data-plan="proadvanced" aria-selected="false" aria-controls="plan-display" tabindex="-1">Pro Advanced</button>
+        <button type="button" class="tab active" role="tab" id="tab-studio" data-plan="studio" aria-selected="true" aria-controls="plan-display" tabindex="0">Studio <span class="tag">Más completo</span></button>
       </div>
 
       <div class="plans-layout">
-        <div class="plan-content dark" id="plan-display">
+        <div class="plan-content dark" id="plan-display" role="tabpanel" aria-labelledby="tab-studio" tabindex="0">
           <!-- Se llena con JS -->
         </div>
 

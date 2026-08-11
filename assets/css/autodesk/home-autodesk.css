@@ -1334,6 +1334,13 @@
             transform: scale(1.1);
             animation: none;
         }
+        .whatsapp-float:focus { outline: none; }
+        .whatsapp-float:focus-visible {
+            outline: 3px solid #18FF5C;
+            outline-offset: 3px;
+            transform: scale(1.1);
+            animation: none;
+        }
 
         @keyframes pulse-whatsapp {
             0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
@@ -1484,7 +1491,17 @@
             text-align: center;
         }
 
+        .form-message[hidden] { display: none; }
         .form-message.error { color: #ff6b6b; }
+        .form-message.success { color: #7dffb0; }
+
+        .success-message:focus {
+            outline: none;
+        }
+        .success-message:focus-visible {
+            outline: 3px solid #18FF5C;
+            outline-offset: 4px;
+        }
 
         /* ============================================
            16. ANIMACIONES

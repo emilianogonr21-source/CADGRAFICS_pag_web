@@ -1605,11 +1605,19 @@
       height: 2rem;
     }
 
-    .whatsapp-float:hover,
-    .whatsapp-float:focus {
+    .whatsapp-float:hover {
       transform: scale(1.1);
       box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+      animation: none;
+    }
+    .whatsapp-float:focus {
       outline: none;
+    }
+    .whatsapp-float:focus-visible {
+      outline: 3px solid #18FF5C;
+      outline-offset: 3px;
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
       animation: none;
     }
 

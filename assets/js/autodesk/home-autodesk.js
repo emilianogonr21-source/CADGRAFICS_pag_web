@@ -123,40 +123,63 @@
 
     leadForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
+        const modalFormMessage = $('#modalFormMessage');
         const formData = new FormData(leadForm);
         const data = Object.fromEntries(formData.entries());
 
-        // Validación simple
+        const setMessage = (text, type) => {
+            if (!modalFormMessage) return;
+            modalFormMessage.hidden = !text;
+            modalFormMessage.textContent = text || '';
+            modalFormMessage.className = 'form-message' + (type ? ` ${type}` : '');
+        };
+
+        setMessage('');
+
         if (!data.name || !data.email || !data.phone || !data.company) {
-            alert('Por favor completa todos los campos obligatorios');
+            setMessage('Por favor completa todos los campos obligatorios.', 'error');
+            const firstEmpty = ['name', 'email', 'phone', 'company']
+                .map((id) => document.getElementById(id))
+                .find((el) => el && !String(el.value || '').trim());
+            firstEmpty?.focus();
             return;
         }
 
         const submitBtn = leadForm.querySelector('.cta-modal');
+        const originalHtml = submitBtn.innerHTML;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando...';
 
         try {
-            // Simular envío
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            
+            const response = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...data, source: 'autodesk-modal' })
+            });
+
+            if (!response.ok) throw new Error('Error en el servidor');
+
             formFields.style.display = 'none';
             successMessage.style.display = 'block';
-            
+            successMessage.setAttribute('tabindex', '-1');
+            successMessage.focus();
+
             setTimeout(() => {
                 closeModal();
                 setTimeout(() => {
                     leadForm.reset();
                     formFields.style.display = '';
                     successMessage.style.display = 'none';
+                    setMessage('');
                 }, 300);
             }, 2000);
         } catch (error) {
             console.error('Error:', error);
+            setMessage('Error al enviar. Intenta de nuevo o contáctanos por WhatsApp.', 'error');
         } finally {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = '<svg width="16" height="16"><use href="#icon-send"/></svg> Enviar consulta';
+            submitBtn.innerHTML = originalHtml;
         }
     });
 })();

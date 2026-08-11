@@ -733,6 +733,36 @@
       margin-top: 0.75rem;
       line-height: 1.4;
     }
+    .hero .form-note a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: underline;
+    }
+    .hero .form-note a:focus-visible {
+      outline: 2px solid var(--secondary, #18FF5C);
+      outline-offset: 2px;
+    }
+    .hero .form-message {
+      grid-column: 1 / -1;
+      margin: 0;
+      font-size: 0.85rem;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .hero .form-message.error { color: #ff8a8a; }
+    .hero .form-message.success { color: #7dffb0; }
+    .hero .form-message[hidden] { display: none; }
+
+    .tab:focus-visible {
+      outline: 3px solid var(--blue, #005f9e);
+      outline-offset: 2px;
+    }
+    .plan-content:focus {
+      outline: none;
+    }
+    .plan-content:focus-visible {
+      outline: 3px solid var(--blue, #005f9e);
+      outline-offset: 4px;
+    }
 
     /* ============ PLANS ============ */
     .plans {
@@ -1138,11 +1168,19 @@
       height: 2rem;
     }
 
-    .whatsapp-float:hover,
-    .whatsapp-float:focus {
+    .whatsapp-float:hover {
       transform: scale(1.1);
       box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+      animation: none;
+    }
+    .whatsapp-float:focus {
       outline: none;
+    }
+    .whatsapp-float:focus-visible {
+      outline: 3px solid #18FF5C;
+      outline-offset: 3px;
+      transform: scale(1.1);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
       animation: none;
     }
 

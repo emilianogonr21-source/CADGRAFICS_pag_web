@@ -4,16 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Cadgrafics Informativo</title>
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<title>Cadgrafics Tech · Agosto 2026 — AU, Firefly, biblioteca y #Hacks</title>
+<!--[if mso]>
+<noscript>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<![endif]-->
 
 <style type="text/css">
-  /* Clientes que respetan &lt;style&gt; (Apple Mail, algunos webmail) */
+  /* Clientes que respetan <style> (Apple Mail, algunos webmail) */
   body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; }
-  img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; }
+  img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; }
   a { text-decoration: none; }
   body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
   .btn:hover { background-color: #7A0F18 !important; }
+  .chip-link:hover { background-color: #F4F2EE !important; border-color: #A31621 !important; color: #A31621 !important; }
+  .chip-link-active:hover { background-color: #7A0F18 !important; border-color: #7A0F18 !important; color: #ffffff !important; }
+  a:focus-visible { outline: 2px solid #A31621; outline-offset: 2px; }
 
   @media only screen and (max-width: 640px) {
     .email-container { width: 100% !important; max-width: 100% !important; }
@@ -22,59 +36,21 @@
     .stack-pad { padding-left: 24px !important; padding-right: 24px !important; }
     .center-mobile { text-align: center !important; }
     .hero-img { width: 100% !important; height: auto !important; max-height: none !important; }
-    .hide-mobile { display: none !important; max-height: 0 !important; overflow: hidden !important; }
+    .hide-mobile { display: none !important; max-height: 0 !important; overflow: hidden !important; mso-hide: all !important; }
     .chip { display: inline-block !important; margin: 0 4px 6px 0 !important; }
+    .stack-gap { height: 14px !important; line-height: 14px !important; }
   }
 
-  .whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 2rem;
-    right: 2rem;
-    background: linear-gradient(135deg, #25d366, #128c7e);
-    color: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    animation: pulse-whatsapp 2s infinite;
-  }
-
-  .whatsapp-float svg {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .whatsapp-float:hover,
-  .whatsapp-float:focus {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
-    outline: none;
-    animation: none;
-  }
-
-  @keyframes pulse-whatsapp {
-    0% {
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5);
-    }
-    50% {
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 12px rgba(37, 211, 102, 0);
-    }
-    100% {
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5);
-    }
+  @media (prefers-reduced-motion: reduce) {
+    .btn:hover { background-color: #A31621 !important; }
   }
 </style>
 </head>
 <body style="margin:0; padding:0; background-color:#DAD5CB; font-family:Arial, Helvetica, sans-serif; color:#17171A;">
 <!-- Preheader (oculto en la mayoría de clientes) -->
-<div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;">
+<div style="display:none; font-size:1px; line-height:1px; max-height:0; max-width:0; opacity:0; overflow:hidden; mso-hide:all;" aria-hidden="true">
   Cadgrafics Tech · Agosto 2026 — AU 2026, webinar Adobe Firefly, biblioteca y #Hacks. Lee en 3 minutos.
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
 </div>
 
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#DAD5CB;">
@@ -93,11 +69,13 @@
               <!-- Logo: PNG 484×161 (~3:1) con fondo negro — se integra al masthead -->
               <tr>
                 <td align="center" style="padding:28px 32px 12px;">
-                  <img src="../../assets/images/brevo/cadgrafics_one.png" alt="Cadgrafics One" width="220" height="73" class="fluid" style="display:block; margin:0 auto; width:220px; max-width:100%; height:auto; border:0; outline:none; text-decoration:none;">
+                  <a href="https://www.cadgrafics.com.mx" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                    <img src="../../assets/images/brevo/cadgrafics_one.png" alt="Cadgrafics One — Ir al sitio" width="220" height="73" class="fluid" style="display:block; margin:0 auto; width:220px; max-width:100%; height:auto; border:0; outline:none; text-decoration:none;">
+                  </a>
                 </td>
               </tr>
               <tr>
-                <td align="center" style="padding:0 32px 22px; font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.12em; color:#9a9a9e; text-transform:uppercase;">
+                <td align="center" style="padding:0 32px 22px; font-family:'Courier New', Courier, monospace; font-size:11px; letter-spacing:0.12em; color:#b8b8bc; text-transform:uppercase;">
                   Edición · Agosto 2026
                 </td>
               </tr>
@@ -107,7 +85,7 @@
                 </td>
               </tr>
               <tr>
-                <td align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#b7b6b3; line-height:1.45; padding:0 40px 28px;">
+                <td align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#d0cfcc; line-height:1.45; padding:0 40px 28px;">
                   Lo esencial de este mes en IA, BIM y tu ecosistema de trabajo — en 3 minutos de lectura.
                 </td>
               </tr>
@@ -117,16 +95,24 @@
 
         <!-- ========== INDEX STRIP ========== -->
         <tr>
-          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:16px 32px; border-bottom:1px solid #DEDAD2;">
+          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:16px 32px; border-bottom:1px solid #DEDAD2;" role="navigation" aria-label="Índice de esta edición">
             <table role="presentation" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                <td class="chip" style="font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #A31621; background-color:#A31621; color:#ffffff; text-transform:uppercase; white-space:nowrap;">AU 2026</td>
-                <td width="8" style="font-size:0; line-height:0;">&nbsp;</td>
-                <td class="chip" style="font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #DEDAD2; color:#17171A; text-transform:uppercase; white-space:nowrap;">Webinar</td>
-                <td width="8" style="font-size:0; line-height:0;">&nbsp;</td>
-                <td class="chip" style="font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #DEDAD2; color:#17171A; text-transform:uppercase; white-space:nowrap;">Biblioteca</td>
-                <td width="8" style="font-size:0; line-height:0;">&nbsp;</td>
-                <td class="chip" style="font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #DEDAD2; color:#17171A; text-transform:uppercase; white-space:nowrap;">#Hacks</td>
+                <td class="chip" style="padding:0;">
+                  <a href="#au2026" class="chip-link chip-link-active" style="display:inline-block; font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #A31621; background-color:#A31621; color:#ffffff; text-transform:uppercase; white-space:nowrap; text-decoration:none;">AU 2026</a>
+                </td>
+                <td width="8" style="font-size:0; line-height:0;" aria-hidden="true">&nbsp;</td>
+                <td class="chip" style="padding:0;">
+                  <a href="#webinar" class="chip-link" style="display:inline-block; font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #DEDAD2; color:#17171A; text-transform:uppercase; white-space:nowrap; text-decoration:none; background-color:#ffffff;">Webinar</a>
+                </td>
+                <td width="8" style="font-size:0; line-height:0;" aria-hidden="true">&nbsp;</td>
+                <td class="chip" style="padding:0;">
+                  <a href="#biblioteca" class="chip-link" style="display:inline-block; font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #DEDAD2; color:#17171A; text-transform:uppercase; white-space:nowrap; text-decoration:none; background-color:#ffffff;">Biblioteca</a>
+                </td>
+                <td width="8" style="font-size:0; line-height:0;" aria-hidden="true">&nbsp;</td>
+                <td class="chip" style="padding:0;">
+                  <a href="#hacks" class="chip-link" style="display:inline-block; font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.03em; padding:6px 10px; border:1px solid #DEDAD2; color:#17171A; text-transform:uppercase; white-space:nowrap; text-decoration:none; background-color:#ffffff;">#Hacks</a>
+                </td>
               </tr>
             </table>
           </td>
@@ -134,20 +120,20 @@
 
         <!-- ========== HERO: AU 2026 ========== -->
         <tr>
-          <td bgcolor="#17171A" style="background-color:#17171A; padding:32px;">
+          <td id="au2026" bgcolor="#17171A" style="background-color:#17171A; padding:32px;">
             <!-- Eyebrow -->
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:14px;">
               <tr>
-                <td width="28" valign="middle" style="padding-right:10px; font-size:16px; line-height:1; color:#ffffff;">
+                <td width="28" valign="middle" style="padding-right:10px; font-size:16px; line-height:1; color:#ffffff;" aria-hidden="true">
                   &#128197;
                 </td>
                 <td valign="middle" style="font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#ffffff; white-space:nowrap;">
                   Save the date
                 </td>
-                <td width="100%" valign="middle" style="padding:0 10px;">
-                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid rgba(255,255,255,0.15); font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table>
+                <td width="100%" valign="middle" style="padding:0 10px;" aria-hidden="true">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #3a3a3d; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table>
                 </td>
-                <td valign="middle" style="font-family:'Courier New', Courier, monospace; font-size:10px; color:#8f8e8c; letter-spacing:0.05em; white-space:nowrap;">
+                <td valign="middle" style="font-family:'Courier New', Courier, monospace; font-size:10px; color:#b0afad; letter-spacing:0.05em; white-space:nowrap;">
                   EVT—01
                 </td>
               </tr>
@@ -167,20 +153,20 @@
                   </table>
 
                   <h1 style="margin:0 0 10px; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:26px; line-height:1.15; color:#ffffff;">
-                    Autodesk University 2026: <span style="color:#ffff00;">el evento global de IA aplicada</span>
+                    Autodesk University 2026: <span style="color:#FFE566;">el evento global de IA aplicada</span>
                   </h1>
 
-                  <p style="margin:0 0 18px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.55; color:#c7c6c3;">
+                  <p style="margin:0 0 18px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.55; color:#d4d3d0;">
                     Donde líderes de construcción, manufactura e infraestructura descubren cómo aplicar IA, datos conectados y workflows integrados para acelerar proyectos y tomar mejores decisiones.
                   </p>
 
                   <!-- Meta -->
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:18px;">
                     <tr>
-                      <td style="padding-right:20px; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#e5e4e1;">
+                      <td style="padding-right:20px; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#f0efec;">
                         <strong style="color:#ffffff; font-weight:600;">15–17 sep</strong>
                       </td>
-                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#e5e4e1;">
+                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#f0efec;">
                         Las Vegas, NV
                       </td>
                     </tr>
@@ -192,15 +178,15 @@
                       <td style="background-color:#252528; border:1px solid #3a3a3d; padding:16px 18px;">
                         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                           <tr>
-                            <td valign="bottom" style="font-family:'Courier New', Courier, monospace; font-size:10px; color:#a3a2a0; text-transform:uppercase; letter-spacing:0.05em; padding-bottom:8px;">
+                            <td valign="bottom" style="font-family:'Courier New', Courier, monospace; font-size:10px; color:#c4c3c0; text-transform:uppercase; letter-spacing:0.05em; padding-bottom:8px;">
                               Full Conference Pass con tu código
                             </td>
                             <td align="right" valign="bottom" style="font-family:Arial, Helvetica, sans-serif; font-size:22px; font-weight:700; color:#ffffff; padding-bottom:8px; white-space:nowrap;">
-                              $1,799 <span style="font-size:12px; font-weight:500; color:#8f8e8c;">USD</span>
+                              $1,799 <span style="font-size:12px; font-weight:500; color:#b0afad;">USD</span>
                             </td>
                           </tr>
                           <tr>
-                            <td colspan="2" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#c7c6c3; line-height:1.45;">
+                            <td colspan="2" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#d4d3d0; line-height:1.45;">
                               Ahorras $200 USD sobre la tarifa Early Bird — cupo de códigos limitado.
                             </td>
                           </tr>
@@ -212,18 +198,18 @@
                   <!-- Specs -->
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:18px;">
                     <tr>
-                      <td style="padding:8px 0; border-bottom:1px solid #2e2e31; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#e5e4e1;">
-                        <span style="color:#A31621; font-family:'Courier New', Courier, monospace; font-size:10px; font-weight:700;">500+</span>&nbsp; sesiones técnicas y de negocio
+                      <td style="padding:8px 0; border-bottom:1px solid #2e2e31; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#f0efec;">
+                        <span style="color:#FF6B75; font-family:'Courier New', Courier, monospace; font-size:10px; font-weight:700;">500+</span>&nbsp; sesiones técnicas y de negocio
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding:8px 0; border-bottom:1px solid #2e2e31; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#e5e4e1;">
-                        <span style="color:#A31621; font-family:'Courier New', Courier, monospace; font-size:10px; font-weight:700;">Labs</span>&nbsp; hands-on, demos y casos reales de IA aplicada
+                      <td style="padding:8px 0; border-bottom:1px solid #2e2e31; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#f0efec;">
+                        <span style="color:#FF6B75; font-family:'Courier New', Courier, monospace; font-size:10px; font-weight:700;">Labs</span>&nbsp; hands-on, demos y casos reales de IA aplicada
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding:8px 0; border-bottom:1px solid #2e2e31; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#e5e4e1;">
-                        <span style="color:#A31621; font-family:'Courier New', Courier, monospace; font-size:10px; font-weight:700;">Expo</span>&nbsp; y eventos exclusivos de networking
+                      <td style="padding:8px 0; border-bottom:1px solid #2e2e31; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#f0efec;">
+                        <span style="color:#FF6B75; font-family:'Courier New', Courier, monospace; font-size:10px; font-weight:700;">Expo</span>&nbsp; y eventos exclusivos de networking
                       </td>
                     </tr>
                   </table>
@@ -232,20 +218,20 @@
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                       <td bgcolor="#A31621" style="background-color:#A31621;">
-                        <a href="mailto:marketing@cadgrafics.com.mx?subject=Quiero%20mi%20c%C3%B3digo%20preferencial%20AU%202026" class="btn" style="display:inline-block; padding:12px 20px; font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:13px; color:#ffffff; text-decoration:none; background-color:#A31621;">
+                        <a href="mailto:marketing@cadgrafics.com.mx?subject=Quiero%20mi%20c%C3%B3digo%20preferencial%20AU%202026" class="btn" style="display:inline-block; padding:14px 22px; font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:14px; color:#ffffff; text-decoration:none; background-color:#A31621; line-height:1.3;" aria-label="Solicitar código preferencial Autodesk University 2026 por correo">
                           Quiero mi código preferencial →
                         </a>
                       </td>
                     </tr>
                   </table>
-                  <p style="margin:10px 0 0; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#ffffff; line-height:1.4;">
-                    Responde este correo antes del 14 de agosto para recibir tu código.
+                  <p style="margin:12px 0 0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#d4d3d0; line-height:1.45;">
+                    Escribe a <a href="mailto:marketing@cadgrafics.com.mx?subject=Quiero%20mi%20c%C3%B3digo%20preferencial%20AU%202026" style="color:#FFE566; text-decoration:underline;">marketing@cadgrafics.com.mx</a> antes del <strong style="color:#ffffff;">14 de agosto</strong> para recibir tu código.
                   </p>
                 </td>
 
                 <!-- Hero image -->
                 <td class="stack" valign="top" width="220" style="width:220px; padding-left:6px;">
-                  <img src="../../assets/images/brevo/autodesk_university.gif" alt="Autodesk University 2026" width="220" class="fluid hero-img" style="display:block; width:100%; max-width:220px; height:auto; border:0; background-color:#000000;">
+                  <img src="../../assets/images/brevo/autodesk_university.gif" alt="Autodesk University 2026 en Las Vegas, 15 al 17 de septiembre" width="220" class="fluid hero-img" style="display:block; width:100%; max-width:220px; height:auto; border:0; background-color:#000000;">
                 </td>
               </tr>
             </table>
@@ -253,7 +239,7 @@
             <!-- Partner strip (celdas separadas: Brevo no colapsa el espaciado) -->
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:24px; border-top:1px solid #2e2e31;">
               <tr>
-                <td style="padding-top:16px; padding-bottom:10px; font-family:'Courier New', Courier, monospace; font-size:9px; letter-spacing:0.08em; color:#8f8e8c; text-transform:uppercase;">
+                <td style="padding-top:16px; padding-bottom:10px; font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.08em; color:#b0afad; text-transform:uppercase;">
                   Con el respaldo de
                 </td>
               </tr>
@@ -261,15 +247,15 @@
                 <td>
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                     <tr>
-                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:600; color:#c7c6c3; white-space:nowrap;">Autodesk</td>
-                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#8f8e8c;">&#183;</td>
-                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:600; color:#c7c6c3; white-space:nowrap;">Adobe</td>
-                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#8f8e8c;">&#183;</td>
-                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:600; color:#c7c6c3; white-space:nowrap;">HP</td>
-                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#8f8e8c;">&#183;</td>
-                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:600; color:#c7c6c3; white-space:nowrap;">Dell Technologies</td>
-                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#8f8e8c;">&#183;</td>
-                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:600; color:#c7c6c3; white-space:nowrap;">Microsoft</td>
+                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:600; color:#d4d3d0; white-space:nowrap;">Autodesk</td>
+                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#b0afad;" aria-hidden="true">&#183;</td>
+                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:600; color:#d4d3d0; white-space:nowrap;">Adobe</td>
+                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#b0afad;" aria-hidden="true">&#183;</td>
+                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:600; color:#d4d3d0; white-space:nowrap;">HP</td>
+                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#b0afad;" aria-hidden="true">&#183;</td>
+                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:600; color:#d4d3d0; white-space:nowrap;">Dell Technologies</td>
+                      <td width="12" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#b0afad;" aria-hidden="true">&#183;</td>
+                      <td style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:600; color:#d4d3d0; white-space:nowrap;">Microsoft</td>
                     </tr>
                   </table>
                 </td>
@@ -280,17 +266,17 @@
 
         <!-- ========== WEBINAR FIREFLY ========== -->
         <tr>
-          <td style="padding:32px; border-top:1px solid #DEDAD2;">
+          <td id="webinar" style="padding:32px; border-top:1px solid #DEDAD2;">
             <!-- Eyebrow -->
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:14px;">
               <tr>
-                <td width="28" valign="middle" style="padding-right:10px;">
-                  <span style="font-size:16px; line-height:1; color:#A31621;">📅</span>
+                <td width="28" valign="middle" style="padding-right:10px;" aria-hidden="true">
+                  <span style="font-size:16px; line-height:1; color:#A31621;">&#128197;</span>
                 </td>
                 <td valign="middle" style="font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#17171A; white-space:nowrap;">
                   Próximo webinar
                 </td>
-                <td width="100%" valign="middle" style="padding:0 10px;">
+                <td width="100%" valign="middle" style="padding:0 10px;" aria-hidden="true">
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #DEDAD2; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table>
                 </td>
                 <td valign="middle" style="font-family:'Courier New', Courier, monospace; font-size:10px; color:#A31621; letter-spacing:0.05em; white-space:nowrap;">
@@ -305,7 +291,9 @@
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#0a0a12; border:1px solid #DEDAD2;">
                     <tr>
                       <td>
-                        <img src="../../assets/images/brevo/webinar_adobe_firefly.gif" alt="Webinar Adobe Firefly — 4 agosto 2026" width="250" class="fluid" style="display:block; width:100%; max-width:250px; height:auto; border:0;">
+                        <a href="https://us02web.zoom.us/meeting/register/BDO_SBu1Sqqny9G7q9NhQQ#/registration" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                          <img src="../../assets/images/brevo/webinar_adobe_firefly.gif" alt="Webinar Adobe Firefly — 4 de agosto 2026 a las 12:00 pm (GMT-6). Clic para registrarte." width="250" class="fluid" style="display:block; width:100%; max-width:250px; height:auto; border:0;">
+                        </a>
                       </td>
                     </tr>
                   </table>
@@ -314,7 +302,7 @@
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:12px;">
                     <tr>
                       <td bgcolor="#A31621" style="background-color:#A31621; padding:5px 10px; font-family:'Courier New', Courier, monospace; font-size:10px; letter-spacing:0.05em; text-transform:uppercase; color:#ffffff;">
-                        4 de agosto
+                        4 de agosto · 12:00 pm
                       </td>
                     </tr>
                   </table>
@@ -322,7 +310,7 @@
                   <h2 style="margin:0 0 10px; font-family:Arial, Helvetica, sans-serif; font-size:18px; font-weight:600; line-height:1.25; color:#17171A;">
                     Adobe Firefly: acelera tu producción creativa con IA
                   </h2>
-                  <p style="margin:0 0 14px; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#6B6B6E; line-height:1.6;">
+                  <p style="margin:0 0 14px; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#4A4A4D; line-height:1.6;">
                     Cómo equipos de Marketing, Comunicación y Diseño están usando Firefly para producir más rápido sin sacrificar calidad — con Eduardo del Valle.
                   </p>
 
@@ -344,7 +332,7 @@
                     </tr>
                   </table>
 
-                  <p style="margin:0 0 8px; font-family:'Courier New', Courier, monospace; font-size:11px; color:#6B6B6E; text-transform:uppercase; letter-spacing:0.05em;">
+                  <p style="margin:0 0 8px; font-family:'Courier New', Courier, monospace; font-size:11px; color:#4A4A4D; text-transform:uppercase; letter-spacing:0.05em;">
                     En la agenda
                   </p>
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:16px;">
@@ -378,7 +366,7 @@
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                       <td bgcolor="#A31621" style="background-color:#A31621;">
-                        <a href="https://us02web.zoom.us/meeting/register/BDO_SBu1Sqqny9G7q9NhQQ#/registration" class="btn" style="display:inline-block; padding:12px 20px; font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:13px; color:#ffffff; text-decoration:none; background-color:#A31621;" target="_blank">
+                        <a href="https://us02web.zoom.us/meeting/register/BDO_SBu1Sqqny9G7q9NhQQ#/registration" class="btn" style="display:inline-block; padding:14px 22px; font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:14px; color:#ffffff; text-decoration:none; background-color:#A31621; line-height:1.3;" target="_blank" rel="noopener noreferrer" aria-label="Reservar lugar en el webinar Adobe Firefly del 4 de agosto">
                           Reservar mi lugar
                         </a>
                       </td>
@@ -394,14 +382,14 @@
                 <td style="background-color:#ffffff; border:1px solid #DEDAD2; border-left:3px solid #A31621; padding:16px 18px;">
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
-                      <td width="36" valign="top" style="font-family:'Courier New', Courier, monospace; font-size:20px; font-weight:600; color:#A31621; line-height:1; padding-right:12px;">
-                        🎁
+                      <td width="36" valign="top" style="font-family:'Courier New', Courier, monospace; font-size:20px; font-weight:600; color:#A31621; line-height:1; padding-right:12px;" aria-hidden="true">
+                        &#127873;
                       </td>
                       <td valign="top">
                         <h3 style="margin:0 0 5px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:600; color:#17171A;">
                           Trivia en vivo — gana una tarjeta Cinépolis
                         </h3>
-                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#6B6B6E; line-height:1.55;">
+                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#4A4A4D; line-height:1.55;">
                           Al final del webinar pon a prueba lo aprendido. <strong style="color:#17171A;">7 ganadores</strong> se llevan una tarjeta Cinépolis (2 entradas + 1 palomitas mediana + 2 refrescos medianos).
                         </p>
                       </td>
@@ -415,16 +403,16 @@
 
         <!-- ========== BIBLIOTECA ========== -->
         <tr>
-          <td style="padding:32px; border-top:1px solid #DEDAD2;">
+          <td id="biblioteca" style="padding:32px; border-top:1px solid #DEDAD2;">
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:14px;">
               <tr>
-                <td width="28" valign="middle" style="padding-right:10px;">
-                  <span style="font-size:16px; line-height:1; color:#A31621;">📄</span>
+                <td width="28" valign="middle" style="padding-right:10px;" aria-hidden="true">
+                  <span style="font-size:16px; line-height:1; color:#A31621;">&#128196;</span>
                 </td>
                 <td valign="middle" style="font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#17171A; white-space:nowrap;">
                   Biblioteca digital
                 </td>
-                <td width="100%" valign="middle" style="padding:0 10px;">
+                <td width="100%" valign="middle" style="padding:0 10px;" aria-hidden="true">
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #DEDAD2; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table>
                 </td>
                 <td valign="middle" style="font-family:'Courier New', Courier, monospace; font-size:10px; color:#A31621; letter-spacing:0.05em; white-space:nowrap;">
@@ -441,7 +429,9 @@
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="background-color:#ffffff; border:1px solid #DEDAD2; height:100%;">
                     <tr>
                       <td bgcolor="#2C5F82" height="148" style="background-color:#2C5F82; height:148px; line-height:0; font-size:0;">
-                        <img src="../../assets/images/brevo/fusion.jpeg" alt="Fusion + Autodesk Assistant" width="280" height="148" class="fluid" style="display:block; width:100%; max-width:280px; height:148px; object-fit:cover; border:0;">
+                        <a href="https://www.youtube.com/watch?v=mGxNXuKiMsk" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                          <img src="../../assets/images/brevo/fusion.jpeg" alt="Miniatura: Fusion + Autodesk Assistant — ver grabación en YouTube" width="280" height="148" class="fluid" style="display:block; width:100%; max-width:280px; height:148px; object-fit:cover; border:0;">
+                        </a>
                       </td>
                     </tr>
                     <tr>
@@ -458,28 +448,30 @@
                     </tr>
                     <tr>
                       <td height="72" valign="top" style="padding:8px 16px 0; height:72px; vertical-align:top;">
-                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#6B6B6E; line-height:1.5;">
+                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#4A4A4D; line-height:1.5;">
                           Grabación completa del webinar de julio — mejores prácticas para integrar el asistente de IA en tu flujo de diseño.
                         </p>
                       </td>
                     </tr>
                     <tr>
                       <td style="padding:10px 16px 16px;">
-                        <a href="https://www.youtube.com/watch?v=mGxNXuKiMsk" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:600; color:#17171A; text-decoration:none; border-bottom:2px solid #A31621; padding-bottom:1px;" target="_blank">Ver grabación →</a>
+                        <a href="https://www.youtube.com/watch?v=mGxNXuKiMsk" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; font-weight:600; color:#17171A; text-decoration:none; border-bottom:2px solid #A31621; padding-bottom:2px;" target="_blank" rel="noopener noreferrer">Ver grabación de Fusion →</a>
                       </td>
                     </tr>
                   </table>
                 </td>
 
                 <!-- Gap -->
-                <td class="hide-mobile" width="16" style="width:16px; font-size:0; line-height:0;">&nbsp;</td>
+                <td class="hide-mobile stack-gap" width="16" style="width:16px; font-size:0; line-height:0;" aria-hidden="true">&nbsp;</td>
 
                 <!-- Card 2 -->
                 <td class="stack" valign="top" width="280" style="width:280px; max-width:280px; padding-bottom:14px;">
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" height="100%" style="background-color:#ffffff; border:1px solid #DEDAD2; height:100%;">
                     <tr>
                       <td bgcolor="#2C5F82" height="148" style="background-color:#2C5F82; height:148px; line-height:0; font-size:0;">
-                        <img src="../../assets/images/brevo/cuantificaciones.jpg" alt="Cuantificaciones con Autodesk Forma Takeoff" width="280" height="148" class="fluid" style="display:block; width:100%; max-width:280px; height:148px; object-fit:cover; border:0;">
+                        <a href="https://www.youtube.com/watch?v=batLbtV4UGk&amp;t=11s" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
+                          <img src="../../assets/images/brevo/cuantificaciones.jpg" alt="Miniatura: Cuantificaciones con Autodesk Forma Takeoff — ver en YouTube" width="280" height="148" class="fluid" style="display:block; width:100%; max-width:280px; height:148px; object-fit:cover; border:0;">
+                        </a>
                       </td>
                     </tr>
                     <tr>
@@ -496,14 +488,14 @@
                     </tr>
                     <tr>
                       <td height="72" valign="top" style="padding:8px 16px 0; height:72px; vertical-align:top;">
-                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#6B6B6E; line-height:1.5;">
+                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#4A4A4D; line-height:1.5;">
                           Genera tomas de cantidades precisas con Autodesk Forma Takeoff.
                         </p>
                       </td>
                     </tr>
                     <tr>
                       <td style="padding:10px 16px 16px;">
-                        <a href="https://www.youtube.com/watch?v=batLbtV4UGk&amp;t=11s" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:600; color:#17171A; text-decoration:none; border-bottom:2px solid #A31621; padding-bottom:1px;" target="_blank">Ver grabación →</a>
+                        <a href="https://www.youtube.com/watch?v=batLbtV4UGk&amp;t=11s" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; font-weight:600; color:#17171A; text-decoration:none; border-bottom:2px solid #A31621; padding-bottom:2px;" target="_blank" rel="noopener noreferrer">Ver grabación de Forma Takeoff →</a>
                       </td>
                     </tr>
                   </table>
@@ -515,16 +507,16 @@
 
         <!-- ========== HACKS ========== -->
         <tr>
-          <td style="padding:32px; border-top:1px solid #DEDAD2;">
+          <td id="hacks" style="padding:32px; border-top:1px solid #DEDAD2;">
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:14px;">
               <tr>
-                <td width="28" valign="middle" style="padding-right:10px;">
-                  <span style="font-size:16px; line-height:1; color:#A31621;">⚡</span>
+                <td width="28" valign="middle" style="padding-right:10px;" aria-hidden="true">
+                  <span style="font-size:16px; line-height:1; color:#A31621;">&#9889;</span>
                 </td>
                 <td valign="middle" style="font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#17171A; white-space:nowrap;">
                   #Cadgrafics Hacks
                 </td>
-                <td width="100%" valign="middle" style="padding:0 10px;">
+                <td width="100%" valign="middle" style="padding:0 10px;" aria-hidden="true">
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #DEDAD2; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table>
                 </td>
                 <td valign="middle" style="font-family:'Courier New', Courier, monospace; font-size:10px; color:#A31621; letter-spacing:0.05em; white-space:nowrap;">
@@ -535,18 +527,18 @@
 
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
               <tr>
-                <td style="background-color:#ffffff; border:1px solid #DEDAD2; border-left:3px solid #ffff00; padding:16px 18px;">
+                <td style="background-color:#ffffff; border:1px solid #DEDAD2; border-left:3px solid #C4A000; padding:16px 18px;">
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                     <tr>
-                      <td width="40" valign="top" style="font-family:'Courier New', Courier, monospace; font-size:20px; font-weight:600; color:#c4c400; line-height:1; padding-right:14px;">
+                      <td width="40" valign="top" style="font-family:'Courier New', Courier, monospace; font-size:20px; font-weight:600; color:#8A7600; line-height:1; padding-right:14px;" aria-hidden="true">
                         01
                       </td>
                       <td valign="top">
                         <h3 style="margin:0 0 5px; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:600; color:#17171A;">
                           Duplica una vista de Revit sin perder anotaciones
                         </h3>
-                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#6B6B6E; line-height:1.55;">
-                          Usa <span style="font-family:'Courier New', Courier, monospace; background-color:#F4F2EE; border:1px solid #DEDAD2; padding:1px 5px; font-size:11px; color:#17171A;">Ctrl</span> + arrastrar la vista en el Navegador de Proyecto para duplicarla con dependencia — así conservas cotas y notas al hacer variantes de una misma lámina.
+                        <p style="margin:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#4A4A4D; line-height:1.55;">
+                          Usa <kbd style="font-family:'Courier New', Courier, monospace; background-color:#F4F2EE; border:1px solid #DEDAD2; padding:1px 5px; font-size:11px; color:#17171A;">Ctrl</kbd> + arrastrar la vista en el Navegador de Proyecto para duplicarla con dependencia — así conservas cotas y notas al hacer variantes de una misma lámina.
                         </p>
                       </td>
                     </tr>
@@ -563,29 +555,39 @@
             <p style="margin:0 0 6px; font-family:Arial, Helvetica, sans-serif; font-size:15px; font-weight:600; color:#ffffff;">
               ¿Tienes dudas sobre algo de esta edición?
             </p>
-            <p style="margin:0 0 18px; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#a3a2a0; line-height:1.45;">
+            <p style="margin:0 0 18px; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#c4c3c0; line-height:1.45;">
               Escríbenos y un especialista de Cadgrafics te responde en menos de 24h.
             </p>
 
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 20px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 18px;">
               <tr>
-                <td style="padding:0 6px;">
-                  <a href="https://www.facebook.com/Cadgrafics" target="_blank" style="display:inline-block; width:32px; height:32px; line-height:32px; text-align:center; border:1px solid #4a4a4c; font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; color:#ffffff; text-decoration:none;">f</a>
-                </td>
-                <td style="padding:0 6px;">
-                  <a href="https://mx.linkedin.com/company/cadgrafics" target="_blank" style="display:inline-block; width:32px; height:32px; line-height:32px; text-align:center; border:1px solid #4a4a4c; font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; color:#ffffff; text-decoration:none;">in</a>
-                </td>
-                <td style="padding:0 6px;">
-                  <a href="https://www.youtube.com/@cadgrafics1639" target="_blank" style="display:inline-block; width:32px; height:32px; line-height:32px; text-align:center; border:1px solid #4a4a4c; font-family:Arial, Helvetica, sans-serif; font-size:10px; font-weight:700; color:#ffffff; text-decoration:none;">YT</a>
+                <td bgcolor="#25D366" style="background-color:#25D366;">
+                  <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20bolet%C3%ADn%20y%20quiero%20informaci%C3%B3n" class="btn" style="display:inline-block; padding:12px 20px; font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:13px; color:#ffffff; text-decoration:none; background-color:#25D366; line-height:1.3;" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp al 55 3112 0508">
+                    Escribir por WhatsApp
+                  </a>
                 </td>
               </tr>
             </table>
 
-            <p style="margin:0; font-family:'Courier New', Courier, monospace; font-size:9px; color:#6a6a6c; letter-spacing:0.04em; line-height:1.6;">
-              Equipo Cadgrafics ONE · Ciudad de México · Ciudad de Guadalajara<br>
-              <a href="{{ unsubscribe }}" style="color:#6a6a6c; text-decoration:underline;">Darse de baja</a>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 20px;" aria-label="Redes sociales de Cadgrafics">
+              <tr>
+                <td style="padding:0 6px;">
+                  <a href="https://www.facebook.com/Cadgrafics" target="_blank" rel="noopener noreferrer" title="Facebook de Cadgrafics" aria-label="Facebook de Cadgrafics" style="display:inline-block; min-width:36px; height:36px; line-height:36px; text-align:center; border:1px solid #6a6a6c; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:700; color:#ffffff; text-decoration:none; padding:0 4px;">f<span style="font-size:0; line-height:0; opacity:0;">acebook</span></a>
+                </td>
+                <td style="padding:0 6px;">
+                  <a href="https://mx.linkedin.com/company/cadgrafics" target="_blank" rel="noopener noreferrer" title="LinkedIn de Cadgrafics" aria-label="LinkedIn de Cadgrafics" style="display:inline-block; min-width:36px; height:36px; line-height:36px; text-align:center; border:1px solid #6a6a6c; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:700; color:#ffffff; text-decoration:none; padding:0 4px;">in<span style="font-size:0; line-height:0; opacity:0;"> LinkedIn</span></a>
+                </td>
+                <td style="padding:0 6px;">
+                  <a href="https://www.youtube.com/@cadgrafics1639" target="_blank" rel="noopener noreferrer" title="YouTube de Cadgrafics" aria-label="YouTube de Cadgrafics" style="display:inline-block; min-width:36px; height:36px; line-height:36px; text-align:center; border:1px solid #6a6a6c; font-family:Arial, Helvetica, sans-serif; font-size:11px; font-weight:700; color:#ffffff; text-decoration:none; padding:0 4px;">YT<span style="font-size:0; line-height:0; opacity:0;"> YouTube</span></a>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0; font-family:'Courier New', Courier, monospace; font-size:11px; color:#b0afad; letter-spacing:0.04em; line-height:1.7;">
+              Equipo Cadgrafics ONE · Ciudad de México · Guadalajara<br>
+              <a href="{{ unsubscribe }}" style="color:#d4d3d0; text-decoration:underline;">Darse de baja</a>
               &nbsp;·&nbsp;
-              <a href="{{ mirror }}" style="color:#6a6a6c; text-decoration:underline;">Ver en el navegador</a>
+              <a href="{{ mirror }}" style="color:#d4d3d0; text-decoration:underline;">Ver en el navegador</a>
             </p>
           </td>
         </tr>
@@ -598,14 +600,10 @@
       <!-- Imágenes (misma carpeta que este HTML):
            cadgrafics_one.png | autodesk_university.gif | webinar_adobe_firefly.gif
            fusion.jpeg | cuantificaciones.jpg
-           En Brevo: sube estos 5 archivos a Medios y reemplaza cada src por la URL HTTPS que te dé. -->
+           En Brevo: sube estos 5 archivos a Medios y reemplaza cada src por la URL HTTPS que te dé.
+           No uses botones flotantes en el envío: solo CTAs en tabla. -->
     </td>
   </tr>
 </table>
-<a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20y%20quiero%20información" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 55 3112 0508">
-  <svg width="32" height="32" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
-  </svg>
-</a>
 </body>
 </html>

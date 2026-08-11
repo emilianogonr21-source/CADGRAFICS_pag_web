@@ -273,8 +273,12 @@
         const display = document.getElementById('plan-display');
         const toolsList = document.getElementById('tools-list');
         const col = planColumnMap[planKey];
+        const activeTab = document.querySelector(`.tab[data-plan="${planKey}"]`);
 
         display.className = 'plan-content' + (plan.dark ? ' dark' : '');
+        if (activeTab?.id) {
+          display.setAttribute('aria-labelledby', activeTab.id);
+        }
 
         display.innerHTML = `
           <div class="plan-title">
@@ -294,13 +298,13 @@
           if (included) {
             toolsHtml += `
               <div class="tool-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                 ${name}
               </div>`;
           } else {
             toolsHtml += `
               <div class="tool-item disabled">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 ${name}
               </div>`;
           }
@@ -308,11 +312,43 @@
         toolsList.innerHTML = toolsHtml;
       }
 
-      document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', () => {
-          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          renderPlan(tab.dataset.plan);
+      const tabs = Array.from(document.querySelectorAll('.tab'));
+
+      const activateTab = (tab, { focusPanel = false } = {}) => {
+        tabs.forEach(t => {
+          const selected = t === tab;
+          t.classList.toggle('active', selected);
+          t.setAttribute('aria-selected', String(selected));
+          t.tabIndex = selected ? 0 : -1;
+        });
+        renderPlan(tab.dataset.plan);
+        if (focusPanel) {
+          document.getElementById('plan-display')?.focus();
+        }
+      };
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateTab(tab));
+        tab.addEventListener('keydown', (e) => {
+          let nextIndex = null;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            nextIndex = (index + 1) % tabs.length;
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            nextIndex = (index - 1 + tabs.length) % tabs.length;
+          } else if (e.key === 'Home') {
+            nextIndex = 0;
+          } else if (e.key === 'End') {
+            nextIndex = tabs.length - 1;
+          } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activateTab(tab, { focusPanel: true });
+            return;
+          }
+          if (nextIndex !== null) {
+            e.preventDefault();
+            tabs[nextIndex].focus();
+            activateTab(tabs[nextIndex]);
+          }
         });
       });
 
@@ -354,4 +390,80 @@
       }
 
       renderPlan('studio');
+    })();
+
+    // ============ HERO LEAD FORM ============
+    (function () {
+      'use strict';
+
+      const form = document.getElementById('heroLeadForm');
+      const messageEl = document.getElementById('heroFormMessage');
+      if (!form || !messageEl) return;
+
+      const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+      const setMessage = (text, type) => {
+        messageEl.hidden = !text;
+        messageEl.textContent = text || '';
+        messageEl.className = 'form-message' + (type ? ` ${type}` : '');
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        setMessage('');
+
+        const fd = new FormData(form);
+        const nombre = String(fd.get('nombre') || '').trim();
+        const email = String(fd.get('email') || '').trim();
+        const telefono = String(fd.get('telefono') || '').trim();
+        const empresa = String(fd.get('empresa') || '').trim();
+        const interes = String(fd.get('interes') || '').trim();
+
+        if (!nombre) {
+          setMessage('Por favor, ingresa tu nombre.', 'error');
+          document.getElementById('hero-nombre')?.focus();
+          return;
+        }
+        if (!isValidEmail(email)) {
+          setMessage('Por favor, ingresa un correo válido.', 'error');
+          document.getElementById('hero-email')?.focus();
+          return;
+        }
+        if (!interes) {
+          setMessage('Selecciona qué deseas saber.', 'error');
+          document.getElementById('hero-interes')?.focus();
+          return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalHtml = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        try {
+          const response = await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              nombre,
+              email,
+              telefono,
+              empresa,
+              interes,
+              source: 'chaos-hero-form'
+            })
+          });
+
+          if (!response.ok) throw new Error('Error en el servidor');
+
+          setMessage('¡Gracias ' + nombre + '! Te contactaremos pronto.', 'success');
+          form.reset();
+        } catch (error) {
+          console.error('Error al enviar formulario:', error);
+          setMessage('No se pudo enviar. Intenta de nuevo o escríbenos por WhatsApp.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHtml;
+        }
+      });
     })();
