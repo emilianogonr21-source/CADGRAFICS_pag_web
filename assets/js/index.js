@@ -60,9 +60,12 @@
                     const hasMenu = parent?.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
                     if (!hasMenu) return;
 
+                    // Primer toque: abre submenú. Segundo toque: navega (ej. home-adobe).
+                    if (parent.classList.contains('active')) return;
+
                     e.preventDefault();
-                    const isActive = parent.classList.toggle('active');
-                    link.setAttribute('aria-expanded', String(isActive));
+                    parent.classList.add('active');
+                    link.setAttribute('aria-expanded', 'true');
 
                     $$(`${parentSelector}.active`).forEach(sib => {
                         if (sib !== parent) {

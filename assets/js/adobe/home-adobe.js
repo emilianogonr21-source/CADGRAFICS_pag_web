@@ -45,10 +45,14 @@
     document.querySelectorAll(selector).forEach(link => {
       link.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
-          e.preventDefault();
           const parent = link.closest(parentSelector);
-          const isActive = parent?.classList.toggle('active');
-          link.setAttribute('aria-expanded', String(!!isActive));
+          const hasMenu = parent?.querySelector('.dropdown-menu, .dropdown-submenu-menu');
+          if (!parent || !hasMenu) return;
+          if (parent.classList.contains('active')) return;
+
+          e.preventDefault();
+          parent.classList.add('active');
+          link.setAttribute('aria-expanded', 'true');
           document.querySelectorAll(`${parentSelector}.active`).forEach(sib => {
             if (sib !== parent) {
               sib.classList.remove('active');

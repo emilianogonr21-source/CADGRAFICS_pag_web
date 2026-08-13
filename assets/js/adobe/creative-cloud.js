@@ -294,21 +294,24 @@ document.addEventListener('DOMContentLoaded', function () {
           toggle.addEventListener('click', (e) => {
             if (window.innerWidth > 768 && toggle.getAttribute('href') !== '#') return;
 
-            e.preventDefault();
             const parent = toggle.closest(parentSelector);
             if (!parent) return;
+            const hasMenu = parent.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
+            if (!hasMenu) return;
 
-            const isOpen = parent.classList.contains('open');
+            // Primer toque abre; segundo toque navega al home de la marca
+            if (parent.classList.contains('open') || parent.classList.contains('active')) return;
 
-            parent.parentElement?.querySelectorAll(`:scope > ${parentSelector}.open`).forEach(sib => {
+            e.preventDefault();
+            parent.parentElement?.querySelectorAll(`:scope > ${parentSelector}.open, :scope > ${parentSelector}.active`).forEach(sib => {
               if (sib !== parent) {
-                sib.classList.remove('open');
+                sib.classList.remove('open', 'active');
                 sib.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
               }
             });
 
-            parent.classList.toggle('open', !isOpen);
-            toggle.setAttribute('aria-expanded', String(!isOpen));
+            parent.classList.add('open', 'active');
+            toggle.setAttribute('aria-expanded', 'true');
           });
         });
       }

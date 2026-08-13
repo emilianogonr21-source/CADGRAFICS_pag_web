@@ -173,8 +173,18 @@
         .dropdown-submenu-menu {
             top: 0;
             left: 100%;
-            margin-left: 0.25rem;
+            margin-left: 0;
+            padding-left: 0.35rem;
             transform: translateX(-8px);
+        }
+
+        .dropdown-submenu-menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -0.35rem;
+            width: 0.7rem;
+            height: 100%;
         }
 
         .nav-item:hover > .dropdown-menu,

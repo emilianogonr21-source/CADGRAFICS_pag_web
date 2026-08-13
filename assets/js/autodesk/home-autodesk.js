@@ -35,10 +35,11 @@
                     const parent = link.closest(parentSelector);
                     const hasMenu = parent && parent.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
                     if (!hasMenu) return;
+                    if (parent.classList.contains('active')) return;
                     e.preventDefault();
                     e.stopPropagation();
-                    const isActive = parent.classList.toggle('active');
-                    link.setAttribute('aria-expanded', String(isActive));
+                    parent.classList.add('active');
+                    link.setAttribute('aria-expanded', 'true');
                     document.querySelectorAll(parentSelector + '.active').forEach(sib => {
                         if (sib !== parent) {
                             sib.classList.remove('active');
