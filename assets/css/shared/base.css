@@ -1,0 +1,75 @@
+/*
+  Cadgrafics — tokens y utilidades compartidas
+  --------------------------------------------
+  Se carga ANTES del CSS de cada página. Las variables aquí son la base;
+  cada marca puede sobrescribirlas en su propia hoja sin cambiar el look
+  actual (las reglas de página ganan por orden de cascada).
+
+  No redefine layout de header/footer de marca: eso sigue en cada CSS.
+*/
+
+:root {
+  /* Marca Cadgrafics (referencia común) */
+  --cg-dark-red: #990000;
+  --cg-color-dark: #0a0a0a;
+  --cg-color-red: #5b0010;
+  --cg-color-green: #18ff5c;
+  --cg-color-white: #ffffff;
+  --cg-color-gray: #4b5563;
+  --cg-header-height: 120px;
+  --cg-container-max: 1280px;
+  --cg-radius-md: 12px;
+  --cg-transition: 0.25s ease;
+  --cg-whatsapp: #25d366;
+}
+
+/* Cookie banner — compartido (Dell y páginas que lo incluyan) */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(10, 10, 10, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #c8c8c8;
+  font-size: 0.9rem;
+}
+
+.cookie-banner p {
+  margin: 0;
+  flex: 1 1 220px;
+  color: inherit;
+  font-size: 0.9rem;
+}
+
+.cookie-banner .cookie-buttons,
+.cookie-banner .cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cookie-banner button {
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #fff;
+}
+
+.cookie-banner button.cookie-accept,
+.cookie-banner .btn-accept {
+  background: var(--cg-color-green, #18ff5c);
+  color: #0a0a0a;
+  border-color: transparent;
+  font-weight: 600;
+}

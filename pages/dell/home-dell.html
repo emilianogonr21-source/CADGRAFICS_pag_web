@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+<!--
+  Página Dell — Cadgrafics
+  -------------------------
+  Qué hace esta página: presenta soluciones Dell (Pro, Precision, Latitude)
+  y permite pedir asesoría.
+
+  Archivos relacionados (no mezclar todo aquí):
+  - Apariencia:  ../../assets/css/dell/home-dell.css
+  - Comportamiento: ../../assets/js/dell/home-dell.js
+  - Imágenes:  ../../assets/images/images_home-dell/
+
+  Orden del contenido:
+  1. Menú superior (igual que el resto del sitio)
+  2. Portada (hero)
+  3. Línea Pro (pestañas Premium / Plus / Max)
+  4. Precision (workstations)
+  5. Latitude
+  6. Formulario de contacto en la página
+  7. Bloque Cadgrafics + Dell
+  8. Pie de página
+  9. WhatsApp flotante
+  10. Ventana emergente de Contáctanos (modal)
+  11. Aviso de cookies
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dell Gold Partner - Potencia tu negocio con Dell</title>
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Estilos de esta página (archivo aparte) -->
+    <link rel="stylesheet" href="../../assets/css/shared/base.css">
     <link rel="stylesheet" href="../../assets/css/dell/home-dell.css">
+    <!-- Carga pronto la imagen principal para que la portada se vea rápido -->
     <link rel="preload" as="image" href="../../assets/images/images_home-dell/hero-laptop.png" fetchpriority="high">
 </head>
 <body>
+    <!-- Enlace para teclado/lectores de pantalla: salta directo al contenido -->
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
+    <!-- Iconos del menú y redes (se reutilizan en varios botones) -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
         <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
@@ -34,6 +65,7 @@
         <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
     </svg>
 
+    <!-- Menú superior Cadgrafics (compartido con el resto del sitio) -->
     <header class="header" id="header">
         <div class="container nav-container">
             <a href="../../index.html" aria-label="Ir a inicio de Cadgrafics">
@@ -64,7 +96,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="../chaos/home-Chaos.html">
+                                <a href="../chaos/home-chaos.html">
                                     <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> Sketchup
                                 </a>
                             </li>
@@ -82,6 +114,7 @@
                     </li>
                     <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
                     <li><a href="../../index.html#casos">Casos</a></li>
+                    <!-- Contáctanos: abre la ventana emergente (no solo baja al formulario) -->
                     <li><a href="#contacto" class="textbutton-trigger" aria-label="Abrir formulario de contacto">Contáctanos</a></li>
                 </ul>
             </nav>
@@ -95,6 +128,7 @@
 
     <main id="main-content">
 
+    <!-- Portada: mensaje principal + cifras Dell -->
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-media">
@@ -130,6 +164,7 @@
         </div>
     </section>
 
+    <!-- Línea Pro: el visitante elige Premium, Plus o Max con las pestañas -->
     <!-- Pro Line Section -->
     <section class="pro-line" id="pro-series">
         <div class="section-header">
@@ -534,6 +569,11 @@
         <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
     </a>
 
+    <!--
+      Ventana emergente de Contáctanos
+      Se abre al hacer clic en el botón del menú.
+      El envío y la validación están en home-dell.js
+    -->
     <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content" role="document">
             <div class="modal-header">
@@ -578,6 +618,7 @@
         </div>
     </div>
 
+    <!-- Aviso de cookies al pie (recordar aceptación en el navegador) -->
     <!-- Cookie Banner -->
     <div class="cookie-banner" id="cookieBanner">
         <p>Gestionar las cookies o rechazarlas</p>
@@ -586,6 +627,8 @@
             <button class="btn-secondary" onclick="rejectCookies()">Rechazar</button>
         </div>
     </div>
+    <!-- Comportamiento de la página (menú, pestañas, formularios, animaciones) -->
+    <script src="../../assets/js/shared/site-common.js"></script>
     <script src="../../assets/js/dell/home-dell.js"></script>
 </body>
 </html>

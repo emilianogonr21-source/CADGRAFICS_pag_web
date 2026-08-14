@@ -1,0 +1,70 @@
+<!--
+  Partial: header / navegación Cadgrafics (fuente de verdad)
+
+  Placeholders:
+    {{ROOT}}              "" en la raíz, "../../" desde pages/marca/
+    {{LOGO_HREF}}         "#" en inicio, "{{ROOT}}index.html" en el resto
+    {{ACTIVE_ATTR_DELL}}  aria-current="page" solo en Dell (vacío en otras)
+    {{CONTACT_CLASSES}}   clases del CTA Contáctanos (varían por página/JS)
+    {{INDEX_SERVICIOS}}   ruta a #servicios
+    {{INDEX_CASOS}}       ruta a #casos
+
+  No unificar a la fuerza sin revisar el CTA: cada página usa clases distintas
+  (.textbutton-trigger, .modal-trigger, data-modal-trigger, etc.).
+-->
+<header class="header" id="header">
+  <div class="container nav-container">
+    <a href="{{LOGO_HREF}}" aria-label="Ir a inicio de Cadgrafics">
+      <img src="{{ROOT}}assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="{{ROOT}}pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="{{ROOT}}pages/adobe/acrobat-studio.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Acrobat Studio</a></li>
+                <li><a href="{{ROOT}}pages/adobe/creative-cloud.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-adobe"/></svg> Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="{{ROOT}}pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-autodesk"/></svg> Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="{{ROOT}}pages/autodesk/aec-collection.html"><svg width="20" height="20" aria-hidden="true"><use href="#icon-aec"/></svg> AEC Collection</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="{{ROOT}}pages/chaos/home-chaos.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-layers"/></svg> Sketchup
+              </a>
+            </li>
+            <li>
+              <a href="{{ROOT}}pages/hp/home-hp.html">
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-hp"/></svg> HP
+              </a>
+            </li>
+            <li>
+              <a href="{{ROOT}}pages/dell/home-dell.html" {{ACTIVE_ATTR_DELL}}>
+                <svg width="20" height="20" aria-hidden="true"><use href="#icon-dell"/></svg> Dell
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="{{INDEX_SERVICIOS}}">Soluciones Claves</a></li>
+        <li><a href="{{INDEX_CASOS}}">Casos</a></li>
+        <li><a href="#contacto" class="{{CONTACT_CLASSES}}" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <svg width="24" height="24" aria-hidden="true"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+</header>

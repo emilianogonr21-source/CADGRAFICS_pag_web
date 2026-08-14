@@ -1,9 +1,30 @@
+/*
+  Estilos de la página Dell — Cadgrafics
+  --------------------------------------
+  Este archivo solo define cómo se VE la página.
+  El contenido está en: pages/dell/home-dell.html
+  El comportamiento está en: assets/js/dell/home-dell.js
+
+  Bloques principales (busca estos títulos más abajo):
+  1. Colores y medidas base
+  2. Menú superior
+  3. Portada (hero)
+  4. Línea Pro y pestañas
+  5. Precision y Latitude
+  6. Formulario de la página
+  7. Pie de página y WhatsApp
+  8. Ventana emergente de Contáctanos
+  9. Cookies y ajustes para celular
+*/
+
+/* Reinicio básico: todos los elementos parten de cero */
 * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* 1. Colores y medidas base (se reutilizan en toda la página) */
         :root {
             --dell-blue: #007DB8;
             --dell-dark: #005a8a;
@@ -15,6 +36,7 @@
             --shadow: 0 2px 20px rgba(0,0,0,0.08);
             --shadow-hover: 0 4px 30px rgba(0,0,0,0.12);
 
+            /* Colores Cadgrafics del menú y botones de contacto */
             --dark-red: #990000;
             --color-dark: #0a0a0a;
             --color-red: #5B0010;
@@ -80,6 +102,7 @@
             outline-offset: 2px;
         }
 
+        /* 2. Menú superior Cadgrafics */
         /* Header CADGRAFICS */
         .header {
             position: fixed;
@@ -1129,6 +1152,7 @@
             }
         }
 
+        /* 8. Ventana emergente de Contáctanos (igual idea que en la página de inicio) */
         /* Modal de contacto (igual que index.html) */
         .modal {
             display: none;
