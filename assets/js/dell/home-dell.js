@@ -1,12 +1,15 @@
 /*
   Comportamiento de la página Dell — Cadgrafics
-  Depende de: assets/js/shared/site-common.js (Cadgrafics)
+  ---------------------------------------------
+  Depende de: assets/js/shared/site-common.js (menú, Contáctanos, WhatsApp)
 
   Bloques de este archivo:
-  1. Menú, modal Contáctanos y cookies (compartidos)
+  1. Menú, ventana Contáctanos y cookies (compartidos)
   2. Pestañas de la línea Pro
   3. Formulario largo de la sección de contacto
   4. Animaciones al aparecer contenido y cifras
+
+  Guía del equipo: docs/README.md
 */
 
 (function () {

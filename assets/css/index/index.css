@@ -1,9 +1,13 @@
 /*
-  Estilos de index.html
-  Separado del HTML (mismo patron que Dell).
-  Edita este archivo para cambiar la apariencia (colores, tamanos, diseno) de la pagina.
+  Apariencia de la página de inicio — Cadgrafics
+  ----------------------------------------------
+  Este archivo solo define cómo se VE la página.
+  El contenido está en: index.html
+  El comportamiento está en: assets/js/index/index.js
+
+  Guía del equipo: docs/README.md
 */
-        /* ===== CSS VARIABLES ===== */
+        /* ===== Colores y medidas base ===== */
         :root {
             --dark-red: #990000;
             --color-dark: #0a0a0a;

@@ -1,11 +1,15 @@
 /*
-  Cadgrafics — tokens y utilidades compartidas
-  --------------------------------------------
-  Se carga ANTES del CSS de cada página. Las variables aquí son la base;
-  cada marca puede sobrescribirlas en su propia hoja sin cambiar el look
-  actual (las reglas de página ganan por orden de cascada).
+  Cadgrafics — colores y medidas base + aviso de cookies
+  ------------------------------------------------------
+  Qué hace: define colores Cadgrafics y el aspecto del aviso de cookies.
 
-  No redefine layout de header/footer de marca: eso sigue en cada CSS.
+  Se carga ANTES del CSS de cada página.
+  Cada marca puede usar sus propios colores en su archivo CSS;
+  eso no se pisa con este archivo.
+
+  El menú y el pie de cada marca siguen en el CSS de esa página.
+
+  Guía del equipo: docs/README.md
 */
 
 :root {

@@ -1,6 +1,14 @@
 /*
-  Comportamiento de index.html
-  Depende de: assets/js/shared/site-common.js (Cadgrafics)
+  Comportamiento de la página de inicio — Cadgrafics
+  --------------------------------------------------
+  Depende de: assets/js/shared/site-common.js (piezas compartidas)
+
+  Bloques de este archivo:
+  1. Menú y ventana Contáctanos (compartidos)
+  2. Formulario corto de la portada
+  3. Otras interacciones propias del inicio
+
+  Guía del equipo: docs/README.md
 */
 (function () {
   'use strict';
@@ -28,7 +36,7 @@
     triggerSelector: '.textbutton-trigger',
   });
 
-  // ===== Formulario Hero =====
+  // ===== Formulario de la portada =====
   const consultForm = $('#consultForm');
   const formMessage = $('#formMessage');
 

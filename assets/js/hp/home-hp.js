@@ -1,6 +1,9 @@
 /*
-  Comportamiento de pages/hp/home-hp.html
-  Depende de: assets/js/shared/site-common.js (Cadgrafics)
+  Comportamiento de la página HP — Cadgrafics
+  -------------------------------------------
+  Depende de: assets/js/shared/site-common.js (menú, Contáctanos, WhatsApp)
+
+  Guía del equipo: docs/README.md
 */
 (function () {
   'use strict';

@@ -1,7 +1,11 @@
 /*
-  Comportamiento de pages/adobe/home-adobe.html
-  Separado del HTML (mismo patron que Dell).
-  Edita este archivo para cambiar la comportamiento (menus, formularios, animaciones) de la pagina.
+  Comportamiento de la página Adobe — Cadgrafics
+  ----------------------------------------------
+  Menú, formularios, animaciones y Contáctanos de esta página.
+  Contenido: pages/adobe/home-adobe.html
+  Apariencia: assets/css/adobe/home-adobe.css
+
+  Guía del equipo: docs/README.md
 */
 (function() {
   'use strict';

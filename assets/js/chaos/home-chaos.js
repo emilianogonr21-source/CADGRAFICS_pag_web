@@ -1,6 +1,11 @@
 /*
-  Comportamiento de pages/chaos/home-chaos.html
-  Depende de: assets/js/shared/site-common.js (Cadgrafics)
+  Comportamiento de SketchUp (Chaos) — Cadgrafics
+  -----------------------------------------------
+  Depende de: assets/js/shared/site-common.js (menú, Contáctanos, WhatsApp)
+  Contenido: pages/chaos/home-chaos.html
+  Apariencia: assets/css/chaos/home-chaos.css
+
+  Guía del equipo: docs/README.md
 */
 (function () {
   'use strict';

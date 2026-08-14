@@ -1,9 +1,17 @@
 /*
-  Cadgrafics — comportamiento compartido (menú, leads, cookies, modal estándar)
-  ---------------------------------------------------------------------------
-  Cargar ANTES del JS de cada página.
-  Expone window.Cadgrafics para que cada marca reutilice la misma lógica
-  sin cambiar el aspecto visual de sus hojas CSS.
+  Cadgrafics — piezas que se repiten en casi todas las páginas
+  ------------------------------------------------------------
+  Qué hace este archivo (en simple):
+  - Menú de arriba (también en celular)
+  - Ventana de Contáctanos
+  - Aviso de cookies
+  - Envío de formularios: intenta guardar el dato y SIEMPRE abre WhatsApp
+    con el mensaje listo, para no perder el contacto
+
+  Cómo usarlo: cargar ESTE archivo ANTES del JS de cada página.
+  Cada marca reutiliza esta lógica sin cambiar su propio aspecto (CSS).
+
+  Guía del equipo: docs/README.md
 */
 (function (global) {
   'use strict';
@@ -23,7 +31,7 @@
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isValidPhone = (phone) => /^[\d\s+\-()]{7,}$/.test(phone);
 
-  /** Mensaje de WhatsApp con los datos del formulario (canal confiable en hosting estático). */
+  /* Arma el texto que se envía por WhatsApp con los datos del formulario. */
   function buildWhatsAppMessage(data, label) {
     const lines = [
       'Hola Cadgrafics,',
@@ -45,8 +53,9 @@
   }
 
   /**
-   * Envía el lead: intenta API si existe; siempre abre WhatsApp para no perder el contacto.
-   * @returns {{ apiOk: boolean, whatsappOpened: boolean }}
+   * Envía el contacto del visitante:
+   * 1) Intenta guardarlo en el servidor (si existe).
+   * 2) Siempre abre WhatsApp con los datos, para no perder el lead.
    */
   async function submitLead(raw, options) {
     const opts = options || {};
@@ -87,7 +96,7 @@
     return { apiOk: apiOk, whatsappOpened: opts.openWhatsApp !== false, data: data };
   }
 
-  /** Menú: scroll del header, móvil y submenús. */
+  /* Menú de arriba: cambia al hacer scroll, abre en celular y maneja submenús. */
   function initHeader(options) {
     const opts = options || {};
     const header = $('#header');
@@ -179,7 +188,7 @@
     setupDropdown('.dropdown-submenu > a', '.dropdown-submenu');
   }
 
-  /** Anclas suaves; ignora triggers de modal. */
+  /* Enlaces internos (#seccion): baja suavemente sin chocar con el menú. */
   function initSmoothAnchors(options) {
     const opts = options || {};
     const header = $('#header');
@@ -203,9 +212,8 @@
   }
 
   /**
-   * Modal estándar #formModal + #leadForm (index, Dell, HP, Chaos, etc.).
-   * options.fieldMap: { name, email, phone, company } → selectores CSS
-   * options.source, options.label, options.focusSelector, options.triggerSelector
+   * Ventana de Contáctanos (la que usan inicio, Dell, HP, SketchUp, etc.).
+   * options: de dónde viene el contacto, qué campos leer y qué botón la abre.
    */
   function initStandardLeadModal(options) {
     const opts = options || {};

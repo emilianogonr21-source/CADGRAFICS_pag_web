@@ -1,6 +1,11 @@
 /*
-  Comportamiento de pages/autodesk/home-autodesk.html
-  Depende de: assets/js/shared/site-common.js (Cadgrafics)
+  Comportamiento de la página Autodesk — Cadgrafics
+  -------------------------------------------------
+  Depende de: assets/js/shared/site-common.js (menú, Contáctanos, WhatsApp)
+  Contenido: pages/autodesk/home-autodesk.html
+  Apariencia: assets/css/autodesk/home-autodesk.css
+
+  Guía del equipo: docs/README.md
 */
 (function () {
   'use strict';

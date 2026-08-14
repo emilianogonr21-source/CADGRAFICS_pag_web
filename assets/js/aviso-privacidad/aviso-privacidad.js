@@ -1,11 +1,15 @@
 /*
-  Comportamiento de aviso-privacidad.html
-  Separado del HTML (mismo patron que Dell).
-  Edita este archivo para cambiar la comportamiento (menus, formularios, animaciones) de la pagina.
+  Comportamiento del aviso de privacidad — Cadgrafics
+  ---------------------------------------------------
+  Edita este archivo solo si cambia algo del menú o comportamiento de esta página.
+  Los textos del aviso están en: aviso-privacidad.html
+  La apariencia está en: assets/css/aviso-privacidad/aviso-privacidad.css
+
+  Guía del equipo: docs/README.md
 */
     'use strict';
 
-    // ===== GLOBAL ERROR HANDLING =====
+    // Errores inesperados: se registran en la consola del navegador
     window.addEventListener('error', (e) => {
         console.error('Error global capturado:', e.error);
     });

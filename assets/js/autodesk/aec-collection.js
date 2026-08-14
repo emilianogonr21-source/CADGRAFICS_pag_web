@@ -1,6 +1,11 @@
 /*
-  Comportamiento de pages/autodesk/aec-collection.html
-  Depende de: assets/js/shared/site-common.js (Cadgrafics)
+  Comportamiento de AEC Collection — Cadgrafics
+  ---------------------------------------------
+  Depende de: assets/js/shared/site-common.js (menú, Contáctanos, WhatsApp)
+  Contenido: pages/autodesk/aec-collection.html
+  Apariencia: assets/css/autodesk/aec-collection.css
+
+  Guía del equipo: docs/README.md
 */
 (function () {
   'use strict';

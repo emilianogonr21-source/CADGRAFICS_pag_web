@@ -1,7 +1,11 @@
 /*
-  Comportamiento de pages/adobe/acrobat-studio.html
-  Separado del HTML (mismo patron que Dell).
-  Edita este archivo para cambiar la comportamiento (menus, formularios, animaciones) de la pagina.
+  Comportamiento de Acrobat Studio — Cadgrafics
+  ---------------------------------------------
+  Menú, formularios y animaciones de esta página.
+  Contenido: pages/adobe/acrobat-studio.html
+  Apariencia: assets/css/adobe/acrobat-studio.css
+
+  Guía del equipo: docs/README.md
 */
 (function () {
   'use strict';

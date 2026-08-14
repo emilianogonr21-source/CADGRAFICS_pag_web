@@ -1,7 +1,11 @@
 /*
-  Comportamiento de pages/adobe/creative-cloud.html
-  Separado del HTML (mismo patron que Dell).
-  Edita este archivo para cambiar la comportamiento (menus, formularios, animaciones) de la pagina.
+  Comportamiento de Creative Cloud — Cadgrafics
+  ---------------------------------------------
+  Menú, formularios y animaciones de esta página.
+  Contenido: pages/adobe/creative-cloud.html
+  Apariencia: assets/css/adobe/creative-cloud.css
+
+  Guía del equipo: docs/README.md
 */
     document.addEventListener('DOMContentLoaded', function () {
       const header = document.getElementById('header');
