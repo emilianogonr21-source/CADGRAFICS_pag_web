@@ -479,7 +479,8 @@ p {
   background: var(--card-dark);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   position: relative;
 }
 
@@ -515,7 +516,7 @@ p {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  min-width: 800px;
+  min-width: 640px;
 }
 
 .comparativo-table th {
@@ -1377,7 +1378,7 @@ p {
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
   .hero-grid,
   .firefly-grid,
   .express-grid {
@@ -1394,12 +1395,12 @@ p {
 
   .express-card,
   .testimonial-card { padding: 40px 24px; }
-}
 
-@media (max-width: 768px) {
   :root { --header-height: 64px; }
 
   .mobile-toggle { display: block; }
+
+  .header .logo { height: 48px; }
 
   .nav-menu {
     position: fixed;
@@ -1466,8 +1467,6 @@ p {
 
   .dropdown-submenu.open > a::after { transform: rotate(90deg); }
 
-  .header .logo { height: 60px; }
-
   .firefly-images { grid-template-columns: 1fr 1fr; }
   .firefly-image-card { aspect-ratio: 1; }
 
@@ -1479,6 +1478,18 @@ p {
   .comparativo-header {
     justify-content: center;
   }
+
+  .comparativo-sidebar {
+    display: none;
+  }
+
+  .comparativo-content {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .firefly-images { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -1496,17 +1507,16 @@ p {
 
   .whatsapp-float svg { width: 1.75rem; height: 1.75rem; }
 
-  .comparativo-sidebar {
-    display: none;
+  .firefly-images { grid-template-columns: 1fr; }
+
+  .comparativo-table {
+    min-width: 520px;
+    font-size: 0.8rem;
   }
 
-  .comparativo-content {
-    margin-left: 0;
-  }
-
-  .comparativo-table th:first-child,
-  .comparativo-table td:first-child {
-    padding-left: 16px;
+  .comparativo-table th,
+  .comparativo-table td {
+    padding: 10px 8px;
   }
 }
 

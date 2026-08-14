@@ -14,8 +14,9 @@
 -->
 <header class="header" id="header">
   <div class="container nav-container">
-    <a href="{{LOGO_HREF}}" aria-label="Ir a inicio de Cadgrafics">
-      <img src="{{ROOT}}assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+    <a href="{{LOGO_HREF}}" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
+      <img src="{{ROOT}}assets/images/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+      <span class="brand-name">CADGRAFICS</span>
     </a>
     <nav aria-label="Navegación principal">
       <ul class="nav-menu" id="navMenu">
@@ -63,8 +64,12 @@
         <li><a href="#contacto" class="{{CONTACT_CLASSES}}" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
       </ul>
     </nav>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-      <svg width="24" height="24" aria-hidden="true"><use href="#icon-menu"/></svg>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="hamburger" aria-hidden="true">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
     </button>
   </div>
 </header>

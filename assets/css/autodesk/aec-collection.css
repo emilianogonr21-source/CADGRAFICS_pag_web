@@ -1417,7 +1417,43 @@ ul {
     /* hero h1 size: unified typography */
     .hero-description { margin: 0 auto 40px; }
     .tools-grid { grid-template-columns: repeat(2, 1fr); }
-    .cert-image { width: 240px; height: 160px; }
+    .benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .challenges-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cert-image { width: 240px; height: 160px; max-width: 100%; }
+
+    .mobile-toggle { display: block; }
+    .header .logo { height: 48px; }
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        height: calc(100dvh - 70px);
+        background: rgba(15, 23, 42, 0.98);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 1.5rem;
+        gap: 0.5rem;
+        overflow-y: auto;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+        border-bottom: 2px solid var(--color-red);
+    }
+    .nav-menu.active { transform: translateY(0); }
+
+    .dropdown-menu,
+    .dropdown-submenu-menu {
+        position: static; opacity: 1; visibility: visible; transform: none;
+        background: transparent; border: none; box-shadow: none; backdrop-filter: none;
+        padding: 0; margin: 0; min-width: auto; max-height: 0; overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    .nav-item.active > .dropdown-menu,
+    .dropdown-submenu.active > .dropdown-submenu-menu {
+        max-height: 500px; padding: 0.5rem 0 0.5rem 1.5rem; margin-top: 0.25rem;
+        border-left: 2px solid var(--color-red);
+    }
 }
 
 @media (max-width: 768px) {
@@ -1519,11 +1555,12 @@ ul {
 }
 
 @media (max-width: 480px) {
-    /* hero h1 size: unified typography */
-    /* section-title size: unified typography */
     .challenge-card,
-    .benefit-card { padding: 24px; }
-    .cert-image { width: 280px; height: 180px; }
+    .benefit-card { padding: 20px; }
+    .cert-image { width: min(200px, 70vw); height: auto; aspect-ratio: 10 / 7; }
+    .trust-stats { grid-template-columns: 1fr; }
+    .benefits-grid,
+    .challenges-grid { grid-template-columns: 1fr; }
 }
     
 

@@ -284,7 +284,7 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       :root { --header-height: 64px; }
 
       .mobile-toggle { display: block; }
@@ -1199,7 +1199,7 @@
         grid-template-columns: 1fr;
         gap: 16px;
       }
-      .tools-list { grid-template-columns: 1fr 1fr; }
+      .tools-list { grid-template-columns: 1fr; }
       .hero .form-grid { grid-template-columns: 1fr; }
       .industries-header,
       .gallery-header { grid-template-columns: 1fr; }

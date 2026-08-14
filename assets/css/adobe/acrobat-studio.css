@@ -299,7 +299,7 @@
     .mobile-toggle:focus { background: rgba(255, 255, 255, 0.1); }
 
     /* Responsive Header */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       :root { --header-height: 64px; }
       
       .header .logo { height: 48px; }

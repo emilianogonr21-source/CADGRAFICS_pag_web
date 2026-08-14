@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -28,8 +28,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="image" href="assets/images/hero-poster.jpg" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/shared/base.css">
-    <link rel="stylesheet" href="assets/css/index/index.css">
+    <link rel="stylesheet" href="assets/css/shared/base.css?v=20260314">
+    <link rel="stylesheet" href="assets/css/index/index.css?v=20260314">
 </head>
 <body>
 
@@ -81,8 +81,9 @@
 
 <header class="header" id="header">
     <div class="container nav-container">
-        <a href="#" aria-label="Ir a inicio de Cadgrafics">
-            <img src="assets/images/logo_cadgrafics.png" alt="Cadgrafics" class="logo" loading="eager" width="288" height="72"/>
+        <a href="#" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
+            <img src="assets/images/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+            <span class="brand-name">CADGRAFICS</span>
         </a>
         
         <nav aria-label="Navegación principal">
@@ -132,10 +133,12 @@
             </ul>
         </nav>
         
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-                <svg width="24" height="24" aria-hidden="true">
-                    <use href="#icon-menu"/>
-                </svg>
+        <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+            <span class="hamburger" aria-hidden="true">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </span>
         </button>
     </div>
 </header>
@@ -526,7 +529,7 @@
     </div>
 </div>
 
-    <script src="assets/js/shared/site-common.js" nonce="REEMPLAZAR_DESDE_SERVIDOR"></script>
-    <script src="assets/js/index/index.js" nonce="REEMPLAZAR_DESDE_SERVIDOR"></script>
+    <script src="assets/js/shared/site-common.js?v=20260314" nonce="REEMPLAZAR_DESDE_SERVIDOR"></script>
+    <script src="assets/js/index/index.js?v=20260314" nonce="REEMPLAZAR_DESDE_SERVIDOR"></script>
 </body>
 </html>

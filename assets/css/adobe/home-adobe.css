@@ -752,60 +752,17 @@
 }
 
 @media (max-width: 1024px) {
-  .acrobat-cards { grid-template-columns: 1fr; gap: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-  .licensing-cards { grid-template-columns: 1fr; gap: 2rem; }
-}
-
-@media (max-width: 992px) {
-  .firefly-new-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .firefly-capabilities-grid { grid-template-columns: 1fr 1fr; padding: 1.5rem; }
-}
-
-@media (max-width: 768px) {
   :root { --header-height: 64px; }
   .container { padding: 0 1rem; }
   .header .logo { height: 48px; }
-  .whatsapp-float { bottom: 1rem; right: 1rem; width: 56px; height: 56px; }
-  .whatsapp-float svg { width: 1.5rem; height: 1.5rem; }
-  .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .stat-item { padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .stat-item:last-child { border-bottom: none; }
-  .buttons-container, .final-cta-buttons { flex-direction: column; width: 100%; }
-  .btn { width: 100%; justify-content: center; }
-  .cards-grid { grid-template-columns: 1fr; }
-  .product-cards-grid { grid-template-columns: 1fr; }
-  .product-showcase .cc-brand-lockup {
-    gap: 0.75rem;
-    flex-wrap: nowrap;
-    padding: 0 0.5rem;
-  }
-  .product-showcase .cc-brand-icon { width: clamp(48px, 14vw, 64px); }
-  .why-choose, .product-showcase, .firefly-section, .acrobat-section, .licensing-section, .adobe-sign-section { padding: 3rem 0; }
-  .acrobat-card { padding: 2rem 1.5rem; }
-  .footer-content { text-align: center; }
-  .social-links { justify-content: center; }
+  .mobile-toggle { display: block; }
+  .acrobat-cards { grid-template-columns: 1fr; gap: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .licensing-cards { grid-template-columns: 1fr; gap: 2rem; }
+  .product-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero-container { flex-direction: column; gap: 2rem; }
   .hero-content { max-width: 100%; text-align: center; }
   .hero-right { width: 100%; }
   .hero-video-container { max-width: 100%; }
-  .hero h1 { max-width: 100%; }
-  .hero p { max-width: 100%; }
-  .licensing-card { padding: 2rem 1.5rem; }
-  .card-header h3 { font-size: 2rem; }
-  .licensing-cta { padding: 2rem 1.5rem; }
-  .sign-stats-grid { grid-template-columns: 1fr; }
-  .sign-use-cases { grid-template-columns: 1fr; }
-  .sign-stats-container { padding: 1.5rem; }
-  .sign-features-list { grid-template-columns: 1fr; gap: 0.75rem; }
-  .sign-feature-item { gap: 0.5rem; }
-  .firefly-capabilities-grid { grid-template-columns: 1fr; }
-  .firefly-feature-item { gap: 1rem; }
-  .feature-icon { width: 40px; height: 40px; }
-  .feature-icon svg { width: 20px; height: 20px; }
-  .feature-text h3 { font-size: 1rem; }
-  .capability-card { padding: 1rem; }
-  .capability-text h4 { font-size: 0.9rem; }
-  .mobile-toggle { display: block; }
   .nav-menu {
     position: fixed; top: var(--header-height); left: 0; right: 0;
     height: calc(100vh - var(--header-height)); background: rgba(15, 23, 42, 0.98);
@@ -831,6 +788,50 @@
     border-bottom: 4px solid transparent; border-right: 0; margin-left: 0.25rem; transform: rotate(90deg);
   }
   .dropdown-submenu.active > a::after { transform: rotate(180deg); }
+}
+
+@media (max-width: 992px) {
+  .firefly-new-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .firefly-capabilities-grid { grid-template-columns: 1fr 1fr; padding: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float { bottom: 1rem; right: 1rem; width: 56px; height: 56px; }
+  .whatsapp-float svg { width: 1.5rem; height: 1.5rem; }
+  .stats-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .stat-item { padding: 1.5rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .stat-item:last-child { border-bottom: none; }
+  .buttons-container, .final-cta-buttons { flex-direction: column; width: 100%; }
+  .btn { width: 100%; justify-content: center; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .product-cards-grid { grid-template-columns: 1fr; }
+  .product-showcase .cc-brand-lockup {
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    padding: 0 0.5rem;
+  }
+  .product-showcase .cc-brand-icon { width: clamp(48px, 14vw, 64px); }
+  .why-choose, .product-showcase, .firefly-section, .acrobat-section, .licensing-section, .adobe-sign-section { padding: 3rem 0; }
+  .acrobat-card { padding: 2rem 1.5rem; }
+  .footer-content { text-align: center; }
+  .social-links { justify-content: center; }
+  .hero h1 { max-width: 100%; }
+  .hero p { max-width: 100%; }
+  .licensing-card { padding: 2rem 1.5rem; }
+  .card-header h3 { font-size: 2rem; }
+  .licensing-cta { padding: 2rem 1.5rem; }
+  .sign-stats-grid { grid-template-columns: 1fr; }
+  .sign-use-cases { grid-template-columns: 1fr; }
+  .sign-stats-container { padding: 1.5rem; }
+  .sign-features-list { grid-template-columns: 1fr; gap: 0.75rem; }
+  .sign-feature-item { gap: 0.5rem; }
+  .firefly-capabilities-grid { grid-template-columns: 1fr; }
+  .firefly-feature-item { gap: 1rem; }
+  .feature-icon { width: 40px; height: 40px; }
+  .feature-icon svg { width: 20px; height: 20px; }
+  .feature-text h3 { font-size: 1rem; }
+  .capability-card { padding: 1rem; }
+  .capability-text h4 { font-size: 0.9rem; }
 }
 
 @media (max-width: 480px) {

@@ -1429,7 +1429,7 @@
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             :root { --header-height: 64px; }
 
             .header { padding: 0.5rem 0; }
@@ -1546,6 +1546,16 @@
                 width: 100%;
                 justify-content: center;
             }
+        }
+
+        /* Small phone */
+        @media (max-width: 480px) {
+            .hero-stats { grid-template-columns: 1fr; }
+            .pro-line .card-features { grid-template-columns: 1fr; }
+            .hero-container { padding-left: 1rem; padding-right: 1rem; }
+            .cards-grid,
+            .precision-grid,
+            .features-grid { gap: 1rem; }
         }
 
         /* Animations */

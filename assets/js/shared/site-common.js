@@ -93,7 +93,8 @@
     const header = $('#header');
     const mobileToggle = $('#mobileToggle');
     const navMenu = $('#navMenu');
-    const breakpoint = opts.breakpoint || 768;
+    /* 1024: menú hamburguesa también en tablet/laptop estrecha */
+    const breakpoint = opts.breakpoint || 1024;
 
     if (header) {
       let ticking = false;
@@ -117,6 +118,7 @@
     if (mobileToggle && navMenu) {
       mobileToggle.addEventListener('click', function () {
         const isActive = navMenu.classList.toggle('active');
+        mobileToggle.classList.toggle('is-open', isActive);
         mobileToggle.setAttribute('aria-expanded', String(isActive));
         mobileToggle.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
         if (opts.lockBodyScroll) {
@@ -139,6 +141,7 @@
             parent.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
           if (hasMenu && window.innerWidth <= breakpoint) return;
           navMenu.classList.remove('active');
+          mobileToggle.classList.remove('is-open');
           mobileToggle.setAttribute('aria-expanded', 'false');
           mobileToggle.setAttribute('aria-label', 'Abrir menú');
           const icon = mobileToggle.querySelector('use') || mobileToggle.querySelector('svg use');

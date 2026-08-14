@@ -485,7 +485,7 @@
     }
 
     /* Responsive Header */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       :root {
         --logo-size: 96px;
         --header-height: 78px;
@@ -718,7 +718,7 @@
 
     .solutions-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
       gap: 24px;
       margin-top: 32px;
     }
@@ -837,7 +837,8 @@
     .comparison-table-wrapper {
       background-color: var(--bg-white);
       border-radius: var(--radius-lg);
-      overflow: hidden;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
       box-shadow: var(--shadow-md);
       margin-top: 32px;
     }
@@ -845,6 +846,7 @@
     .comparison-table {
       width: 100%;
       border-collapse: collapse;
+      min-width: 640px;
     }
 
     .comparison-table thead {

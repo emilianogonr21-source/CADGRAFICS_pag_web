@@ -289,31 +289,8 @@
 
         @media (max-width: 768px) {
             :root { --header-height: 64px; }
-            .mobile-toggle { display: block; }
-            .nav-menu {
-                position: fixed;
-                top: var(--header-height);
-                left: 0; right: 0;
-                height: calc(100vh - var(--header-height));
-                background: rgba(15, 23, 42, 0.98);
-                flex-direction: column;
-                padding: 1.5rem;
-                transform: translateY(-100%);
-                transition: transform var(--transition-normal);
-            }
-            .nav-menu.active { transform: translateY(0); }
-            .dropdown-menu,
-            .dropdown-submenu-menu {
-                position: static; opacity: 1; visibility: visible; transform: none;
-                background: transparent; border: none; box-shadow: none; backdrop-filter: none;
-                padding: 0; margin: 0; min-width: auto; max-height: 0; overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-            .nav-item.active > .dropdown-menu,
-            .dropdown-submenu.active > .dropdown-submenu-menu {
-                max-height: 500px; padding: 0.5rem 0 0.5rem 1.5rem; margin-top: 0.25rem;
-                border-left: 2px solid #10b981;
-            }
+            .header .logo { height: 48px; }
+            /* Nav móvil definido en bloque 1024px */
             .nav-item > a::after {
                 content: ''; width: 0; height: 0;
                 border-left: 5px solid transparent; border-right: 5px solid transparent;
@@ -1482,6 +1459,67 @@
             .cases-grid {
                 grid-template-columns: 1fr;
             }
+
+            .hero__heading {
+                padding-inline: 0;
+            }
+
+            .hero__title {
+                max-width: none;
+            }
+
+            .hero__logo {
+                position: static;
+                top: auto;
+                right: auto;
+                transform: none;
+                display: block;
+                width: min(180px, 40vw);
+                margin: 0 auto 1rem;
+            }
+
+            :root { --header-height: 64px; }
+            .mobile-toggle { display: block; }
+            .header .logo { height: 48px; }
+            .nav-menu {
+                position: fixed;
+                top: var(--header-height);
+                left: 0; right: 0;
+                height: calc(100vh - var(--header-height));
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 0.5rem;
+                overflow-y: auto;
+                transform: translateY(-100%);
+                transition: transform var(--transition-normal);
+                z-index: 999;
+            }
+            .nav-menu.active { transform: translateY(0); }
+            .dropdown-menu,
+            .dropdown-submenu-menu {
+                position: static; opacity: 1; visibility: visible; transform: none;
+                background: transparent; border: none; box-shadow: none; backdrop-filter: none;
+                padding: 0; margin: 0; min-width: auto; max-height: 0; overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            .nav-item.active > .dropdown-menu,
+            .dropdown-submenu.active > .dropdown-submenu-menu {
+                max-height: 500px; padding: 0.5rem 0 0.5rem 1.5rem; margin-top: 0.25rem;
+                border-left: 2px solid #10b981;
+            }
+        
+            .nav-item > a::after {
+                content: ''; width: 0; height: 0;
+                border-left: 5px solid transparent; border-right: 5px solid transparent;
+                border-top: 5px solid currentColor; margin-left: auto;
+            }
+            .nav-item.active > a::after { transform: rotate(180deg); }
+            .dropdown-submenu > a::after {
+                border-left: 4px solid currentColor; border-top: 4px solid transparent;
+                border-bottom: 4px solid transparent; border-right: 0; margin-left: 0.25rem;
+            }
+            .dropdown-submenu.active > a::after { transform: rotate(90deg); }
         }
 
         @media (max-width: 768px) {
