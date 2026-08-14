@@ -17,3 +17,5 @@ Guía corta de ejemplo (Dell): **[docs/guia-dell.md](docs/guia-dell.md)**
 - **JS** = qué pasa al hacer clic  
 
 Detalle y tablas de archivos: [docs/README.md](docs/README.md).
+
+Al publicar, sube también `robots.txt` y `sitemap.xml` (van en la raíz del dominio).

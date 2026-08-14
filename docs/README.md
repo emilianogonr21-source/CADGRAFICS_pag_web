@@ -38,6 +38,8 @@ CADGRAFICS_pag_web/
 │
 ├── index.html              ← Inicio Cadgrafics
 ├── aviso-privacidad.html   ← Aviso de privacidad (siempre con guion)
+├── robots.txt              ← Qué pueden indexar los buscadores
+├── sitemap.xml             ← Lista de páginas para Google y otros
 ├── docs/                   ← Estas guías
 ├── tools/                  ← Ayudas para actualizar menú / WhatsApp
 ├── shared/partials/        ← Modelos del menú, WhatsApp y cookies
@@ -65,6 +67,8 @@ CADGRAFICS_pag_web/
 | `assets/js/` | Qué hace cada página al interactuar |
 | `shared/partials/` | Modelos del menú / WhatsApp / cookies (ver abajo) |
 | `docs/` | Guías del equipo |
+| `robots.txt` | Indica a Google qué puede indexar |
+| `sitemap.xml` | Lista de páginas públicas del sitio |
 
 ---
 
@@ -223,6 +227,7 @@ Revisa el JS de esa página y que también se cargue `assets/js/shared/site-comm
 
 - Unificar el menú en todas las páginas cuando cambie algo en `shared/partials/`.
 - Carpeta de imágenes propia para SketchUp/Chaos (hoy aún pueden usarse fotos externas).
+- Fotos de producto propias para Dell (hoy varias secciones reutilizan `hero-laptop.png`).
 - Alinear ventanas de contacto de Adobe/AEC con el mismo patrón que inicio y Dell.
 
 ---
