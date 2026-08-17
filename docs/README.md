@@ -118,7 +118,7 @@ Guía corta de ejemplo (Dell): [guia-dell.md](guia-dell.md).
 |-----------|----------------|
 | Página de marca | `home-nombre.html` |
 | Página de producto | `nombre-del-producto.html` |
-| Carpeta de fotos de esa página | `assets/images/images_home-marca/` |
+| Carpeta de fotos de esa página | `assets/images/images-home-marca/` |
 | Apariencia | `assets/css/marca/home-marca.css` |
 | Comportamiento | `assets/js/marca/home-marca.js` |
 
@@ -183,7 +183,7 @@ Si abres el HTML directo desde el Explorador de Windows, a veces fallan videos o
 4. Guarda y revisa en el navegador.
 
 ### Cambiar una imagen
-1. Pon la imagen nueva en la carpeta de esa página (por ejemplo `assets/images/images_home-dell/`).
+1. Pon la imagen nueva en la carpeta de esa página (por ejemplo `assets/images/images-home-dell/`).
 2. En el HTML, asegúrate de que el nombre del archivo coincida **exactamente** (mayúsculas/minúsculas importan).
 
 ### Cambiar un color o el espacio entre secciones
