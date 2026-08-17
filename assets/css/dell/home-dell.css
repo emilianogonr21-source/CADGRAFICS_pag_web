@@ -585,7 +585,7 @@
         .pro-line .card-image {
             height: 100%;
             min-height: 220px;
-            background: #0b4a6f;
+            background: #0a0a0a;
             position: relative;
             overflow: hidden;
         }
@@ -593,7 +593,8 @@
         .card-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
         }
 
         .card-badge {
@@ -710,19 +711,23 @@
         }
 
         .precision-image {
-            height: 150px;
-            background: var(--white);
+            height: 210px;
+            background: #111;
             border-radius: 8px;
             margin-bottom: 0.9rem;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            position: relative;
         }
 
         .precision-image img {
             max-width: 100%;
-            height: auto;
+            max-height: 100%;
+            width: auto;
+            height: 100%;
+            object-fit: contain;
         }
 
         .precision-card h3 {
@@ -832,6 +837,8 @@
             width: 100%;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            background: #0a0a0a;
+            object-fit: contain;
         }
 
         /* Form Section */
