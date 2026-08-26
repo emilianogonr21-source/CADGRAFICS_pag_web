@@ -33,7 +33,16 @@
   #outlook a { padding: 0; }
   .mono { font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace; }
   .fraunces { font-family: 'Fraunces', Georgia, 'Times New Roman', serif; }
-  .sans { font-family: 'Work Sans', Helvetica, Arial, sans-serif; }
+  .sans, .worksans { font-family: 'Work Sans', Helvetica, Arial, sans-serif; }
+  .cta-btn,
+  .cta-btn:link,
+  .cta-btn:visited,
+  .cta-btn:hover,
+  .cta-btn:active {
+    color: #F7F0EC !important;
+    text-decoration: none !important;
+    border: 0 !important;
+  }
   @media only screen and (max-width: 600px) {
     .full-w { width: 100% !important; max-width: 100% !important; }
     .px { padding-left: 24px !important; padding-right: 24px !important; }
@@ -43,6 +52,13 @@
     .hero-img { width: 100% !important; max-width: 600px !important; height: auto !important; }
     .section-title { font-size: 22px !important; line-height: 28px !important; }
     .card-pad { padding: 24px !important; }
+    .cta-btn {
+      display: inline-block !important;
+      padding: 16px 46px !important;
+      font-size: 13.5px !important;
+      line-height: 16px !important;
+      letter-spacing: 1.5px !important;
+    }
   }
 </style>
 </head>
@@ -216,7 +232,7 @@
 <td width="78" valign="top" class="mono agenda-time" bgcolor="#FAF8F3" style="background-color:#FAF8F3; color:#8C4A52; font-size:12px; letter-spacing:0.5px; white-space:nowrap; padding:2px 14px 0 0;">10:05 AM</td>
 <td valign="top" class="sans agenda-body" bgcolor="#FAF8F3" style="background-color:#FAF8F3; padding:0;">
 <div style="color:#0A0A0A; font-size:15px; font-weight:600; line-height:20px;">Autodesk Forma: Del concepto a la construcci&oacute;n</div>
-<div style="color:#726A64; font-size:13px; line-height:18px; margin-top:4px;">Alejandro Sarabia&nbsp;|&nbsp;Speaker Autodesk</div>
+<div style="color:#726A64; font-size:13px; line-height:18px; margin-top:4px;">Alejandro Macias&nbsp;|&nbsp;Speaker Autodesk</div>
 </td>
 </tr>
 </table>
@@ -325,27 +341,27 @@
 
   <!-- CTA -->
 <tr>
-<td align="center" class="px" style="padding:44px 40px 10px 40px;">
-<div class="mono" style="color:#8C4A52; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:18px;">
-        Confirma tu asistencia
-</div>
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto; border-collapse:collapse;">
+<td align="center" class="px" style="padding:40px 40px 8px 40px;">
+<!--[if mso]>
+<table role="presentation" border="0" cellspacing="0" cellpadding="0" align="center"><tr>
+<td align="center" bgcolor="#6E1423" style="padding:16px 46px;">
+<a href="https://3adfd54b.sibforms.com/serve/MUIFAPeEMwyzHeXLI500x4HU05A_ad8swh6VA0nnRfpKX27KZP1IQBXWoBsoX5AON5lIkhqfMMvKvM4lLtcT6estlEWGZkNDqj0Ijla-8li5u0RYppF5f7rlCXlPgrONpMvWsOuAi1Td0OpHSUmzFKFHnrQCRzhFRHcRmtdJ9q2xRx9Lfztl94elkaXlCrLcmz73fGqK-ZwVn8O83g&#61;&#61;" target="_blank" style="color:#F7F0EC; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; letter-spacing:1.5px; text-decoration:none; text-transform:uppercase;">RESERVAR MI LUGAR</a>
+</td>
+</tr></table>
+<![endif]-->
+<!--[if !mso]><!-->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto; border-collapse:separate; border-spacing:0;">
 <tr>
-<td align="center" bgcolor="#0A0A0A" style="background-color:#0A0A0A; border:1px solid #8C2E3D; padding:3px;">
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-<tr>
-<td align="center" bgcolor="#6E1423" style="background-color:#6E1423;">
-<a href="https://3adfd54b.sibforms.com/serve/MUIFAPeEMwyzHeXLI500x4HU05A_ad8swh6VA0nnRfpKX27KZP1IQBXWoBsoX5AON5lIkhqfMMvKvM4lLtcT6estlEWGZkNDqj0Ijla-8li5u0RYppF5f7rlCXlPgrONpMvWsOuAi1Td0OpHSUmzFKFHnrQCRzhFRHcRmtdJ9q2xRx9Lfztl94elkaXlCrLcmz73fGqK-ZwVn8O83g&#61;&#61;" target="_blank" class="mono" style="display:inline-block; background-color:#6E1423; color:#F7F0EC !important; font-family:'IBM Plex Mono','Courier New',Courier,monospace; font-size:12px; font-weight:500; letter-spacing:2.5px; line-height:18px; text-align:center; text-decoration:none; text-transform:uppercase; padding:18px 52px; border:0; -webkit-text-size-adjust:none;">
+<td align="center" bgcolor="#6E1423" style="background-color:#6E1423; border:0;">
+<a href="https://3adfd54b.sibforms.com/serve/MUIFAPeEMwyzHeXLI500x4HU05A_ad8swh6VA0nnRfpKX27KZP1IQBXWoBsoX5AON5lIkhqfMMvKvM4lLtcT6estlEWGZkNDqj0Ijla-8li5u0RYppF5f7rlCXlPgrONpMvWsOuAi1Td0OpHSUmzFKFHnrQCRzhFRHcRmtdJ9q2xRx9Lfztl94elkaXlCrLcmz73fGqK-ZwVn8O83g&#61;&#61;" target="_blank" role="button" aria-label="Reservar mi lugar en el evento Autodesk Experience" class="sans cta-btn" style="display:inline-block; background-color:#6E1423; color:#F7F0EC; font-family:'Work Sans', Helvetica, Arial, sans-serif; font-size:13.5px; font-weight:600; letter-spacing:1.5px; line-height:16px; padding:16px 46px; text-align:center; text-transform:uppercase; text-decoration:none; -webkit-text-size-adjust:none;">
               Reservar mi lugar
 </a>
 </td>
 </tr>
 </table>
-</td>
-</tr>
-</table>
-<div class="mono" style="color:#8C4A52; font-size:10px; letter-spacing:2px; margin-top:16px; text-transform:uppercase;">
-        Cupo limitado
+<!--<![endif]-->
+<div class="mono" style="color:#8C4A52; font-size:11px; letter-spacing:1px; margin-top:12px;">
+        CUPO LIMITADO
 </div>
 </td>
 </tr>
