@@ -1294,6 +1294,7 @@
 
     .sectors .section-label {
       margin-bottom: 10px;
+      color: var(--bg-white);
     }
 
     .sectors .section-title {
