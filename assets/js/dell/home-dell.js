@@ -4,7 +4,7 @@
   Depende de: assets/js/shared/site-common.js (menú, Contáctanos, WhatsApp)
 
   Bloques de este archivo:
-  1. Menú, ventana Contáctanos y cookies (compartidos)
+  1. Menú y ventana Contáctanos (compartidos)
   2. Pestañas de la línea Pro
   3. Formulario largo de la sección de contacto
   4. Animaciones al aparecer contenido y cifras
@@ -21,11 +21,10 @@
     return;
   }
 
-  const { $, $$, submitLead, initHeader, initSmoothAnchors, initStandardLeadModal, initCookieBanner } = CG;
+  const { $, $$, submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
   initHeader();
   initSmoothAnchors();
-  initCookieBanner();
   initStandardLeadModal({
     source: 'modal-dell',
     label: 'Dell',

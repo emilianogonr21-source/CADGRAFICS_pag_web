@@ -28,12 +28,13 @@
 
         /* 1. Colores y medidas base (se reutilizan en toda la página) */
         :root {
-            --dell-blue: #007DB8;
-            --dell-dark: #005a8a;
-            --dell-light: #e6f3f8;
+            --dell-blue: #8B0000;
+            --dell-dark: #5B0010;
+            --dell-light: #f8eaea;
             --text-dark: #1a1a1a;
             --text-gray: #666;
-            --bg-light: #f5f9fc;
+            --bg-light: #f8f9fa;
+            --cg-section-bg: linear-gradient(135deg, #3d000a 0%, #5B0010 100%);
             --white: #ffffff;
             --shadow: 0 2px 20px rgba(0,0,0,0.08);
             --shadow-hover: 0 4px 30px rgba(0,0,0,0.12);
@@ -104,8 +105,7 @@
             outline-offset: 2px;
         }
 
-        /* 2. Menú superior Cadgrafics */
-        /* Header CADGRAFICS */
+        /* 2. Menú superior Cadgrafics (mismo estilo que index.html) */
         .header {
             position: fixed;
             top: 0;
@@ -130,6 +130,29 @@
             justify-content: space-between;
             align-items: center;
             min-height: 56px;
+            gap: 1rem;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            color: #ffffff;
+            flex-shrink: 0;
+            max-width: min(100%, 280px);
+            z-index: 1002;
+        }
+
+        .brand-name {
+            display: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: #ffffff;
+            line-height: 1.1;
+            white-space: nowrap;
         }
 
         .header .logo {
@@ -152,6 +175,8 @@
             list-style: none;
             gap: 1rem;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-menu a {
@@ -244,38 +269,79 @@
 
         .mobile-toggle {
             display: none;
-            background: none;
-            border: none;
-            color: var(--color-white);
-            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            color: #ffffff;
             cursor: pointer;
-            padding: 0.5rem;
-            border-radius: var(--radius-sm);
+            padding: 0;
+            border-radius: 8px;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 1002;
+            position: relative;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 20px;
+            height: 16px;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 1px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .mobile-toggle.is-open .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-toggle.is-open .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.is-open .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
         }
 
         .mobile-toggle:hover,
-        .mobile-toggle:focus { background: rgba(255,255,255,0.1); }
+        .mobile-toggle:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+        }
 
+        /* Botones (estilo index.html / Cadgrafics) */
         .btn-primary {
-            background: var(--dell-blue);
-            color: var(--white);
+            background: #8B0000;
+            color: #ffffff;
             padding: 0.75rem 1.5rem;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s;
-            border: none;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+            border: 2px solid #8B0000;
             cursor: pointer;
             font-size: 0.95rem;
         }
 
-        .btn-primary:hover {
-            background: var(--dell-dark);
+        .btn-primary:hover,
+        .btn-primary:focus {
             transform: translateY(-2px);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.45);
+            outline: none;
         }
 
         /* Hero Section (márgenes como index.html) */
@@ -283,10 +349,11 @@
             margin-top: 0;
             position: relative;
             min-height: 100vh;
+            min-height: 100svh;
             height: auto;
             color: var(--white);
             overflow: hidden;
-            background: #0076CE;
+            background: #0a1628;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -294,9 +361,8 @@
 
         .hero-media {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 58%;
+            inset: 0;
+            width: 100%;
             height: 100%;
             z-index: 0;
             overflow: hidden;
@@ -306,7 +372,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 68% 42%;
+            object-position: 62% center;
             display: block;
         }
 
@@ -315,42 +381,17 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(
-                95deg,
-                #0076CE 0%,
-                rgba(0, 118, 206, 0.55) 18%,
-                transparent 46%
+                105deg,
+                rgba(61, 0, 10, 0.88) 0%,
+                rgba(91, 0, 16, 0.62) 38%,
+                rgba(61, 0, 10, 0.28) 62%,
+                rgba(42, 0, 0, 0.35) 100%
             );
             pointer-events: none;
         }
 
         .hero-panel {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background-color: #0076CE;
-            background-image: radial-gradient(circle, rgba(255,255,255,0.2) 1.1px, transparent 1.1px);
-            background-size: 16px 16px;
-            clip-path: polygon(0 0, 64% 0, 52% 100%, 0 100%);
-        }
-
-        .hero-panel::after {
-            content: '';
-            position: absolute;
-            top: -5%;
-            right: 0;
-            width: 70px;
-            height: 110%;
-            background: linear-gradient(
-                90deg,
-                transparent 0%,
-                rgba(255,255,255,0.15) 30%,
-                rgba(255,255,255,0.55) 55%,
-                rgba(255,255,255,0.2) 80%,
-                transparent 100%
-            );
-            transform: skewX(-14deg);
-            filter: blur(4px);
-            pointer-events: none;
+            display: none;
         }
 
         .hero-container {
@@ -361,14 +402,14 @@
             min-height: 0;
             height: auto;
             margin: 0 auto;
-            padding: 100px 1.5rem 60px;
+            padding: calc(var(--header-height) + 1.25rem) 1.5rem 3.5rem;
             display: grid;
-            grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+            grid-template-columns: minmax(0, 1fr);
             grid-template-areas:
-                "content visual"
-                "stats stats";
+                "content"
+                "stats";
             align-items: center;
-            row-gap: 1.75rem;
+            row-gap: 2rem;
             column-gap: 0;
         }
 
@@ -376,7 +417,7 @@
             grid-area: content;
             max-width: 34rem;
             width: 100%;
-            padding: 2rem 1.5rem 2rem 0;
+            padding: 0;
             position: relative;
             z-index: 3;
         }
@@ -404,7 +445,7 @@
         }
 
         .hero h1 .accent {
-            color: #9fd0ea;
+            color: #f0b4b4;
             font-weight: 700;
         }
 
@@ -429,21 +470,22 @@
             display: inline-flex;
             align-items: center;
             gap: 0.55rem;
-            background: transparent;
+            background: #8B0000;
             color: #fff;
-            border: 1.5px solid rgba(255,255,255,0.95);
+            border: 2px solid #8B0000;
             padding: 0.85rem 1.4rem;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
-            transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
         }
 
-        .btn-hero:hover {
-            background: rgba(255,255,255,0.12);
+        .btn-hero:hover,
+        .btn-hero:focus {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.45);
+            outline: none;
         }
 
         .hero-image {
@@ -458,6 +500,7 @@
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 0.7rem;
             width: 100%;
+            max-width: 52rem;
         }
 
         .stat-item {
@@ -548,13 +591,13 @@
         }
 
         .tab.active {
-            background: var(--dell-blue);
+            background: #8B0000;
             color: var(--white);
         }
 
         .tab:hover:not(.active) {
-            background: var(--dell-light);
-            color: var(--dell-blue);
+            background: #f8eaea;
+            color: #8B0000;
         }
 
         .cards-grid {
@@ -787,7 +830,7 @@
 
         /* Latitude Section */
         .latitude {
-            background: linear-gradient(135deg, var(--dell-blue) 0%, #005a8a 100%);
+            background: var(--cg-section-bg);
             color: var(--white);
             padding: 3.25rem 2rem;
             position: relative;
@@ -817,20 +860,23 @@
 
         .btn-white {
             background: var(--white);
-            color: var(--dell-blue);
+            color: #8B0000;
             padding: 0.75rem 1.35rem;
-            border-radius: 6px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s;
+            border: 2px solid var(--white);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
         }
 
-        .btn-white:hover {
+        .btn-white:hover,
+        .btn-white:focus {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            outline: none;
         }
 
         .latitude-image {
@@ -957,7 +1003,7 @@
 
         /* Cadgrafics Section */
         .cadgrafics {
-            background: linear-gradient(135deg, var(--dell-blue) 0%, #005a8a 100%);
+            background: var(--cg-section-bg);
             color: var(--white);
             padding: 3.25rem 2rem;
             text-align: center;
@@ -1336,46 +1382,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Cookie Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--white);
-            padding: 1rem 2rem;
-            box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .cookie-banner p {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--dell-blue);
-            border: 1px solid var(--dell-blue);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: var(--dell-light);
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .hero {
@@ -1384,7 +1390,7 @@
                 height: auto;
                 min-height: auto;
                 align-items: stretch;
-                background: #0076CE;
+                background: #0a1628;
             }
 
             .hero-panel {
@@ -1392,19 +1398,25 @@
             }
 
             .hero-media {
-                position: relative;
-                inset: auto;
-                order: 2;
-                height: 320px;
+                position: absolute;
+                inset: 0;
+                order: unset;
+                height: 100%;
                 width: 100%;
             }
 
             .hero-media img {
-                object-position: center 28%;
+                object-position: 70% center;
             }
 
             .hero-media::after {
-                display: none;
+                display: block;
+                background: linear-gradient(
+                    180deg,
+                    rgba(61, 0, 10, 0.88) 0%,
+                    rgba(91, 0, 16, 0.72) 45%,
+                    rgba(61, 0, 10, 0.8) 100%
+                );
             }
 
             .hero-container {
@@ -1417,9 +1429,7 @@
                 min-height: 0;
                 max-height: none;
                 row-gap: 1.25rem;
-                background-color: #0076CE;
-                background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
-                background-size: 18px 18px;
+                background: transparent;
             }
 
             .hero-content {
@@ -1444,30 +1454,70 @@
         }
 
         @media (max-width: 1024px) {
-            :root { --header-height: 64px; }
+            :root { --header-height: 72px; }
 
-            .header { padding: 0.5rem 0; }
+            .header {
+                padding: 0.4rem 0;
+                background: #0a0a0a;
+                border-bottom: 1px solid #8B0000;
+            }
 
-            .header .logo { height: 48px; }
+            .nav-container {
+                min-height: 56px;
+                gap: 0.75rem;
+            }
 
-            .mobile-toggle { display: block; }
+            .brand-name {
+                display: inline-block;
+            }
+
+            .header .logo {
+                height: 44px;
+                width: 44px;
+                max-width: 44px;
+                object-fit: cover;
+                object-position: top center;
+                border-radius: 6px;
+            }
+
+            .mobile-toggle {
+                display: inline-flex;
+                margin-left: auto;
+                order: 2;
+            }
+
+            .nav-container > nav {
+                position: static;
+                flex: 0 0 0;
+                width: 0;
+                min-width: 0;
+                overflow: visible;
+                order: 3;
+            }
+
+            .brand-link {
+                order: 1;
+            }
 
             .nav-menu {
                 position: fixed;
                 top: var(--header-height);
                 left: 0;
                 right: 0;
-                height: calc(100vh - var(--header-height));
-                background: rgba(15, 23, 42, 0.98);
+                width: 100%;
+                height: calc(100dvh - var(--header-height));
+                background: rgba(10, 10, 10, 0.98);
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: stretch;
                 padding: 1.5rem;
                 gap: 0.5rem;
                 overflow-y: auto;
-                transform: translateY(-100%);
+                transform: translateY(-120%);
                 transition: transform var(--transition-normal);
                 z-index: 999;
+                margin: 0;
+                list-style: none;
             }
 
             .nav-menu.active { transform: translateY(0); }
@@ -1527,10 +1577,6 @@
 
             .hero-content {
                 padding: 0;
-            }
-
-            .hero-media {
-                height: 260px;
             }
 
             .btn-hero {
