@@ -29,7 +29,7 @@ Al enviar Contáctanos o el formulario de la página, el sitio intenta guardar e
 
 También se cargan (en este orden):
 
-1. `assets/css/shared/base.css` (colores base + cookies)
+1. `assets/css/shared/base.css` (colores base Cadgrafics)
 2. `assets/css/dell/home-dell.css` (apariencia de Dell)
 3. `assets/js/shared/site-common.js` (menú, ventana, WhatsApp)
 4. `assets/js/dell/home-dell.js` (pestañas Pro, formulario largo, animaciones)
@@ -40,7 +40,7 @@ Las fotos de Dell van en:
 
 `assets/images/dell/home/`
 
-Hoy la portada usa `hero-laptop.png`.
+Hoy la portada usa `hero-background.jpg`.
 
 ## Orden del contenido en la página
 
@@ -53,8 +53,7 @@ Hoy la portada usa `hero-laptop.png`.
 7. Bloque Cadgrafics + Dell  
 8. Pie de página  
 9. WhatsApp flotante  
-10. Ventana de Contáctanos  
-11. Aviso de cookies  
+10. Ventana de Contáctanos 
 
 ## Antes de publicar un cambio
 

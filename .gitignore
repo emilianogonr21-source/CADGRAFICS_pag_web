@@ -10,6 +10,7 @@ $RECYCLE.BIN/
 *.swo
 *~
 .idea/
+.vscode/
 *.sublime-project
 *.sublime-workspace
 

@@ -239,7 +239,7 @@ Revisa el JS de esa página y que también se cargue `assets/js/shared/site-comm
 
 - Unificar el menú en todas las páginas cuando cambie algo en `shared/partials/`.
 - Llenar `assets/images/chaos/home/` con fotos propias de SketchUp (hoy el hero aún puede usar fondo externo).
-- Fotos de producto propias para Dell (hoy varias secciones reutilizan `hero-laptop.png`).
+- Fotos de producto propias para Dell (la portada ya usa `hero-background.jpg`; faltan fotos propias en secciones de producto).
 - Alinear ventanas de contacto de Adobe/AEC con el mismo patrón que inicio y Dell.
 
 ---
