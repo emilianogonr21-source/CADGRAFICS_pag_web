@@ -9,7 +9,7 @@
   - Apariencia:     assets/css/index/index.css
   - Comportamiento: assets/js/index/index.js
   - Compartido:     assets/css/shared/base.css + assets/js/shared/site-common.js
-  - Imágenes:       assets/images/ (logo, portada, casos)
+  - Imágenes:       assets/images/brand/ + assets/images/index/
 
   Orden del contenido:
   1. Menú superior
@@ -32,10 +32,10 @@
     
     <!-- SEO & Social Media -->
     <link rel="canonical" href="https://cadgrafics.com.mx/">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="assets/images/brand/favicon.png">
     <meta property="og:title" content="CADGRAFICS | Soluciones Tecnológicas Empresariales">
     <meta property="og:description" content="Transforma, diseña, produce y opera con tecnología especializada. Distribuidor oficial Adobe, Autodesk, Microsoft, HP y Dell.">
-    <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/og-image.jpg">
+    <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg">
     <meta property="og:url" content="https://cadgrafics.com.mx/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -50,7 +50,7 @@
     <!-- Performance: Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="assets/images/hero-poster.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="assets/images/index/hero-poster.jpg" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/shared/base.css?v=20260314">
     <link rel="stylesheet" href="assets/css/index/index.css?v=20260314">
@@ -106,7 +106,7 @@
 <header class="header" id="header">
     <div class="container nav-container">
         <a href="#" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
-            <img src="assets/images/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+            <img src="assets/images/brand/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
             <span class="brand-name">CADGRAFICS</span>
         </a>
         
@@ -169,8 +169,8 @@
 
 <main id="main-content">
     <section class="hero" id="inicio">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" poster="assets/images/hero-poster.jpg" width="1920" height="1080">
-            <source src="assets/video/videos-index/fondo-hero.mp4" type="video/mp4" />
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" poster="assets/images/index/hero-poster.jpg" width="1920" height="1080">
+            <source src="assets/video/index/fondo-hero.mp4" type="video/mp4" />
         </video>
 
         <div class="container hero-layout">
@@ -212,17 +212,17 @@
             </header>
             <div class="brands-track-wrapper">
                 <div class="brands-track" id="brandsTrack" tabindex="0" aria-label="Carrusel de marcas">
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/adobe-logo.png" alt="Adobe" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/autodesk-logo.png" alt="Autodesk" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/chaos-logo.png" alt="Chaos" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/dell-logo.png" alt="Dell" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/logo-microsoft.png" alt="Microsoft" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/mac-logo.png" alt="Apple Mac" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/sketchup-logo.png" alt="SketchUp" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/civilcad-blanco.png" alt="CivilCAD" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/hp-logo.png" alt="Hp" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/lumion-blanco.png" alt="Lumion" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
-                    <div class="brand-card"><img src="assets/images/images-home-cadgrafics/opus-blanco.png" alt="Opus" class="brand-logo" loading="lazy" decoding="async" width="100" height="50" /></div>
+                    <div class="brand-card"><img src="assets/images/index/adobe-logo.png" alt="Adobe" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/autodesk-logo.png" alt="Autodesk" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/chaos-logo.png" alt="Chaos" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/dell-logo.png" alt="Dell" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/logo-microsoft.png" alt="Microsoft" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/mac-logo.png" alt="Apple Mac" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/sketchup-logo.png" alt="SketchUp" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/civilcad-blanco.png" alt="CivilCAD" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/hp-logo.png" alt="Hp" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/lumion-blanco.png" alt="Lumion" class="brand-logo" loading="lazy" decoding="async" width="160" height="80" /></div>
+                    <div class="brand-card"><img src="assets/images/index/opus-blanco.png" alt="Opus" class="brand-logo" loading="lazy" decoding="async" width="100" height="50" /></div>
                 </div>
             </div>
         </div>
@@ -392,7 +392,7 @@
                 <article class="case-card">
                     <div class="case-thumbnail">
                         <a href="https://www.youtube.com/watch?v=cgwuOv4rOEs&t=20s" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/images/images-home-cadgrafics/caso-exito-1.png" alt="Transformación Digital en Construcción - Grupo IDINSA" loading="lazy" width="800" height="600" />
+                            <img src="assets/images/index/caso-exito-1.png" alt="Transformación Digital en Construcción - Grupo IDINSA" loading="lazy" width="800" height="600" />
                         </a>
                         <a href="https://www.youtube.com/watch?v=cgwuOv4rOEs&t=20s" target="_blank" rel="noopener noreferrer" class="play-button" role="button" tabindex="0" aria-label="Reproducir video de Grupo IDINSA">
                             <svg width="32" height="32" aria-hidden="true"><use href="#icon-play"/></svg>
@@ -408,7 +408,7 @@
                 <article class="case-card">
                     <div class="case-thumbnail">
                         <a href="https://www.youtube.com/watch?v=-wPrzTvsZm8&t=49s" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/images/images-home-cadgrafics/caso-exito-2.png" alt="Innovación en Diseño de Productos - Grupo ALBA" loading="lazy" width="800" height="600" />
+                            <img src="assets/images/index/caso-exito-2.png" alt="Innovación en Diseño de Productos - Grupo ALBA" loading="lazy" width="800" height="600" />
                         </a>
                         <a href="https://www.youtube.com/watch?v=-wPrzTvsZm8&t=49s" target="_blank" rel="noopener noreferrer" class="play-button" role="button" tabindex="0" aria-label="Reproducir video de Grupo ALBA">
                             <svg width="32" height="32" aria-hidden="true"><use href="#icon-play"/></svg>
@@ -424,7 +424,7 @@
                 <article class="case-card">
                     <div class="case-thumbnail">
                         <a href="https://www.youtube.com/watch?v=fRC2wKNWzXw" target="_blank" rel="noopener noreferrer">
-                            <img src="assets/images/images-home-cadgrafics/caso-exito-3.png" alt="Innovación en Universidad ETAC" loading="lazy" width="800" height="600" />
+                            <img src="assets/images/index/caso-exito-3.png" alt="Innovación en Universidad ETAC" loading="lazy" width="800" height="600" />
                         </a>
                         <a href="https://www.youtube.com/watch?v=fRC2wKNWzXw" target="_blank" rel="noopener noreferrer" class="play-button" role="button" tabindex="0" aria-label="Reproducir video de Universidad ETAC">
                             <svg width="32" height="32" aria-hidden="true"><use href="#icon-play"/></svg>
@@ -501,7 +501,7 @@
                 </div>
             </div>
         </div>
-        <div class="copyright">&copy; Todos los derechos reservados | <a href="aviso-privacidad.html">Aviso de Privacidad</a>.</div>
+        <div class="copyright">&copy; Todos los derechos reservados | <a href="pages/legal/aviso-privacidad.html">Aviso de Privacidad</a>.</div>
     </div>
 </footer>
 

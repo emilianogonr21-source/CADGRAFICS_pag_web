@@ -38,7 +38,7 @@ También se cargan (en este orden):
 
 Las fotos de Dell van en:
 
-`assets/images/images-home-dell/`
+`assets/images/dell/home/`
 
 Hoy la portada usa `hero-laptop.png`.
 

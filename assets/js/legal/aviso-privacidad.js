@@ -2,8 +2,8 @@
   Comportamiento del aviso de privacidad — Cadgrafics
   ---------------------------------------------------
   Edita este archivo solo si cambia algo del menú o comportamiento de esta página.
-  Los textos del aviso están en: aviso-privacidad.html
-  La apariencia está en: assets/css/aviso-privacidad/aviso-privacidad.css
+  Los textos del aviso están en: pages/legal/aviso-privacidad.html
+  La apariencia está en: assets/css/legal/aviso-privacidad.css
 
   Guía del equipo: docs/README.md
 */

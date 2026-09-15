@@ -10,6 +10,19 @@ La guía del equipo (dónde está cada cosa y qué archivo editar) está en:
 
 Guía corta de ejemplo (Dell): **[docs/guia-dell.md](docs/guia-dell.md)**
 
+## Estructura (resumen)
+
+| Qué | Dónde |
+|-----|--------|
+| Páginas por marca | `pages/{marca}/` |
+| Páginas legales | `pages/legal/` |
+| CSS / JS | `assets/css/{marca}/` y `assets/js/{marca}/` |
+| Logo y favicon | `assets/images/brand/` |
+| Fotos por página | `assets/images/{marca}/{página}/` |
+| Videos | `assets/video/` (misma lógica) |
+| Modelos menú / WhatsApp | `shared/partials/` |
+| SEO | `robots.txt`, `sitemap.xml` (raíz) |
+
 ## En una frase
 
 - **HTML** = textos e imágenes  

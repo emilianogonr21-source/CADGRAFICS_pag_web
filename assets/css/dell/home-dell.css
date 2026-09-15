@@ -47,7 +47,7 @@
             --glass-bg: rgba(30, 41, 59, 0.98);
             --glass-border: rgba(255, 255, 255, 0.1);
             --text-secondary: #C8C8C8;
-            --header-height: 144px;
+            --header-height: 120px;
             --container-max: 1280px;
             --font-main: 'Inter', system-ui, -apple-system, sans-serif;
             --radius-sm: 6px;
@@ -278,15 +278,18 @@
             box-shadow: var(--shadow);
         }
 
-        /* Hero Section */
+        /* Hero Section (márgenes como index.html) */
         .hero {
             margin-top: 0;
             position: relative;
-            min-height: 0;
+            min-height: 100vh;
             height: auto;
             color: var(--white);
             overflow: hidden;
             background: #0076CE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-media {
@@ -353,11 +356,12 @@
         .hero-container {
             position: relative;
             z-index: 2;
-            max-width: 1280px;
-            min-height: 560px;
+            width: 100%;
+            max-width: 1100px;
+            min-height: 0;
             height: auto;
             margin: 0 auto;
-            padding: calc(var(--header-height) + 1.75rem) 2rem 2rem;
+            padding: 100px 1.5rem 60px;
             display: grid;
             grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
             grid-template-areas:
@@ -372,7 +376,7 @@
             grid-area: content;
             max-width: 34rem;
             width: 100%;
-            padding-right: 1.5rem;
+            padding: 2rem 1.5rem 2rem 0;
             position: relative;
             z-index: 3;
         }
@@ -1378,7 +1382,8 @@
                 display: flex;
                 flex-direction: column;
                 height: auto;
-                min-height: 0;
+                min-height: auto;
+                align-items: stretch;
                 background: #0076CE;
             }
 
@@ -1408,7 +1413,7 @@
                 grid-template-areas:
                     "content"
                     "stats";
-                padding: calc(var(--header-height) + 1.25rem) 2rem 1.5rem;
+                padding: calc(var(--header-height) + 1.25rem) 1.5rem 2rem;
                 min-height: 0;
                 max-height: none;
                 row-gap: 1.25rem;
@@ -1419,7 +1424,7 @@
 
             .hero-content {
                 max-width: 40rem;
-                padding-right: 0;
+                padding: 0.5rem 0 0;
             }
 
             .hero-stats {
@@ -1517,7 +1522,11 @@
             .dropdown-submenu.active > a::after { transform: rotate(90deg); }
 
             .hero-container {
-                padding: calc(var(--header-height) + 1.1rem) 1.5rem 1.5rem;
+                padding: calc(var(--header-height) + 1.25rem) 1rem 2rem;
+            }
+
+            .hero-content {
+                padding: 0;
             }
 
             .hero-media {

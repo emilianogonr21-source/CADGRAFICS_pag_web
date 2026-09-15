@@ -37,32 +37,42 @@ No mezcles todo en un solo archivo: así el siguiente del equipo encuentra rápi
 CADGRAFICS_pag_web/
 │
 ├── index.html              ← Inicio Cadgrafics
-├── aviso-privacidad.html   ← Aviso de privacidad (siempre con guion)
 ├── robots.txt              ← Qué pueden indexar los buscadores
 ├── sitemap.xml             ← Lista de páginas para Google y otros
+├── README.md
+├── .gitignore
 ├── docs/                   ← Estas guías
 ├── tools/                  ← Ayudas para actualizar menú / WhatsApp
 ├── shared/partials/        ← Modelos del menú, WhatsApp y cookies
 │
-├── pages/                  ← Una carpeta por marca
+├── pages/                  ← Páginas del sitio
+│   ├── legal/              ← Aviso de privacidad
 │   ├── adobe/
 │   ├── autodesk/
 │   ├── chaos/              ← SketchUp vive aquí
 │   ├── dell/
 │   └── hp/
 │
-└── assets/                 ← Imágenes, videos, apariencia y comportamientos
+└── assets/                 ← Recursos (imágenes, videos, CSS, JS)
     ├── images/
-    ├── video/
-    ├── css/
-    └── js/
+    │   ├── brand/          ← Logo, favicon, og-image (todo el sitio)
+    │   ├── index/          ← Fotos del inicio
+    │   ├── adobe/          ← home / acrobat-studio / creative-cloud
+    │   ├── autodesk/       ← home / aec-collection
+    │   ├── chaos/home/
+    │   ├── dell/home/
+    │   └── hp/home/
+    ├── video/              ← Misma lógica por marca (index, adobe, autodesk…)
+    ├── css/                ← shared + marca + index + legal
+    └── js/                 ← shared + marca + index + legal
 ```
 
 | Carpeta | Para qué |
 |---------|----------|
 | `pages/` | Páginas de cada marca |
-| `assets/images/` | Fotos, logos e ilustraciones |
-| `assets/video/` | Videos |
+| `assets/images/brand/` | Logo, favicon y redes (compartido) |
+| `assets/images/{marca}/` | Fotos de esa marca (subcarpeta por página) |
+| `assets/video/` | Videos (misma estructura que imágenes) |
 | `assets/css/` | Cómo se ve cada página |
 | `assets/js/` | Qué hace cada página al interactuar |
 | `shared/partials/` | Modelos del menú / WhatsApp / cookies (ver abajo) |
@@ -77,7 +87,7 @@ CADGRAFICS_pag_web/
 | Qué ves en el sitio | Archivo |
 |---------------------|---------|
 | Inicio Cadgrafics | `index.html` |
-| Aviso de privacidad | `aviso-privacidad.html` |
+| Aviso de privacidad | `pages/legal/aviso-privacidad.html` |
 | Adobe (inicio) | `pages/adobe/home-adobe.html` |
 | Creative Cloud | `pages/adobe/creative-cloud.html` |
 | Acrobat Studio | `pages/adobe/acrobat-studio.html` |
@@ -92,7 +102,7 @@ CADGRAFICS_pag_web/
 | Página | Contenido | Apariencia | Comportamiento |
 |--------|-----------|------------|----------------|
 | Inicio | `index.html` | `assets/css/index/index.css` | `assets/js/index/index.js` |
-| Aviso de privacidad | `aviso-privacidad.html` | `assets/css/aviso-privacidad/aviso-privacidad.css` | `assets/js/aviso-privacidad/aviso-privacidad.js` |
+| Aviso de privacidad | `pages/legal/aviso-privacidad.html` | `assets/css/legal/aviso-privacidad.css` | `assets/js/legal/aviso-privacidad.js` |
 | Adobe | `pages/adobe/home-adobe.html` | `assets/css/adobe/home-adobe.css` | `assets/js/adobe/home-adobe.js` |
 | Creative Cloud | `pages/adobe/creative-cloud.html` | `assets/css/adobe/creative-cloud.css` | `assets/js/adobe/creative-cloud.js` |
 | Acrobat Studio | `pages/adobe/acrobat-studio.html` | `assets/css/adobe/acrobat-studio.css` | `assets/js/adobe/acrobat-studio.js` |
@@ -111,14 +121,16 @@ Guía corta de ejemplo (Dell): [guia-dell.md](guia-dell.md).
 1. Todo en **minúsculas**: `home-chaos.html`, no `home-Chaos.html`.
 2. Separar palabras con **guion medio**: `home-dell`, `aviso-privacidad`.
 3. **Sin acentos ni espacios** en nombres de archivos.
-4. El aviso de privacidad siempre se llama **`aviso-privacidad.html`**.
-5. Logo del sitio: `assets/images/logo_cadgrafics.png`.
+4. El aviso de privacidad vive en **`pages/legal/aviso-privacidad.html`**.
+5. Logo del sitio: `assets/images/brand/logo_cadgrafics.png`.
 
 | Si creas… | Ejemplo bueno |
 |-----------|----------------|
-| Página de marca | `home-nombre.html` |
-| Página de producto | `nombre-del-producto.html` |
-| Carpeta de fotos de esa página | `assets/images/images-home-marca/` |
+| Página de marca | `pages/marca/home-marca.html` |
+| Página de producto | `pages/marca/nombre-producto.html` |
+| Fotos de inicio de marca | `assets/images/marca/home/` |
+| Fotos de un producto | `assets/images/marca/nombre-producto/` |
+| Video de esa página | `assets/video/marca/home/` (o el nombre del producto) |
 | Apariencia | `assets/css/marca/home-marca.css` |
 | Comportamiento | `assets/js/marca/home-marca.js` |
 
@@ -183,7 +195,7 @@ Si abres el HTML directo desde el Explorador de Windows, a veces fallan videos o
 4. Guarda y revisa en el navegador.
 
 ### Cambiar una imagen
-1. Pon la imagen nueva en la carpeta de esa página (por ejemplo `assets/images/images-home-dell/`).
+1. Pon la imagen nueva en la carpeta de esa página (por ejemplo `assets/images/dell/home/`).
 2. En el HTML, asegúrate de que el nombre del archivo coincida **exactamente** (mayúsculas/minúsculas importan).
 
 ### Cambiar un color o el espacio entre secciones
@@ -205,7 +217,7 @@ Revisa el JS de esa página y que también se cargue `assets/js/shared/site-comm
 
 | Problema | Qué revisar |
 |----------|-------------|
-| El aviso de privacidad no abre | El archivo se llama `aviso-privacidad.html` (con guion). Desde una marca la ruta es `../../aviso-privacidad.html`. Desde el inicio: `aviso-privacidad.html`. |
+| El aviso de privacidad no abre | El archivo está en `pages/legal/aviso-privacidad.html`. Desde una marca: `../legal/aviso-privacidad.html`. Desde el inicio: `pages/legal/aviso-privacidad.html`. |
 | Una imagen no se ve | La ruta y el nombre del archivo deben coincidir exactamente. |
 | SketchUp no abre desde el menú | El archivo correcto es `pages/chaos/home-chaos.html` (todo en minúsculas). |
 | Cambié un nombre y “se rompió todo” | Busca el nombre viejo en el proyecto y actualízalo en todos los menús. |
@@ -226,7 +238,7 @@ Revisa el JS de esa página y que también se cargue `assets/js/shared/site-comm
 ## Pendientes del sitio (sin prisa)
 
 - Unificar el menú en todas las páginas cuando cambie algo en `shared/partials/`.
-- Carpeta de imágenes propia para SketchUp/Chaos (hoy aún pueden usarse fotos externas).
+- Llenar `assets/images/chaos/home/` con fotos propias de SketchUp (hoy el hero aún puede usar fondo externo).
 - Fotos de producto propias para Dell (hoy varias secciones reutilizan `hero-laptop.png`).
 - Alinear ventanas de contacto de Adobe/AEC con el mismo patrón que inicio y Dell.
 

@@ -84,7 +84,7 @@
       --logo-size: 120px;
       --logo-content-top: calc(var(--logo-size) * 218 / 1080);
       --logo-content-height: calc(var(--logo-size) * 585 / 1080);
-      --header-height: 84px;
+      --header-height: 120px;
       --container-max: 1280px;
     }
 
@@ -488,7 +488,7 @@
     @media (max-width: 1024px) {
       :root {
         --logo-size: 96px;
-        --header-height: 78px;
+        --header-height: 64px;
       }
       
       .mobile-toggle {
@@ -574,18 +574,21 @@
     }
 
     /* ============================================
-       5. HERO SECTION
+       5. HERO SECTION (márgenes como index.html)
        ============================================ */
     .hero {
       position: relative;
-      min-height: 76vh;
-      padding: 56px 0 36px;
+      min-height: 100vh;
+      padding: 100px 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background:
         linear-gradient(135deg, rgba(0, 34, 51, 0.85) 0%, rgba(0, 51, 78, 0.75) 50%, rgba(0, 34, 51, 0.6) 100%),
-        url('../../images/images-home-hp/image1.png') center/cover no-repeat;
+        url('../../images/hp/home/image1.png') center/cover no-repeat;
       color: var(--bg-white);
       overflow: hidden;
-      margin-top: var(--header-height);
+      margin-top: 0;
     }
 
     .hero::before {
@@ -596,10 +599,19 @@
       pointer-events: none;
     }
 
+    .hero > .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 800px;
+      padding: 2rem;
     }
 
     .hero-badge {
@@ -1874,7 +1886,12 @@
     @media (max-width: 768px) {
       .hero {
         min-height: auto;
-        padding: 48px 0 32px;
+        padding: calc(var(--header-height) + 1.25rem) 0 2rem;
+        align-items: flex-start;
+      }
+
+      .hero-content {
+        padding: 0.5rem 0 0;
       }
 
       .hero-badge {
@@ -1962,6 +1979,10 @@
     @media (max-width: 480px) {
       .container {
         padding: 0 16px;
+      }
+
+      .hero-content {
+        padding: 0;
       }
 
       .hero-stats {
