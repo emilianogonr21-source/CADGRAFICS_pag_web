@@ -220,8 +220,8 @@ El menú y el WhatsApp **no se insertan solos** en las páginas: cada HTML lleva
 
 Si cambias un teléfono o un ítem del menú:
 
-1. Edita el modelo en `shared/partials/`.
-2. Copia el cambio a las páginas del sitio.
+1. Edita el modelo en `shared/partials/header.html`.
+2. Ejecuta `powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1` (o `python tools/sync-header.py`) para copiarlo a todas las páginas.
 3. Prueba al menos: inicio, Dell y Adobe (menú en celular + Contáctanos).
 
 Detalle: [shared/partials/README.md](../shared/partials/README.md).
@@ -373,7 +373,7 @@ Dominio de referencia en los archivos: `https://cadgrafics.com.mx/`.
 
 La **estructura** del proyecto ya está alineada. Lo que sigue es contenido (cuando exista):
 
-- Al cambiar el menú en `shared/partials/`, copiar el cambio a todas las páginas.
+- Al cambiar el menú en `shared/partials/header.html`, ejecutar `tools/sync-header.ps1` (o el `.py`) para propagar el cambio.
 - Llenar `assets/images/chaos/home/` con fotos propias de SketchUp.
 - Fotos de producto propias para Dell (la portada ya usa `hero-background.jpg`).
 - Videos propios en `assets/video/{chaos,dell,hp}/home/` y `assets/video/autodesk/aec-collection/` (las carpetas ya existen).

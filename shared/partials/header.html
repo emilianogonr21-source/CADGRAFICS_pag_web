@@ -2,12 +2,19 @@
   Partial: header / navegación Cadgrafics (fuente de verdad)
 
   Placeholders:
-    {{ROOT}}              "" en la raíz, "../../" desde pages/marca/
-    {{LOGO_HREF}}         "#" en inicio, "{{ROOT}}index.html" en el resto
-    {{ACTIVE_ATTR_DELL}}  aria-current="page" solo en Dell (vacío en otras)
-    {{CONTACT_CLASSES}}   textbutton-trigger (igual que index.html)
-    {{INDEX_SERVICIOS}}   ruta a #servicios
-    {{INDEX_CASOS}}       ruta a #casos
+    {{ROOT}}               "" en la raíz, "../../" desde pages/marca/
+    {{LOGO_HREF}}          "#" en inicio, "{{ROOT}}index.html" en el resto
+    {{INDEX_MARCAS}}       "#marcas" o "{{ROOT}}index.html#marcas"
+    {{INDEX_SERVICIOS}}    "#servicios" o "{{ROOT}}index.html#servicios"
+    {{INDEX_CASOS}}        "#casos" o "{{ROOT}}index.html#casos"
+    {{ACTIVE_ADOBE}}       aria-current="page" en páginas Adobe (vacío en otras)
+    {{ACTIVE_AUTODESK}}    idem Autodesk
+    {{ACTIVE_CHAOS}}       idem SketchUp (carpeta chaos)
+    {{ACTIVE_HP}}          idem HP
+    {{ACTIVE_DELL}}        idem Dell
+    {{CONTACT_CLASSES}}    textbutton-trigger
+
+  Sincronizar a las páginas:  python tools/sync-header.py
 -->
 <header class="header" id="header">
   <div class="container nav-container">
@@ -18,12 +25,12 @@
     <nav aria-label="Navegación principal">
       <ul class="nav-menu" id="navMenu">
         <li class="nav-item">
-          <a href="#marcas" aria-haspopup="true" aria-expanded="false">
+          <a href="{{INDEX_MARCAS}}" aria-haspopup="true" aria-expanded="false">
             Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
           </a>
           <ul class="dropdown-menu">
             <li class="dropdown-submenu">
-              <a href="{{ROOT}}pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+              <a href="{{ROOT}}pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false"{{ACTIVE_ADOBE}}>
                 Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
               </a>
               <ul class="dropdown-submenu-menu">
@@ -32,7 +39,7 @@
               </ul>
             </li>
             <li class="dropdown-submenu">
-              <a href="{{ROOT}}pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
+              <a href="{{ROOT}}pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false"{{ACTIVE_AUTODESK}}>
                 Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
               </a>
               <ul class="dropdown-submenu-menu">
@@ -40,17 +47,17 @@
               </ul>
             </li>
             <li>
-              <a href="{{ROOT}}pages/chaos/home-chaos.html">
+              <a href="{{ROOT}}pages/chaos/home-chaos.html"{{ACTIVE_CHAOS}}>
                 Sketchup
               </a>
             </li>
             <li>
-              <a href="{{ROOT}}pages/hp/home-hp.html">
+              <a href="{{ROOT}}pages/hp/home-hp.html"{{ACTIVE_HP}}>
                 HP
               </a>
             </li>
             <li>
-              <a href="{{ROOT}}pages/dell/home-dell.html" {{ACTIVE_ATTR_DELL}}>
+              <a href="{{ROOT}}pages/dell/home-dell.html"{{ACTIVE_DELL}}>
                 Dell
               </a>
             </li>

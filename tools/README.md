@@ -5,12 +5,18 @@ No son páginas del sitio y `robots.txt` pide a los buscadores no indexar esta c
 
 | Archivo | Para qué |
 |---------|----------|
+| `sync-header.ps1` | Copia el menú oficial de `shared/partials/header.html` a todas las páginas (recomendado en Windows) |
+| `sync-header.py` | Misma sincronización si tienes Python instalado |
 | `rename-assets.py` | Renombrar assets en lote cuando haga falta alinear nombres |
 
-Si agregas un script nuevo:
+### Sincronizar el menú
 
-1. Déjalo en esta carpeta.
-2. Documéntalo aquí en una línea (qué hace, en lenguaje simple).
-3. No lo enlaces desde el HTML público.
+1. Edita `shared/partials/header.html`.
+2. Desde la raíz del proyecto ejecuta:
+   ```
+   powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1
+   ```
+   (o `python tools/sync-header.py` si tienes Python).
+3. Prueba menú en celular + Contáctanos en inicio, Dell y Adobe.
 
 Guía del sitio: [docs/README.md](../docs/README.md).

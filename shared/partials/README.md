@@ -11,9 +11,13 @@ No se “inyectan” solas. Por eso, si editas solo el modelo aquí, **las pági
 
 ## Si cambias un teléfono o un ítem del menú
 
-1. Edita el modelo aquí en `shared/partials/`.
-2. Copia el cambio a las páginas del sitio (`index.html` y todo lo que hay en `pages/`).
-3. Prueba menú en celular + Contáctanos en al menos: **inicio, Dell y Adobe**.
+1. Edita el modelo aquí en `shared/partials/header.html` (o WhatsApp en `whatsapp-float.html`).
+2. Para el menú, sincroniza todas las páginas con:
+   ```
+   powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1
+   ```
+   (o `python tools/sync-header.py` si tienes Python).3. Si cambias WhatsApp, copia el cambio a las páginas (aún no hay sync automático de ese partial).
+4. Prueba menú en celular + Contáctanos en al menos: **inicio, Dell y Adobe**.
 
 ## Archivos de esta carpeta
 
