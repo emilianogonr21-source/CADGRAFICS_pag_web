@@ -25,7 +25,7 @@
     label: 'SketchUp / Chaos',
     fieldMap: { name: '#name', email: '#email', phone: '#phone', company: '#company' },
     focusSelector: '#name',
-    triggerSelector: '.textbutton-trigger, .modal-trigger',
+    triggerSelector: '.textbutton-trigger',
   });
 
   // ============ PLANES + STATS ============

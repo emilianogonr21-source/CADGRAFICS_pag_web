@@ -1,14 +1,34 @@
 /*
   Comportamiento de Creative Cloud — Cadgrafics
   ---------------------------------------------
-  Menú, formularios y animaciones de esta página.
+  Depende de site-common.js (menú, Contáctanos). Tabla, FAQ y animaciones propias.
   Contenido: pages/adobe/creative-cloud.html
   Apariencia: assets/css/adobe/creative-cloud.css
 
   Guía del equipo: docs/README.md
 */
-    document.addEventListener('DOMContentLoaded', function () {
-      const header = document.getElementById('header');
+document.addEventListener('DOMContentLoaded', function () {
+      const CG = window.Cadgrafics;
+      if (!CG) {
+        console.error('Cadgrafics site-common.js no cargó');
+        return;
+      }
+      const { initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
+      initHeader({ lockBodyScroll: true });
+      initSmoothAnchors({ offset: 80 });
+      initStandardLeadModal({
+        source: 'modal-creative-cloud',
+        label: 'Creative Cloud',
+        fieldMap: {
+          name: '#name',
+          email: '#modal-email',
+          phone: '#phone',
+          company: '#company',
+        },
+        focusSelector: '#name',
+        triggerSelector: '.textbutton-trigger',
+      });
+
 
       // ============================================
       // UTILIDAD: DEBOUNCE
@@ -201,16 +221,6 @@
       }
 
       // ============================================
-      // HEADER SCROLL
-      // ============================================
-      const handleHeaderScroll = () => {
-        if (!header) return;
-        header.classList.toggle('scrolled', window.scrollY > 50);
-      };
-      window.addEventListener('scroll', handleHeaderScroll, { passive: true });
-      handleHeaderScroll();
-
-      // ============================================
       // FAQ ACCORDION
       // ============================================
       const faqItems = document.querySelectorAll('.faq-item');
@@ -265,272 +275,6 @@
           el.style.willChange = 'opacity, transform';
           el.style.transition = `opacity 0.6s ease ${groupDelay}s, transform 0.6s ease ${groupDelay}s`;
           observer.observe(el);
-        });
-      }
-
-      // ============================================
-      // MOBILE MENU TOGGLE
-      // ============================================
-      const mobileToggle = document.getElementById('mobileToggle');
-      const navMenu = document.getElementById('navMenu');
-
-      if (mobileToggle && navMenu) {
-        mobileToggle.addEventListener('click', () => {
-          const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-          const next = !isExpanded;
-          mobileToggle.setAttribute('aria-expanded', String(next));
-          mobileToggle.setAttribute('aria-label', next ? 'Cerrar menú' : 'Abrir menú');
-          navMenu.classList.toggle('active', next);
-          document.body.style.overflow = next ? 'hidden' : '';
-
-          const icon = mobileToggle.querySelector('svg use');
-          if (icon) icon.setAttribute('href', next ? '#icon-close' : '#icon-menu');
-
-          if (!next) {
-            document.querySelectorAll('.nav-item.open, .dropdown-submenu.open').forEach(el => {
-              el.classList.remove('open');
-              el.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
-            });
-          }
-        });
-      }
-
-      // ============================================
-      // DROPDOWN TOGGLE (Mobile + Accesibilidad)
-      // ============================================
-      function setupDropdown(linkSelector, parentSelector) {
-        document.querySelectorAll(linkSelector).forEach(toggle => {
-          toggle.addEventListener('click', (e) => {
-            if (window.innerWidth > 768 && toggle.getAttribute('href') !== '#') return;
-
-            e.preventDefault();
-            const parent = toggle.closest(parentSelector);
-            if (!parent) return;
-
-            const isOpen = parent.classList.contains('open');
-
-            parent.parentElement?.querySelectorAll(`:scope > ${parentSelector}.open`).forEach(sib => {
-              if (sib !== parent) {
-                sib.classList.remove('open');
-                sib.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
-              }
-            });
-
-            parent.classList.toggle('open', !isOpen);
-            toggle.setAttribute('aria-expanded', String(!isOpen));
-          });
-        });
-      }
-
-      setupDropdown('.nav-item > a', '.nav-item');
-      setupDropdown('.dropdown-submenu > a', '.dropdown-submenu');
-
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-item') && !e.target.closest('.dropdown-submenu')) {
-          document.querySelectorAll('.nav-item.open, .dropdown-submenu.open').forEach(el => {
-            el.classList.remove('open');
-            el.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
-          });
-        }
-      });
-
-      // ============================================
-      // MODAL Contáctanos (mismo que home-adobe cotización)
-      // ============================================
-      const modalOverlay = document.getElementById('modal-overlay');
-      const modalForm = document.getElementById('modal-form');
-      const modalSubmitBtn = document.getElementById('modal-submit-btn');
-      const modalFormMessage = document.getElementById('modal-form-message');
-      const modalCloseBtn = modalOverlay?.querySelector('[data-modal-close]');
-      const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-      let triggerElement = null;
-
-      function openModal(e) {
-        if (!modalOverlay) return;
-        triggerElement = e.currentTarget;
-        modalFormMessage.textContent = '';
-        modalFormMessage.className = 'form-message';
-        modalOverlay.classList.add('active');
-        modalOverlay.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        const mainContent = document.querySelector('main');
-        const headerContent = document.querySelector('.header');
-        if (mainContent) {
-          mainContent.setAttribute('inert', '');
-          mainContent.setAttribute('aria-hidden', 'true');
-        }
-        if (headerContent) {
-          headerContent.setAttribute('inert', '');
-          headerContent.setAttribute('aria-hidden', 'true');
-        }
-        requestAnimationFrame(() => {
-          modalCloseBtn?.focus();
-          modalOverlay.removeEventListener('keydown', trapFocus);
-          modalOverlay.addEventListener('keydown', trapFocus);
-        });
-      }
-
-      function closeModal() {
-        if (!modalOverlay) return;
-        modalOverlay.classList.remove('active');
-        modalOverlay.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        const mainContent = document.querySelector('main');
-        const headerContent = document.querySelector('.header');
-        if (mainContent) {
-          mainContent.removeAttribute('inert');
-          mainContent.removeAttribute('aria-hidden');
-        }
-        if (headerContent) {
-          headerContent.removeAttribute('inert');
-          headerContent.removeAttribute('aria-hidden');
-        }
-        modalOverlay.removeEventListener('keydown', trapFocus);
-        if (triggerElement) triggerElement.focus();
-      }
-
-      function trapFocus(e) {
-        if (e.key !== 'Tab') return;
-        const focusableContent = Array.from(modalOverlay.querySelectorAll(focusableSelector));
-        if (focusableContent.length === 0) return;
-        const firstFocusable = focusableContent[0];
-        const lastFocusable = focusableContent[focusableContent.length - 1];
-        if (!focusableContent.includes(document.activeElement)) {
-          e.preventDefault();
-          firstFocusable.focus();
-          return;
-        }
-        if (e.shiftKey) {
-          if (document.activeElement === firstFocusable) { lastFocusable.focus(); e.preventDefault(); }
-        } else {
-          if (document.activeElement === lastFocusable) { firstFocusable.focus(); e.preventDefault(); }
-        }
-      }
-
-      document.querySelectorAll('[data-modal-trigger]').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-          if (trigger.tagName === 'A') e.preventDefault();
-          openModal(e);
-        });
-      });
-
-      if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-      if (modalOverlay) {
-        modalOverlay.addEventListener('click', (e) => {
-          if (e.target === modalOverlay) closeModal();
-        });
-      }
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay?.classList.contains('active')) closeModal();
-      });
-
-      const isValidEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
-
-      function buildWhatsAppMessage(formData) {
-        const data = Object.fromEntries(formData);
-        let message = 'Solicitud de cotización\n\n';
-        if (data.nombre) message += `Nombre: ${data.nombre}\n`;
-        if (data.email) message += `Email: ${data.email}\n`;
-        if (data.empresa) message += `Empresa: ${data.empresa}\n`;
-        if (data.producto) message += `Producto: ${data.producto}\n`;
-        if (data.mensaje) message += `\nMensaje: ${data.mensaje}`;
-        return message;
-      }
-
-      if (modalForm) {
-        modalForm.querySelectorAll('input:not([name="website_url"]), textarea').forEach(input => {
-          input.addEventListener('input', () => {
-            input.classList.remove('is-invalid');
-            input.removeAttribute('aria-invalid');
-            const errorSpan = document.getElementById(`error-${input.name}`);
-            if (errorSpan) errorSpan.textContent = '';
-          });
-        });
-
-        modalForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
-          modalFormMessage.textContent = '';
-          modalFormMessage.className = 'form-message';
-
-          const honeypot = modalForm.querySelector('input[name="website_url"]');
-          if (honeypot && honeypot.value) return;
-
-          let hasError = false;
-          let firstErrorField = null;
-          const inputs = modalForm.querySelectorAll('input:not([name="website_url"]), textarea');
-          inputs.forEach(input => {
-            const errorSpan = document.getElementById(`error-${input.name}`);
-            input.classList.remove('is-invalid');
-            input.removeAttribute('aria-invalid');
-            if (errorSpan) errorSpan.textContent = '';
-
-            if (input.required && !input.value.trim()) {
-              input.classList.add('is-invalid');
-              input.setAttribute('aria-invalid', 'true');
-              if (errorSpan) errorSpan.textContent = 'Este campo es obligatorio';
-              if (!hasError) { firstErrorField = input; hasError = true; }
-            } else if (input.type === 'email' && input.value && !isValidEmail(input.value)) {
-              input.classList.add('is-invalid');
-              input.setAttribute('aria-invalid', 'true');
-              if (errorSpan) errorSpan.textContent = 'Ingresa un correo electrónico válido';
-              if (!hasError) { firstErrorField = input; hasError = true; }
-            }
-          });
-
-          if (hasError) {
-            modalFormMessage.textContent = 'Por favor corrige los errores en el formulario.';
-            modalFormMessage.className = 'form-message error';
-            if (firstErrorField) firstErrorField.focus();
-            return;
-          }
-
-          const originalHTML = modalSubmitBtn.innerHTML;
-          modalSubmitBtn.innerHTML = 'Abriendo WhatsApp...';
-          modalSubmitBtn.disabled = true;
-
-          try {
-            const formData = new FormData(modalForm);
-            const message = buildWhatsAppMessage(formData);
-            const CG = window.Cadgrafics;
-            if (CG && CG.submitLead) {
-              const data = Object.fromEntries(formData);
-              await CG.submitLead(
-                {
-                  name: data.nombre,
-                  email: data.email,
-                  company: data.empresa,
-                  message: data.mensaje || message,
-                  source: 'modal-creative-cloud-cotizacion',
-                },
-                { whatsappText: message, label: 'Creative Cloud' }
-              );
-            } else if (CG && CG.openWhatsApp) {
-              CG.openWhatsApp(message);
-            }
-
-            modalSubmitBtn.style.background = '#059669';
-            modalFormMessage.textContent = '¡Redirigiendo a WhatsApp con tu mensaje!';
-            modalFormMessage.className = 'form-message success';
-
-            setTimeout(() => {
-              modalForm.reset();
-              modalSubmitBtn.innerHTML = originalHTML;
-              modalSubmitBtn.style.background = '';
-              modalSubmitBtn.disabled = false;
-              closeModal();
-            }, 1500);
-          } catch (error) {
-            console.error('Error al abrir WhatsApp:', error);
-            modalSubmitBtn.innerHTML = '✗ Error al abrir WhatsApp';
-            modalSubmitBtn.style.background = '#DC2626';
-            modalFormMessage.textContent = 'Error al abrir WhatsApp. Puedes contactarnos directamente.';
-            modalFormMessage.className = 'form-message error';
-            modalSubmitBtn.disabled = false;
-            setTimeout(() => {
-              modalSubmitBtn.innerHTML = originalHTML;
-              modalSubmitBtn.style.background = '';
-            }, 2000);
-          }
         });
       }
 

@@ -1855,11 +1855,11 @@
       outline: none;
     }
 
-    .form-group-modal {
+    .modal .form-group {
       margin-bottom: 1.25rem;
     }
 
-    .form-group-modal label {
+    .modal .form-group label {
       display: block;
       margin-bottom: 0.5rem;
       font-weight: 500;
@@ -1867,8 +1867,8 @@
       font-size: 0.95rem;
     }
 
-    .form-group-modal input,
-    .form-group-modal textarea {
+    .modal .form-group input,
+    .modal .form-group textarea {
       width: 100%;
       padding: 0.875rem 1rem;
       border: 2px solid #e2e8f0;
@@ -1880,20 +1880,20 @@
       color: #1e293b;
     }
 
-    .form-group-modal input::placeholder,
-    .form-group-modal textarea::placeholder {
+    .modal .form-group input::placeholder,
+    .modal .form-group textarea::placeholder {
       color: #94a3b8;
     }
 
-    .form-group-modal input:focus,
-    .form-group-modal textarea:focus {
+    .modal .form-group input:focus,
+    .modal .form-group textarea:focus {
       outline: none;
       border-color: #8B0000;
       box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.25);
     }
 
-    .form-group-modal input.is-invalid,
-    .form-group-modal textarea.is-invalid {
+    .modal .form-group input.is-invalid,
+    .modal .form-group textarea.is-invalid {
       border-color: #ff6b6b;
       box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.25);
     }

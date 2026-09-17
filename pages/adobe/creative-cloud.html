@@ -157,7 +157,7 @@
         </li>
         <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
         <li><a href="../../index.html#casos">Casos</a></li>
-        <li><a href="#contacto" data-modal-trigger="cotizacion" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
       </ul>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
@@ -185,11 +185,11 @@
           </h1>
           <p class="hero-lead">La suite de aplicaciones creativas más completa del mundo, con IA generativa integrada. Diseña, edita, colabora y publica desde un solo lugar.</p>
           <div class="hero-buttons">
-            <a href="#contacto" class="btn btn-primary" data-modal-trigger="cotizacion">
+            <a href="#contacto" class="btn btn-primary textbutton-trigger">
               Agenda una Demo
               <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
             </a>
-            <a href="#contacto" class="btn btn-outline" data-modal-trigger="cotizacion">
+            <a href="#contacto" class="btn btn-outline textbutton-trigger">
               <svg width="16" height="16" aria-hidden="true"><use href="#icon-play"/></svg>
               Solicita una Cotización
             </a>
@@ -359,7 +359,7 @@
               </li>
             </ul>
 
-            <a href="#contacto" class="btn btn-primary" data-modal-trigger="cotizacion">
+            <a href="#contacto" class="btn btn-primary textbutton-trigger">
               Ver planes con Firefly
               <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
             </a>
@@ -420,7 +420,7 @@
                 </div>
               </div>
 
-              <a href="#contacto" class="btn btn-primary express-cta" data-modal-trigger="cotizacion">
+              <a href="#contacto" class="btn btn-primary express-cta textbutton-trigger">
                 Más Información
                 <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
               </a>
@@ -579,34 +579,49 @@
     <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
   </a>
 
-  <!-- Modal Contáctanos (mismo que home-adobe) -->
-  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" aria-hidden="true">
-    <div class="modal">
-      <button class="modal-close" data-modal-close aria-label="Cerrar modal">&times;</button>
-      <h3 id="modal-title">Solicitar Cotización</h3>
-      <p id="modal-description">Cuéntanos qué necesitas y te enviaremos una propuesta personalizada.</p>
-      <form class="modal-form" id="modal-form" novalidate>
-        <input type="text" name="website_url" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label for="field-nombre" class="visually-hidden">Nombre completo</label>
-        <input type="text" id="field-nombre" name="nombre" placeholder="Nombre completo" required maxlength="100" autocomplete="name">
-        <span id="error-nombre" class="field-error" aria-live="polite"></span>
-        <label for="field-email" class="visually-hidden">Correo electrónico</label>
-        <input type="email" id="field-email" name="email" placeholder="Correo electrónico" required maxlength="150" autocomplete="email">
-        <span id="error-email" class="field-error" aria-live="polite"></span>
-        <label for="field-empresa" class="visually-hidden">Empresa</label>
-        <input type="text" id="field-empresa" name="empresa" placeholder="Empresa" required maxlength="100" autocomplete="organization">
-        <span id="error-empresa" class="field-error" aria-live="polite"></span>
-        <label for="field-producto" class="visually-hidden">Producto de interés</label>
-        <input type="text" id="field-producto" name="producto" placeholder="Producto de interés (ej: Creative Cloud Pro)" maxlength="100">
-        <span id="error-producto" class="field-error" aria-live="polite"></span>
-        <label for="field-mensaje" class="visually-hidden">Detalles adicionales</label>
-        <textarea id="field-mensaje" name="mensaje" rows="3" placeholder="Detalles adicionales..." maxlength="500"></textarea>
-        <span id="error-mensaje" class="field-error" aria-live="polite"></span>
-        <button type="submit" class="btn btn-primary btn--block" id="modal-submit-btn">Solicitar cotización</button>
-        <p class="form-message" id="modal-form-message" role="status" aria-live="polite"></p>
-      </form>
+  <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-content" role="document">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTitle">Cuéntanos sobre tu proyecto</h3>
+      <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar formulario">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
+    <form id="leadForm" novalidate>
+      <div id="formFields">
+        <div class="form-group">
+          <label for="name">Nombre completo *</label>
+          <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name"/>
+        </div>
+        <div class="form-group">
+          <label for="modal-email">Correo electrónico *</label>
+          <input type="email" id="modal-email" name="email" required aria-required="true" autocomplete="email"/>
+        </div>
+        <div class="form-group">
+          <label for="phone">Celular *</label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678"/>
+        </div>
+        <div class="form-group">
+          <label for="company">Empresa *</label>
+          <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa"/>
+        </div>
+        <div class="form-group">
+          <label for="message">Tu requerimiento</label>
+          <textarea id="message" name="message" rows="4" maxlength="500" placeholder="Ej: Necesito licencias Adobe para equipo de diseño..."></textarea>
+        </div>
+        <button type="submit" class="cta-modal">
+          <svg width="16" height="16" aria-hidden="true"><use href="#icon-send"/></svg> Enviar consulta
+        </button>
+        <p class="form-message" id="modalFormMessage" role="status" aria-live="polite"></p>
+      </div>
+      <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+        <svg width="48" height="48" aria-hidden="true"><use href="#icon-check"/></svg>
+        <h4>¡Listo!</h4>
+        <p>Recibimos tu consulta. Te contactaremos en breve.</p>
+      </div>
+    </form>
   </div>
+</div>
 
   <!-- Comportamiento de la pagina (archivo externo) -->
     <script src="../../assets/js/shared/site-common.js"></script>

@@ -25,7 +25,7 @@
     label: 'Autodesk',
     fieldMap: { name: '#name', email: '#email, #modal-email', phone: '#phone', company: '#company' },
     focusSelector: '#name',
-    triggerSelector: '.textbutton-trigger, .modal-trigger, .cta-modal-trigger',
+    triggerSelector: '.textbutton-trigger',
   });
 
   const observer = new IntersectionObserver(

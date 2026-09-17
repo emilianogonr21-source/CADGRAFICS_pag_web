@@ -42,8 +42,8 @@ CADGRAFICS_pag_web/
 ├── README.md
 ├── .gitignore
 ├── docs/                   ← Estas guías
-├── tools/                  ← Ayudas para actualizar menú / WhatsApp
-├── shared/partials/        ← Modelos del menú, WhatsApp y cookies
+├── tools/                  ← Utilidades de mantenimiento (p. ej. renombrar assets)
+├── shared/partials/        ← Modelos del menú y WhatsApp
 │
 ├── pages/                  ← Páginas del sitio
 │   ├── legal/              ← Aviso de privacidad
@@ -75,7 +75,7 @@ CADGRAFICS_pag_web/
 | `assets/video/` | Videos (misma estructura que imágenes) |
 | `assets/css/` | Cómo se ve cada página |
 | `assets/js/` | Qué hace cada página al interactuar |
-| `shared/partials/` | Modelos del menú / WhatsApp / cookies (ver abajo) |
+| `shared/partials/` | Modelos del menú / WhatsApp (ver abajo) |
 | `docs/` | Guías del equipo |
 | `robots.txt` | Indica a Google qué puede indexar |
 | `sitemap.xml` | Lista de páginas públicas del sitio |
@@ -151,25 +151,22 @@ Direcciones, correos, WhatsApp, redes y enlace al aviso de privacidad.
 ### Botón verde de WhatsApp
 Queda fijo en la esquina para escribir por WhatsApp.
 
-### Aviso de cookies
-La barrita que aparece la primera vez que alguien visita el sitio.
-
 ---
 
 ## Piezas compartidas (afectan a varias páginas)
 
-Hay archivos que **no son de una sola marca**. Sirven para que el menú, Contáctanos y las cookies funcionen igual en todo el sitio:
+Hay archivos que **no son de una sola marca**. Sirven para que el menú y Contáctanos funcionen igual en todo el sitio:
 
 | Archivo | Qué hace (en simple) |
 |---------|----------------------|
-| `assets/css/shared/base.css` | Colores base Cadgrafics + aspecto del aviso de cookies |
-| `assets/js/shared/site-common.js` | Menú, ventanas de contacto, cookies y envío a WhatsApp |
-| `shared/partials/` | Modelos del menú, WhatsApp y cookies |
+| `assets/css/shared/base.css` | Colores base Cadgrafics + menú compartido |
+| `assets/js/shared/site-common.js` | Menú, ventanas de contacto y envío a WhatsApp |
+| `shared/partials/` | Modelos del menú y WhatsApp |
 
 **Importante:** cada página ya trae su menú “pegado” dentro del HTML. Si cambias un teléfono o un ítem del menú:
 
 1. Actualiza el modelo en `shared/partials/`.
-2. Copia el cambio a las páginas (o usa la ayuda en `tools/`).
+2. Copia el cambio a las páginas.
 3. Prueba al menos inicio, Dell y Adobe (menú en celular + Contáctanos).
 
 Más detalle: [shared/partials/README.md](../shared/partials/README.md).
@@ -240,7 +237,7 @@ Revisa el JS de esa página y que también se cargue `assets/js/shared/site-comm
 - Unificar el menú en todas las páginas cuando cambie algo en `shared/partials/`.
 - Llenar `assets/images/chaos/home/` con fotos propias de SketchUp (hoy el hero aún puede usar fondo externo).
 - Fotos de producto propias para Dell (la portada ya usa `hero-background.jpg`; faltan fotos propias en secciones de producto).
-- Alinear ventanas de contacto de Adobe/AEC con el mismo patrón que inicio y Dell.
+- Alinear ventanas de contacto de AEC con el mismo patrón que inicio y Dell (Adobe ya unificado).
 
 ---
 

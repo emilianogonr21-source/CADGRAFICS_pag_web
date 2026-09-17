@@ -28,7 +28,7 @@
     label: 'AEC Collection',
     fieldMap: { name: '#name', email: '#email', phone: '#phone', company: '#company' },
     focusSelector: '#name',
-    triggerSelector: '.textbutton-trigger, .modal-trigger, .cta-modal-trigger',
+    triggerSelector: '.textbutton-trigger',
   });
 
   /* Navegación activa según sección visible */

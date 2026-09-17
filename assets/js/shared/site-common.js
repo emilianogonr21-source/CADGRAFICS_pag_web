@@ -4,7 +4,6 @@
   Qué hace este archivo (en simple):
   - Menú de arriba (también en celular)
   - Ventana de Contáctanos
-  - Aviso de cookies
   - Envío de formularios: intenta guardar el dato y SIEMPRE abre WhatsApp
     con el mensaje listo, para no perder el contacto
 
@@ -192,7 +191,7 @@
   function initSmoothAnchors(options) {
     const opts = options || {};
     const header = $('#header');
-    const skip = opts.skipSelector || '.textbutton-trigger, .modal-trigger, [data-modal-trigger]';
+    const skip = opts.skipSelector || '.textbutton-trigger, [data-modal-trigger]';
 
     $$('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
@@ -232,8 +231,7 @@
       },
       opts.fieldMap || {}
     );
-    const triggerSelector =
-      opts.triggerSelector || '.textbutton-trigger, .modal-trigger, .cta-modal-trigger';
+    const triggerSelector = opts.triggerSelector || '.textbutton-trigger';
     let lastFocusedElement = null;
 
     const fieldEl = function (key) {
@@ -396,34 +394,6 @@
     return { openModal: openModal, closeModal: closeModal };
   }
 
-  /** Banner de cookies (#cookieBanner) — Dell y páginas que lo incluyan. */
-  function initCookieBanner() {
-    const banner = $('#cookieBanner');
-    if (!banner) return;
-
-    function hide() {
-      banner.style.display = 'none';
-    }
-
-    global.acceptCookies = function () {
-      hide();
-      try {
-        localStorage.setItem('cookiesAccepted', 'true');
-      } catch (e) {}
-    };
-
-    global.rejectCookies = function () {
-      hide();
-      try {
-        localStorage.setItem('cookiesAccepted', 'false');
-      } catch (e) {}
-    };
-
-    try {
-      if (localStorage.getItem('cookiesAccepted') !== null) hide();
-    } catch (e) {}
-  }
-
   global.Cadgrafics = {
     WHATSAPP_PHONE: WHATSAPP_PHONE,
     $: $,
@@ -437,6 +407,5 @@
     initHeader: initHeader,
     initSmoothAnchors: initSmoothAnchors,
     initStandardLeadModal: initStandardLeadModal,
-    initCookieBanner: initCookieBanner,
   };
 })(window);

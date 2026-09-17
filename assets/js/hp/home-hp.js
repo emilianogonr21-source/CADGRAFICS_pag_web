@@ -23,7 +23,7 @@
     label: 'HP',
     fieldMap: { name: '#name', email: '#email', phone: '#phone', company: '#company' },
     focusSelector: '#name',
-    triggerSelector: '.textbutton-trigger, .modal-trigger',
+    triggerSelector: '.textbutton-trigger',
   });
 
   // ===== GALERÍA DE IMÁGENES DEL PORTAFOLIO =====
