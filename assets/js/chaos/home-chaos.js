@@ -16,17 +16,59 @@
     return;
   }
 
-  const { initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
+  const { submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
   initHeader({ lockBodyScroll: true });
   initSmoothAnchors();
-  initStandardLeadModal({
+  const leadModal = initStandardLeadModal({
     source: 'modal-chaos',
     label: 'SketchUp / Chaos',
     fieldMap: { name: '#name', email: '#email', phone: '#phone', company: '#company' },
     focusSelector: '#name',
     triggerSelector: '.textbutton-trigger',
   });
+
+  /* Formulario de la portada → WhatsApp (mismo flujo que Dell/HP) */
+  const heroForm = document.getElementById('chaosHeroForm');
+  if (heroForm) {
+    heroForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!heroForm.checkValidity()) {
+        heroForm.reportValidity();
+        return;
+      }
+
+      const fd = new FormData(heroForm);
+      const submitBtn = heroForm.querySelector('button[type="submit"]');
+      const original = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Enviando...';
+      }
+
+      try {
+        await submitLead(
+          {
+            name: fd.get('name'),
+            email: fd.get('email'),
+            phone: fd.get('phone'),
+            company: fd.get('company'),
+            message: fd.get('interest') || '',
+            source: 'chaos-hero',
+          },
+          { label: 'SketchUp — formulario de portada' }
+        );
+        heroForm.reset();
+      } catch (err) {
+        console.error('Error al enviar formulario SketchUp:', err);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = original;
+        }
+      }
+    });
+  }
 
   // ============ PLANES + STATS ============
   const plansData = {
@@ -110,15 +152,12 @@
     });
     toolsList.innerHTML = toolsHtml;
 
-    // Re-bind modal triggers inside newly injected CTA
+    // CTA inyectado: reutilizar openModal (focus + a11y del modal compartido)
     display.querySelectorAll('.textbutton-trigger').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        const modal = document.getElementById('formModal');
-        if (!modal) return;
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+        if (leadModal && typeof leadModal.openModal === 'function') {
+          leadModal.openModal(e);
+        }
       });
     });
   }
@@ -157,7 +196,7 @@
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            document.querySelectorAll('.stat__number').forEach(function (stat) {
+            document.querySelectorAll('.stat-number').forEach(function (stat) {
               const target = parseFloat(stat.dataset.target);
               const suffix = stat.dataset.suffix || '';
               const decimals = parseInt(stat.dataset.decimals || '0', 10);

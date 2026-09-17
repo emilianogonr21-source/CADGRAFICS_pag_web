@@ -114,7 +114,7 @@
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        $$('.stat-value', entry.target).forEach(animateCounter);
+        $$('.stat-number', entry.target).forEach(animateCounter);
         statsObserver.unobserve(entry.target);
       });
     },

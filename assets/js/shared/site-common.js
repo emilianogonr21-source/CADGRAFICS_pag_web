@@ -16,6 +16,8 @@
   'use strict';
 
   const WHATSAPP_PHONE = '525531120508';
+  /* Endpoint opcional: en hosting estático suele no existir.
+     El canal real del lead es WhatsApp; el POST no debe bloquear el flujo. */
   const LEADS_ENDPOINT = '/api/leads';
 
   const $ = (sel, ctx) => (ctx || document).querySelector(sel);
@@ -53,8 +55,8 @@
 
   /**
    * Envía el contacto del visitante:
-   * 1) Intenta guardarlo en el servidor (si existe).
-   * 2) Siempre abre WhatsApp con los datos, para no perder el lead.
+   * 1) Intenta POST a /api/leads (opcional; falla en silencio si no hay API).
+   * 2) Siempre abre WhatsApp con los datos — ese es el canal real del sitio.
    */
   async function submitLead(raw, options) {
     const opts = options || {};
@@ -438,20 +440,16 @@
     });
   }
 
+  /* API pública usada por los JS de cada página (el resto queda interno). */
   global.Cadgrafics = {
-    WHATSAPP_PHONE: WHATSAPP_PHONE,
     $: $,
     $$: $$,
-    sanitize: sanitize,
     isValidEmail: isValidEmail,
     isValidPhone: isValidPhone,
-    buildWhatsAppMessage: buildWhatsAppMessage,
-    openWhatsApp: openWhatsApp,
     submitLead: submitLead,
     initHeader: initHeader,
     initSmoothAnchors: initSmoothAnchors,
     initStandardLeadModal: initStandardLeadModal,
-    initLazyVideos: initLazyVideos,
   };
 
   /* Videos lazy: se activan solos en cualquier página que cargue este archivo. */

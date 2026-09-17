@@ -26,28 +26,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Soluciones HP de Impresión de Gran Formato - Distribución Autorizada HP México. DesignJet, PageWide XL y PageWide XL Pro." />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Soluciones HP de Impresión de Gran Formato | CADGRAFICS</title>
-  
-  <!-- SEO & Social Media -->
-  <link rel="canonical" href="https://cadgrafics.com.mx/pages/hp/home-hp.html">
-  <link rel="icon" href="../../assets/images/brand/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../../assets/images/brand/favicon.ico" sizes="32x32">
-  <link rel="apple-touch-icon" href="../../assets/images/brand/apple-touch-icon.png">
-  
-  <meta property="og:title" content="Soluciones HP de Impresión de Gran Formato | CADGRAFICS">
-  <meta property="og:description" content="DesignJet, PageWide XL y PageWide XL Pro. Distribuidor autorizado HP México.">
-  <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg">
-  <meta property="og:url" content="https://cadgrafics.com.mx/pages/hp/home-hp.html">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Performance: Preconnect & Preload -->
+  <link rel="canonical" href="https://cadgrafics.com.mx/pages/hp/home-hp.html" />
+  <link rel="icon" type="image/png" href="../../assets/images/brand/favicon.png" />
+
+  <meta property="og:title" content="Soluciones HP de Impresión de Gran Formato | CADGRAFICS" />
+  <meta property="og:description" content="DesignJet, PageWide XL y PageWide XL Pro. Distribuidor autorizado HP México." />
+  <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg" />
+  <meta property="og:url" content="https://cadgrafics.com.mx/pages/hp/home-hp.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-REEMPLAZAR_DESDE_SERVIDOR'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src https://fonts.gstatic.com; media-src 'self';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  
-  <!-- Datos Estructurados JSON-LD -->
+  <link rel="stylesheet" href="../../assets/css/shared/base.css?v=20260915" />
+  <link rel="stylesheet" href="../../assets/css/hp/home-hp.css?v=20260915" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -63,8 +65,6 @@
     }
   }
   </script>
-    <link rel="stylesheet" href="../../assets/css/shared/base.css">
-    <link rel="stylesheet" href="../../assets/css/hp/home-hp.css">
 </head>
 <body>
 
@@ -679,11 +679,12 @@
               </select>
             </div>
 
-            <button type="submit" class="btn btn-primary form-submit">
+            <button type="submit" class="btn btn-primary">
               Solicitar Cotización Personalizada
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </button>
 
+            <p class="form-message" id="contactFormMessage" role="status" aria-live="polite"></p>
             <p class="form-note">Sin compromiso · Respuesta en menos de 24 horas hábiles</p>
           </form>
         </div>
@@ -770,8 +771,8 @@
                     <p id="name-error-modal" class="form-message error" role="alert" style="display:none;"></p>
                 </div>
                 <div class="form-group">
-                    <label for="email">Correo electrónico *</label>
-                    <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" aria-describedby="email-error-modal"/>
+                    <label for="modal-email">Correo electrónico *</label>
+                    <input type="email" id="modal-email" name="email" required aria-required="true" autocomplete="email" aria-describedby="email-error-modal"/>
                     <p id="email-error-modal" class="form-message error" role="alert" style="display:none;"></p>
                 </div>
                 <div class="form-group">

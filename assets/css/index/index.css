@@ -675,6 +675,12 @@
             justify-content: center; 
             backdrop-filter: blur(6px); 
             transition: transform var(--transition-base), border-color var(--transition-base); 
+            text-decoration: none;
+            color: inherit;
+        }
+        a.brand-card:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.7);
+            outline-offset: 3px;
         }
         .brand-card:hover { 
             transform: translateY(-4px); 
@@ -903,7 +909,7 @@
         }
         @media (max-width: 480px) {
             .problems-grid { grid-template-columns: 1fr; }
-            .btn-cta {
+            .btn-primary {
                 width: 100%;
                 padding: 1rem 1.5rem;
                 font-size: 1rem;
@@ -1121,7 +1127,7 @@
         }
 
         /* ===== CTA FINAL ===== */
-        .cta-final { 
+        .final-cta { 
             position: relative; 
             background: #000000; 
             color: var(--color-white); 
@@ -1148,7 +1154,7 @@
             color: rgba(255, 255, 255, 0.85); 
             margin-bottom: 2.5rem; 
         }
-        .btn-cta { 
+        .final-cta .btn-primary { 
             display: inline-flex; 
             align-items: center; 
             justify-content: center; 
@@ -1163,11 +1169,11 @@
             box-shadow: 0 0 60px rgba(139, 0, 0, 0.5), 0 0 120px rgba(139, 0, 0, 0.25); 
             transition: transform var(--transition-fast), box-shadow var(--transition-fast); 
         }
-        .btn-cta:hover { 
+        .final-cta .btn-primary:hover { 
             transform: scale(1.05); 
             box-shadow: 0 0 80px rgba(24, 255, 92, 0.7), 0 0 160px rgba(24, 255, 92, 0.35); 
         }
-        .btn-cta svg {
+        .final-cta .btn-primary svg {
             width: 32px;
             height: 32px;
         }

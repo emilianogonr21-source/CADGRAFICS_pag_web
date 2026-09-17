@@ -155,11 +155,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       function getIcon(type, color) {
         if (type === "check") {
-          if (color === "blue") return '<span class="comparativo-icon icon-check-blue">☑</span>';
-          if (color === "yellow") return '<span class="comparativo-icon icon-check-yellow">☑</span>';
+          if (color === "blue") return '<span class="comparison-icon icon-check-blue">☑</span>';
+          if (color === "yellow") return '<span class="comparison-icon icon-check-yellow">☑</span>';
         }
         if (type === "cross") {
-          return '<span class="comparativo-icon icon-cross-gray">✗</span>';
+          return '<span class="comparison-icon icon-cross-gray">✗</span>';
         }
         return '';
       }
@@ -169,6 +169,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!tbody) return;
 
         tableData.forEach((sectionData, sectionIndex) => {
+          if (sectionData.section) {
+            const headerTr = document.createElement('tr');
+            headerTr.className = 'feature-section-row';
+            const headerTd = document.createElement('td');
+            headerTd.colSpan = 4;
+            headerTd.textContent = sectionData.section;
+            headerTr.appendChild(headerTd);
+            tbody.appendChild(headerTr);
+          }
+
           sectionData.rows.forEach((row) => {
             const tr = document.createElement('tr');
             tr.className = 'feature-row';
@@ -181,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
               const td = document.createElement('td');
               td.innerHTML = getIcon(val.type, val.color);
               if (val.note) {
-                td.innerHTML += `<span class="comparativo-note">${val.note}</span>`;
+                td.innerHTML += `<span class="comparison-note">${val.note}</span>`;
               }
               tr.appendChild(td);
             });
@@ -201,7 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
       function updateSidebar() {
         const table = document.getElementById('comparative-table');
         const sidebar = document.getElementById('sidebar-label');
-        if (!table || !sidebar) return;
+        if (!table || !sidebar || !tableData.length) return;
 
         const tableRect = table.getBoundingClientRect();
         const tableTop = tableRect.top + window.scrollY;
@@ -210,12 +220,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const scrollProgress = (window.scrollY - tableTop + window.innerHeight / 2) / tableHeight;
         const firstSectionRows = tableData[0].rows.length;
         const totalRows = tableData.reduce((sum, s) => sum + s.rows.length, 0);
+        const secondSection = tableData[1] && tableData[1].section
+          ? tableData[1].section
+          : tableData[0].section;
 
         if (scrollProgress > (firstSectionRows / totalRows)) {
-          sidebar.textContent = "FUNCIONES ADMINISTRATIVAS";
+          sidebar.textContent = secondSection;
           sidebar.style.background = "var(--adobe-red)";
         } else {
-          sidebar.textContent = "FUNCIONES CREATIVAS";
+          sidebar.textContent = tableData[0].section;
           sidebar.style.background = "var(--gray-700)";
         }
       }

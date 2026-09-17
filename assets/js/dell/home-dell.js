@@ -72,6 +72,12 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = 'Enviando...';
       }
+      const formMessage = document.getElementById('contactFormMessage');
+      if (formMessage) {
+        formMessage.textContent = '';
+        formMessage.className = 'form-message';
+      }
+
       try {
         await submitLead(
           {
@@ -85,6 +91,17 @@
           { label: 'Dell — formulario de página' }
         );
         contactForm.reset();
+        if (formMessage) {
+          formMessage.textContent = 'Te redirigimos a WhatsApp para continuar.';
+          formMessage.className = 'form-message success';
+        }
+      } catch (err) {
+        console.error('Error al enviar formulario Dell:', err);
+        if (formMessage) {
+          formMessage.textContent =
+            'No se pudo abrir WhatsApp. Escríbenos al +52 55 3112 0508.';
+          formMessage.className = 'form-message error';
+        }
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;

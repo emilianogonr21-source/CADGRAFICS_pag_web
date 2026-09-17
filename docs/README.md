@@ -117,7 +117,7 @@ CADGRAFICS_pag_web/
     │   └── hp/home/
     ├── video/              ← Misma lógica que images (espejo por marca/página)
     ├── css/                ← shared + cada marca + index + legal
-    └── js/                 ← shared + cada marca + index + legal
+    └── js/                 ← shared + cada marca + index (legal no usa JS)
 ```
 
 ### Idea clave: el “espejo”
@@ -198,7 +198,9 @@ Orden típico en el HTML (como en Dell): primero lo **compartido**, luego lo **d
 | Pie de página | Direcciones, correos, redes, aviso de privacidad |
 | Botón verde WhatsApp | Fijo en una esquina |
 
-Al enviar Contáctanos (o el formulario de la página), el sitio intenta guardar el dato y **abre WhatsApp** con el mensaje listo, para no perder el contacto.
+Al enviar Contáctanos (o el formulario de la página), el sitio **abre WhatsApp** con el mensaje listo. Ese es el canal real del lead.
+
+Opcionalmente intenta un `POST /api/leads` (útil si más adelante hay backend). En hosting estático ese endpoint no existe: el fallo es esperado y **no bloquea** WhatsApp.
 
 ### Patrón técnico (igual en todo el sitio)
 
@@ -216,7 +218,7 @@ Si copias una página nueva, **copia también** ese bloque de modal del HTML de 
 ### Modelos en `shared/partials/`
 
 El menú y el WhatsApp **no se insertan solos** en las páginas: cada HTML lleva su propia copia.  
-`shared/partials/` guarda el **modelo oficial**.
+`shared/partials/` guarda el **modelo oficial**. No uses `fetch`/includes en runtime: edita el modelo y sincroniza.
 
 Si cambias un teléfono o un ítem del menú:
 

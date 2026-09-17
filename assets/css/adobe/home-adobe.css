@@ -442,7 +442,7 @@
   }
   .firefly-header-content { flex: 1; }
   .firefly-header-content h2 { margin-bottom: 1rem; }
-  .firefly-header-content .subtitle { margin: 0; max-width: 600px; }
+  .firefly-header-content .section-subtitle { margin: 0; max-width: 600px; }
   .firefly-header-logo {
     flex-shrink: 0; display: flex; align-items: center; justify-content: center;
   }
@@ -513,11 +513,11 @@
     line-height: 1;
     text-align: left;
   }
-  .product-showcase .subtitle, .firefly-section .subtitle, .acrobat-section .subtitle {
+  .product-showcase .section-subtitle, .firefly-section .section-subtitle, .acrobat-section .section-subtitle {
     font-size: 1.125rem; font-weight: 400; color: var(--dark-blue); opacity: 0.75;
     margin-bottom: 3rem; max-width: 700px; line-height: 1.6;
   }
-  .product-showcase .subtitle {
+  .product-showcase .section-subtitle {
     margin-left: auto;
     margin-right: auto;
   }

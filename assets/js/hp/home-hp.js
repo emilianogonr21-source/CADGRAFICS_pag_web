@@ -21,7 +21,7 @@
   initStandardLeadModal({
     source: 'modal-hp',
     label: 'HP',
-    fieldMap: { name: '#name', email: '#email', phone: '#phone', company: '#company' },
+    fieldMap: { name: '#name', email: '#modal-email', phone: '#phone', company: '#company' },
     focusSelector: '#name',
     triggerSelector: '.textbutton-trigger',
   });
@@ -131,11 +131,17 @@
       }
 
       const formData = new FormData(contactForm);
-      const submitBtn = contactForm.querySelector('.form-submit');
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.innerHTML = 'Enviando...';
         submitBtn.disabled = true;
+      }
+
+      const formMessage = $('#contactFormMessage');
+      if (formMessage) {
+        formMessage.textContent = '';
+        formMessage.className = 'form-message';
       }
 
       try {
@@ -154,6 +160,10 @@
           submitBtn.innerHTML = 'Solicitud enviada';
           submitBtn.style.backgroundColor = '#10b981';
         }
+        if (formMessage) {
+          formMessage.textContent = 'Te redirigimos a WhatsApp para continuar.';
+          formMessage.className = 'form-message success';
+        }
         setTimeout(function () {
           if (submitBtn) {
             submitBtn.innerHTML = originalText;
@@ -161,11 +171,21 @@
             submitBtn.disabled = false;
           }
           contactForm.reset();
+          if (formMessage) {
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+          }
         }, 3000);
       } catch (err) {
+        console.error('Error al enviar formulario HP:', err);
         if (submitBtn) {
           submitBtn.innerHTML = originalText;
           submitBtn.disabled = false;
+        }
+        if (formMessage) {
+          formMessage.textContent =
+            'No se pudo abrir WhatsApp. Escríbenos al +52 55 3112 0508.';
+          formMessage.className = 'form-message error';
         }
       }
     });

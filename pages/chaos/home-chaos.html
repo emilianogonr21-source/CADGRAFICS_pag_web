@@ -26,21 +26,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SketchUp by Cadgraphics One — Partner Autorizado</title>
-  <meta name="description" content="Suscripciones SketchUp, soporte especializado y capacitación. Partner autorizado Cadgrafics.">
-  <link rel="canonical" href="https://cadgrafics.com.mx/pages/chaos/home-chaos.html">
-  <link rel="icon" type="image/png" href="../../assets/images/brand/favicon.png">
-  <meta property="og:title" content="SketchUp | Partner Autorizado - Cadgrafics">
-  <meta property="og:description" content="Suscripciones SketchUp, soporte especializado y capacitación. Partner autorizado Cadgrafics.">
-  <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg">
-  <meta property="og:url" content="https://cadgrafics.com.mx/pages/chaos/home-chaos.html">
-  <meta property="og:type" content="website">
+  <meta name="description" content="Suscripciones SketchUp, soporte especializado y capacitación. Partner autorizado Cadgrafics." />
+  <title>SketchUp by Cadgrafics — Partner Autorizado</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/css/shared/base.css">
-    <link rel="stylesheet" href="../../assets/css/chaos/home-chaos.css">
+  <link rel="canonical" href="https://cadgrafics.com.mx/pages/chaos/home-chaos.html" />
+  <link rel="icon" type="image/png" href="../../assets/images/brand/favicon.png" />
+
+  <meta property="og:title" content="SketchUp | Partner Autorizado - Cadgrafics" />
+  <meta property="og:description" content="Suscripciones SketchUp, soporte especializado y capacitación. Partner autorizado Cadgrafics." />
+  <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg" />
+  <meta property="og:url" content="https://cadgrafics.com.mx/pages/chaos/home-chaos.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-REEMPLAZAR_DESDE_SERVIDOR'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src https://fonts.gstatic.com; media-src 'self';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/shared/base.css?v=20260915" />
+  <link rel="stylesheet" href="../../assets/css/chaos/home-chaos.css?v=20260915" />
 </head>
 <body>
 
@@ -135,21 +144,21 @@
           <div class="hero-content">
             <div class="badge">PARTNER AUTORIZADO SKETCHUP · CADGRAFICS ONE</div>
             <h1 class="hero-title">El modelador 3D <span class="accent">más utilizado</span> del mundo.</h1>
-            <p class="hero-description">SketchUp combina una interfaz intuitiva con herramientas profesionales de precisión para arquitectos, diseñadores de interiores, ingenieros y constructores. Como Partner Autorizado, en Cadgraphics One te ofrecemos todas las suscripciones, soporte especializado y capacitación.</p>
+            <p class="hero-description">SketchUp combina una interfaz intuitiva con herramientas profesionales de precisión para arquitectos, diseñadores de interiores, ingenieros y constructores. Como Partner Autorizado, en Cadgrafics te ofrecemos todas las suscripciones, soporte especializado y capacitación.</p>
           </div>
 
           <div class="hero__stats" aria-label="Estadísticas">
             <div class="stat">
-              <div class="stat__number" data-target="2.4" data-decimals="1" data-suffix="M" aria-live="polite">0M</div>
-              <div class="stat__label">Usuarios activos mensuales</div>
+              <div class="stat-number" data-target="2.4" data-decimals="1" data-suffix="M" aria-live="polite">0M</div>
+              <div class="stat-label">Usuarios activos mensuales</div>
             </div>
             <div class="stat">
-              <div class="stat__number" data-target="588" data-suffix="K" aria-live="polite">0K</div>
-              <div class="stat__label">Clientes anuales</div>
+              <div class="stat-number" data-target="588" data-suffix="K" aria-live="polite">0K</div>
+              <div class="stat-label">Clientes anuales</div>
             </div>
             <div class="stat">
-              <div class="stat__number" data-target="30" data-suffix="+" aria-live="polite">0+</div>
-              <div class="stat__label">Años de historia</div>
+              <div class="stat-number" data-target="30" data-suffix="+" aria-live="polite">0+</div>
+              <div class="stat-label">Años de historia</div>
             </div>
           </div>
         </div>
@@ -158,34 +167,34 @@
           <h2 class="section-title" id="contact-title">Habla con un especialista</h2>
           <p class="section-subtitle">Completa el formulario y te contactamos con una cotización personalizada.</p>
 
-          <form class="form-grid" onsubmit="event.preventDefault(); alert('Consulta enviada. Te contactaremos pronto.');">
+          <form class="form-grid" id="chaosHeroForm" novalidate>
             <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" placeholder="Ana García" required />
+              <label for="hero-name">Nombre</label>
+              <input type="text" id="hero-name" name="name" placeholder="Ana García" required autocomplete="name" pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" />
             </div>
             <div class="form-group">
-              <label>Teléfono</label>
-              <input type="tel" placeholder="+52 55 0000 0000" />
+              <label for="hero-phone">Teléfono</label>
+              <input type="tel" id="hero-phone" name="phone" placeholder="+52 55 0000 0000" required autocomplete="tel" pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" />
             </div>
             <div class="form-group full">
-              <label>Correo electrónico</label>
-              <input type="email" placeholder="ana@estudio.com" required />
+              <label for="hero-email">Correo electrónico</label>
+              <input type="email" id="hero-email" name="email" placeholder="ana@estudio.com" required autocomplete="email" aria-required="true" />
             </div>
             <div class="form-group full">
-              <label>Empresa</label>
-              <input type="text" placeholder="Estudio de Arquitectura S.A." />
+              <label for="hero-company">Empresa</label>
+              <input type="text" id="hero-company" name="company" placeholder="Estudio de Arquitectura S.A." required autocomplete="organization" aria-required="true" />
             </div>
             <div class="form-group full">
-              <label>¿Qué deseas saber?</label>
-              <select required>
+              <label for="hero-interest">¿Qué deseas saber?</label>
+              <select id="hero-interest" name="interest" required aria-required="true">
                 <option value="" disabled selected>Selecciona una opción</option>
-                <option>Cotización de licencias</option>
-                <option>Soporte técnico</option>
-                <option>Capacitación</option>
-                <option>Otro</option>
+                <option value="Cotización de licencias">Cotización de licencias</option>
+                <option value="Soporte técnico">Soporte técnico</option>
+                <option value="Capacitación">Capacitación</option>
+                <option value="Otro">Otro</option>
               </select>
             </div>
-            <div class="form-group full form-submit">
+            <div class="form-group full form-actions">
               <button type="submit" class="btn btn-primary btn-large btn-full">
                 Enviar consulta
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>

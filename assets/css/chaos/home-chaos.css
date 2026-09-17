@@ -788,7 +788,7 @@
       border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
     .stat { min-width: 0; }
-    .stat__number {
+    .stat-number {
       font-size: 2.4rem;
       font-weight: 800;
       color: #fff;
@@ -796,7 +796,7 @@
       margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
-    .stat__label {
+    .stat-label {
       font-size: 0.85rem;
       color: rgba(255, 255, 255, 0.65);
       line-height: 1.35;
@@ -869,13 +869,13 @@
       color: #888;
     }
     .form-group select:valid { color: #fff; }
-    .hero .form-submit { margin-top: 0.15rem; }
-    .hero .form-submit .btn {
+    .hero .form-actions { margin-top: 0.15rem; }
+    .hero .form-actions .btn {
       width: 100%;
       padding: 0.75rem 1rem;
       font-size: 0.9rem;
     }
-    .hero .form-submit .btn svg {
+    .hero .form-actions .btn svg {
       width: 15px;
       height: 15px;
       flex-shrink: 0;
@@ -1342,7 +1342,7 @@
         padding: 0.5rem 0 0;
       }
       .hero__stats { gap: 28px; margin-top: 28px; padding-top: 22px; }
-      .stat__number { font-size: 2rem; }
+      .stat-number { font-size: 2rem; }
       .hero .contact-card {
         max-width: none;
         margin-left: 0;
@@ -1368,7 +1368,7 @@
       .tools-list { grid-template-columns: 1fr; }
       .hero-content { padding: 0; }
       .hero__stats { gap: 20px; }
-      .stat__number { font-size: 1.75rem; }
+      .stat-number { font-size: 1.75rem; }
     }
   
 
@@ -1408,7 +1408,7 @@ h2.heading-xl,
 .product-showcase h2,
 .firefly-section h2,
 .acrobat-section h2,
-.capacidades .section-title,
+.capabilities .section-title,
 .solutions .section-title {
   font-family: inherit;
   font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
@@ -1420,7 +1420,7 @@ h2.heading-xl,
 .final-cta h2,
 .cta .cta-title,
 .cta-content .cta-title,
-.comparativo-title {
+.comparison-title {
   font-family: inherit;
   font-size: clamp(1.8rem, 4vw, 3rem) !important;
   font-weight: 700 !important;
@@ -1433,16 +1433,16 @@ h2.heading-xl,
 .hero-subtitle,
 .section-desc,
 .section-description,
-.product-showcase .subtitle,
-.firefly-section .subtitle,
-.acrobat-section .subtitle {
+.product-showcase .section-subtitle,
+.firefly-section .section-subtitle,
+.acrobat-section .section-subtitle {
   font-size: 1.125rem !important;
   font-weight: 400 !important;
   line-height: 1.6;
 }
 /* Párrafo de apoyo del hero */
 .hero-description,
-.hero-desc,
+.hero-description,
 .hero .lead,
 .cta-note {
   font-size: 1rem !important;

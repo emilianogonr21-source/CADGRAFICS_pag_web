@@ -1621,7 +1621,7 @@ h2.heading-xl,
 .product-showcase h2,
 .firefly-section h2,
 .acrobat-section h2,
-.capacidades .section-title,
+.capabilities .section-title,
 .solutions .section-title {
   font-family: inherit;
   font-size: clamp(1.8rem, 3.5vw, 2.5rem) !important;
@@ -1633,7 +1633,7 @@ h2.heading-xl,
 .final-cta h2,
 .cta .cta-title,
 .cta-content .cta-title,
-.comparativo-title {
+.comparison-title {
   font-family: inherit;
   font-size: clamp(1.8rem, 4vw, 3rem) !important;
   font-weight: 700 !important;
@@ -1646,16 +1646,16 @@ h2.heading-xl,
 .hero-subtitle,
 .section-desc,
 .section-description,
-.product-showcase .subtitle,
-.firefly-section .subtitle,
-.acrobat-section .subtitle {
+.product-showcase .section-subtitle,
+.firefly-section .section-subtitle,
+.acrobat-section .section-subtitle {
   font-size: 1.125rem !important;
   font-weight: 400 !important;
   line-height: 1.6;
 }
 /* Párrafo de apoyo del hero */
 .hero-description,
-.hero-desc,
+.hero-description,
 .hero .lead,
 .cta-note {
   font-size: 1rem !important;
