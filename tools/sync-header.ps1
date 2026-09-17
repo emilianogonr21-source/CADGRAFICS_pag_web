@@ -1,5 +1,5 @@
-# Copia el menú oficial (shared/partials/header.html) a todas las páginas.
-# Uso (desde la raíz del proyecto):
+# Copia el menÃº oficial (shared/partials/header.html) a todas las pÃ¡ginas.
+# Uso (desde la raÃ­z del proyecto):
 #   powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1
 
 $ErrorActionPreference = 'Stop'
@@ -8,7 +8,7 @@ $PartialPath = Join-Path $Root 'shared\partials\header.html'
 $templateRaw = Get-Content -Path $PartialPath -Raw -Encoding UTF8
 
 if ($templateRaw -notmatch '(?is)<header\s+class="header"\s+id="header">.*?</header>') {
-  throw 'No se encontró el bloque header en shared/partials/header.html'
+  throw 'No se encontrÃ³ el bloque header en shared/partials/header.html'
 }
 $templateHeader = $Matches[0]
 
@@ -21,7 +21,8 @@ $pages = @(
   @{ Rel = 'pages/autodesk/aec-collection.html'; Active = 'autodesk' },
   @{ Rel = 'pages/chaos/home-chaos.html'; Active = 'chaos' },
   @{ Rel = 'pages/dell/home-dell.html'; Active = 'dell' },
-  @{ Rel = 'pages/hp/home-hp.html'; Active = 'hp' }
+  @{ Rel = 'pages/hp/home-hp.html'; Active = 'hp' },
+  @{ Rel = 'pages/legal/aviso-privacidad.html'; Active = $null }
 )
 
 function Render-Header {
@@ -32,13 +33,15 @@ function Render-Header {
   $activeVal = ' aria-current="page"'
 
   $out = $templateHeader
+  $isLegal = ($PageRel -like 'pages/legal/*')
+
   $map = @{
     '{{ROOT}}'            = $rootPrefix
     '{{LOGO_HREF}}'       = if ($isRoot) { '#' } else { "${rootPrefix}index.html" }
     '{{INDEX_MARCAS}}'    = if ($isRoot) { '#marcas' } else { "${rootPrefix}index.html#marcas" }
     '{{INDEX_SERVICIOS}}' = if ($isRoot) { '#servicios' } else { "${rootPrefix}index.html#servicios" }
     '{{INDEX_CASOS}}'     = if ($isRoot) { '#casos' } else { "${rootPrefix}index.html#casos" }
-    '{{CONTACT_CLASSES}}' = 'textbutton-trigger'
+    '{{CONTACT_CLASSES}}' = if ($isLegal) { '' } else { 'textbutton-trigger' }
     '{{ACTIVE_ADOBE}}'    = if ($Active -eq 'adobe') { $activeVal } else { '' }
     '{{ACTIVE_AUTODESK}}' = if ($Active -eq 'autodesk') { $activeVal } else { '' }
     '{{ACTIVE_CHAOS}}'    = if ($Active -eq 'chaos') { $activeVal } else { '' }
@@ -48,6 +51,11 @@ function Render-Header {
 
   foreach ($key in $map.Keys) {
     $out = $out.Replace($key, $map[$key])
+  }
+
+  if ($isLegal) {
+    $out = $out.Replace('href="#contacto"', "href=`"${rootPrefix}index.html#contacto`"")
+    $out = $out.Replace(' class=""', '')
   }
 
   if ($out -match '\{\{[A-Z_]+\}\}') {

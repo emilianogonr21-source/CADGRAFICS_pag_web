@@ -1,16 +1,17 @@
-/*
-  Cadgrafics — piezas compartidas del menú
-  -----------------------------------------
-  Qué hace: hamburguesa CSS y evita el scroll horizontal en móvil.
-
-  Se carga ANTES del CSS de cada página.
-  Cada marca puede usar sus propios colores en su archivo CSS;
-  eso no se pisa con este archivo.
+﻿/*
+  Cadgrafics — layout compartido
+  ------------------------------
+  Overflow, skip-link e imágenes. El menú vive en shared/header.css
+  (se carga al final para no ser pisado por el CSS de cada marca).
 
   Guía del equipo: docs/README.md
 */
 
-/* Evita scroll horizontal fantasma en móvil/tablet */
+:root {
+  --cg-header-height: 120px;
+  --header-height: 120px;
+}
+
 html {
   overflow-x: clip;
 }
@@ -26,111 +27,41 @@ iframe {
   max-width: 100%;
 }
 
-/* No forzar height:auto en .logo — el header controla su tamaño */
 img:not(.logo),
 video {
   height: auto;
 }
 
-/* Header compartido: marca visible + hamburguesa CSS (todas las páginas) */
-.brand-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 0 0 6px 6px;
+  z-index: 10000;
+  font-weight: 600;
   text-decoration: none;
-  color: #ffffff;
-  flex-shrink: 0;
-  max-width: min(100%, 280px);
-  z-index: 1002;
-  position: relative;
+  transition: top 0.15s ease;
 }
 
-.brand-name {
-  display: none;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: #ffffff;
-  line-height: 1.1;
-  white-space: nowrap;
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #18ff5c;
+  outline-offset: 2px;
 }
 
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 20px;
-  height: 16px;
-}
-
-.hamburger-line {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: #ffffff;
-  border-radius: 1px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.mobile-toggle.is-open .hamburger-line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.mobile-toggle.is-open .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-.mobile-toggle.is-open .hamburger-line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+:focus-visible {
+  outline: 3px solid #18ff5c;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 @media (max-width: 1024px) {
-  .brand-name {
-    display: inline-block;
-  }
-
-  .header .logo {
-    height: 44px !important;
-    width: 44px !important;
-    max-width: 44px !important;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: 6px;
-  }
-
-  .mobile-toggle {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 8px;
-    cursor: pointer;
-    flex-shrink: 0;
-    z-index: 1002;
-    position: relative;
-    margin-left: auto;
-  }
-
-  .mobile-toggle:hover,
-  .mobile-toggle:focus {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand-name {
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
-  }
-
-  .header .logo {
-    height: 40px !important;
-    width: 40px !important;
-    max-width: 40px !important;
+  :root {
+    --cg-header-height: 72px;
+    --header-height: 72px;
   }
 }

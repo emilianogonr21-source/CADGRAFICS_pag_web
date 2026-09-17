@@ -12,7 +12,7 @@
   Archivos relacionados:
   - Apariencia:     assets/css/legal/aviso-privacidad.css
 
-  Esta página no usa JavaScript.
+  - Compartido:     ../../assets/css/shared/base.css + header.css + site-common.js
 
   Guía del equipo: docs/README.md
 -->
@@ -61,23 +61,86 @@
         }
     }
     </script>
+    <link rel="stylesheet" href="../../assets/css/shared/header.css?v=20260915" />
 </head>
 <body>
 
     <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-    <!-- Header -->
-    <header class="page-header">
-        <div class="header-content">
-            <h1 class="page-title">Aviso de privacidad</h1>
-            <a href="../../index.html" class="btn-home">← Volver al inicio</a>
-        </div>
-    </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="header" id="header">
+  <div class="container nav-container">
+    <a href="../../index.html" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
+      <img src="../../assets/images/brand/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+      <span class="brand-name">CADGRAFICS</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="../../pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/adobe/acrobat-studio.html">Acrobat Studio</a></li>
+                <li><a href="../../pages/adobe/creative-cloud.html">Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../../pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
+                Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/autodesk/aec-collection.html">AEC Collection</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../pages/chaos/home-chaos.html">
+                Sketchup
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/hp/home-hp.html">
+                HP
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/dell/home-dell.html">
+                Dell
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
+        <li><a href="../../index.html#contacto" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="hamburger" aria-hidden="true">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+  </div>
+</header>
 
     <!-- Main Content -->
     <main id="main-content" class="page-container">
         <div class="content">
+            <header class="doc-title">
+                <h1 class="page-title">Aviso de privacidad</h1>
+            </header>
             <div class="update-date">
                 <strong>Última actualización:</strong> 15 de septiembre de 2026
             </div>
@@ -217,5 +280,8 @@
             </div>
         </div>
     </main>
+
+    <script src="../../assets/js/shared/site-common.js"></script>
+    <script src="../../assets/js/legal/aviso-privacidad.js"></script>
 </body>
 </html>

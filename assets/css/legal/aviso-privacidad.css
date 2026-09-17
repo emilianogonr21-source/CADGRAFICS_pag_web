@@ -11,36 +11,18 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
+            scroll-padding-top: var(--cg-header-height, 120px);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: Inter, 'Segoe UI', sans-serif;
             background: #f5f5f5;
             min-height: 100vh;
             line-height: 1.6;
             color: #555;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #4CAF50;
-            color: white;
-            padding: 8px 16px;
-            z-index: 10000;
-            transition: top 0.2s ease;
-            border-radius: 0 0 4px 0;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .skip-link:focus {
-            top: 0;
+            padding-top: var(--cg-header-height, 120px);
         }
 
         .visually-hidden {
@@ -55,11 +37,6 @@
             border: 0;
         }
 
-        :focus-visible {
-            outline: 3px solid #4CAF50;
-            outline-offset: 2px;
-        }
-
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -69,54 +46,15 @@
             }
         }
 
-        /* Header */
-        .page-header {
-            background: #ffffff;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
+        .doc-title {
+            margin-bottom: 1.25rem;
         }
 
         .page-title {
             font-size: 24px;
-            font-weight: 400;
+            font-weight: 600;
             color: #333333;
             margin: 0;
-        }
-
-        .btn-home {
-            background: #4CAF50;
-            color: white;
-            padding: 10px 24px;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .btn-home:hover,
-        .btn-home:focus {
-            background: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         /* Main Content */

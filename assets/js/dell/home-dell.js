@@ -23,7 +23,7 @@
 
   const { submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
-  initHeader();
+  initHeader({ lockBodyScroll: true });
   initSmoothAnchors();
   initStandardLeadModal({
     source: 'modal-dell',
