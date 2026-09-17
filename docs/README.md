@@ -167,7 +167,7 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | Página | Contenido (HTML) | Apariencia (CSS) | Comportamiento (JS) |
 |--------|------------------|------------------|---------------------|
 | Inicio | `index.html` | `assets/css/index/index.css` | `assets/js/index/index.js` |
-| Aviso de privacidad | `pages/legal/aviso-privacidad.html` | `assets/css/legal/aviso-privacidad.css` | `assets/js/legal/aviso-privacidad.js` |
+| Aviso de privacidad | `pages/legal/aviso-privacidad.html` | `assets/css/legal/aviso-privacidad.css` | — (página estática, sin JS) |
 | Adobe | `pages/adobe/home-adobe.html` | `assets/css/adobe/home-adobe.css` | `assets/js/adobe/home-adobe.js` |
 | Creative Cloud | `pages/adobe/creative-cloud.html` | `assets/css/adobe/creative-cloud.css` | `assets/js/adobe/creative-cloud.js` |
 | Acrobat Studio | `pages/adobe/acrobat-studio.html` | `assets/css/adobe/acrobat-studio.css` | `assets/js/adobe/acrobat-studio.js` |
@@ -221,7 +221,7 @@ El menú y el WhatsApp **no se insertan solos** en las páginas: cada HTML lleva
 Si cambias un teléfono o un ítem del menú:
 
 1. Edita el modelo en `shared/partials/header.html`.
-2. Ejecuta `powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1` (o `python tools/sync-header.py`) para copiarlo a todas las páginas.
+2. Ejecuta `powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1` para copiarlo a todas las páginas.
 3. Prueba al menos: inicio, Dell y Adobe (menú en celular + Contáctanos).
 
 Detalle: [shared/partials/README.md](../shared/partials/README.md).
@@ -373,7 +373,7 @@ Dominio de referencia en los archivos: `https://cadgrafics.com.mx/`.
 
 La **estructura** del proyecto ya está alineada. Lo que sigue es contenido (cuando exista):
 
-- Al cambiar el menú en `shared/partials/header.html`, ejecutar `tools/sync-header.ps1` (o el `.py`) para propagar el cambio.
+- Al cambiar el menú en `shared/partials/header.html`, ejecutar `tools/sync-header.ps1` para propagar el cambio.
 - Llenar `assets/images/chaos/home/` con fotos propias de SketchUp.
 - Fotos de producto propias para Dell (la portada ya usa `hero-background.jpg`).
 - Videos propios en `assets/video/{chaos,dell,hp}/home/` y `assets/video/autodesk/aec-collection/` (las carpetas ya existen).

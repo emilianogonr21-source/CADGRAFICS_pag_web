@@ -132,8 +132,6 @@
         if (opts.lockBodyScroll) {
           document.body.style.overflow = isActive ? 'hidden' : '';
         }
-        const icon = mobileToggle.querySelector('use') || mobileToggle.querySelector('svg use');
-        if (icon) icon.setAttribute('href', isActive ? '#icon-close' : '#icon-menu');
         if (!isActive) {
           $$('.nav-item.active, .dropdown-submenu.active').forEach(function (el) {
             el.classList.remove('active');
@@ -152,8 +150,6 @@
           mobileToggle.classList.remove('is-open');
           mobileToggle.setAttribute('aria-expanded', 'false');
           mobileToggle.setAttribute('aria-label', 'Abrir menú');
-          const icon = mobileToggle.querySelector('use') || mobileToggle.querySelector('svg use');
-          if (icon) icon.setAttribute('href', '#icon-menu');
           if (opts.lockBodyScroll) document.body.style.overflow = '';
         });
       });
@@ -191,7 +187,7 @@
   function initSmoothAnchors(options) {
     const opts = options || {};
     const header = $('#header');
-    const skip = opts.skipSelector || '.textbutton-trigger, [data-modal-trigger]';
+    const skip = opts.skipSelector || '.textbutton-trigger';
 
     $$('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {

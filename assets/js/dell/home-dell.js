@@ -21,7 +21,7 @@
     return;
   }
 
-  const { $, $$, submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
+  const { submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
   initHeader();
   initSmoothAnchors();

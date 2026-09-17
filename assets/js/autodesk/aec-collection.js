@@ -31,41 +31,6 @@
     triggerSelector: '.textbutton-trigger',
   });
 
-  /* Navegación activa según sección visible */
-  const navLinks = $$('.nav-menu a');
-  const sections = $$('main section[id]');
-  let sectionPositions = [];
-
-  function cacheSectionPositions() {
-    sectionPositions = sections.map(function (section) {
-      return {
-        id: section.getAttribute('id'),
-        top: section.offsetTop,
-        height: section.offsetHeight,
-      };
-    });
-  }
-
-  cacheSectionPositions();
-  window.addEventListener('resize', cacheSectionPositions, { passive: true });
-
-  function onScroll() {
-    const currentSection = window.scrollY + 100;
-    sectionPositions.forEach(function (section) {
-      if (currentSection >= section.top && currentSection < section.top + section.height) {
-        navLinks.forEach(function (link) {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + section.id) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
   /* Animaciones al hacer scroll */
   const animateElements = $$('.animate-on-scroll');
 

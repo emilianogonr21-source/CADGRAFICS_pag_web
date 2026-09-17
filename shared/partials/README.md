@@ -16,7 +16,7 @@ No se “inyectan” solas. Por eso, si editas solo el modelo aquí, **las pági
    ```
    powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1
    ```
-   (o `python tools/sync-header.py` si tienes Python).3. Si cambias WhatsApp, copia el cambio a las páginas (aún no hay sync automático de ese partial).
+3. Si cambias WhatsApp, copia el cambio a las páginas (aún no hay sync automático de ese partial).
 4. Prueba menú en celular + Contáctanos en al menos: **inicio, Dell y Adobe**.
 
 ## Archivos de esta carpeta

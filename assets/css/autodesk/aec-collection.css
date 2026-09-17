@@ -213,8 +213,7 @@ section[id] {
 }
 
 .nav-menu a:hover,
-.nav-menu a:focus,
-.nav-menu a.active {
+.nav-menu a:focus {
     color: #ffffff;
     background: #990000;
 }
