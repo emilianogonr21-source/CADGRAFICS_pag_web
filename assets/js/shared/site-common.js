@@ -394,6 +394,54 @@
     return { openModal: openModal, closeModal: closeModal };
   }
 
+  /**
+   * Videos con preload="none": carga y reproduce al entrar en vista
+   * (ahorra ancho de banda en secciones bajo el fold).
+   */
+  function initLazyVideos(options) {
+    const opts = options || {};
+    const videos = $$(opts.selector || 'video[preload="none"]');
+    if (!videos.length) return;
+
+    const playWhenVisible = function (video) {
+      if (video.hasAttribute('controls') && !video.hasAttribute('data-autoplay-onview')) return;
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(function () { /* autoplay bloqueado */ });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach(function (video) {
+        video.setAttribute('preload', 'metadata');
+        video.load();
+        playWhenVisible(video);
+      });
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            if (video.getAttribute('data-lazy-loaded') !== '1') {
+              video.setAttribute('preload', 'metadata');
+              video.load();
+              video.setAttribute('data-lazy-loaded', '1');
+            }
+            playWhenVisible(video);
+          } else if (!video.hasAttribute('controls')) {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: opts.rootMargin || '120px 0px', threshold: 0.15 }
+    );
+
+    videos.forEach(function (video) {
+      io.observe(video);
+    });
+  }
+
   global.Cadgrafics = {
     WHATSAPP_PHONE: WHATSAPP_PHONE,
     $: $,
@@ -407,5 +455,16 @@
     initHeader: initHeader,
     initSmoothAnchors: initSmoothAnchors,
     initStandardLeadModal: initStandardLeadModal,
+    initLazyVideos: initLazyVideos,
   };
+
+  /* Videos lazy: se activan solos en cualquier página que cargue este archivo. */
+  function bootLazyVideos() {
+    initLazyVideos();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootLazyVideos);
+  } else {
+    bootLazyVideos();
+  }
 })(window);

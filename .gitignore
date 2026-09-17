@@ -24,3 +24,6 @@ $RECYCLE.BIN/
 node_modules/
 dist/
 .cache/
+
+# FFmpeg portable local (solo para comprimir assets; no publicar)
+tools/_ffmpeg/

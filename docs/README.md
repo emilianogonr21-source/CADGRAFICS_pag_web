@@ -377,6 +377,7 @@ La **estructura** del proyecto ya está alineada. Lo que sigue es contenido (cua
 - Llenar `assets/images/chaos/home/` con fotos propias de SketchUp.
 - Fotos de producto propias para Dell (la portada ya usa `hero-background.jpg`).
 - Videos propios en `assets/video/{chaos,dell,hp}/home/` y `assets/video/autodesk/aec-collection/` (las carpetas ya existen).
+- Los MP4 publicados ya están optimizados para web (≤1280px, `faststart`). Si agregas videos nuevos, ejecuta `tools/optimize-videos.ps1`.
 
 ---
 

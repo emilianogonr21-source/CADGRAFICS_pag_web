@@ -7,6 +7,7 @@ No son páginas del sitio y `robots.txt` pide a los buscadores no indexar esta c
 |---------|----------|
 | `sync-header.ps1` | Copia el menú oficial de `shared/partials/header.html` a todas las páginas (recomendado en Windows) |
 | `sync-header.py` | Misma sincronización si tienes Python instalado |
+| `optimize-videos.ps1` | Comprime los MP4 de `assets/video/` para web (requiere FFmpeg en `tools/_ffmpeg/`) |
 | `rename-assets.py` | Renombrar assets en lote cuando haga falta alinear nombres |
 
 ### Sincronizar el menú
