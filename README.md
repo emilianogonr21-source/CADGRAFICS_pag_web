@@ -19,8 +19,9 @@ Guía corta de ejemplo (Dell): **[docs/guia-dell.md](docs/guia-dell.md)**
 | CSS / JS | `assets/css/{marca}/` y `assets/js/{marca}/` |
 | Logo y favicon | `assets/images/brand/` |
 | Fotos por página | `assets/images/{marca}/{página}/` |
-| Videos | `assets/video/` (misma lógica) |
+| Videos | `assets/video/{marca}/{página}/` (espejo de `pages/`) |
 | Modelos menú / WhatsApp | `shared/partials/` |
+| Utilidades | `tools/` |
 | SEO | `robots.txt`, `sitemap.xml` (raíz) |
 
 ## En una frase

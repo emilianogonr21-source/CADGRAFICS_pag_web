@@ -59,10 +59,16 @@ CADGRAFICS_pag_web/
     │   ├── index/          ← Fotos del inicio
     │   ├── adobe/          ← home / acrobat-studio / creative-cloud
     │   ├── autodesk/       ← home / aec-collection
+    │   ├── chaos/home/     ← SketchUp (fotos propias pendientes)
+    │   ├── dell/home/
+    │   └── hp/home/
+    ├── video/              ← Espejo de pages/ por marca
+    │   ├── index/
+    │   ├── adobe/          ← home / acrobat-studio / creative-cloud
+    │   ├── autodesk/       ← home / aec-collection
     │   ├── chaos/home/
     │   ├── dell/home/
     │   └── hp/home/
-    ├── video/              ← Misma lógica por marca (index, adobe, autodesk…)
     ├── css/                ← shared + marca + index + legal
     └── js/                 ← shared + marca + index + legal
 ```
@@ -232,12 +238,16 @@ Revisa el JS de esa página y que también se cargue `assets/js/shared/site-comm
 
 ---
 
-## Pendientes del sitio (sin prisa)
+## Estado de la estructura
 
-- Unificar el menú en todas las páginas cuando cambie algo en `shared/partials/`.
+La carpeta raíz y los espejos `pages/` ↔ `assets/{css,js,images,video}/` por marca ya están alineados. Contáctanos usa el mismo patrón (`#formModal` + `site-common.js`) en inicio, Adobe, Autodesk/AEC, Dell, HP y Chaos.
+
+## Pendientes del sitio (contenido, sin prisa)
+
+- Al cambiar el menú en `shared/partials/`, copiar el cambio a todas las páginas.
 - Llenar `assets/images/chaos/home/` con fotos propias de SketchUp (hoy el hero aún puede usar fondo externo).
 - Fotos de producto propias para Dell (la portada ya usa `hero-background.jpg`; faltan fotos propias en secciones de producto).
-- Alinear ventanas de contacto de AEC con el mismo patrón que inicio y Dell (Adobe ya unificado).
+- Agregar videos propios en `assets/video/{chaos,dell,hp}/home/` y `assets/video/autodesk/aec-collection/` cuando existan (las carpetas ya están listas con `.gitkeep`).
 
 ---
 
