@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<!--
+  Página Adobe — Cadgrafics
+  --------------------------
+  Qué hace: presenta a Cadgrafics como partner Adobe (Creative Cloud, Acrobat, Firefly, Sign).
+
+  Archivos relacionados:
+  - Apariencia:     ../../assets/css/adobe/home-adobe.css
+  - Comportamiento: ../../assets/js/adobe/home-adobe.js
+  - Compartido:     ../../assets/css/shared/base.css + ../../assets/js/shared/site-common.js
+
+  Orden del contenido:
+  1. Menú superior
+  2. Portada
+  3. Cifras
+  4. Por qué elegirnos
+  5. Licenciamiento
+  6. Productos
+  7. Firefly
+  8. Acrobat
+  9. Adobe Sign
+  10. Contacto, pie, WhatsApp y ventana Contáctanos
+
+  Guía del equipo: docs/README.md
+-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Adobe Platinum Partner - Soluciones empresariales certificadas para transformar tu negocio con Creative Cloud, Acrobat y Firefly." />
+<title>CADGRAFICS | Soluciones Empresariales Certificadas</title>
+
+<link rel="canonical" href="https://cadgrafics.com.mx/pages/adobe/home-adobe.html" />
+<link rel="icon" type="image/png" href="../../assets/images/brand/favicon.png" />
+
+<meta property="og:title" content="Adobe Platinum Partner | Soluciones Certificadas - Cadgrafics" />
+<meta property="og:description" content="Transforma tu negocio con soluciones Adobe, Autodesk y Dell. Soporte especializado, precios corporativos y +15 años de experiencia." />
+<meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg" />
+<meta property="og:url" content="https://cadgrafics.com.mx/pages/adobe/home-adobe.html" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+<meta http-equiv="X-Frame-Options" content="DENY" />
+<meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'nonce-REEMPLAZAR_DESDE_SERVIDOR'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src https://fonts.gstatic.com; media-src 'self';" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="image" href="../../assets/images/adobe/home/hero-poster.jpg" fetchpriority="high" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/css/shared/base.css?v=20260915" />
+<link rel="stylesheet" href="../../assets/css/adobe/home-adobe.css?v=20260918" />
+    <link rel="stylesheet" href="../../assets/css/shared/header.css?v=20260915" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+<!-- SVG Sprite (solo iconos utilizados) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+  <symbol id="icon-autodesk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+  <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  <symbol id="icon-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+  <symbol id="icon-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></symbol>
+  <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+  <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></symbol>
+  <symbol id="icon-lightning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></symbol>
+  <symbol id="icon-vector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></symbol>
+  <symbol id="icon-integration" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m4.22-10.22l4.24-4.24M6.34 6.34L2.1 2.1m17.8 17.8l-4.24-4.24M6.34 17.66l-4.24 4.24M23 12h-6m-6 0H1m20.24 4.24l-4.24-4.24M6.34 6.34L2.1 10.58"/></symbol>
+  <symbol id="icon-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><polyline points="9 15 11 17 15 13"></polyline></symbol>
+  <symbol id="icon-document" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="icon-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></symbol>
+</svg>
+
+<header class="header" id="header">
+  <div class="container nav-container">
+    <a href="../../index.html" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
+      <img src="../../assets/images/brand/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+      <span class="brand-name">CADGRAFICS</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="../../pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false" aria-current="page">
+                Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/adobe/acrobat-studio.html">Acrobat Studio</a></li>
+                <li><a href="../../pages/adobe/creative-cloud.html">Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../../pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
+                Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/autodesk/aec-collection.html">AEC Collection</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../pages/chaos/home-chaos.html">
+                Sketchup
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/hp/home-hp.html">
+                HP
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/dell/home-dell.html">
+                Dell
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="hamburger" aria-hidden="true">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="badge">
+            <img src="../../assets/images/adobe/home/adobe-logo.png" alt="Adobe Platinum Partner Certificado" decoding="async" width="200" height="55"/>
+          </div>
+          <h1>Transforma tu negocio con las soluciones Adobe</h1>
+          <p>Como Adobe Platinum Partner, ofrecemos las mejores soluciones empresariales con soporte especializado y precios exclusivos.</p>
+          <div class="buttons-container">
+            <button class="btn btn-primary textbutton-trigger">
+              Diagnóstico Gratuito
+              <svg class="arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" poster="../../assets/images/adobe/home/hero-poster.jpg" fetchpriority="high" width="620" height="349">
+              <source src="../../assets/video/adobe/home/video-home-adobe.mp4" type="video/mp4">
+              Tu navegador no soporta el elemento video.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item fade-in-up">
+          <span class="stat-number" data-target="500" data-suffix="+" aria-label="500 más empresas atendidas">0</span>
+          <span class="stat-label">Empresas Atendidas</span>
+        </div>
+        <div class="stat-item fade-in-up">
+          <span class="stat-number" data-target="30" data-suffix="+" aria-label="30 más años de experiencia">0</span>
+          <span class="stat-label">Años de Experiencia</span>
+        </div>
+        <div class="stat-item fade-in-up">
+          <span class="stat-number" data-target="98" data-suffix="%" aria-label="98 por ciento de satisfacción">0</span>
+          <span class="stat-label">Satisfacción</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose" id="por-que-elegirnos">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2>¿Por qué elegirnos como tu Adobe Partner?</h2>
+        <p>Somos tu socio estratégico certificado para implementar y optimizar soluciones Adobe</p>
+      </div>
+      <div class="cards-grid">
+        <article class="card fade-in-up">
+          <div class="card-icon icon-red">
+            <svg aria-hidden="true"><use href="#icon-award"/></svg>
+          </div>
+          <h3>Platinum Partner</h3>
+          <p>Máximo nivel de certificación Adobe, garantizando expertise y acceso a recursos exclusivos.</p>
+        </article>
+        <article class="card fade-in-up">
+          <div class="card-icon icon-blue">
+            <svg aria-hidden="true"><use href="#icon-users"/></svg>
+          </div>
+          <h3>Soporte Especializado</h3>
+          <p>Equipo certificado disponible para asistencia técnica, capacitación y consultoría.</p>
+        </article>
+        <article class="card fade-in-up">
+          <div class="card-icon icon-green">
+            <svg aria-hidden="true"><use href="#icon-shield"/></svg>
+          </div>
+          <h3>Precios Corporativos</h3>
+          <p>Acceso a licenciamiento empresarial con condiciones preferenciales y flexibles.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="licensing-section" id="licensing">
+    <div class="container">
+      <div class="licensing-header fade-in-up">
+        <span class="licensing-badge">
+          <svg width="16" height="16" aria-hidden="true"><use href="#icon-lock"/></svg>
+          Modelos de Licenciamiento Empresarial
+        </span>
+        <h2>Elige el modelo de licenciamiento ideal para tu empresa</h2>
+        <p>Adobe ofrece dos modalidades de licenciamiento comercial diseñadas para diferentes tamaños y necesidades de negocio</p>
+      </div>
+      <div class="licensing-cards">
+        <div class="licensing-card vip-card fade-in-up">
+          <div class="card-header">
+            <div class="card-icon vip-icon">
+              <svg width="32" height="32" aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <div class="card-subtitle">PARA PYMES Y MEDIANAS EMPRESAS</div>
+            <h3>VIP</h3>
+            <p class="card-fullname">Value Incentive Plan</p>
+          </div>
+          <div class="card-description">
+            El programa de licenciamiento por volumen más accesible de Adobe, diseñado para organizaciones que buscan flexibilidad y descuentos según el volumen de licencias adquiridas.
+          </div>
+          <ul class="card-features">
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Mínimo de 1 usuario, sin límite máximo</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Descuentos por volumen: a más licencias, mayor ahorro</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Contrato anual con renovación flexible</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Consola de administración centralizada (Admin Console)</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Ideal para equipos de 1 a ~999 usuarios</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Pago anual por anticipado</li>
+          </ul>
+          <div class="card-ideal-for">
+            <strong>Ideal para:</strong><br>
+            PYMEs, startups, agencias creativas y equipos en crecimiento que buscan la suite Adobe completa con precio competitivo.
+          </div>
+        </div>
+        <div class="licensing-card etla-card fade-in-up">
+          <div class="card-header">
+            <div class="card-icon etla-icon">
+              <svg width="32" height="32" aria-hidden="true"><use href="#icon-autodesk"/></svg>
+            </div>
+            <div class="card-subtitle">PARA GRANDES EMPRESAS</div>
+            <h3>ETLA</h3>
+            <p class="card-fullname">Enterprise Term License Agreement</p>
+          </div>
+          <div class="card-description">
+            El modelo de licenciamiento empresarial más completo de Adobe, diseñado para organizaciones con alta demanda de productos, despliegue masivo y requerimientos de personalización avanzada.
+          </div>
+          <ul class="card-features">
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Acceso ilimitado a toda la suite Adobe para todos los usuarios</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Contrato de 3 años con precios fijos y predecibles</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Gestor de cuenta dedicado y soporte prioritario 24/7</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Implementación y onboarding personalizado</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Términos de privacidad y seguridad empresarial avanzados</li>
+            <li><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Integraciones SSO y compatibilidad con sistemas corporativos</li>
+          </ul>
+          <div class="card-ideal-for">
+            <strong>Ideal para:</strong><br>
+            Corporaciones y gobiernos con más de 1,000 usuarios, ambientes multi-país y necesidades de compliance, seguridad y control centralizado.
+          </div>
+        </div>
+      </div>
+      <div class="licensing-cta fade-in-up">
+        <p>¿No sabes cuál modelo se adapta mejor a tu empresa?</p>
+        <button class="btn btn-consultation textbutton-trigger">
+          Consulta gratuita de licenciamiento
+          <svg width="18" height="18" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="product-showcase" id="productos">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <div class="cc-brand-lockup">
+          <img
+            src="../../assets/images/adobe/home/logotipo-creative-cloud.png"
+            alt=""
+            class="cc-brand-icon"
+            decoding="async"
+            width="92"
+            height="92"
+          >
+          <h2>Adobe Creative Cloud</h2>
+        </div>
+        <p class="section-subtitle">Las herramientas profesionales más potentes para diseño, video, fotografía y contenido web.</p>
+      </div>
+      <div class="product-cards-grid">
+        <div class="product-card fade-in-up">
+          <div class="product-card-header">
+            <div class="product-card-icon cc-pro-icon">
+              <img src="../../assets/images/adobe/home/logotipo-creative-cloud.png" alt="Creative Cloud Pro" loading="lazy" decoding="async" width="48" height="48">
+            </div>
+            <h3>Creative Cloud Pro</h3>
+            <p class="product-card-subtitle">Enfoque: Kit definitivo herramientas creativas</p>
+          </div>
+          <ul class="product-features">
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Trabajo inteligente y rápido </li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Herramientas líderes del sector </li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> 20+ aplicaciones creativas </li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Para profesionales </li>
+          </ul>
+          <a href="creative-cloud.html" class="btn btn-outline btn-sm">Más Información</a>
+        </div>
+        <div class="product-card product-card-featured fade-in-up">
+          <div class="product-card-badge">Más Popular</div>
+          <div class="product-card-header">
+            <div class="product-card-icon cc-plus-icon">
+              <img src="../../assets/images/adobe/home/logotipo-creative-cloud.png" alt="Creative Cloud Pro Plus" loading="lazy" decoding="async" width="48" height="48">
+            </div>
+            <h3>Creative Cloud Pro Plus</h3>
+            <p class="product-card-subtitle">IA generativa + potencial creativo</p>
+          </div>
+          <ul class="product-features">
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> 20+ aplicaciones desktop y móviles</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Modelos de IA avanzados</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Adobe Stock ilimitado</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Indemnización propiedad intelectual</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Plataforma para equipos</li>
+          </ul>
+          <a href="creative-cloud.html" class="btn btn-primary red btn-sm">Más Información</a>
+        </div>
+        <div class="product-card fade-in-up">
+          <div class="product-card-header">
+            <div class="product-card-icon cc-teams-icon">
+              <img src="../../assets/images/adobe/home/logotipo-creative-cloud.png" alt="Creative Cloud Edition 4 Enterprise" loading="lazy" decoding="async" width="48" height="48">
+            </div>
+            <h3>Creative Cloud Edition 4 Enterprise</h3>
+            <p class="product-card-subtitle">Escalabilidad y velocidad empresarial</p>
+          </div>
+          <ul class="product-features">
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> 20+ aplicaciones Adobe</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Integraciones sólidas (Microsoft Teams, Slack, Workfront)</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Bibliotecas Creative Cloud</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Plug-ins Adobe + Zapier</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Colaboración tiempo real</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Gestión de proyectos</li>
+            <li><svg aria-hidden="true"><use href="#icon-check"/></svg> Compartir activos</li>
+          </ul>
+          <a href="creative-cloud.html" class="btn btn-outline btn-sm">Más Información</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="firefly-section" id="firefly">
+    <div class="container">
+      <div class="section-header fade-in-up firefly-header-layout">
+        <div class="firefly-header-content">
+          <h2>Adobe Firefly: IA para Creativos</h2>
+          <p class="section-subtitle">Potencia tu creatividad con inteligencia artificial segura y comercialmente viable</p>
+        </div>
+        <div class="firefly-header-logo">
+          <img src="../../assets/images/adobe/home/firefly-logo.png" alt="Adobe Firefly Logo" decoding="async" loading="lazy" width="200" height="80"/>
+        </div>
+      </div>
+      
+      <div class="firefly-new-layout fade-in-up">
+        <div class="firefly-main-features">
+          <div class="firefly-feature-item">
+            <div class="feature-icon lightning">
+              <svg aria-hidden="true"><use href="#icon-lightning"/></svg>
+            </div>
+            <div class="feature-text">
+              <h3>Creación ultrarrápida</h3>
+              <p>Genera Assets visuales en segundos, no en horas. Acelera tus workflows creativos.</p>
+            </div>
+          </div>
+          
+          <div class="firefly-feature-item">
+            <div class="feature-icon shield">
+              <svg aria-hidden="true"><use href="#icon-shield"/></svg>
+            </div>
+            <div class="feature-text">
+              <h3>Uso comercial seguro</h3>
+              <p>Entrenado con contenido licenciado y Adobe Stock, garantizando seguridad legal.</p>
+            </div>
+          </div>
+          
+          <div class="firefly-feature-item">
+            <div class="feature-icon vector">
+              <svg aria-hidden="true"><use href="#icon-vector"/></svg>
+            </div>
+            <div class="feature-text">
+              <h3>Recoloración vectorial con IA</h3>
+              <p>Cambia colores de vectores automáticamente, respetando la estructura y detalles.</p>
+            </div>
+          </div>
+          
+          <div class="firefly-feature-item">
+            <div class="feature-icon integration">
+              <svg aria-hidden="true"><use href="#icon-integration"/></svg>
+            </div>
+            <div class="feature-text">
+              <h3>Integración nativa</h3>
+              <p>Disponible directamente dentro de Photoshop, Illustrator, Adobe Express y más.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="firefly-capabilities-grid">
+          <div class="capability-card">
+            <div class="capability-icon">
+              <svg aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <div class="capability-text">
+              <h4>Genera imágenes con texto</h4>
+            </div>
+          </div>
+          
+          <div class="capability-card">
+            <div class="capability-icon">
+              <svg aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <div class="capability-text">
+              <h4>Relleno generativo en segundos</h4>
+            </div>
+          </div>
+          
+          <div class="capability-card">
+            <div class="capability-icon">
+              <svg aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <div class="capability-text">
+              <h4>Efectos de texto creativos</h4>
+            </div>
+          </div>
+          
+          <div class="capability-card">
+            <div class="capability-icon">
+              <svg aria-hidden="true"><use href="#icon-star"/></svg>
+            </div>
+            <div class="capability-text">
+              <h4>Recoloración vectorial con IA</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="firefly-cta-container fade-in-up">
+        <button class="btn-firefly-cta textbutton-trigger">
+          Conocer más sobre Firefly
+          <svg class="arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="acrobat-section" id="acrobat">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2>Adobe Acrobat: Soluciones PDF Empresariales</h2>
+        <p>Potencia la productividad de tu equipo con las herramientas PDF más avanzadas del mercado</p>
+      </div>
+      <div class="acrobat-cards">
+        <div class="acrobat-card fade-in-up">
+          <div class="acrobat-card-icon">
+            <img src="../../assets/images/adobe/home/standard-adobe-isotipo.png" alt="Adobe Acrobat Standard" loading="lazy" decoding="async" width="52" height="52">
+          </div>
+          <h3>Acrobat Standard</h3>
+          <p class="acrobat-card-subtitle">Solución ideal para equipos que trabajan con documentos PDF diariamente</p>
+          <ul class="acrobat-features">
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Crear, editar y combinar PDFs</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Convertir documentos a y desde PDF</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Firmas electrónicas integradas</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Proteger archivos con contraseñas</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Comentarios y revisión colaborativa</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Formularios PDF interactivos</li>
+          </ul>
+          <button class="btn btn-outline textbutton-trigger">Solicitar cotización</button>
+        </div>
+        <div class="acrobat-card fade-in-up">
+          <div class="card-badge badge-popular">Más Popular</div>
+          <div class="acrobat-card-icon">
+            <img src="../../assets/images/adobe/home/pro-adobe-isotipo.png" alt="Adobe Acrobat Pro" loading="lazy" decoding="async" width="52" height="52">
+          </div>
+          <h3>Acrobat Pro</h3>
+          <p class="acrobat-card-subtitle">La suite completa con herramientas avanzadas y características premium</p>
+          <ul class="acrobat-features">
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Todo lo incluido en Standard</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Comparación de documentos avanzada</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> OCR para digitalizar documentos escaneados</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Redacción permanente de información sensible</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Verificación de accesibilidad (PDF/UA)</li>
+            <li class="acrobat-feature check-green"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Preparación para impresión profesional</li>
+          </ul>
+          <button class="btn btn-primary red textbutton-trigger">Solicitar cotización</button>
+        </div>
+        <div class="acrobat-card featured fade-in-up">
+          <div class="card-badge badge-new">
+            <svg aria-hidden="true"><use href="#icon-sparkles"/></svg> Nuevo
+          </div>
+          <div class="acrobat-card-icon">
+            <img src="../../assets/images/adobe/home/adobe-sign-isotipo.png" alt="Adobe Acrobat Studio" loading="lazy" decoding="async" width="52" height="52">
+          </div>
+          <h3>Acrobat Studio</h3>
+          <p class="acrobat-card-subtitle">IA generativa integrada para creación y edición de documentos de siguiente nivel</p>
+          <ul class="acrobat-features">
+            <li class="acrobat-feature check-purple"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Todo lo incluido en Acrobat Pro</li>
+            <li class="acrobat-feature check-purple"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Asistente IA para resúmenes de documentos</li>
+            <li class="acrobat-feature check-purple"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Generación automática de contenido</li>
+            <li class="acrobat-feature check-purple"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Traducción inteligente multidioma</li>
+            <li class="acrobat-feature check-purple"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Análisis y extracción de datos con IA</li>
+            <li class="acrobat-feature check-purple"><svg aria-hidden="true"><use href="#icon-check-circle"/></svg> Automatización avanzada de workflows</li>
+          </ul>
+          <a href="acrobat-studio.html" class="btn btn-gradient">Más Información</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="adobe-sign-section" id="adobe-sign">
+    <div class="container">
+      <div class="section-header fade-in-up">
+        <h2>Adobe Sign: Firma Electrónica Empresarial</h2>
+        <p>Acelera tus procesos de negocio con la solución de firma electrónica líder del mercado. Firma, envía y gestiona documentos desde cualquier dispositivo, en cualquier lugar del mundo.</p>
+      </div>
+      <div class="sign-features-list">
+        <div class="sign-feature-item">
+          <div class="feature-icon-outline icon-shield-outline">
+            <svg aria-hidden="true"><use href="#icon-shield"/></svg>
+          </div>
+          <div class="feature-content">
+            <h3>Cumplimiento legal global</h3>
+            <p>Firmas con validez legal en más de 180 países, cumpliendo normativas eIDAS, ESIGN, UETA y más.</p>
+          </div>
+        </div>
+        <div class="sign-feature-item">
+          <div class="feature-icon-outline icon-lightning-outline">
+            <svg aria-hidden="true"><use href="#icon-lightning"/></svg>
+          </div>
+          <div class="feature-content">
+            <h3>Automatización de flujos de aprobación</h3>
+            <p>Define rutas de firma, recordatorios automáticos y notificaciones en tiempo real para cada documento.</p>
+          </div>
+        </div>
+        <div class="sign-feature-item">
+          <div class="feature-icon-outline icon-file-check-outline">
+            <svg aria-hidden="true"><use href="#icon-file-check"/></svg>
+          </div>
+          <div class="feature-content">
+            <h3>Integración con tus sistemas</h3>
+            <p>Compatible con Salesforce, Microsoft 365, SAP, Workday y cientos de aplicaciones empresariales.</p>
+          </div>
+        </div>
+        <div class="sign-feature-item">
+          <div class="feature-icon-outline icon-users-outline">
+            <svg aria-hidden="true"><use href="#icon-users"/></svg>
+          </div>
+          <div class="feature-content">
+            <h3>Gestión centralizada</h3>
+            <p>Panel de control unificado para monitorear el estado de todos los documentos y firmantes de tu empresa.</p>
+          </div>
+        </div>
+      </div>
+      <div class="sign-cta-simple">
+        <button class="btn-demo-simple textbutton-trigger">Solicitar demo de Adobe Sign</button>
+      </div>
+      <div class="sign-stats-container fade-in-up">
+        <div class="sign-stats-header">
+          <div class="sign-stats-icon">
+            <svg width="20" height="20" aria-hidden="true"><use href="#icon-pencil"/></svg>
+          </div>
+          <div class="sign-stats-title">
+            <h3>Firma en segundos</h3>
+            <p>Desde cualquier dispositivo</p>
+          </div>
+        </div>
+        <div class="sign-stats-grid">
+          <div class="sign-stat-card"><div class="sign-stat-value purple">80%</div><div class="sign-stat-label">Reducción en tiempos de cierre</div></div>
+          <div class="sign-stat-card"><div class="sign-stat-value green">100%</div><div class="sign-stat-label">Procesos sin papel</div></div>
+          <div class="sign-stat-card"><div class="sign-stat-value blue">180+</div><div class="sign-stat-label">Países con validez legal</div></div>
+        </div>
+        <div class="sign-use-cases">
+          <div class="sign-use-case">
+            <svg aria-hidden="true"><use href="#icon-document"/></svg>
+            Contratos comerciales
+          </div>
+          <div class="sign-use-case">
+            <svg aria-hidden="true"><use href="#icon-document"/></svg>
+            Propuestas y cotizaciones
+          </div>
+          <div class="sign-use-case">
+            <svg aria-hidden="true"><use href="#icon-users"/></svg>
+            Recursos humanos
+          </div>
+          <div class="sign-use-case">
+            <svg aria-hidden="true"><use href="#icon-shield"/></svg>
+            Cumplimiento regulatorio
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="contacto">
+    <div class="container">
+      <h2>¿Listo para transformar tu empresa con Adobe?</h2>
+      <p>Solicita un diagnóstico gratuito y descubre cómo nuestras soluciones pueden optimizar tus procesos creativos y de documentación.</p>
+      <div class="final-cta-buttons">
+        <button class="btn btn-primary textbutton-trigger">
+          Diagnóstico Gratuito
+          <svg class="arrow" aria-hidden="true"><use href="#icon-arrow-right"/></svg>
+        </button>
+      </div>
+      <div class="final-cta-trust">Confían en nosotros más de 500 empresas en todas las regiones de México</div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <h3>Cadgrafics S.A. De C.V.</h3>
+        <p>Norte 56-A # 5204 • Col. Tablas de San Agustín</p>
+        <p>07860, Gustavo A. Madero | CDMX</p>
+        <p>Correo: <a href="mailto:sandra.alvarez@cadgrafics.com.mx">sandra.alvarez@cadgrafics.com.mx</a></p>
+        <p>
+          <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (55) 3112-0508">
+            <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+            +52 (55) 3112-0508
+          </a>
+        </p>
+      </div>
+      <div>
+        <h4>Cadgrafics de Occidente S.A. De C.V.</h4>
+        <p>Calle Dia # 2381 Col. Jardines del Bosque</p>
+        <p>44520 | Guadalajara Jalisco, México</p>
+        <p>Correo: <a href="mailto:rafael.castro@cadgrafics.com.mx">rafael.castro@cadgrafics.com.mx</a></p>
+        <p>
+          <a href="https://wa.me/523314040396?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (33) 1404-0396">
+            <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+            +52 (33) 1404-0396
+          </a>
+        </p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <div class="social-links">
+          <a href="https://linkedin.com/company/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="18" height="18" aria-hidden="true"><use href="#icon-linkedin"/></svg></a>
+          <a href="https://youtube.com/@cadgrafics1639" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="18" height="18" aria-hidden="true"><use href="#icon-youtube"/></svg></a>
+          <a href="https://x.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="X"><svg width="18" height="18" aria-hidden="true"><use href="#icon-x"/></svg></a>
+          <a href="https://facebook.com/Cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="18" height="18" aria-hidden="true"><use href="#icon-facebook"/></svg></a>
+          <a href="https://instagram.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="18" height="18" aria-hidden="true"><use href="#icon-instagram"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; <span id="current-year">2026</span> Todos los derechos reservados | <a href="../legal/aviso-privacidad.html">Aviso de Privacidad</a>.
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20y%20quiero%20información" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 55 3112 0508">
+  <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+</a>
+
+<div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-content" role="document">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTitle">Cuéntanos sobre tu proyecto</h3>
+      <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar formulario">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form id="leadForm" novalidate>
+      <div id="formFields">
+        <div class="form-group">
+          <label for="name">Nombre completo *</label>
+          <input type="text" id="name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name"/>
+        </div>
+        <div class="form-group">
+          <label for="modal-email">Correo electrónico *</label>
+          <input type="email" id="modal-email" name="email" required aria-required="true" autocomplete="email"/>
+        </div>
+        <div class="form-group">
+          <label for="phone">Celular *</label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678"/>
+        </div>
+        <div class="form-group">
+          <label for="company">Empresa *</label>
+          <input type="text" id="company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa"/>
+        </div>
+        <div class="form-group">
+          <label for="message">Tu requerimiento</label>
+          <textarea id="message" name="message" rows="4" maxlength="500" placeholder="Ej: Necesito licencias Adobe para equipo de diseño..."></textarea>
+        </div>
+        <button type="submit" class="cta-modal">
+          <svg width="16" height="16" aria-hidden="true"><use href="#icon-send"/></svg> Enviar consulta
+        </button>
+        <p class="form-message" id="modalFormMessage" role="status" aria-live="polite"></p>
+      </div>
+      <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+        <svg width="48" height="48" aria-hidden="true"><use href="#icon-check"/></svg>
+        <h4>¡Listo!</h4>
+        <p>Recibimos tu consulta. Te contactaremos en breve.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <script src="../../assets/js/shared/site-common.js"></script>
+    <script src="../../assets/js/adobe/home-adobe.js" nonce="REEMPLAZAR_DESDE_SERVIDOR"></script>
+</body>
+</html>

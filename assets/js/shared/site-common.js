@@ -1,0 +1,464 @@
+/*
+  Cadgrafics — piezas que se repiten en casi todas las páginas
+  ------------------------------------------------------------
+  Qué hace este archivo (en simple):
+  - Menú de arriba (también en celular)
+  - Ventana de Contáctanos
+  - Envío de formularios: intenta guardar el dato y SIEMPRE abre WhatsApp
+    con el mensaje listo, para no perder el contacto
+
+  Cómo usarlo: cargar ESTE archivo ANTES del JS de cada página.
+  Cada marca reutiliza esta lógica sin cambiar su propio aspecto (CSS).
+
+  Guía del equipo: docs/README.md
+*/
+(function (global) {
+  'use strict';
+
+  const WHATSAPP_PHONE = '525531120508';
+  /* Endpoint opcional: en hosting estático suele no existir.
+     El canal real del lead es WhatsApp; el POST no debe bloquear el flujo. */
+  const LEADS_ENDPOINT = '/api/leads';
+
+  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+
+  const sanitize = (str) => {
+    const div = document.createElement('div');
+    div.textContent = String(str || '');
+    return div.innerHTML.trim().slice(0, 500);
+  };
+
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidPhone = (phone) => /^[\d\s+\-()]{7,}$/.test(phone);
+
+  /* Arma el texto que se envía por WhatsApp con los datos del formulario. */
+  function buildWhatsAppMessage(data, label) {
+    const lines = [
+      'Hola Cadgrafics,',
+      label ? `Solicitud desde: ${label}` : 'Quiero información desde el sitio web.',
+      '',
+      data.name || data.nombre ? `Nombre: ${data.name || data.nombre}` : null,
+      data.company || data.empresa ? `Empresa: ${data.company || data.empresa}` : null,
+      data.email ? `Email: ${data.email}` : null,
+      data.phone || data.telefono ? `Teléfono: ${data.phone || data.telefono}` : null,
+      data.message ? `Mensaje: ${data.message}` : null,
+    ].filter(Boolean);
+    return lines.join('\n');
+  }
+
+  function openWhatsApp(text, phone) {
+    const url = `https://wa.me/${phone || WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+    return url;
+  }
+
+  /**
+   * Envía el contacto del visitante:
+   * 1) Intenta POST a /api/leads (opcional; falla en silencio si no hay API).
+   * 2) Siempre abre WhatsApp con los datos — ese es el canal real del sitio.
+   */
+  async function submitLead(raw, options) {
+    const opts = options || {};
+    const data = {
+      name: sanitize(raw.name || raw.nombre || ''),
+      email: sanitize(raw.email || ''),
+      phone: sanitize(raw.phone || raw.telefono || ''),
+      company: sanitize(raw.company || raw.empresa || ''),
+      message: sanitize(raw.message || ''),
+      source: raw.source || 'site',
+    };
+
+    let apiOk = false;
+    try {
+      const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const timer = controller ? setTimeout(function () { controller.abort(); }, 4000) : null;
+      const response = await fetch(LEADS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        signal: controller ? controller.signal : undefined,
+      });
+      if (timer) clearTimeout(timer);
+      apiOk = !!(response && response.ok);
+    } catch (err) {
+      /* Hosting estático o API ausente: esperado; WhatsApp cubre el lead. */
+      apiOk = false;
+    }
+
+    const waText =
+      opts.whatsappText ||
+      buildWhatsAppMessage(data, opts.label || data.source);
+
+    if (opts.openWhatsApp !== false) {
+      openWhatsApp(waText, opts.phone);
+    }
+
+    return { apiOk: apiOk, whatsappOpened: opts.openWhatsApp !== false, data: data };
+  }
+
+  /* Menú de arriba: cambia al hacer scroll, abre en celular y maneja submenús. */
+  function initHeader(options) {
+    const opts = options || {};
+    const header = $('#header');
+    const mobileToggle = $('#mobileToggle');
+    const navMenu = $('#navMenu');
+    /* 1024: menú hamburguesa también en tablet/laptop estrecha */
+    const breakpoint = opts.breakpoint || 1024;
+
+    if (header) {
+      let ticking = false;
+      const update = function () {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        ticking = false;
+      };
+      window.addEventListener(
+        'scroll',
+        function () {
+          if (!ticking) {
+            requestAnimationFrame(update);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+      update();
+    }
+
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', function () {
+        const isActive = navMenu.classList.toggle('active');
+        mobileToggle.classList.toggle('is-open', isActive);
+        mobileToggle.setAttribute('aria-expanded', String(isActive));
+        mobileToggle.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
+        if (opts.lockBodyScroll) {
+          document.body.style.overflow = isActive ? 'hidden' : '';
+        }
+        if (!isActive) {
+          $$('.nav-item.active, .dropdown-submenu.active').forEach(function (el) {
+            el.classList.remove('active');
+          });
+        }
+      });
+
+      $$('.nav-menu a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          const parent = link.closest('.nav-item, .dropdown-submenu');
+          const hasMenu =
+            parent &&
+            parent.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
+          if (hasMenu && window.innerWidth <= breakpoint) return;
+          navMenu.classList.remove('active');
+          mobileToggle.classList.remove('is-open');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+          mobileToggle.setAttribute('aria-label', 'Abrir menú');
+          if (opts.lockBodyScroll) document.body.style.overflow = '';
+        });
+      });
+    }
+
+    function setupDropdown(selector, parentSelector) {
+      $$(selector).forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          if (window.innerWidth > breakpoint) return;
+          const parent = link.closest(parentSelector);
+          const hasMenu =
+            parent &&
+            parent.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
+          if (!hasMenu) return;
+          e.preventDefault();
+          e.stopPropagation();
+          const isActive = parent.classList.toggle('active');
+          link.setAttribute('aria-expanded', String(isActive));
+          $$(parentSelector + '.active').forEach(function (sib) {
+            if (sib !== parent) {
+              sib.classList.remove('active');
+              const a = sib.querySelector(':scope > a');
+              if (a) a.setAttribute('aria-expanded', 'false');
+            }
+          });
+        });
+      });
+    }
+
+    setupDropdown('.nav-item > a', '.nav-item');
+    setupDropdown('.dropdown-submenu > a', '.dropdown-submenu');
+  }
+
+  /* Enlaces internos (#seccion): baja suavemente sin chocar con el menú. */
+  function initSmoothAnchors(options) {
+    const opts = options || {};
+    const header = $('#header');
+    const skip = opts.skipSelector || '.textbutton-trigger';
+
+    $$('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        if (anchor.matches(skip)) return;
+        const href = anchor.getAttribute('href');
+        if (!href || href === '#' || href.length < 2) return;
+        const target = $(href);
+        if (!target) return;
+        e.preventDefault();
+        const offset = opts.offset != null ? opts.offset : header ? header.offsetHeight : 80;
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.scrollY - offset,
+          behavior: 'smooth',
+        });
+      });
+    });
+  }
+
+  /**
+   * Ventana de Contáctanos (la que usan inicio, Dell, HP, SketchUp, etc.).
+   * options: de dónde viene el contacto, qué campos leer y qué botón la abre.
+   */
+  function initStandardLeadModal(options) {
+    const opts = options || {};
+    const modal = $(opts.modalSelector || '#formModal');
+    const modalClose = $(opts.closeSelector || '#modalClose');
+    const leadForm = $(opts.formSelector || '#leadForm');
+    const formFields = $(opts.fieldsSelector || '#formFields');
+    const successMessage = $(opts.successSelector || '#successMessage');
+    const modalFormMessage = $(opts.messageSelector || '#modalFormMessage');
+    const fieldMap = Object.assign(
+      {
+        name: '#name, #modal-name',
+        email: '#modal-email, #email',
+        phone: '#phone, #modal-phone',
+        company: '#company, #modal-company',
+      },
+      opts.fieldMap || {}
+    );
+    const triggerSelector = opts.triggerSelector || '.textbutton-trigger';
+    let lastFocusedElement = null;
+
+    const fieldEl = function (key) {
+      return leadForm ? leadForm.querySelector(fieldMap[key]) : null;
+    };
+
+    const openModal = function (e) {
+      if (e) e.preventDefault();
+      lastFocusedElement = document.activeElement;
+      if (!modal) return;
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const focusSel = opts.focusSelector || fieldMap.name;
+      setTimeout(function () {
+        const el = typeof focusSel === 'string' ? $(focusSel, leadForm || document) : fieldEl('name');
+        if (el && el.focus) el.focus();
+      }, 100);
+    };
+
+    const closeModal = function () {
+      if (!modal) return;
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        lastFocusedElement.focus();
+      }
+    };
+
+    $$(triggerSelector).forEach(function (btn) {
+      btn.addEventListener('click', openModal);
+    });
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (!modal || !modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Tab') {
+        const focusable = modal.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    if (leadForm) {
+      $$('input, textarea', leadForm).forEach(function (input) {
+        input.addEventListener('input', function () {
+          input.classList.remove('is-invalid');
+        });
+      });
+
+      leadForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        if (modalFormMessage) {
+          modalFormMessage.textContent = '';
+          modalFormMessage.className = 'form-message';
+        }
+
+        const fd = new FormData(leadForm);
+        const data = {
+          name: sanitize(fd.get('name') || fd.get('nombre')),
+          email: sanitize(fd.get('email')),
+          phone: sanitize(fd.get('phone') || fd.get('telefono')),
+          company: sanitize(fd.get('company') || fd.get('empresa')),
+          message: sanitize(fd.get('message') || fd.get('mensaje')),
+          source: opts.source || 'modal',
+        };
+
+        let hasError = false;
+        if (!data.name || data.name.length < 3) {
+          fieldEl('name') && fieldEl('name').classList.add('is-invalid');
+          hasError = true;
+        }
+        if (!isValidEmail(data.email)) {
+          fieldEl('email') && fieldEl('email').classList.add('is-invalid');
+          hasError = true;
+        }
+        if (!isValidPhone(data.phone)) {
+          fieldEl('phone') && fieldEl('phone').classList.add('is-invalid');
+          hasError = true;
+        }
+        if (!data.company || data.company.length < 2) {
+          fieldEl('company') && fieldEl('company').classList.add('is-invalid');
+          hasError = true;
+        }
+
+        if (hasError) {
+          if (modalFormMessage) {
+            modalFormMessage.textContent =
+              'Por favor completa todos los campos obligatorios correctamente.';
+            modalFormMessage.className = 'form-message error';
+          }
+          return;
+        }
+
+        const submitBtn = leadForm.querySelector(opts.submitSelector || '.cta-modal, button[type="submit"]');
+        const originalText = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            opts.loadingHtml ||
+            '<svg width="16" height="16" style="animation: spin 1s linear infinite;" aria-hidden="true"><use href="#icon-send"/></svg> Enviando...';
+        }
+
+        try {
+          await submitLead(data, {
+            label: opts.label || data.source,
+            whatsappText: opts.whatsappText,
+          });
+
+          if (formFields) formFields.style.display = 'none';
+          if (successMessage) {
+            successMessage.style.display = 'block';
+            successMessage.classList.add('show');
+          }
+
+          setTimeout(function () {
+            closeModal();
+            setTimeout(function () {
+              leadForm.reset();
+              if (formFields) formFields.style.display = '';
+              if (successMessage) {
+                successMessage.style.display = 'none';
+                successMessage.classList.remove('show');
+              }
+            }, 300);
+          }, opts.successDelay || 3000);
+        } catch (err) {
+          console.error('Error al enviar formulario:', err);
+          if (modalFormMessage) {
+            modalFormMessage.textContent =
+              'No se pudo abrir WhatsApp. Escríbenos al +52 55 3112 0508.';
+            modalFormMessage.className = 'form-message error';
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          }
+        }
+      });
+    }
+
+    return { openModal: openModal, closeModal: closeModal };
+  }
+
+  /**
+   * Videos con preload="none": carga y reproduce al entrar en vista
+   * (ahorra ancho de banda en secciones bajo el fold).
+   */
+  function initLazyVideos(options) {
+    const opts = options || {};
+    const videos = $$(opts.selector || 'video[preload="none"]');
+    if (!videos.length) return;
+
+    const playWhenVisible = function (video) {
+      if (video.hasAttribute('controls') && !video.hasAttribute('data-autoplay-onview')) return;
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(function () { /* autoplay bloqueado */ });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      videos.forEach(function (video) {
+        video.setAttribute('preload', 'metadata');
+        video.load();
+        playWhenVisible(video);
+      });
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            if (video.getAttribute('data-lazy-loaded') !== '1') {
+              video.setAttribute('preload', 'metadata');
+              video.load();
+              video.setAttribute('data-lazy-loaded', '1');
+            }
+            playWhenVisible(video);
+          } else if (!video.hasAttribute('controls')) {
+            video.pause();
+          }
+        });
+      },
+      { rootMargin: opts.rootMargin || '120px 0px', threshold: 0.15 }
+    );
+
+    videos.forEach(function (video) {
+      io.observe(video);
+    });
+  }
+
+  /* API pública usada por los JS de cada página (el resto queda interno). */
+  global.Cadgrafics = {
+    $: $,
+    $$: $$,
+    isValidEmail: isValidEmail,
+    isValidPhone: isValidPhone,
+    submitLead: submitLead,
+    initHeader: initHeader,
+    initSmoothAnchors: initSmoothAnchors,
+    initStandardLeadModal: initStandardLeadModal,
+  };
+
+  /* Videos lazy: se activan solos en cualquier página que cargue este archivo. */
+  function bootLazyVideos() {
+    initLazyVideos();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootLazyVideos);
+  } else {
+    bootLazyVideos();
+  }
+})(window);

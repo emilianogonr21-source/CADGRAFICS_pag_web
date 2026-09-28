@@ -1,0 +1,29 @@
+# Sistema / OS
+desktop.ini
+Thumbs.db
+ehthumbs.db
+.DS_Store
+$RECYCLE.BIN/
+
+# Editores
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs y entorno local
+*.log
+.env
+.env.*
+!.env.example
+
+# Dependencias / build (por si se agregan después)
+node_modules/
+dist/
+.cache/
+
+# FFmpeg portable local (solo para comprimir assets; no publicar)
+tools/_ffmpeg/
