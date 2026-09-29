@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  Página Dell — Cadgrafics
+  -------------------------
+  Qué hace esta página: presenta todo el ecosistema Dell para empresas
+  (Dell Pro, Dell Pro Max, Wyse, PowerEdge y Alienware) y permite pedir asesoría.
+
+  Archivos relacionados (no mezclar todo aquí):
+  - Apariencia:     ../../assets/css/dell/home-dell.css
+  - Comportamiento: ../../assets/js/dell/home-dell.js
+  - Imágenes:       ../../assets/images/dell/home/
+
+  Orden del contenido:
+  1. Menú superior (igual que el resto del sitio)
+  2. Portada (hero)
+  3. Portafolio Dell (mosaico de líneas)
+  4. Línea Dell Pro (pestañas Premium / Plus / Escritorio / Essential)
+  5. Dell Pro Max (workstations, antes Precision)
+  6. Wyse Thin Clients
+  7. Servidores PowerEdge
+  8. Alienware
+  9. Bloque Cadgrafics + Dell
+  10. Formulario de contacto en la página
+  11. Pie de página
+  12. WhatsApp flotante
+  13. Ventana emergente de Contáctanos (modal)
+  Guía del equipo: docs/README.md
+-->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Todo el ecosistema Dell para empresas: laptops y escritorios Dell Pro, workstations Dell Pro Max, Wyse y servidores PowerEdge. Asesoría sin costo con Cadgrafics, Dell Gold Partner." />
+    <title>Dell Technologies | Cadgrafics Gold Partner</title>
+
+    <!-- SEO & Social Media -->
+    <link rel="canonical" href="https://cadgrafics.com.mx/pages/dell/home-dell.html">
+    <link rel="icon" type="image/png" href="../../assets/images/brand/favicon.png">
+    <meta property="og:title" content="Dell Technologies | Cadgrafics Gold Partner">
+    <meta property="og:description" content="Todo el ecosistema Dell para empresas: Dell Pro, Dell Pro Max, Wyse, PowerEdge y Alienware. Asesoría sin costo con Cadgrafics.">
+    <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg">
+    <meta property="og:url" content="https://cadgrafics.com.mx/pages/dell/home-dell.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; media-src 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Performance: Preconnect & Preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="../../assets/images/dell/home/hero.webp" fetchpriority="high">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/dell/home-dell.css?v=20260929">
+    <link rel="stylesheet" href="../../assets/css/shared/header.css?v=20260915" />
+</head>
+<body>
+    <!-- Enlace para teclado/lectores de pantalla: salta directo al contenido -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Iconos del menú, formularios, WhatsApp y redes sociales del pie de página -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+        <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+        <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+        <symbol id="icon-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+        <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+        <symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+    </svg>
+
+    <!-- 1. Menú superior Cadgrafics (compartido: se sincroniza con tools/sync-header.ps1) -->
+    <header class="header" id="header">
+  <div class="container nav-container">
+    <a href="../../index.html" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
+      <img src="../../assets/images/brand/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+      <span class="brand-name">CADGRAFICS</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="../../pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/adobe/acrobat-studio.html">Acrobat Studio</a></li>
+                <li><a href="../../pages/adobe/creative-cloud.html">Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../../pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false">
+                Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/autodesk/aec-collection.html">AEC Collection</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../pages/chaos/home-chaos.html">
+                Sketchup
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/hp/home-hp.html">
+                HP
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/dell/home-dell.html" aria-current="page">
+                Dell
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="hamburger" aria-hidden="true">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+    <main id="main-content">
+
+        <!-- 2. Portada: mensaje principal, botones y cifras Dell -->
+        <section class="hero">
+            <div class="hero-photo">
+                <img src="../../assets/images/dell/home/hero.webp" alt="Técnico de Dell trabajando en un centro de datos" width="968" height="487" fetchpriority="high" decoding="async">
+            </div>
+            <div class="wrap">
+                <span class="hero-badge">Dell Technologies Gold Partner 2026</span>
+                <h1>Potencia tu negocio con Dell</h1>
+                <p class="hero-kicker">Tecnología empresarial diseñada para cada desafío</p>
+                <p class="hero-body">Desde productividad y movilidad hasta workstations y servidores: encuentra la solución Dell adecuada para tu equipo y lleva el rendimiento de tu empresa al siguiente nivel.</p>
+                <div class="btns hero-ctas">
+                    <a class="btn btn-light" href="#contacto">Solicita una asesoría sin costo</a>
+                    <a class="btn btn-outline-light" href="#portafolio">Explorar el portafolio</a>
+                </div>
+                <div class="stats" aria-label="Cifras Dell">
+                    <div class="stat"><strong>40+</strong><span>Años de Dell innovando</span></div>
+                    <div class="stat"><strong>180+</strong><span>Países con presencia Dell</span></div>
+                    <div class="stat"><strong>Gold</strong><span>Partner certificado</span></div>
+                    <div class="stat"><strong>24/7</strong><span>Soporte activo</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Portafolio: cada tarjeta lleva a su sección (las de Dell Pro abren su pestaña) -->
+        <section class="section" id="portafolio">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="pill">Ecosistema Dell</span>
+                    <h2>Todo el portafolio Dell en un solo lugar</h2>
+                    <p class="sub">Del escritorio de tu oficina al centro de datos. Elige una línea para conocerla.</p>
+                </div>
+
+                <div class="bento">
+                    <a class="tile t-pro" href="#linea-pro" data-tab="premium">
+                        <div class="tile-txt">
+                            <h3>Laptops Dell Pro</h3>
+                            <p>Movilidad, IA integrada y seguridad para todo tu equipo.</p>
+                        </div>
+                        <span class="go" aria-hidden="true">›</span>
+                        <div class="tile-img"><img src="../../assets/images/dell/home/laptop-pro-premium.webp" alt="Laptop Dell Pro" width="255" height="180" loading="lazy"></div>
+                    </a>
+                    <a class="tile t-desk" href="#linea-pro" data-tab="escritorio">
+                        <div class="tile-txt">
+                            <h3>Escritorio y todo en uno</h3>
+                            <p>Torres, compactas y equipos todo en uno Dell Pro.</p>
+                        </div>
+                        <span class="go" aria-hidden="true">›</span>
+                        <div class="tile-img"><img src="../../assets/images/dell/home/escritorio-pro.webp" alt="Equipo todo en uno y torres Dell Pro" width="555" height="281" loading="lazy"></div>
+                    </a>
+                    <a class="tile t-max" href="#pro-max">
+                        <div class="tile-txt">
+                            <h3>Dell Pro Max</h3>
+                            <p>Workstations, antes Precision.</p>
+                        </div>
+                        <span class="go" aria-hidden="true">›</span>
+                        <div class="tile-img"><img src="../../assets/images/dell/home/pro-max-escritorio.webp" alt="Workstations Dell Pro Max" width="505" height="430" loading="lazy"></div>
+                    </a>
+                    <a class="tile t-ess" href="#linea-pro" data-tab="essential">
+                        <div class="tile-txt">
+                            <h3>Dell Pro Essential</h3>
+                            <p>Renueva tu oficina por volumen.</p>
+                        </div>
+                        <span class="go" aria-hidden="true">›</span>
+                        <div class="tile-img"><img src="../../assets/images/dell/home/pro-essential.webp" alt="Equipos Dell Pro Essential" width="545" height="390" loading="lazy"></div>
+                    </a>
+                    <a class="tile t-wyse" href="#wyse">
+                        <div class="tile-txt">
+                            <h3>Wyse Thin Clients</h3>
+                            <p>Escritorios en la nube.</p>
+                        </div>
+                        <span class="go" aria-hidden="true">›</span>
+                        <div class="tile-img"><img src="../../assets/images/dell/home/wyse.webp" alt="Clientes ligeros Dell Wyse" width="515" height="435" loading="lazy"></div>
+                    </a>
+                    <a class="tile t-srv" href="#servidores">
+                        <div class="tile-bg"><img src="../../assets/images/dell/home/servidores-poweredge.webp" alt="" width="1000" height="623" loading="lazy"></div>
+                        <div class="tile-txt">
+                            <h3>Servidores PowerEdge</h3>
+                            <p>Infraestructura para virtualización, datos e IA en tus instalaciones.</p>
+                        </div>
+                        <span class="go" aria-hidden="true">›</span>
+                    </a>
+                    <a class="tile t-alien" href="#alienware">
+                        <div class="tile-txt">
+                            <h3>Alienware</h3>
+                            <p>Alto rendimiento gráfico.</p>
+                        </div>
+                        <span class="go" aria-hidden="true">›</span>
+                        <div class="tile-img"><img src="../../assets/images/dell/home/alienware.webp" alt="Equipos de escritorio Alienware" width="590" height="210" loading="lazy"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Línea Dell Pro: el visitante elige un modelo con las pestañas -->
+        <section class="section section-gray" id="linea-pro">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="pill">Línea Dell Pro</span>
+                    <h2>Encuentra la tecnología ideal para tu forma de trabajar</h2>
+                </div>
+
+                <div class="tabs" role="tablist" aria-label="Modelos Dell Pro">
+                    <button type="button" class="tab" role="tab" id="tab-premium" aria-controls="panel-premium" aria-selected="true" data-key="premium">Pro Premium</button>
+                    <button type="button" class="tab" role="tab" id="tab-plus" aria-controls="panel-plus" aria-selected="false" tabindex="-1" data-key="plus">Pro Plus</button>
+                    <button type="button" class="tab" role="tab" id="tab-escritorio" aria-controls="panel-escritorio" aria-selected="false" tabindex="-1" data-key="escritorio">Escritorio y todo en uno</button>
+                    <button type="button" class="tab" role="tab" id="tab-essential" aria-controls="panel-essential" aria-selected="false" tabindex="-1" data-key="essential">Pro Essential</button>
+                </div>
+
+                <!-- Pro Premium -->
+                <div class="panel" role="tabpanel" id="panel-premium" aria-labelledby="tab-premium">
+                    <div class="panel-media">
+                        <span class="panel-tag">Dell Pro Premium</span>
+                        <img src="../../assets/images/dell/home/laptop-pro-premium.webp" alt="Laptop Dell Pro Premium" width="255" height="180" loading="lazy">
+                    </div>
+                    <div class="panel-copy">
+                        <h3>Máxima movilidad. Experiencia premium.</h3>
+                        <p>Diseñada para ejecutivos y profesionales que necesitan rendimiento, movilidad y una experiencia superior para trabajar desde cualquier lugar.</p>
+                        <div class="chips"><span>Ejecutivos</span><span>Profesionales móviles</span><span>Trabajo híbrido</span></div>
+                        <ul class="checks">
+                            <li>Procesadores Intel® Core™ Ultra</li>
+                            <li>Hasta 64 GB de memoria</li>
+                            <li>Pantallas premium de alta resolución</li>
+                            <li>Diseño ultraligero</li>
+                            <li>Conectividad Wi-Fi de última generación</li>
+                            <li>Seguridad de nivel empresarial</li>
+                        </ul>
+                        <a class="btn btn-primary" href="#contacto" data-interest="Laptops Dell Pro">Cotizar Dell Pro Premium</a>
+                    </div>
+                </div>
+
+                <!-- Pro Plus -->
+                <div class="panel" role="tabpanel" id="panel-plus" aria-labelledby="tab-plus" hidden>
+                    <div class="panel-media">
+                        <span class="panel-tag">Dell Pro Plus</span>
+                        <img src="../../assets/images/dell/home/laptop-pro-plus.webp" alt="Laptop Dell Pro Plus" width="240" height="185" loading="lazy">
+                    </div>
+                    <div class="panel-copy">
+                        <h3>Productividad empresarial preparada para la IA</h3>
+                        <p>Una solución versátil para equipos que necesitan rendimiento, colaboración y herramientas inteligentes para trabajar de manera más eficiente.</p>
+                        <div class="chips"><span>Empresas</span><span>Equipos administrativos</span><span>Profesionales</span></div>
+                        <ul class="checks">
+                            <li>Procesadores Intel® Core™ Ultra</li>
+                            <li>NPU para cargas de trabajo de IA</li>
+                            <li>Windows 11 Pro</li>
+                            <li>Gráficos Intel®</li>
+                            <li>Memoria y almacenamiento escalables</li>
+                            <li>Administración empresarial</li>
+                        </ul>
+                        <a class="btn btn-primary" href="#contacto" data-interest="Laptops Dell Pro">Cotizar Dell Pro Plus</a>
+                    </div>
+                </div>
+
+                <!-- Escritorio y todo en uno -->
+                <div class="panel" role="tabpanel" id="panel-escritorio" aria-labelledby="tab-escritorio" hidden>
+                    <div class="panel-media">
+                        <span class="panel-tag">Dell Pro escritorio</span>
+                        <img src="../../assets/images/dell/home/escritorio-todo-en-uno.webp" alt="Equipos de escritorio y todo en uno Dell Pro" width="530" height="275" loading="lazy">
+                    </div>
+                    <div class="panel-copy">
+                        <h3>El puesto de trabajo completo, en el formato que necesitas</h3>
+                        <p>Torres, equipos compactos y todo en uno con cámara integrada. Ideales para recepción, áreas administrativas y salas de juntas.</p>
+                        <div class="chips"><span>Oficina</span><span>Recepción</span><span>Salas de juntas</span></div>
+                        <ul class="checks">
+                            <li>Procesadores Intel® Core™ Ultra</li>
+                            <li>Formatos torre, compacto y micro</li>
+                            <li>Todo en uno con cámara y audio</li>
+                            <li>Windows 11 Pro</li>
+                            <li>Fácil de administrar en flotilla</li>
+                            <li>Opciones de sustentabilidad</li>
+                        </ul>
+                        <a class="btn btn-primary" href="#contacto" data-interest="Escritorio y todo en uno">Cotizar escritorio Dell Pro</a>
+                    </div>
+                </div>
+
+                <!-- Pro Essential -->
+                <div class="panel" role="tabpanel" id="panel-essential" aria-labelledby="tab-essential" hidden>
+                    <div class="panel-media">
+                        <span class="panel-tag">Dell Pro Essential</span>
+                        <img src="../../assets/images/dell/home/pro-essential.webp" alt="Equipos Dell Pro Essential" width="545" height="390" loading="lazy">
+                    </div>
+                    <div class="panel-copy">
+                        <h3>Lo esencial para trabajar, al mejor costo</h3>
+                        <p>La entrada a la línea comercial de Dell. Equipos confiables que hacen posible renovar toda la oficina de una sola vez.</p>
+                        <div class="chips"><span>Compras por volumen</span><span>PyMEs</span><span>Tareas de oficina</span></div>
+                        <ul class="checks">
+                            <li>Formatos torre, compacto y micro</li>
+                            <li>Windows 11 Pro</li>
+                            <li>Rendimiento para ofimática</li>
+                            <li>Montaje detrás del monitor (micro)</li>
+                        </ul>
+                        <a class="btn btn-primary" href="#contacto" data-interest="Dell Pro Essential">Cotizar por volumen</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Dell Pro Max: workstations (antes Precision) -->
+        <section class="section" id="pro-max">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="pill">Dell Pro Max, antes Precision</span>
+                    <h2>Workstations para profesionales que necesitan más</h2>
+                    <p class="sub">Cuando el trabajo requiere potencia, estabilidad y gráficos profesionales, Dell Pro Max está diseñada para responder.</p>
+                </div>
+
+                <div class="max-visual">
+                    <figure>
+                        <img src="../../assets/images/dell/home/pro-max-escritorio.webp" alt="Dell Pro Max en torre, compacta y micro" width="505" height="430" loading="lazy">
+                        <figcaption>Escritorio: torre, compacta y micro</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../../assets/images/dell/home/laptop-pro-max.webp" alt="Laptop Dell Pro Max" width="230" height="185" loading="lazy">
+                        <figcaption>Laptops Dell Pro Max</figcaption>
+                    </figure>
+                </div>
+
+                <p class="isv"><strong>Certificación ISV:</strong> probada con software profesional de ingeniería, diseño, análisis y creación de contenido.</p>
+
+                <div class="specs">
+                    <article class="spec">
+                        <span class="spec-format">Torre</span>
+                        <h3>Dell Pro Max Tower</h3>
+                        <p>Rendimiento profesional para ingeniería y diseño</p>
+                        <dl>
+                            <div><dt>CPU</dt><dd>Intel® Core™ Ultra</dd></div>
+                            <div><dt>GPU</dt><dd>NVIDIA RTX™ profesional</dd></div>
+                            <div><dt>RAM</dt><dd>Memoria DDR5</dd></div>
+                            <div><dt>Almacenamiento</dt><dd>SSD NVMe</dd></div>
+                        </dl>
+                        <p class="spec-ideal">Ideal para</p>
+                        <div class="chips"><span>CAD</span><span>BIM</span><span>Ingeniería</span><span>Diseño 3D</span></div>
+                        <a class="btn btn-primary" href="#contacto" data-interest="Dell Pro Max (workstations)">Cotizar</a>
+                    </article>
+                    <article class="spec">
+                        <span class="spec-format">Móvil</span>
+                        <h3>Dell Pro Max 16</h3>
+                        <p>Potencia profesional en movimiento</p>
+                        <dl>
+                            <div><dt>CPU</dt><dd>Intel® Core™ Ultra</dd></div>
+                            <div><dt>GPU</dt><dd>NVIDIA RTX™ profesional</dd></div>
+                            <div><dt>RAM</dt><dd>Hasta 64 GB</dd></div>
+                            <div><dt>Pantalla</dt><dd>16 pulgadas</dd></div>
+                        </dl>
+                        <p class="spec-ideal">Ideal para</p>
+                        <div class="chips"><span>Arquitectura</span><span>Diseño</span><span>Visualización 3D</span></div>
+                        <a class="btn btn-primary" href="#contacto" data-interest="Dell Pro Max (workstations)">Cotizar</a>
+                    </article>
+                    <article class="spec">
+                        <span class="spec-format">Móvil alto rendimiento</span>
+                        <h3>Dell Pro Max 16 Plus</h3>
+                        <p>Máximo rendimiento profesional</p>
+                        <dl>
+                            <div><dt>CPU</dt><dd>Intel® Core™ Ultra HX</dd></div>
+                            <div><dt>GPU</dt><dd>NVIDIA RTX™ profesional</dd></div>
+                            <div><dt>RAM</dt><dd>Hasta 64 GB</dd></div>
+                            <div><dt>Pantalla</dt><dd>16 pulgadas</dd></div>
+                        </dl>
+                        <p class="spec-ideal">Ideal para</p>
+                        <div class="chips"><span>Ingeniería avanzada</span><span>Renderizado</span><span>IA</span></div>
+                        <a class="btn btn-primary" href="#contacto" data-interest="Dell Pro Max (workstations)">Cotizar</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Wyse Thin Clients -->
+        <section class="section section-gray split" id="wyse">
+            <div class="wrap">
+                <div class="split-media">
+                    <img src="../../assets/images/dell/home/wyse.webp" alt="Clientes ligeros Dell Wyse" width="515" height="435" loading="lazy">
+                </div>
+                <div class="split-copy">
+                    <span class="pill">Wyse Thin Clients</span>
+                    <h2>Escritorios en la nube, sin complicaciones</h2>
+                    <p>Clientes ligeros que se conectan a escritorios virtuales en la nube o en tu centro de datos. Menos mantenimiento en sitio y la información nunca se queda en el equipo.</p>
+                    <ul class="checks">
+                        <li>Ideales para sucursales, call centers y puntos de venta</li>
+                        <li>Administración centralizada desde TI</li>
+                        <li>Compatibles con las principales plataformas de escritorio virtual</li>
+                    </ul>
+                    <div class="btns">
+                        <a class="btn btn-primary" href="#contacto" data-interest="Wyse Thin Clients">Evaluar mi proyecto</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Servidores PowerEdge -->
+        <section class="servers" id="servidores">
+            <div class="servers-photo">
+                <img src="../../assets/images/dell/home/servidores-poweredge.webp" alt="" width="1000" height="623" loading="lazy">
+            </div>
+            <div class="wrap">
+                <div class="servers-intro">
+                    <span class="pill">Servidores PowerEdge</span>
+                    <h2>Potencia tu motor de innovación</h2>
+                    <p>Infraestructura para tus datos, virtualización y cargas de IA en tus propias instalaciones, con la administración y seguridad de Dell.</p>
+                    <div class="btns">
+                        <a class="btn btn-light" href="#contacto" data-interest="Servidores PowerEdge">Hablar con un especialista</a>
+                        <a class="btn btn-outline-light" href="#contacto" data-interest="Servidores PowerEdge">Solicitar dimensionamiento</a>
+                    </div>
+                </div>
+                <div class="proof">
+                    <article>
+                        <h3>Liderazgo tecnológico</h3>
+                        <p>Dell reporta que PowerEdge fue clave para su reconocimiento como líder en infraestructura de IA en un reporte Forrester Wave del primer trimestre de 2024.</p>
+                        <cite>Fuente: Dell Technologies</cite>
+                    </article>
+                    <article>
+                        <h3>Administración más simple</h3>
+                        <p>Las herramientas de gestión de Dell automatizan la implementación y dan a TI más visibilidad y control sobre la seguridad.</p>
+                        <cite>Fuente: Dell Technologies</cite>
+                    </article>
+                    <article>
+                        <h3>Éxito de clientes</h3>
+                        <p>Northwestern Medicine implementó herramientas de IA en servidores PowerEdge locales y lo considera más ágil y económico que hacerlo en la nube.</p>
+                        <cite>Caso publicado por Dell</cite>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Alienware -->
+        <section class="section split split-flip" id="alienware">
+            <div class="wrap">
+                <div class="split-media">
+                    <img src="../../assets/images/dell/home/alienware.webp" alt="Equipos de escritorio Alienware" width="590" height="210" loading="lazy">
+                </div>
+                <div class="split-copy">
+                    <span class="pill">Alienware</span>
+                    <h2>Rendimiento gráfico sin límites</h2>
+                    <p>Diseño icónico y gráficos de alto nivel para estudios de animación, producción de video y desarrollo de videojuegos.</p>
+                    <div class="btns">
+                        <a class="btn btn-outline" href="#contacto" data-interest="Alienware">Cotizar Alienware</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Cadgrafics + Dell -->
+        <section class="section value">
+            <div class="wrap center">
+                <span class="pill">Cadgrafics + Dell</span>
+                <h2>Tecnología que se adapta a tu negocio</h2>
+                <p class="sub">Equipamiento, asesoría y acompañamiento especializado para ayudarte a elegir la solución adecuada para tu empresa.</p>
+                <div class="value-cards">
+                    <div class="value-card">
+                        <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+                        <h3>Equipamiento</h3>
+                        <p>Acceso a todo el portafolio Dell con precios Gold Partner.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span>
+                        <h3>Asesoría</h3>
+                        <p>Especialistas certificados que entienden tu negocio.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span>
+                        <h3>Acompañamiento</h3>
+                        <p>Soporte técnico y servicio postventa garantizado.</p>
+                    </div>
+                </div>
+                <a class="btn btn-light" href="#contacto">Solicita una asesoría sin costo</a>
+            </div>
+        </section>
+
+        <!-- 10. Formulario de contacto de la página (el envío está en home-dell.js) -->
+        <section class="section section-gray contact" id="contacto">
+            <div class="wrap">
+                <div class="contact-copy">
+                    <span class="pill">Contáctanos</span>
+                    <h2>No todas las empresas tienen las mismas necesidades</h2>
+                    <p>Nuestro equipo puede ayudarte a identificar el equipo, configuración y solución Dell más adecuada de acuerdo con tus usuarios, aplicaciones y presupuesto.</p>
+                    <div class="why">
+                        <div class="why-item">
+                            <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.8-3 3-5 6-5s5.2 2 6 5M15 15c3 0 5 1.8 6 5"/></svg></span>
+                            <div>
+                                <h3>Para tu equipo</h3>
+                                <p>Analizamos cuántos usuarios y qué perfiles de uso tiene tu empresa.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+                            <div>
+                                <h3>Para tus aplicaciones</h3>
+                                <p>Identificamos los requerimientos técnicos de tus herramientas de trabajo.</p>
+                            </div>
+                        </div>
+                        <div class="why-item">
+                            <span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                            <div>
+                                <h3>Para tu presupuesto</h3>
+                                <p>Encontramos la configuración que maximiza el valor de tu inversión.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h3>Solicita una recomendación personalizada</h3>
+                    <p>Cuéntanos qué necesitas y un especialista de Cadgrafics te contactará.</p>
+                    <form id="contactForm" novalidate>
+                        <input type="hidden" name="interest" id="contact-interest">
+                        <div class="field">
+                            <label for="contact-name">Nombre completo</label>
+                            <input type="text" id="contact-name" name="name" required autocomplete="name">
+                        </div>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="contact-email">Correo empresarial</label>
+                                <input type="email" id="contact-email" name="email" required autocomplete="email">
+                            </div>
+                            <div class="field">
+                                <label for="contact-phone">Celular</label>
+                                <input type="tel" id="contact-phone" name="phone" required autocomplete="tel">
+                            </div>
+                        </div>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="contact-company">Empresa</label>
+                                <input type="text" id="contact-company" name="company" required autocomplete="organization">
+                            </div>
+                            <div class="field">
+                                <label for="contact-line">Línea de interés</label>
+                                <select id="contact-line" name="line" required>
+                                    <option value="">Selecciona</option>
+                                    <option>Laptops Dell Pro</option>
+                                    <option>Escritorio y todo en uno</option>
+                                    <option>Dell Pro Essential</option>
+                                    <option>Dell Pro Max (workstations)</option>
+                                    <option>Wyse Thin Clients</option>
+                                    <option>Servidores PowerEdge</option>
+                                    <option>Alienware</option>
+                                    <option>Aún no lo sé</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="contact-message">¿Qué aplicaciones o cargas de trabajo manejan?</label>
+                            <textarea id="contact-message" name="message" maxlength="500" placeholder="Número de equipos, software que usan o algún requerimiento especial"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Solicitar asesoría sin costo</button>
+                        <p class="form-message" id="contactFormMessage" role="status" aria-live="polite"></p>
+                        <p class="form-fine">Un especialista te contactará en menos de 24 horas hábiles.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 11. Pie de página -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Cadgrafics S.A. De C.V.</h3>
+                    <p>Norte 56-A # 5204 • Col. Tablas de San Agustín</p>
+                    <p>07860, Gustavo A. Madero | CDMX</p>
+                    <p>Correo: <a href="mailto:sandra.alvarez@cadgrafics.com.mx">sandra.alvarez@cadgrafics.com.mx</a></p>
+                    <p>
+                        <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (55) 3112-0508">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+                            +52 (55) 3112-0508
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h4>Cadgrafics de Occidente S.A. De C.V.</h4>
+                    <p>Calle Dia # 2381 Col. Jardines del Bosque</p>
+                    <p>44520 | Guadalajara Jalisco, México</p>
+                    <p>Correo: <a href="mailto:rafael.castro@cadgrafics.com.mx">rafael.castro@cadgrafics.com.mx</a></p>
+                    <p>
+                        <a href="https://wa.me/523314040396?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (33) 1404-0396">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+                            +52 (33) 1404-0396
+                        </a>
+                    </p>
+                </div>
+                <div>
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+                        </a>
+                        <a href="https://youtube.com/@cadgrafics1639" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-youtube"/></svg>
+                        </a>
+                        <a href="https://x.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="X">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-x"/></svg>
+                        </a>
+                        <a href="https://facebook.com/Cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-facebook"/></svg>
+                        </a>
+                        <a href="https://instagram.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="18" height="18" aria-hidden="true"><use href="#icon-instagram"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">&copy; 2026 Todos los derechos reservados | <a href="../legal/aviso-privacidad.html">Aviso de Privacidad</a>.</div>
+        </div>
+    </footer>
+
+    <!-- 12. WhatsApp flotante (modelo: shared/partials/whatsapp-float.html) -->
+    <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20y%20quiero%20información" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 55 3112 0508">
+        <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+    </a>
+
+    <!--
+      13. Ventana emergente de Contáctanos
+      Se abre al hacer clic en "Contáctanos" del menú.
+      El envío y la validación están en site-common.js (initStandardLeadModal).
+    -->
+    <div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Cuéntanos sobre tu proyecto</h3>
+                <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar formulario">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="leadForm" novalidate>
+                <div id="formFields">
+                    <div class="form-group">
+                        <label for="modal-name">Nombre completo *</label>
+                        <input type="text" id="modal-name" name="name" required pattern="[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s'\-\.]{2,100}" aria-required="true" autocomplete="name"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-email">Correo electrónico *</label>
+                        <input type="email" id="modal-email" name="email" required aria-required="true" autocomplete="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-phone">Celular *</label>
+                        <input type="tel" id="modal-phone" name="phone" required pattern="[0-9\s\+\-\(\)]{10,20}" aria-required="true" autocomplete="tel" placeholder="Ej: 55 1234 5678"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-company">Empresa *</label>
+                        <input type="text" id="modal-company" name="company" required aria-required="true" autocomplete="organization" placeholder="Nombre de tu empresa"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-message">Tu requerimiento</label>
+                        <textarea id="modal-message" name="message" rows="4" maxlength="500" placeholder="Ej: Necesito workstations Dell Pro Max para mi equipo..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-modal">
+                        <svg width="16" height="16" aria-hidden="true"><use href="#icon-send"/></svg> Enviar consulta
+                    </button>
+                    <p class="form-message" id="modalFormMessage" role="status" aria-live="polite"></p>
+                </div>
+                <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+                    <svg width="48" height="48" aria-hidden="true"><use href="#icon-check"/></svg>
+                    <h4>¡Listo!</h4>
+                    <p>Recibimos tu consulta. Te contactaremos en breve.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Comportamiento de la página (menú, pestañas, formularios) -->
+    <script src="../../assets/js/shared/site-common.js"></script>
+    <script src="../../assets/js/dell/home-dell.js"></script>
+</body>
+</html>

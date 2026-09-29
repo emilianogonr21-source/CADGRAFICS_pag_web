@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  Página Autodesk — Cadgrafics
+  -----------------------------
+  Qué hace: presenta soluciones Autodesk y lleva a productos (p. ej. AEC Collection).
+
+  Archivos relacionados:
+  - Apariencia:     ../../assets/css/autodesk/home-autodesk.css
+  - Comportamiento: ../../assets/js/autodesk/home-autodesk.js
+    - Compartido:     ../../assets/css/shared/header.css + ../../assets/js/shared/site-common.js
+
+  Orden del contenido:
+  1. Menú superior
+  2. Portada
+  3. Portafolio
+  4. Ventajas
+  5. Credenciales
+  6. Contacto
+  7. Casos de éxito
+  8. Pie, WhatsApp y ventana Contáctanos
+
+  Guía del equipo: docs/README.md
+-->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Como Platinum Partner de Autodesk, Cadgrafics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción." />
+    <title>CADGRAFICS - Autodesk Platinum Partner | Realidad Digital</title>
+
+    <link rel="canonical" href="https://cadgrafics.com.mx/pages/autodesk/home-autodesk.html" />
+    <link rel="icon" type="image/png" href="../../assets/images/brand/favicon.png" />
+
+    <meta property="og:title" content="CADGRAFICS | Autodesk Platinum Partner" />
+    <meta property="og:description" content="Transforma, diseña, produce y opera con tecnología especializada." />
+    <meta property="og:image" content="https://cadgrafics.com.mx/assets/images/brand/og-image.jpg" />
+    <meta property="og:url" content="https://cadgrafics.com.mx/pages/autodesk/home-autodesk.html" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; media-src 'self';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/autodesk/home-autodesk.css?v=20260915" />
+    <link rel="stylesheet" href="../../assets/css/shared/header.css?v=20260915" />
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+<!-- SVG Sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+    <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></symbol>
+
+</svg>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container nav-container">
+    <a href="../../index.html" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
+      <img src="../../assets/images/brand/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+      <span class="brand-name">CADGRAFICS</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="../../pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/adobe/acrobat-studio.html">Acrobat Studio</a></li>
+                <li><a href="../../pages/adobe/creative-cloud.html">Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../../pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false" aria-current="page">
+                Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/autodesk/aec-collection.html">AEC Collection</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../pages/chaos/home-chaos.html">
+                Sketchup
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/hp/home-hp.html">
+                HP
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/dell/home-dell.html">
+                Dell
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
+        <li><a href="#contacto" class="textbutton-trigger" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="hamburger" aria-hidden="true">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <video class="hero__background" autoplay muted loop playsinline preload="metadata" aria-hidden="true" poster="../../assets/images/autodesk/home/hero-poster.jpg">
+            <source src="../../assets/video/autodesk/home/video-home-autodesk.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero__content">
+            <div class="hero__heading">
+                <h1 class="hero__title fade-in fade-in-delay-1">
+                    Transformamos tu visión en <span class="highlight">Realidad Digital</span>
+                </h1>
+
+                <img src="../../assets/images/autodesk/home/autodesk-logo.png"
+                     alt="Autodesk Platinum Partner"
+                     class="hero__logo fade-in"
+                     width="220"
+                     height="70"
+                     decoding="async">
+            </div>
+
+            <p class="hero__subtitle fade-in fade-in-delay-2">
+                Como Platinum Partner de Autodesk, Cadgrafics te ofrece las soluciones más avanzadas en diseño, ingeniería y construcción.
+            </p>
+
+            <div class="hero__cta fade-in fade-in-delay-3">
+                <a href="#contacto" class="btn btn-primary textbutton-trigger">
+                    Solicitar Cotización
+                    <span class="btn__arrow">→</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero__badges fade-in fade-in-delay-4">
+            <div class="hero__badge">
+                <svg width="20" height="20"><use href="#icon-check"/></svg>
+                <span>Soporte Prioritario</span>
+            </div>
+            <div class="hero__badge">
+                <svg width="20" height="20"><use href="#icon-check"/></svg>
+                <span>Entrenamientos Certificados</span>
+            </div>
+            <div class="hero__badge">
+                <svg width="20" height="20"><use href="#icon-check"/></svg>
+                <span>Descuentos por Volumen</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="portfolio__header">
+                <div class="section-label section-label--dark fade-in">Portafolio</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    Colecciones de <span class="underline">Autodesk</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Accede a las mejores herramientas de diseño, ingeniería y creatividad
+                </p>
+            </div>
+
+            <div class="collections-grid">
+                <article class="collection-card fade-in">
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-text">
+                            <img src="../../assets/images/autodesk/home/aec-logo.png" alt="AEC Collection" width="200" height="60">
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Architecture, Engineering & Construction</h3>
+                    <p class="collection-card__desc">Soluciones integrales para diseño arquitectónico, ingeniería civil y construcción.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">AutoCAD</span>
+                        <span class="collection-card__tag">Revit</span>
+                        <span class="collection-card__tag">Civil 3D</span>
+                    </div>
+                    <div class="collection-card__actions">
+                        <a href="../autodesk/aec-collection.html" class="collection-card__action-btn">Más información</a>
+                    </div>
+                </article>
+
+                <article class="collection-card fade-in fade-in-delay-1">
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-text">
+                            <img src="../../assets/images/autodesk/home/pdm-logo.png" alt="Product Design" width="200" height="60">
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Product Design & Manufacturing</h3>
+                    <p class="collection-card__desc">Herramientas avanzadas para diseño de productos y manufactura digital.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">Inventor</span>
+                        <span class="collection-card__tag">Fusion</span>
+                    </div>
+                    <div class="collection-card__actions">
+                        <a href="#portfolio" class="collection-card__action-btn">Más información</a>
+                    </div>
+                </article>
+
+                                <article class="collection-card fade-in fade-in-delay-1">
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-text">
+                            <img src="../../assets/images/autodesk/home/forma-logo.png" alt="Forma" width="200" height="60">
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Autodesk Forma</h3>
+                    <p class="collection-card__desc">Plataforma de planificación y diseño urbano en tiempo real.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">Data Management</span>
+                        <span class="collection-card__tag">Site Design</span>
+                        <span class="collection-card__tag">Carbon Insights</span> 
+                    </div>
+                    <div class="collection-card__actions">
+                        <a href="#portfolio" class="collection-card__action-btn">Más información</a>
+                    </div>
+                </article>
+
+                <article class="collection-card fade-in">
+                    <div class="collection-card__logo">
+                        <div class="collection-card__logo-text">
+                            <img src="../../assets/images/autodesk/home/mye-logo.png" alt="Media & Entertainment" width="200" height="60">
+                        </div>
+                    </div>
+                    <h3 class="collection-card__title">Media & Entertainment</h3>
+                    <p class="collection-card__desc">Software profesional para animación 3D y efectos visuales.</p>
+                    <div class="collection-card__tags">
+                        <span class="collection-card__tag">Maya</span>
+                        <span class="collection-card__tag">3ds Max</span>
+                    </div>
+                    <div class="collection-card__actions">
+                        <a href="#portfolio" class="collection-card__action-btn">Más información</a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VENTAJAS -->
+    <section class="advantages bg-grid" id="ventajas">
+        <div class="container">
+            <div class="advantages__header">
+                <div class="section-label section-label--light fade-in">Ventajas</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    ¿Por qué elegir <span class="highlight">Cadgrafics?</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Más que un distribuidor, somos tu socio estratégico
+                </p>
+            </div>
+
+            <div class="advantages-grid">
+                <article class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Soporte Técnico Especializado</h3>
+                    <p class="advantage-card__text">Equipo de expertos certificados disponibles para resolver tus consultas técnicas.</p>
+                </article>
+
+                <article class="advantage-card fade-in fade-in-delay-1">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Facturación Simplificada</h3>
+                    <p class="advantage-card__text">Proceso de facturación ágil y transparente adaptado a tu empresa.</p>
+                </article>
+
+                <article class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Entrenamientos y Cursos</h3>
+                    <p class="advantage-card__text">Programas de capacitación certificados por instructores autorizados.</p>
+                </article>
+
+                <article class="advantage-card fade-in fade-in-delay-1">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Servicio Preventa y Postventa</h3>
+                    <p class="advantage-card__text">Asesoría completa con seguimiento continuo y soporte dedicado.</p>
+                </article>
+
+                <article class="advantage-card fade-in">
+                    <div class="advantage-card__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-card__title">Descuentos por Volumen</h3>
+                    <p class="advantage-card__text">Precios preferenciales en compras corporativas y licencias múltiples.</p>
+                </article>
+
+                <article class="advantage-card advantage-card--stats fade-in fade-in-delay-1">
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <div class="stat-item__number">+500</div>
+                            <div class="stat-item__label">Clientes satisfechos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item__number">+1000</div>
+                            <div class="stat-item__label">Licencias activas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-item__number">30+</div>
+                            <div class="stat-item__label">Años de experiencia</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDENCIALES -->
+    <section class="credentials" id="credenciales">
+        <div class="container">
+            <div class="credentials__header">
+                <div class="section-label section-label--dark fade-in">Credenciales</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    Certificaciones y <span class="underline">Especializaciones</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Nuestras acreditaciones oficiales de Autodesk respaldan nuestra experiencia
+                </p>
+            </div>
+
+            <div class="credentials__carousel-wrapper fade-in fade-in-delay-3" aria-label="Carrusel de acreditaciones Autodesk">
+                <div class="credentials__carousel" id="credentialsCarousel">
+                    <div class="credentials__carousel-track" id="credentialsTrack">
+                    <div class="credential-badge">
+                        <div class="credential-badge__icon">
+                            <img src="../../assets/images/autodesk/home/2-autodesk.png"
+                                 alt="Autodesk Customer Success Accredited Skills"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="190"
+                                 height="220">
+                        </div>
+                    </div>
+
+                    <div class="credential-badge credential-badge--platinum">
+                        <div class="credential-badge__icon">
+                            <img src="../../assets/images/autodesk/home/1-autodesk.png"
+                                 alt="Autodesk Platinum Solution Provider"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="190"
+                                 height="220">
+                        </div>
+                    </div>
+
+                    <div class="credential-badge">
+                        <div class="credential-badge__icon">
+                            <img src="../../assets/images/autodesk/home/3-autodesk.png"
+                                 alt="Autodesk Consulting Implementation Framework Accredited Skills"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="190"
+                                 height="220">
+                        </div>
+                    </div>
+
+                    <div class="credential-badge credential-badge--specialized">
+                        <div class="credential-badge__icon">
+                            <img src="../../assets/images/autodesk/home/4-autodesk.png"
+                                 alt="Autodesk Building Architecture Specialized"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="190"
+                                 height="220">
+                        </div>
+                    </div>
+
+                    <div class="credential-badge credential-badge--specialized">
+                        <div class="credential-badge__icon">
+                            <img src="../../assets/images/autodesk/home/5-autodesk.png"
+                                 alt="Autodesk Construction Specialized"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="190"
+                                 height="220">
+                        </div>
+                    </div>
+
+                    <div class="credential-badge credential-badge--specialized">
+                        <div class="credential-badge__icon">
+                            <img src="../../assets/images/autodesk/home/6-autodesk.png"
+                                 alt="Autodesk Mechanical, Electrical & Plumbing Specialized"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="190"
+                                 height="220">
+                        </div>
+                    </div>
+
+                    <div class="credential-badge credential-badge--specialized">
+                        <div class="credential-badge__icon">
+                            <img src="../../assets/images/autodesk/home/7-autodesk.png"
+                                 alt="Autodesk Transportation Infrastructure Specialized"
+                                 loading="lazy"
+                                 decoding="async"
+                                 width="190"
+                                 height="220">
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="credentials__stats fade-in fade-in-delay-4">
+                <div class="credentials__stat-item">
+                    <div class="credentials__stat-label">Partner Certificado</div>
+                    <div class="credentials__stat-value">Desde <span class="highlight">2010</span></div>
+                </div>
+                <div class="credentials__stat-item">
+                    <div class="credentials__stat-label">Especializaciones activas</div>
+                    <div class="credentials__stat-value"><span class="highlight">7</span> Credenciales</div>
+                </div>
+                <div class="credentials__stat-item">
+                    <div class="credentials__stat-label">Nivel de Partner</div>
+                    <div class="credentials__stat-value highlight">Platinum</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section bg-grid" id="contacto">
+        <div class="container">
+            <div class="cta-box fade-in">
+                <div class="cta-box__label">PLATINUM PARTNER · AUTODESK</div>
+                <h2 class="cta-box__title">¿Listo para llevar tu empresa al siguiente nivel?</h2>
+                <p class="cta-box__subtitle">Descubre cómo nuestras soluciones Autodesk pueden transformar tus procesos</p>
+                <div class="cta-box__actions">
+                    <a href="#" class="btn btn-primary textbutton-trigger">
+                        Contactar especialista
+                        <span class="btn__arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASOS DE ÉXITO -->
+    <section class="cases bg-grid" id="casos">
+        <div class="container">
+            <div class="cases__header">
+                <div class="section-label section-label--light fade-in">Resultados</div>
+                <h2 class="section-title fade-in fade-in-delay-1">
+                    Casos de <span class="highlight">Éxito</span>
+                </h2>
+                <p class="section-subtitle fade-in fade-in-delay-2">
+                    Historias reales de empresas que transformaron sus procesos
+                </p>
+            </div>
+
+            <div class="cases-grid">
+                <article class="case-card fade-in">
+                    <div class="case-card__image">
+                        <img src="../../assets/images/autodesk/home/caso-exito-1.png" alt="Construcción" width="800" height="500">
+                        <div class="case-card__result">-40% tiempo de entrega</div>
+                        <a href="https://www.youtube.com/watch?v=cgwuOv4rOEs"
+                           class="case-card__play"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Ver video: Grupo IDINSA">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="case-card__content">
+                        <div class="case-card__client">Grupo IDINSA</div>
+                        <h3 class="case-card__title">Gabriela Ortíz | Directora General</h3>
+                        <p class="case-card__text">"La gestión BIM y el soporte de Cadgrafics fueron clave para lograr la precisión y calidad que este proyecto exigía."</p>
+                        <a href="https://www.youtube.com/watch?v=cgwuOv4rOEs"
+                           class="case-card__link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Ver documental completo
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="case-card fade-in fade-in-delay-1">
+                    <div class="case-card__image">
+                        <img src="../../assets/images/autodesk/home/caso-exito-2.png" alt="Manufactura" width="800" height="500">
+                        <div class="case-card__result">-60% tiempo de prototipado</div>
+                        <a href="https://www.youtube.com/watch?v=-wPrzTvsZm8"
+                           class="case-card__play"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Ver video: Grupo ALBA">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="case-card__content">
+                        <div class="case-card__client">Grupo ALBA</div>
+                        <h3 class="case-card__title">Federico Alba | CEO</h3>
+                        <p class="case-card__text">"Con el acompañamiento de Cadgrafics logramos un control total de la información y una coordinación estructural mucho más eficiente."</p>
+                        <a href="https://www.youtube.com/watch?v=-wPrzTvsZm8"
+                           class="case-card__link"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            Ver documental completo
+                            <span>→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div>
+                <h3>Cadgrafics S.A. De C.V.</h3>
+                <p>Norte 56-A # 5204 • Col. Tablas de San Agustín</p>
+                <p>07860, Gustavo A. Madero | CDMX</p>
+                <p>Correo: <a href="mailto:sandra.alvarez@cadgrafics.com.mx">sandra.alvarez@cadgrafics.com.mx</a></p>
+                <p>
+                    <a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (55) 3112-0508">
+                        <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+                        +52 (55) 3112-0508
+                    </a>
+                </p>
+            </div>
+            <div>
+                <h4>Cadgrafics de Occidente S.A. De C.V.</h4>
+                <p>Calle Dia # 2381 Col. Jardines del Bosque</p>
+                <p>44520 | Guadalajara Jalisco, México</p>
+                <p>Correo: <a href="mailto:rafael.castro@cadgrafics.com.mx">rafael.castro@cadgrafics.com.mx</a></p>
+                <p>
+                    <a href="https://wa.me/523314040396?text=Hola%20Cadgrafics%2C%20quiero%20información" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="WhatsApp: +52 (33) 1404-0396">
+                        <svg width="18" height="18" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+                        +52 (33) 1404-0396
+                    </a>
+                </p>
+            </div>
+            <div>
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="https://linkedin.com/company/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="18" height="18" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+                    </a>
+                    <a href="https://youtube.com/@cadgrafics1639" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg width="18" height="18" aria-hidden="true"><use href="#icon-youtube"/></svg>
+                    </a>
+                    <a href="https://x.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="X">
+                        <svg width="18" height="18" aria-hidden="true"><use href="#icon-x"/></svg>
+                    </a>
+                    <a href="https://facebook.com/Cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg width="18" height="18" aria-hidden="true"><use href="#icon-facebook"/></svg>
+                    </a>
+                    <a href="https://instagram.com/cadgrafics" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="18" height="18" aria-hidden="true"><use href="#icon-instagram"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">&copy; 2026 Todos los derechos reservados | <a href="../legal/aviso-privacidad.html">Aviso de Privacidad</a>.</div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20vi%20el%20sitio%20y%20quiero%20información" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp: 55 3112 0508">
+    <svg width="32" height="32" aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+</a>
+
+<!-- Modal -->
+<div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content" role="document">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modalTitle">Cuéntanos sobre tu proyecto</h3>
+            <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar formulario">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form id="leadForm" novalidate>
+            <div id="formFields">
+                <div class="form-group">
+                    <label for="name">Nombre completo *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Celular *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Empresa *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tu requerimiento</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="cta-modal">
+                    <svg width="16" height="16" aria-hidden="true"><use href="#icon-send"/></svg> Enviar consulta
+                </button>
+                <p class="form-message" id="modalFormMessage" role="status" aria-live="polite"></p>
+            </div>
+            <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+                <svg width="48" height="48" aria-hidden="true"><use href="#icon-check"/></svg>
+                <h4>¡Listo!</h4>
+                <p>Te contactaremos en breve.</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript -->
+
+    <script src="../../assets/js/shared/site-common.js"></script>
+    <script src="../../assets/js/autodesk/home-autodesk.js"></script>
+</body>
+</html>
