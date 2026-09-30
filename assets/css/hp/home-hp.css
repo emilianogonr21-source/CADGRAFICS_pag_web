@@ -266,19 +266,6 @@
       box-shadow: none;
     }
 
-    .btn-outline {
-      background: transparent;
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.7);
-    }
-
-    .btn-outline:hover,
-    .btn-outline:focus {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: #ffffff;
-      outline: none;
-    }
-
     .btn-outline-blue {
       background: transparent;
       color: #8B0000;
