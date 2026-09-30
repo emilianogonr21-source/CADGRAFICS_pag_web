@@ -19,7 +19,7 @@ $pages = @(
   @{ Rel = 'pages/adobe/creative-cloud.html'; Active = 'adobe' },
   @{ Rel = 'pages/autodesk/home-autodesk.html'; Active = 'autodesk' },
   @{ Rel = 'pages/autodesk/aec-collection.html'; Active = 'autodesk' },
-  @{ Rel = 'pages/chaos/home-chaos.html'; Active = 'chaos' },
+  @{ Rel = 'pages/sketchup/home-chaos.html'; Active = 'sketchup' },
   @{ Rel = 'pages/dell/home-dell.html'; Active = 'dell' },
   @{ Rel = 'pages/hp/home-hp.html'; Active = 'hp' },
   @{ Rel = 'pages/legal/aviso-privacidad.html'; Active = $null }
@@ -44,7 +44,7 @@ function Render-Header {
     '{{CONTACT_CLASSES}}' = if ($isLegal) { '' } else { 'textbutton-trigger' }
     '{{ACTIVE_ADOBE}}'    = if ($Active -eq 'adobe') { $activeVal } else { '' }
     '{{ACTIVE_AUTODESK}}' = if ($Active -eq 'autodesk') { $activeVal } else { '' }
-    '{{ACTIVE_CHAOS}}'    = if ($Active -eq 'chaos') { $activeVal } else { '' }
+    '{{ACTIVE_SKETCHUP}}' = if ($Active -eq 'sketchup') { $activeVal } else { '' }
     '{{ACTIVE_HP}}'       = if ($Active -eq 'hp') { $activeVal } else { '' }
     '{{ACTIVE_DELL}}'     = if ($Active -eq 'dell') { $activeVal } else { '' }
   }

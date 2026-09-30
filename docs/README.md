@@ -43,7 +43,7 @@ El visitante lee el contenido y puede pedir información con **Contáctanos** o 
 |------------------|------------------------|------|
 | Adobe | `pages/adobe/` | Tiene 3 páginas (inicio, Creative Cloud, Acrobat Studio) |
 | Autodesk | `pages/autodesk/` | Inicio + AEC Collection |
-| SketchUp | `pages/chaos/` | La carpeta se llama `chaos` (proveedor); en el menú dice SketchUp |
+| SketchUp | `pages/sketchup/` | |
 | Dell | `pages/dell/` | |
 | HP | `pages/hp/` | |
 
@@ -102,9 +102,9 @@ CADGRAFICS_pag_web/
 │   ├── legal/              ← Aviso de privacidad
 │   ├── adobe/
 │   ├── autodesk/
-│   ├── chaos/              ← SketchUp
 │   ├── dell/
-│   └── hp/
+│   ├── hp/
+│   └── sketchup/
 │
 └── assets/                 ← Recursos
     ├── images/
@@ -112,9 +112,9 @@ CADGRAFICS_pag_web/
     │   ├── index/          ← Fotos del inicio
     │   ├── adobe/          ← home / acrobat-studio / creative-cloud
     │   ├── autodesk/       ← home / aec-collection
-    │   ├── chaos/home/
     │   ├── dell/home/
-    │   └── hp/home/
+    │   ├── hp/home/
+    │   └── sketchup/home/
     ├── video/              ← Misma lógica que images (espejo por marca/página)
     ├── css/                ← shared + cada marca + index + legal
     └── js/                 ← shared + cada marca + index (legal no usa JS)
@@ -158,7 +158,7 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | Acrobat Studio | `pages/adobe/acrobat-studio.html` |
 | Autodesk (inicio) | `pages/autodesk/home-autodesk.html` |
 | AEC Collection | `pages/autodesk/aec-collection.html` |
-| SketchUp | `pages/chaos/home-chaos.html` |
+| SketchUp | `pages/sketchup/home-chaos.html` |
 | Dell | `pages/dell/home-dell.html` |
 | HP | `pages/hp/home-hp.html` |
 
@@ -173,7 +173,7 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | Acrobat Studio | `pages/adobe/acrobat-studio.html` | `assets/css/adobe/acrobat-studio.css` | `assets/js/adobe/acrobat-studio.js` |
 | Autodesk | `pages/autodesk/home-autodesk.html` | `assets/css/autodesk/home-autodesk.css` | `assets/js/autodesk/home-autodesk.js` |
 | AEC Collection | `pages/autodesk/aec-collection.html` | `assets/css/autodesk/aec-collection.css` | `assets/js/autodesk/aec-collection.js` |
-| SketchUp | `pages/chaos/home-chaos.html` | `assets/css/chaos/home-chaos.css` | `assets/js/chaos/home-chaos.js` |
+| SketchUp | `pages/sketchup/home-chaos.html` | `assets/css/sketchup/home-chaos.css` | `assets/js/sketchup/home-chaos.js` |
 | Dell | `pages/dell/home-dell.html` | `assets/css/dell/home-dell.css` | `assets/js/dell/home-dell.js` |
 | HP | `pages/hp/home-hp.html` | `assets/css/hp/home-hp.css` | `assets/js/hp/home-hp.js` |
 
@@ -204,7 +204,7 @@ Opcionalmente intenta un `POST /api/leads` (útil si más adelante hay backend).
 
 ### Patrón técnico (igual en todo el sitio)
 
-Para que Contáctanos funcione igual en inicio, Adobe, Autodesk, AEC, Dell, HP y Chaos:
+Para que Contáctanos funcione igual en inicio, Adobe, Autodesk, AEC, Dell, HP y SketchUp:
 
 | Pieza | Identificador / archivo |
 |-------|-------------------------|
@@ -333,7 +333,7 @@ Dominio de referencia en los archivos: `https://cadgrafics.com.mx/`.
 |----------|-------------|
 | El aviso de privacidad no abre | Ruta correcta según dónde estés (ver [Rutas](#rutas-por-qué-a-veces-no-se-ve-una-imagen)). |
 | Una imagen no se ve | Nombre exacto + carpeta correcta + `../../assets/...` desde `pages/`. |
-| SketchUp no abre desde el menú | El archivo es `pages/chaos/home-chaos.html` (carpeta `chaos`, minúsculas). |
+| SketchUp no abre desde el menú | El archivo es `pages/sketchup/home-chaos.html` (carpeta `sketchup`, minúsculas). |
 | Cambié un nombre y “se rompió todo” | Busca el nombre viejo en todo el proyecto y actualízalo (menús, CSS, JS, sitemap). |
 | En celular el menú no se abre | Botón de tres líneas; lógica en `site-common.js` / JS de la página. |
 | Contáctanos no abre | Clase `textbutton-trigger`, `#formModal`, `#leadForm` y `site-common.js`. |
@@ -376,9 +376,8 @@ Dominio de referencia en los archivos: `https://cadgrafics.com.mx/`.
 La **estructura** del proyecto ya está alineada. Lo que sigue es contenido (cuando exista):
 
 - Al cambiar el menú en `shared/partials/header.html`, ejecutar `tools/sync-header.ps1` para propagar el cambio.
-- Llenar `assets/images/chaos/home/` con fotos propias de SketchUp.
 - Fotos de producto propias para Dell (la portada ya usa `hero-background.jpg`).
-- Videos propios en `assets/video/{chaos,dell,hp}/home/` y `assets/video/autodesk/aec-collection/` (las carpetas ya existen).
+- Videos propios en `assets/video/{dell,hp,sketchup}/home/` y `assets/video/autodesk/aec-collection/` (las carpetas ya existen).
 - Los MP4 publicados ya están optimizados para web (≤1280px, `faststart`). Si agregas videos nuevos, ejecuta `tools/optimize-videos.ps1`.
 
 ---

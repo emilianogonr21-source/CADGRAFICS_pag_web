@@ -442,26 +442,6 @@
     });
   }
 
-  function initFormPrivacyNotices() {
-    const privacyLink = $('footer a[href*="aviso-privacidad"]');
-    if (!privacyLink) return;
-
-    $$('form').forEach(function (form) {
-      const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
-      if (!submitButton || form.querySelector('.form-privacy-notice')) return;
-
-      const notice = document.createElement('p');
-      notice.className = 'form-privacy-notice';
-      notice.append('Al continuar, se abrirá WhatsApp con un mensaje prellenado que puede incluir tus datos. WhatsApp/Meta procesa la solicitud del enlace; tú decides si envías el mensaje. Consulta el ');
-
-      const link = document.createElement('a');
-      link.href = privacyLink.getAttribute('href');
-      link.textContent = 'Aviso de Privacidad';
-      notice.append(link, '.');
-      submitButton.parentNode.insertBefore(notice, submitButton);
-    });
-  }
-
   /* API pública usada por los JS de cada página (el resto queda interno). */
   global.Cadgrafics = {
     $: $,
@@ -480,9 +460,7 @@
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', bootLazyVideos);
-    document.addEventListener('DOMContentLoaded', initFormPrivacyNotices);
   } else {
     bootLazyVideos();
-    initFormPrivacyNotices();
   }
 })(window);
