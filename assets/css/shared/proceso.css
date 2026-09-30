@@ -1,7 +1,7 @@
 /*
   Nuestro Proceso de Trabajo
   ---------------------------
-  Misma estructura en todas las páginas (debajo del hero).
+  Misma estructura en todas las páginas (debajo del hero; en el inicio, después de «problemas»).
   El acento y el fondo cambian con la clase de cada marca.
 */
 
@@ -166,6 +166,11 @@
   color: var(--proceso-check);
   font-weight: 700;
   line-height: 1.35;
+}
+
+/* Inicio: va después de «problemas», que tiene casi el mismo gris */
+.proceso--index {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 /* Dell */
