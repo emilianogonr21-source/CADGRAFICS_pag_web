@@ -324,7 +324,6 @@
             font-size: 1.125rem; 
             color: var(--color-gray); 
         }
-        .process .section-subtitle { color: #8B0000; }
         section { padding: var(--space-xl) 0; }
 
         /* ===== BRANDS SECTION ===== */
@@ -427,7 +426,6 @@
         
         .feature-card.animate-in,
         .problem-card.animate-in,
-        .process-card.animate-in,
         .case-card.animate-in {
             opacity: 0;
             transform: translateY(24px);
@@ -435,7 +433,6 @@
 
         .feature-card.animate-in.visible,
         .problem-card.animate-in.visible,
-        .process-card.animate-in.visible,
         .case-card.animate-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -597,95 +594,6 @@
                 padding: 1rem 1.5rem;
                 font-size: 1rem;
             }
-        }
-
-        /* ===== PROCESS SECTION ===== */
-        .process { background: var(--color-gray-light); }
-        .process-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 2rem; 
-            position: relative; 
-        }
-        .process-grid::before { 
-            content: ''; 
-            position: absolute; 
-            top: 140px; 
-            left: calc(16.66% + 1rem); 
-            right: calc(16.66% + 1rem); 
-            height: 4px; 
-            background: #8B0000; 
-            z-index: 0; 
-        }
-        .process-card { 
-            background: var(--color-white); 
-            border-radius: var(--radius-lg); 
-            padding: 2.5rem 2rem 2rem; 
-            box-shadow: var(--shadow-sm); 
-            position: relative; 
-            z-index: 1; 
-            border: 1px solid rgba(0, 0, 0, 0.04); 
-            transition: transform var(--transition-base), opacity 0.6s ease; 
-            opacity: 1;
-        }
-        .process-card:hover { transform: translateY(-6px); }
-        .process-number { 
-            position: absolute; 
-            top: -24px; 
-            left: 2rem; 
-            width: 56px; 
-            height: 56px; 
-            background: #8B0000; 
-            color: #ffffff; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-weight: 800; 
-            font-size: 1.25rem; 
-            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.35); 
-        }
-        .process-card h3 { 
-            font-size: 1.75rem; 
-            font-weight: 800; 
-            color: var(--color-dark); 
-            margin-bottom: 0.25rem; 
-            letter-spacing: 0.02em; 
-        }
-        .process-subtitle { 
-            color: #8B0000; 
-            font-weight: 600; 
-            font-size: 1rem; 
-            margin-bottom: 1rem; 
-        }
-        .process-desc { 
-            color: var(--color-gray); 
-            font-size: 0.95rem; 
-            margin-bottom: 1.25rem; 
-            line-height: 1.6; 
-        }
-        .process-list { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 0.5rem; 
-            margin-top: 1rem; 
-        }
-        .process-list li { 
-            display: flex; 
-            align-items: center; 
-            gap: 0.5rem; 
-            font-size: 0.95rem; 
-            color: var(--color-dark); 
-        }
-        .check { 
-            color: #8B0000; 
-            font-weight: 700; 
-            font-size: 1.1rem; 
-        }
-        @media (max-width: 900px) {
-            .process-grid { grid-template-columns: 1fr; }
-            .process-grid::before { display: none; }
-            .process-card { max-width: 480px; margin: 0 auto; width: 100%; }
         }
 
         /* ===== CASOS DE ÉXITO ===== */

@@ -50,9 +50,10 @@
     <!-- Performance: Preconnect & Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="image" href="../../assets/images/dell/home/hero.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="../../assets/images/dell/home/hero-background.jpg" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/dell/home-dell.css?v=20260930b">
+    <link rel="stylesheet" href="../../assets/css/dell/home-dell.css?v=20260930d">
+    <link rel="stylesheet" href="../../assets/css/shared/proceso.css?v=20260930">
     <link rel="stylesheet" href="../../assets/css/shared/header.css?v=20260915" />
 </head>
 <body>
@@ -141,7 +142,7 @@
         <!-- 2. Portada: mensaje principal, botones y cifras Dell -->
         <section class="hero">
             <div class="hero-photo">
-                <img src="../../assets/images/dell/home/hero.webp" alt="Técnico de Dell trabajando en un centro de datos" width="968" height="487" fetchpriority="high" decoding="async">
+                <img src="../../assets/images/dell/home/hero-background.jpg" alt="Técnico de Dell conectando cableado de fibra en un rack de servidores" width="1655" height="624" fetchpriority="high" decoding="async">
             </div>
             <div class="wrap">
                 <span class="hero-badge">Dell Technologies Gold Partner 2026</span>
@@ -156,6 +157,50 @@
                     <div class="stat"><strong>40+</strong><span>Años de Dell innovando</span></div>
                     <div class="stat"><strong>180+</strong><span>Países con presencia Dell</span></div>
                     <div class="stat"><strong>Gold</strong><span>Partner certificado</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proceso proceso--dell" id="proceso" aria-labelledby="proceso-titulo">
+            <div class="proceso-inner">
+                <header class="proceso-header">
+                    <h2 class="proceso-title" id="proceso-titulo">Nuestro Proceso de Trabajo</h2>
+                    <p class="proceso-lead">Tres etapas clave para transformar tu infraestructura tecnológica</p>
+                </header>
+                <div class="proceso-grid">
+                    <article class="proceso-card">
+                        <p class="proceso-num">1</p>
+                        <h3 class="proceso-stage">ANTES</h3>
+                        <p class="proceso-name">Análisis y Diagnóstico</p>
+                        <p class="proceso-copy">Evaluamos tu infraestructura actual, identificamos oportunidades de mejora y diseñamos una solución personalizada que se adapte a tus necesidades empresariales.</p>
+                        <ul class="proceso-list">
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Evaluación completa</li>
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Identificación de pain points</li>
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Propuesta personalizada</li>
+                        </ul>
+                    </article>
+                    <article class="proceso-card">
+                        <p class="proceso-num">2</p>
+                        <h3 class="proceso-stage">DURANTE</h3>
+                        <p class="proceso-name">Implementación y Configuración</p>
+                        <p class="proceso-copy">Ejecutamos la implementación con mínima interrupción de operaciones, instalamos el hardware, configuramos el software y migramos datos de forma segura.</p>
+                        <ul class="proceso-list">
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Implementación profesional</li>
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Configuración optimizada</li>
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Migración de datos</li>
+                        </ul>
+                    </article>
+                    <article class="proceso-card">
+                        <p class="proceso-num">3</p>
+                        <h3 class="proceso-stage">DESPUÉS</h3>
+                        <p class="proceso-name">Soporte y Optimización</p>
+                        <p class="proceso-copy">Brindamos soporte técnico continuo, capacitación al equipo y monitoreo proactivo para asegurar el máximo rendimiento de tu inversión tecnológica.</p>
+                        <ul class="proceso-list">
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Soporte técnico</li>
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Capacitación del equipo</li>
+                            <li><span class="proceso-check" aria-hidden="true">✓</span> Monitoreo proactivo</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>

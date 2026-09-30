@@ -133,7 +133,7 @@
   }
 
   // ===== Animaciones al scroll =====
-  const animatedElements = $$('.problem-card, .process-card, .feature-card, .case-card');
+  const animatedElements = $$('.problem-card, .feature-card, .case-card');
   if (animatedElements.length) {
     animatedElements.forEach((el) => el.classList.add('animate-in'));
     const observer = new IntersectionObserver(

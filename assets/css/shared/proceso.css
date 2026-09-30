@@ -1,0 +1,272 @@
+/*
+  Nuestro Proceso de Trabajo
+  ---------------------------
+  Misma estructura en todas las páginas (debajo del hero).
+  El acento y el fondo cambian con la clase de cada marca.
+*/
+
+.proceso {
+  --proceso-accent: #8b0000;
+  --proceso-bg: #f6f7f9;
+  --proceso-card: #ffffff;
+  --proceso-ink: #141414;
+  --proceso-muted: #5c6370;
+  --proceso-lead: var(--proceso-accent);
+  --proceso-name: var(--proceso-accent);
+  --proceso-line: var(--proceso-accent);
+  --proceso-num-bg: var(--proceso-accent);
+  --proceso-num-ink: #ffffff;
+  --proceso-check: #178a45;
+  --proceso-border: rgba(15, 23, 42, 0.06);
+  --proceso-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+  --proceso-gap: 1.75rem;
+
+  background: var(--proceso-bg);
+  color: var(--proceso-ink);
+  padding: 4.25rem 0 4rem;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+.proceso-inner {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.proceso-header {
+  text-align: center;
+  max-width: 40rem;
+  margin: 0 auto 0.85rem;
+}
+
+.proceso-title {
+  margin: 0 0 0.65rem;
+  color: var(--proceso-ink);
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.proceso-lead {
+  margin: 0;
+  color: var(--proceso-lead);
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--proceso-gap);
+  padding-top: 2.75rem;
+}
+
+.proceso-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--proceso-card);
+  color: var(--proceso-ink);
+  border: 1px solid var(--proceso-border);
+  border-radius: 18px;
+  padding: 2.15rem 1.45rem 1.45rem;
+  box-shadow: var(--proceso-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.proceso-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+}
+
+/* Línea entre los números, por encima del relleno de la tarjeta */
+.proceso-card:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: calc(1.35rem + 28px);
+  width: calc(100% + var(--proceso-gap));
+  height: 3px;
+  background: var(--proceso-line);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.proceso-num {
+  position: absolute;
+  top: -6px;
+  left: 1.35rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0;
+  border-radius: 50%;
+  background: var(--proceso-num-bg);
+  color: var(--proceso-num-ink);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+  transform: translateY(-50%);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.proceso-stage {
+  margin: 0 0 0.3rem;
+  color: var(--proceso-ink);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.proceso-name {
+  margin: 0 0 0.85rem;
+  color: var(--proceso-name);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.proceso-copy {
+  margin: 0 0 1.15rem;
+  color: var(--proceso-muted);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.proceso-list {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0.15rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.proceso-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0;
+  color: var(--proceso-ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.proceso-check {
+  color: var(--proceso-check);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Dell */
+.proceso--dell {
+  --proceso-accent: #7a0000;
+  --proceso-bg: #f5f6f7;
+}
+
+/* HP */
+.proceso--hp {
+  --proceso-accent: #8b0000;
+  --proceso-bg: #f8fafc;
+}
+
+/* Adobe */
+.proceso--adobe {
+  --proceso-accent: #d90f1a;
+  --proceso-bg: #f7f7f8;
+}
+
+/* Acrobat Studio */
+.proceso--acrobat {
+  --proceso-accent: #e8190c;
+  --proceso-bg: #fafafa;
+}
+
+/* Chaos y SketchUp */
+.proceso--chaos {
+  --proceso-accent: #8b0000;
+  --proceso-bg: #f8f9fa;
+}
+
+/* Autodesk: negro y amarillo sobre fondo claro */
+.proceso--autodesk {
+  --proceso-bg: #f7f7f5;
+  --proceso-ink: #111111;
+  --proceso-muted: #595959;
+  --proceso-lead: #111111;
+  --proceso-name: #111111;
+  --proceso-line: #111111;
+  --proceso-num-bg: #111111;
+  --proceso-num-ink: #ffe600;
+  --proceso-check: #111111;
+}
+
+/* Páginas oscuras */
+.proceso--dark {
+  --proceso-shadow: none;
+}
+
+.proceso--dark .proceso-card:hover {
+  box-shadow: none;
+}
+
+/* Creative Cloud */
+.proceso--cc {
+  --proceso-bg: #000000;
+  --proceso-card: #141414;
+  --proceso-ink: #ffffff;
+  --proceso-muted: #b0b0b0;
+  --proceso-accent: #ff0000;
+  --proceso-lead: #ff3b30;
+  --proceso-name: #ff3b30;
+  --proceso-line: #ff0000;
+  --proceso-num-bg: #ff0000;
+  --proceso-num-ink: #ffffff;
+  --proceso-check: #18ff5c;
+  --proceso-border: #2a2a2a;
+}
+
+/* AEC Collection */
+.proceso--aec {
+  --proceso-bg: #000000;
+  --proceso-card: #1a1a1a;
+  --proceso-ink: #ffffff;
+  --proceso-muted: #c8c8c8;
+  --proceso-lead: #ffe600;
+  --proceso-name: #ffe600;
+  --proceso-line: #ffe600;
+  --proceso-num-bg: #ffe600;
+  --proceso-num-ink: #111111;
+  --proceso-check: #ffe600;
+  --proceso-border: #8b0000;
+}
+
+@media (max-width: 980px) {
+  .proceso-grid {
+    grid-template-columns: 1fr;
+    max-width: 32rem;
+    margin-inline: auto;
+  }
+
+  .proceso-card:not(:last-child)::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proceso-card,
+  .proceso-card:hover {
+    transition: none;
+    transform: none;
+  }
+}
