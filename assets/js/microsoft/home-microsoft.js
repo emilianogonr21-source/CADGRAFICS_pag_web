@@ -3,6 +3,7 @@
   --------------------------------------------------
   El contenido está en: pages/microsoft/home-microsoft.html
   La apariencia está en: assets/css/microsoft/home-microsoft.css
+  Depende de: assets/js/shared/site-common.js (menú superior)
 
   Bloques de este archivo:
   1. Fotos oficiales con ilustración de respaldo
@@ -27,13 +28,9 @@ function useFallback(scope){
 }
 useFallback(document);
 
-/* Header */
-const header=document.getElementById("header");
-const onScroll=()=>header.classList.toggle("scrolled",scrollY>40);
-addEventListener("scroll",onScroll,{passive:true});onScroll();
-const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("nav");
-menuBtn.addEventListener("click",()=>{const o=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o)});
-nav.addEventListener("click",e=>{if(e.target.tagName==="A"){nav.classList.remove("open");menuBtn.setAttribute("aria-expanded",false)}});
+/* Menú superior (compartido) */
+if(window.Cadgrafics)window.Cadgrafics.initHeader({lockBodyScroll:true});
+else console.error("Cadgrafics site-common.js no cargó");
 
 /* ---------- Selector por perfil ---------- */
 const svgs={

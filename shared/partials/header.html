@@ -12,7 +12,9 @@
     {{ACTIVE_SKETCHUP}}    idem SketchUp
     {{ACTIVE_HP}}          idem HP
     {{ACTIVE_DELL}}        idem Dell
-    {{CONTACT_CLASSES}}    textbutton-trigger
+    {{ACTIVE_MAC}}         idem Mac
+    {{ACTIVE_MICROSOFT}}   idem Microsoft
+    {{CONTACT_CLASSES}}    textbutton-trigger (vacío en páginas sin ventana Contáctanos)
 
   Sincronizar a las páginas:  powershell -ExecutionPolicy Bypass -File tools/sync-header.ps1
 -->
@@ -59,6 +61,16 @@
             <li>
               <a href="{{ROOT}}pages/dell/home-dell.html"{{ACTIVE_DELL}}>
                 Dell
+              </a>
+            </li>
+            <li>
+              <a href="{{ROOT}}pages/mac/home-mac.html"{{ACTIVE_MAC}}>
+                Mac
+              </a>
+            </li>
+            <li>
+              <a href="{{ROOT}}pages/microsoft/home-microsoft.html"{{ACTIVE_MICROSOFT}}>
+                Microsoft
               </a>
             </li>
           </ul>

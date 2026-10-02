@@ -22,11 +22,13 @@ $pages = @(
   @{ Rel = 'pages/sketchup/home-chaos.html'; Active = 'sketchup' },
   @{ Rel = 'pages/dell/home-dell.html'; Active = 'dell' },
   @{ Rel = 'pages/hp/home-hp.html'; Active = 'hp' },
+  @{ Rel = 'pages/mac/home-mac.html'; Active = 'mac'; NoModal = $true },
+  @{ Rel = 'pages/microsoft/home-microsoft.html'; Active = 'microsoft'; NoModal = $true },
   @{ Rel = 'pages/legal/aviso-privacidad.html'; Active = $null }
 )
 
 function Render-Header {
-  param([string]$PageRel, [string]$Active)
+  param([string]$PageRel, [string]$Active, [bool]$NoModal = $false)
 
   $isRoot = ($PageRel -eq 'index.html')
   $rootPrefix = if ($isRoot) { '' } else { '../../' }
@@ -41,12 +43,14 @@ function Render-Header {
     '{{INDEX_MARCAS}}'    = if ($isRoot) { '#marcas' } else { "${rootPrefix}index.html#marcas" }
     '{{INDEX_SERVICIOS}}' = if ($isRoot) { '#servicios' } else { "${rootPrefix}index.html#servicios" }
     '{{INDEX_CASOS}}'     = if ($isRoot) { '#casos' } else { "${rootPrefix}index.html#casos" }
-    '{{CONTACT_CLASSES}}' = if ($isLegal) { '' } else { 'textbutton-trigger' }
+    '{{CONTACT_CLASSES}}' = if ($isLegal -or $NoModal) { '' } else { 'textbutton-trigger' }
     '{{ACTIVE_ADOBE}}'    = if ($Active -eq 'adobe') { $activeVal } else { '' }
     '{{ACTIVE_AUTODESK}}' = if ($Active -eq 'autodesk') { $activeVal } else { '' }
     '{{ACTIVE_SKETCHUP}}' = if ($Active -eq 'sketchup') { $activeVal } else { '' }
     '{{ACTIVE_HP}}'       = if ($Active -eq 'hp') { $activeVal } else { '' }
     '{{ACTIVE_DELL}}'     = if ($Active -eq 'dell') { $activeVal } else { '' }
+    '{{ACTIVE_MAC}}'      = if ($Active -eq 'mac') { $activeVal } else { '' }
+    '{{ACTIVE_MICROSOFT}}' = if ($Active -eq 'microsoft') { $activeVal } else { '' }
   }
 
   foreach ($key in $map.Keys) {
@@ -55,6 +59,8 @@ function Render-Header {
 
   if ($isLegal) {
     $out = $out.Replace('href="#contacto"', "href=`"${rootPrefix}index.html#contacto`"")
+  }
+  if ($isLegal -or $NoModal) {
     $out = $out.Replace(' class=""', '')
   }
 
@@ -76,7 +82,7 @@ foreach ($p in $pages) {
     Write-Output "SKIP no header block $($p.Rel)"
     continue
   }
-  $newHeader = Render-Header -PageRel $p.Rel -Active $p.Active
+  $newHeader = Render-Header -PageRel $p.Rel -Active $p.Active -NoModal ([bool]$p.NoModal)
   $newText = [regex]::Replace(
     $text,
     '(?is)<header\s+class="header"\s+id="header">.*?</header>',

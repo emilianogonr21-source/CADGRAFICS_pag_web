@@ -161,6 +161,8 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | SketchUp | `pages/sketchup/home-chaos.html` |
 | Dell | `pages/dell/home-dell.html` |
 | HP | `pages/hp/home-hp.html` |
+| Mac | `pages/mac/home-mac.html` |
+| Microsoft (provisional, copia de Mac) | `pages/microsoft/home-microsoft.html` |
 
 ### Tres archivos por página
 
@@ -176,6 +178,8 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | SketchUp | `pages/sketchup/home-chaos.html` | `assets/css/sketchup/home-chaos.css` | `assets/js/sketchup/home-chaos.js` |
 | Dell | `pages/dell/home-dell.html` | `assets/css/dell/home-dell.css` | `assets/js/dell/home-dell.js` |
 | HP | `pages/hp/home-hp.html` | `assets/css/hp/home-hp.css` | `assets/js/hp/home-hp.js` |
+| Mac | `pages/mac/home-mac.html` | `assets/css/mac/home-mac.css` | `assets/js/mac/home-mac.js` |
+| Microsoft | `pages/microsoft/home-microsoft.html` | `assets/css/microsoft/home-microsoft.css` | `assets/js/microsoft/home-microsoft.js` |
 
 Además, casi todas cargan:
 
