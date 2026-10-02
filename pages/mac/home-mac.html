@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<!--
+  Página Mac — Cadgrafics
+  -----------------------
+  Qué hace: presenta la línea Mac 2026 para empresas y permite pedir asesoría.
+
+  Archivos relacionados:
+  - Apariencia:     ../../assets/css/mac/home-mac.css
+  - Comportamiento: ../../assets/js/mac/home-mac.js
+  - Fotos oficiales: ../../assets/images/mac/ (si faltan, se ve una ilustración de respaldo)
+
+  Guía del equipo: docs/README.md
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mac para empresas 2026 | Cadgrafics</title>
+<meta name="description" content="Toda la línea Mac 2026 para tu empresa: MacBook Neo, MacBook Air, MacBook Pro, iMac, Mac mini y Mac Studio. Asesoría sin costo con Cadgrafics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/mac/home-mac.css?v=20261002">
+</head>
+<body>
+
+<!-- =========================================================
+     ILUSTRACIONES DE RESPALDO (genéricas, sin logotipos)
+     Se ven solo mientras no subas las fotos oficiales a assets/images/mac/
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="wp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2A0610"/><stop offset=".45" stop-color="#B80007"/><stop offset=".8" stop-color="#F06A3B"/><stop offset="1" stop-color="#FFC27A"/>
+    </linearGradient>
+    <linearGradient id="alu" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E9EAEC"/><stop offset="1" stop-color="#BFC2C7"/>
+    </linearGradient>
+    <linearGradient id="alu-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5B5E64"/><stop offset="1" stop-color="#2F3135"/>
+    </linearGradient>
+  </defs>
+  <!-- Laptop -->
+  <symbol id="i-laptop" viewBox="0 0 220 140">
+    <rect x="22" y="4" width="176" height="114" rx="7" fill="var(--body,#2F3135)"/>
+    <rect x="28" y="10" width="164" height="102" rx="3" fill="url(#wp)"/>
+    <path d="M2 120h216l-6 10a8 8 0 0 1-7 4H15a8 8 0 0 1-7-4z" fill="var(--base,url(#alu))"/>
+    <rect x="92" y="120" width="36" height="4" rx="2" fill="rgba(0,0,0,.18)"/>
+  </symbol>
+  <!-- Todo en uno -->
+  <symbol id="i-aio" viewBox="0 0 200 190">
+    <rect x="6" y="4" width="188" height="136" rx="7" fill="var(--body,#C9CED6)"/>
+    <rect x="12" y="10" width="176" height="104" rx="2" fill="url(#wp)"/>
+    <path d="M78 140h44l8 40H70z" fill="var(--body,#C9CED6)" opacity=".85"/>
+    <rect x="62" y="178" width="76" height="6" rx="3" fill="var(--body,#C9CED6)"/>
+  </symbol>
+  <!-- Escritorio compacto -->
+  <symbol id="i-mini" viewBox="0 0 140 70">
+    <rect x="6" y="18" width="128" height="44" rx="12" fill="url(#alu)"/>
+    <rect x="6" y="50" width="128" height="12" rx="6" fill="rgba(0,0,0,.08)"/>
+    <circle cx="26" cy="38" r="2.5" fill="#6B6F75"/>
+    <rect x="98" y="35" width="18" height="6" rx="3" fill="#8D9197"/>
+  </symbol>
+  <!-- Escritorio de alto rendimiento -->
+  <symbol id="i-studio" viewBox="0 0 140 110">
+    <rect x="6" y="8" width="128" height="94" rx="14" fill="url(#alu)"/>
+    <rect x="6" y="88" width="128" height="14" rx="7" fill="rgba(0,0,0,.08)"/>
+    <g fill="#6B6F75"><rect x="20" y="70" width="10" height="5" rx="2.5"/><rect x="36" y="70" width="10" height="5" rx="2.5"/><rect x="56" y="70" width="18" height="5" rx="2.5"/></g>
+    <circle cx="116" cy="72" r="2.5" fill="#6B6F75"/>
+  </symbol>
+</svg>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Cadgrafics, inicio"><img src="../../assets/images/brand/logo_cadgrafics_blanco.webp" alt="Cadgrafics" width="150" height="97"></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav" id="nav">
+      <li><a href="#">Marcas</a></li>
+      <li><a href="#">Soluciones Claves</a></li>
+      <li><a href="#">Casos</a></li>
+      <li><a href="#contacto">Contáctanos</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= 1. HERO + REPISA ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="badge">Línea Mac 2026 · Cadgrafics</span>
+      <h1>La Mac correcta para cada persona de tu equipo</h1>
+      <p class="body">De la MacBook Neo a la Mac Studio con M5 Ultra: te ayudamos a elegir, configurar y desplegar las Mac más nuevas en tu empresa.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-light" href="#contacto">Solicita una asesoría sin costo</a>
+        <a class="btn btn-outline-light" href="#encuentra">¿Qué Mac necesito?</a>
+      </div>
+    </div>
+
+    <nav class="shelf" aria-label="Línea Mac">
+      <a href="#escritorio" data-desk="studio"><div class="dev"><img src="../../assets/images/mac/mac-studio.webp" alt=""><svg viewBox="0 0 140 110"><use href="#i-studio"/></svg></div><span>Mac Studio</span></a>
+      <a href="#escritorio"><div class="dev"><img src="../../assets/images/mac/imac.webp" alt=""><svg viewBox="0 0 200 190" style="--body:#B9C7DA"><use href="#i-aio"/></svg></div><span>iMac</span></a>
+      <a href="#laptops" data-tab="pro"><div class="dev"><img src="../../assets/images/mac/macbook-pro.webp" alt=""><svg viewBox="0 0 220 140" style="--base:url(#alu-dark)"><use href="#i-laptop"/></svg></div><span>MacBook Pro</span></a>
+      <a href="#laptops" data-tab="air"><div class="dev"><img src="../../assets/images/mac/macbook-air.webp" alt=""><svg viewBox="0 0 220 140" style="--body:#3A3D44"><use href="#i-laptop"/></svg></div><span>MacBook Air</span></a>
+      <a href="#laptops" data-tab="neo"><div class="dev"><img src="../../assets/images/mac/macbook-neo.webp" alt=""><svg viewBox="0 0 220 140" style="--body:#2E3550;--base:#9AA6D6"><use href="#i-laptop"/></svg></div><span>MacBook Neo</span></a>
+      <a href="#escritorio" data-desk="mini"><div class="dev"><img src="../../assets/images/mac/mac-mini.webp" alt=""><svg viewBox="0 0 140 70"><use href="#i-mini"/></svg></div><span>Mac mini</span></a>
+    </nav>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><strong>M6 y M5</strong><span>Los chips más nuevos de Apple</span></div>
+      <div class="stat"><strong>6 líneas</strong><span>De laptop básica a estación pro</span></div>
+      <div class="stat"><strong>512 GB</strong><span>Memoria unificada máxima (Mac Studio)</span></div>
+      <div class="stat"><strong>macOS 27</strong><span>Con Apple Intelligence</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. ¿QUÉ MAC ES PARA TI? ================= -->
+<section class="section" id="encuentra">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">Encuentra tu Mac</span>
+      <h2>¿Qué Mac necesita cada área?</h2>
+      <p class="sub">Elige el perfil de trabajo y te mostramos el equipo que le corresponde.</p>
+    </div>
+    <div class="finder">
+      <div class="profiles" id="profiles">
+        <button class="profile" aria-pressed="true" data-p="admin"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span><strong>Administración y estudiantes</strong><small>Correo, documentos, navegador</small></span></button>
+        <button class="profile" aria-pressed="false" data-p="movil"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10M2 19h20"/></svg></span><span><strong>Ventas y directivos</strong><small>Movilidad, juntas, presentaciones</small></span></button>
+        <button class="profile" aria-pressed="false" data-p="creativo"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span><span><strong>Creativos y desarrolladores</strong><small>Video, diseño, código</small></span></button>
+        <button class="profile" aria-pressed="false" data-p="fijo"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4"/></svg></span><span><strong>Recepción y puestos fijos</strong><small>Atención a clientes, oficina</small></span></button>
+        <button class="profile" aria-pressed="false" data-p="flex"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="9" width="16" height="7" rx="3"/></svg></span><span><strong>Puestos flexibles e IA local</strong><small>Agentes de IA, música, compilación</small></span></button>
+        <button class="profile" aria-pressed="false" data-p="pesado"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><span><strong>Producción pesada</strong><small>8K, 3D, modelos de IA grandes</small></span></button>
+      </div>
+      <div class="match" id="match" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. LAPTOPS ================= -->
+<section class="section gray" id="laptops">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">MacBook 2026</span>
+      <h2>Laptops para trabajar desde donde sea</h2>
+      <p class="sub">Tres opciones según el nivel de exigencia de cada usuario.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Modelos MacBook">
+      <button class="tab" role="tab" id="tab-neo" aria-controls="p-neo" aria-selected="false" tabindex="-1" data-key="neo">MacBook Neo</button>
+      <button class="tab" role="tab" id="tab-air" aria-controls="p-air" aria-selected="true" data-key="air">MacBook Air</button>
+      <button class="tab" role="tab" id="tab-pro" aria-controls="p-pro" aria-selected="false" tabindex="-1" data-key="pro">MacBook Pro</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-neo" aria-labelledby="tab-neo" hidden>
+      <div class="media">
+        <span class="tag">Nueva · 2026</span>
+        <div class="dev"><img src="../../assets/images/mac/macbook-neo.webp" alt="MacBook Neo"><svg viewBox="0 0 220 140" id="neoSvg" style="--body:#2E3550;--base:#9AA6D6"><use href="#i-laptop"/></svg></div>
+        <div class="swatches" role="group" aria-label="Colores de MacBook Neo">
+          <button class="sw" style="background:#DCDDE0" aria-pressed="false" data-c="#C9CBD0|#DCDDE0" data-n="Plata" aria-label="Plata"></button>
+          <button class="sw" style="background:#E8C3C0" aria-pressed="false" data-c="#C8A3A0|#E8C3C0" data-n="Rubor" aria-label="Rubor"></button>
+          <button class="sw" style="background:#E3E08A" aria-pressed="false" data-c="#B9B66A|#E3E08A" data-n="Cítrico" aria-label="Cítrico"></button>
+          <button class="sw" style="background:#4A5694" aria-pressed="true" data-c="#2E3550|#9AA6D6" data-n="Índigo" aria-label="Índigo"></button>
+          <span class="sw-label" id="neoName">Índigo</span>
+        </div>
+      </div>
+      <div class="copy">
+        <h3>La Mac más accesible</h3>
+        <p>La nueva MacBook Neo lleva macOS a cada escritorio de tu empresa. Ideal para tareas de oficina, estudiantes y equipos que necesitan una laptop confiable sin pagar de más.</p>
+        <div class="chips"><span>Administrativos</span><span>Educación</span><span>Primer Mac</span></div>
+        <dl class="kv">
+          <div><dt>Chip</dt><dd>A18 Pro · CPU 6 núcleos</dd></div>
+          <div><dt>Memoria</dt><dd>8 GB unificada</dd></div>
+          <div><dt>Pantalla</dt><dd>13" Liquid Retina</dd></div>
+          <div><dt>Batería</dt><dd>Hasta 16 horas</dd></div>
+          <div><dt>Almacenamiento</dt><dd>256 GB o 512 GB</dd></div>
+          <div><dt>Colores</dt><dd>4 acabados</dd></div>
+        </dl>
+        <a class="btn btn-primary" href="#contacto" data-interest="MacBook Neo">Cotizar MacBook Neo</a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-air" aria-labelledby="tab-air">
+      <div class="media">
+        <span class="tag">Chip M5</span>
+        <div class="dev"><img src="../../assets/images/mac/macbook-air.webp" alt="MacBook Air"><svg viewBox="0 0 220 140" style="--body:#3A3D44"><use href="#i-laptop"/></svg></div>
+      </div>
+      <div class="copy">
+        <h3>Ligera, silenciosa y lista para la IA</h3>
+        <p>La laptop más popular de Apple, ahora con chip M5, el doble de almacenamiento de inicio y 16 GB de memoria desde el modelo base. En 13 y 15 pulgadas.</p>
+        <div class="chips"><span>Ventas</span><span>Directivos</span><span>Trabajo híbrido</span></div>
+        <dl class="kv">
+          <div><dt>Chip</dt><dd>M5 · CPU 10 núcleos</dd></div>
+          <div><dt>Memoria</dt><dd>16 GB, hasta 32 GB</dd></div>
+          <div><dt>Pantalla</dt><dd>13" o 15" Liquid Retina</dd></div>
+          <div><dt>Almacenamiento</dt><dd>Desde 512 GB, hasta 4 TB</dd></div>
+          <div><dt>Conectividad</dt><dd>Wi-Fi 7 (chip N1)</dd></div>
+          <div><dt>Diseño</dt><dd>Sin ventilador</dd></div>
+        </dl>
+        <a class="btn btn-primary" href="#contacto" data-interest="MacBook Air M5">Cotizar MacBook Air</a>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-pro" aria-labelledby="tab-pro" hidden>
+      <div class="media">
+        <span class="tag">M5 · M5 Pro · M5 Max</span>
+        <div class="dev"><img src="../../assets/images/mac/macbook-pro.webp" alt="MacBook Pro"><svg viewBox="0 0 220 140" style="--base:url(#alu-dark)"><use href="#i-laptop"/></svg></div>
+      </div>
+      <div class="copy">
+        <h3>Rendimiento de estación de trabajo, en una laptop</h3>
+        <p>Para edición de video, desarrollo, 3D e IA en el dispositivo. Con M5 Pro y M5 Max llegan Thunderbolt 5, SSD hasta 2 veces más rápido y 1 TB de almacenamiento de inicio.</p>
+        <div class="chips"><span>Video</span><span>Desarrollo</span><span>Diseño</span><span>IA</span></div>
+        <dl class="kv">
+          <div><dt>Chips</dt><dd>M5, M5 Pro o M5 Max</dd></div>
+          <div><dt>Memoria</dt><dd>Hasta 128 GB (M5 Max)</dd></div>
+          <div><dt>Pantalla</dt><dd>14" o 16" Liquid Retina XDR</dd></div>
+          <div><dt>Almacenamiento</dt><dd>Hasta 8 TB</dd></div>
+          <div><dt>Puertos</dt><dd>Thunderbolt 5 (Pro y Max)</dd></div>
+          <div><dt>Opción</dt><dd>Vidrio nanotexturizado</dd></div>
+        </dl>
+        <a class="btn btn-primary" href="#contacto" data-interest="MacBook Pro M5">Cotizar MacBook Pro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. ESCRITORIO ================= -->
+<section class="section" id="escritorio">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">Mac de escritorio</span>
+      <h2>Potencia fija para cada puesto</h2>
+      <p class="sub">Desde un todo en uno para recepción hasta la Mac más poderosa de Apple. La Mac mini y la Mac Studio se renovaron en septiembre de 2026.</p>
+    </div>
+    <div class="desk">
+      <article class="dcard">
+        <div class="media">
+          <span class="fmt">Todo en uno</span>
+          <div class="dev"><img src="../../assets/images/mac/imac.webp" alt="iMac"><svg viewBox="0 0 200 190" style="--body:#B9C7DA"><use href="#i-aio"/></svg></div>
+        </div>
+        <div class="body">
+          <h3>iMac 24"</h3>
+          <span class="note">Pregunta por la nueva generación</span>
+          <p>Pantalla, cámara, bocinas y computadora en un solo equipo. Instalación limpia para recepción y atención a clientes.</p>
+          <dl class="kv">
+            <div><dt>Chip</dt><dd>M4</dd></div>
+            <div><dt>Pantalla</dt><dd>24" Retina 4.5K</dd></div>
+            <div><dt>Colores</dt><dd>7 acabados</dd></div>
+            <div><dt>Cámara</dt><dd>Integrada</dd></div>
+          </dl>
+          <p class="ideal">Ideal para</p>
+          <div class="chips"><span>Recepción</span><span>Oficina</span><span>Salas de juntas</span></div>
+          <a class="btn btn-primary" href="#contacto" data-interest="iMac">Cotizar iMac</a>
+        </div>
+      </article>
+
+      <article class="dcard" id="card-mini">
+        <div class="media">
+          <span class="fmt">Compacta · Sept 2026</span>
+          <div class="dev"><img src="../../assets/images/mac/mac-mini.webp" alt="Mac mini"><svg viewBox="0 0 140 70" style="max-height:120px"><use href="#i-mini"/></svg></div>
+        </div>
+        <div class="body">
+          <h3>Mac mini</h3>
+          <p>La Mac más versátil, en un formato que cabe en la palma de la mano. Conéctala al monitor que ya tienes.</p>
+          <div class="chipsel" role="group" aria-label="Elige chip de Mac mini">
+            <button aria-pressed="true" data-spec="mini-m6">M6</button>
+            <button aria-pressed="false" data-spec="mini-pro">M5 Pro</button>
+          </div>
+          <dl class="kv" id="kv-mini"></dl>
+          <p class="ideal">Ideal para</p>
+          <div class="chips"><span>Oficina</span><span>IA agéntica</span><span>Desarrollo</span><span>Música</span></div>
+          <a class="btn btn-primary" href="#contacto" data-interest="Mac mini">Cotizar Mac mini</a>
+        </div>
+      </article>
+
+      <article class="dcard" id="card-studio">
+        <div class="media">
+          <span class="fmt">Profesional · Sept 2026</span>
+          <div class="dev"><img src="../../assets/images/mac/mac-studio.webp" alt="Mac Studio"><svg viewBox="0 0 140 110" style="max-height:170px"><use href="#i-studio"/></svg></div>
+        </div>
+        <div class="body">
+          <h3>Mac Studio</h3>
+          <p>La Mac más poderosa de Apple. Para color en 8K, efectos visuales, 3D y modelos de IA ejecutados de forma local.</p>
+          <div class="chipsel" role="group" aria-label="Elige chip de Mac Studio">
+            <button aria-pressed="true" data-spec="studio-max">M5 Max</button>
+            <button aria-pressed="false" data-spec="studio-ultra">M5 Ultra</button>
+          </div>
+          <dl class="kv" id="kv-studio"></dl>
+          <p class="ideal">Ideal para</p>
+          <div class="chips"><span>Postproducción</span><span>3D</span><span>IA local</span></div>
+          <a class="btn btn-primary" href="#contacto" data-interest="Mac Studio">Cotizar Mac Studio</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. COMPARATIVA ================= -->
+<section class="section gray" id="compara">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">Compara</span>
+      <h2>Toda la línea Mac, lado a lado</h2>
+    </div>
+    <div class="table-scroll" tabindex="0" role="region" aria-label="Comparativa de modelos Mac">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <td></td>
+            <th scope="col"><div class="dev"><svg viewBox="0 0 220 140" style="--body:#2E3550;--base:#9AA6D6"><use href="#i-laptop"/></svg></div>MacBook Neo</th>
+            <th scope="col"><div class="dev"><svg viewBox="0 0 220 140" style="--body:#3A3D44"><use href="#i-laptop"/></svg></div>MacBook Air</th>
+            <th scope="col"><div class="dev"><svg viewBox="0 0 220 140" style="--base:url(#alu-dark)"><use href="#i-laptop"/></svg></div>MacBook Pro</th>
+            <th scope="col"><div class="dev"><svg viewBox="0 0 200 190" style="--body:#B9C7DA"><use href="#i-aio"/></svg></div>iMac</th>
+            <th scope="col"><div class="dev"><svg viewBox="0 0 140 70"><use href="#i-mini"/></svg></div>Mac mini</th>
+            <th scope="col"><div class="dev"><svg viewBox="0 0 140 110"><use href="#i-studio"/></svg></div>Mac Studio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Chip</th><td>A18 Pro</td><td>M5</td><td>M5, M5 Pro, M5 Max</td><td>M4</td><td>M6, M5 Pro</td><td>M5 Max, M5 Ultra</td></tr>
+          <tr><th scope="row">Memoria máxima</th><td>8 GB</td><td>32 GB</td><td>128 GB</td><td>Según configuración</td><td>64 GB</td><td>512 GB</td></tr>
+          <tr><th scope="row">Pantalla</th><td>13"</td><td>13" o 15"</td><td>14" o 16" XDR</td><td>24" 4.5K</td><td>Usa tu monitor</td><td>Hasta 8 monitores</td></tr>
+          <tr><th scope="row">Conectividad</th><td>USB-C</td><td>Wi-Fi 7</td><td>Thunderbolt 5*</td><td>Wi-Fi</td><td>Wi-Fi 7, Ethernet 2.5 Gb</td><td>Thunderbolt 5</td></tr>
+          <tr><th scope="row">Ideal para</th><td><strong>Tareas básicas</strong>Oficina y educación</td><td><strong>Movilidad</strong>Ventas y directivos</td><td><strong>Profesionales</strong>Video, código, 3D</td><td><strong>Puestos fijos</strong>Recepción y oficina</td><td><strong>Versatilidad</strong>Oficina e IA local</td><td><strong>Máximo poder</strong>8K, VFX, IA</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub" style="font-size:.85rem;margin-top:1rem">*Thunderbolt 5 en modelos con M5 Pro y M5 Max. Especificaciones según Apple; la disponibilidad en México puede variar.</p>
+  </div>
+</section>
+
+<!-- ================= 6. POR QUÉ MAC ================= -->
+<section class="section" id="por-que">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">Mac en la empresa</span>
+      <h2>Por qué dar el salto a Mac</h2>
+    </div>
+    <div class="reasons">
+      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8zM18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z"/></svg></div><h3>IA en el dispositivo</h3><p>Chips con Neural Engine y macOS 27 con Apple Intelligence para trabajar más rápido sin depender de la nube.</p></div>
+      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><h3>Seguridad integrada</h3><p>Protección a nivel de chip y sistema, con cifrado y actualizaciones constantes de macOS.</p></div>
+      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><h3>Despliegue sin fricción</h3><p>Con Apple Business Manager y tu MDM, los equipos llegan listos para configurarse solos.</p></div>
+      <div class="reason"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Larga vida útil</h3><p>Equipos de aluminio, eficientes en energía y con soporte de software por varios años.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 7. VALOR CADGRAFICS ================= -->
+<section class="section value">
+  <div class="wrap center">
+    <span class="pill">Cadgrafics + Mac</span>
+    <h2>Tecnología que se adapta a tu negocio</h2>
+    <p class="sub">Equipamiento, asesoría y acompañamiento especializado para ayudarte a elegir la Mac adecuada para tu empresa.</p>
+    <div class="value-cards">
+      <div class="vcard"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Equipamiento</h3><p>Toda la línea Mac 2026 con configuraciones a la medida.</p></div>
+      <div class="vcard"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div><h3>Asesoría</h3><p>Especialistas que entienden tus usuarios y tus aplicaciones.</p></div>
+      <div class="vcard"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><h3>Acompañamiento</h3><p>Soporte técnico y servicio postventa garantizado.</p></div>
+    </div>
+    <a class="btn btn-light" href="#contacto">Solicita una asesoría sin costo</a>
+  </div>
+</section>
+
+<!-- ================= 8. CONTACTO ================= -->
+<section class="section gray contact" id="contacto">
+  <div class="wrap">
+    <div class="copy">
+      <span class="pill">Contáctanos</span>
+      <h2>No todas las empresas tienen las mismas necesidades</h2>
+      <p>Nuestro equipo te ayuda a identificar la Mac, configuración y cantidad adecuadas de acuerdo con tus usuarios, aplicaciones y presupuesto.</p>
+      <div class="whys">
+        <div><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.8-3 3-5 6-5s5.2 2 6 5M15 15c3 0 5 1.8 6 5"/></svg></span><div><h3>Para tu equipo</h3><p>Analizamos cuántos usuarios y qué perfiles de uso tiene tu empresa.</p></div></div>
+        <div><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><div><h3>Para tus aplicaciones</h3><p>Revisamos que tu software funcione en macOS y qué configuración necesita.</p></div></div>
+        <div><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><h3>Para tu presupuesto</h3><p>Encontramos la configuración que maximiza el valor de tu inversión.</p></div></div>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Solicita una recomendación personalizada</h3>
+      <p>Cuéntanos qué necesitas y un especialista de Cadgrafics te contactará.</p>
+      <!-- Salesforce Web-to-Lead: cambia action y los name por los de tu org -->
+      <form id="leadForm" action="#" method="POST" novalidate>
+        <input type="hidden" name="lead_source" value="Landing Mac">
+        <input type="hidden" name="interes" id="interes">
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <div class="field"><label for="f-name">Nombre completo</label><input id="f-name" name="first_name" type="text" autocomplete="name" required></div>
+        <div class="row">
+          <div class="field"><label for="f-email">Correo empresarial</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone">Celular</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="f-company">Empresa</label><input id="f-company" name="company" type="text" autocomplete="organization" required></div>
+          <div class="field"><label for="f-line">Equipo de interés</label>
+            <select id="f-line" name="linea" required>
+              <option value="">Selecciona</option>
+              <option>MacBook Neo</option><option>MacBook Air</option><option>MacBook Pro</option>
+              <option>iMac</option><option>Mac mini</option><option>Mac Studio</option><option>Aún no lo sé</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">¿Cuántos equipos y qué aplicaciones usan?</label><textarea id="f-msg" name="description" placeholder="Por ejemplo: 10 laptops para ventas y 2 equipos para edición de video"></textarea></div>
+        <button class="btn btn-primary" type="submit">Solicitar asesoría sin costo</button>
+        <p class="form-msg" id="formMsg" role="status"></p>
+        <p class="fine">Un especialista te contactará en menos de 24 horas hábiles.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Cadgrafics S.A. de C.V.</h4>
+        <p>Norte 56-A #5204, Col. Tablas de San Agustín</p>
+        <p>07860, Gustavo A. Madero, CDMX</p>
+        <p>Correo: <a href="mailto:sandra.alvarez@cadgrafics.com.mx">sandra.alvarez@cadgrafics.com.mx</a></p>
+        <p>WhatsApp: <a href="https://wa.me/525531120508">+52 (55) 3112-0508</a></p>
+      </div>
+      <div>
+        <h4>Cadgrafics de Occidente S.A. de C.V.</h4>
+        <p>Calle Día #2381, Col. Jardines del Bosque</p>
+        <p>44520, Guadalajara, Jalisco</p>
+        <p>Correo: <a href="mailto:rafael.castro@cadgrafics.com.mx">rafael.castro@cadgrafics.com.mx</a></p>
+        <p>WhatsApp: <a href="https://wa.me/523314040396">+52 (33) 1404-0396</a></p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <div class="social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">yt</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a></div>
+      </div>
+    </div>
+    <p class="legal">© 2026 Todos los derechos reservados | <a href="#">Aviso de privacidad</a><br>Mac, MacBook, MacBook Neo, MacBook Air, MacBook Pro, iMac, Mac mini, Mac Studio y macOS son marcas de Apple Inc.</p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/525531120508?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20equipos%20Mac" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script src="../../assets/js/mac/home-mac.js"></script>
+</body>
+</html>
