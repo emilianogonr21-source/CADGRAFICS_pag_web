@@ -162,7 +162,7 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | Dell | `pages/dell/home-dell.html` |
 | HP | `pages/hp/home-hp.html` |
 | Mac | `pages/mac/home-mac.html` |
-| Microsoft (provisional, copia de Mac) | `pages/microsoft/home-microsoft.html` |
+| Microsoft 365 | `pages/microsoft/home-microsoft.html` |
 
 ### Tres archivos por página
 

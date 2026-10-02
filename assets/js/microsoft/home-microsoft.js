@@ -1,17 +1,15 @@
 /*
-  Comportamiento de la página Microsoft — Cadgrafics
-  --------------------------------------------------
+  Comportamiento de la página Microsoft 365 — Cadgrafics
+  ------------------------------------------------------
   El contenido está en: pages/microsoft/home-microsoft.html
   La apariencia está en: assets/css/microsoft/home-microsoft.css
   Depende de: assets/js/shared/site-common.js (menú superior)
 
   Bloques de este archivo:
-  1. Fotos oficiales con ilustración de respaldo
-  2. Menú superior
-  3. Selector "¿Qué Mac necesita cada área?"
-  4. Pestañas de laptops y colores de MacBook Neo
-  5. Specs por chip (Mac mini / Mac Studio)
-  6. Formulario de contacto (interés, UTMs y validación)
+  1. Menú superior
+  2. Demostración de Copilot (pestañas por app)
+  3. Recomendador de plan
+  4. Formulario de contacto (interés, UTMs y validación)
 
   Guía del equipo: docs/README.md
 */
@@ -19,102 +17,64 @@
 (function () {
 'use strict';
 
-/* Si la foto oficial no existe, se quita el <img> y queda visible el <svg> de respaldo */
-function useFallback(scope){
-  scope.querySelectorAll(".dev img").forEach(img=>{
-    if(img.complete&&img.naturalWidth===0){img.remove();return;}
-    img.addEventListener("error",()=>img.remove(),{once:true});
-  });
-}
-useFallback(document);
-
 /* Menú superior (compartido) */
 if(window.Cadgrafics)window.Cadgrafics.initHeader({lockBodyScroll:true});
 else console.error("Cadgrafics site-common.js no cargó");
 
-/* ---------- Selector por perfil ---------- */
-const svgs={
-  laptopNeo:'<svg viewBox="0 0 220 140" style="--body:#2E3550;--base:#9AA6D6"><use href="#i-laptop"/></svg>',
-  laptopAir:'<svg viewBox="0 0 220 140" style="--body:#3A3D44"><use href="#i-laptop"/></svg>',
-  laptopPro:'<svg viewBox="0 0 220 140" style="--base:url(#alu-dark)"><use href="#i-laptop"/></svg>',
-  aio:'<svg viewBox="0 0 200 190" style="--body:#B9C7DA"><use href="#i-aio"/></svg>',
-  mini:'<svg viewBox="0 0 140 70" style="max-height:130px"><use href="#i-mini"/></svg>',
-  studio:'<svg viewBox="0 0 140 110" style="max-height:180px"><use href="#i-studio"/></svg>'
+/* Demostración de Copilot */
+const ex={
+  outlook:{q:"Resume este hilo con el proveedor y redacta una respuesta.",a:"El proveedor confirmó entrega para el 15 de octubre y pide la orden firmada.<ul><li>Borrador listo: agradecer, adjuntar la orden y confirmar la fecha.</li></ul>"},
+  teams:{q:"¿Qué acuerdos salieron de la reunión de ventas?",a:"Se acordaron 3 puntos:<ul><li>Enviar la propuesta a Grupo Norte el viernes.</li><li>Laura actualiza el pronóstico del trimestre.</li><li>Próxima revisión el lunes a las 10:00.</li></ul>"},
+  excel:{q:"¿Qué producto creció más este trimestre?",a:"La línea de servicios creció 31%, la mayor alza del trimestre.<ul><li>Agregué una gráfica de barras con la comparación por mes.</li></ul>"},
+  ppt:{q:"Crea una presentación con el informe anual.",a:"Listo: 8 diapositivas con portada, resultados clave, gráficas y próximos pasos.<ul><li>Apliqué la plantilla de tu empresa.</li></ul>"}
 };
-const recs={
-  admin:{n:"MacBook Neo",img:"macbook-neo",svg:"laptopNeo",why:"Toda la experiencia de macOS para correo, documentos y navegador, al precio más accesible de una Mac.",tags:["A18 Pro","13 pulgadas","Hasta 16 h"],go:"#laptops",tab:"neo"},
-  movil:{n:"MacBook Air",img:"macbook-air",svg:"laptopAir",why:"Ligera, sin ventilador y con 16 GB de memoria desde el modelo base. Aguanta un día completo de juntas y visitas.",tags:["M5","13 o 15 pulgadas","Wi-Fi 7"],go:"#laptops",tab:"air"},
-  creativo:{n:"MacBook Pro",img:"macbook-pro",svg:"laptopPro",why:"M5 Pro o M5 Max, pantalla XDR y Thunderbolt 5 para editar video, compilar y trabajar en 3D sin esperas.",tags:["Hasta 128 GB","Pantalla XDR","Thunderbolt 5"],go:"#laptops",tab:"pro"},
-  fijo:{n:"iMac",img:"imac",svg:"aio",why:"Todo en uno: pantalla 4.5K, cámara y bocinas en un solo equipo. Una instalación limpia para atención a clientes.",tags:["24 pulgadas","Todo en uno","7 colores"],go:"#escritorio"},
-  flex:{n:"Mac mini",img:"mac-mini",svg:"mini",why:"Con M6 ofrece IA hasta 4 veces más rápida que la generación anterior, en un equipo que se conecta a tu monitor actual.",tags:["M6 o M5 Pro","Hasta 64 GB","Ethernet 2.5 Gb"],go:"#escritorio"},
-  pesado:{n:"Mac Studio",img:"mac-studio",svg:"studio",why:"Con M5 Ultra llega a 512 GB de memoria unificada para color en 8K, efectos visuales y modelos de IA locales.",tags:["M5 Max o M5 Ultra","Hasta 512 GB","Hasta 8 monitores"],go:"#escritorio"}
+const pd=document.getElementById("pdBody");
+function showEx(k){
+  pd.classList.remove("enter");void pd.offsetWidth;pd.classList.add("enter");
+  pd.innerHTML=`<div class="q">${ex[k].q}</div><div class="a">${ex[k].a}</div>`;
+}
+document.querySelectorAll("[data-ex]").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("[data-ex]").forEach(x=>x.setAttribute("aria-pressed",x===b));showEx(b.dataset.ex);
+}));
+showEx("outlook");
+
+/* Recomendador de plan */
+const $=id=>document.getElementById(id);
+const st={size:"small",desk:true,sec:false,ai:false};
+const info={
+  basic:{n:"Business Basic",why:"Para equipos que trabajan desde el navegador y el celular.",f:["Correo empresarial con tu dominio","Word, Excel y PowerPoint en web y móvil","Teams para chat y reuniones","1 TB en OneDrive por usuario"]},
+  standard:{n:"Business Standard",why:"Office completo instalado en las computadoras de tu equipo.",f:["Apps de escritorio para PC y Mac","Hasta 5 PC o Mac, 5 tabletas y 5 teléfonos","Teams y seminarios web","1 TB en OneDrive por usuario"]},
+  premium:{n:"Business Premium",why:"Todo Office más la protección de tus equipos e información.",f:["Todo lo de Standard","Defender contra ransomware y phishing","Intune para administrar laptops y celulares","Entra ID P1 para controlar accesos"]},
+  ent:{n:"Microsoft 365 E3 / E5",why:"Planes Enterprise sin límite de usuarios para grandes organizaciones.",f:["Productividad completa a gran escala","Windows Enterprise","Cumplimiento y seguridad avanzada (E5)","Administración centralizada"]}
 };
-const match=document.getElementById("match");
-function showRec(k){
-  const r=recs[k];
-  match.classList.remove("enter");void match.offsetWidth;match.classList.add("enter");
-  match.innerHTML=`<div><p class="lbl">Te recomendamos</p><h3>${r.n}</h3><p class="why">${r.why}</p></div>
-    <div class="dev"><img src="../../assets/images/mac/${r.img}.webp" alt="">${svgs[r.svg]}</div>
-    <div class="row"><div class="chips">${r.tags.map(t=>`<span>${t}</span>`).join("")}</div>
-    <a class="btn btn-primary" href="${r.go}" ${r.tab?`data-tab="${r.tab}"`:""}>Ver ${r.n}</a></div>`;
-  useFallback(match);
+function rec(){
+  let k=st.size==="big"?"ent":st.sec?"premium":st.desk?"standard":"basic";
+  const r=info[k];const name=r.n+(st.ai?" + Copilot":"");
+  $("recName").textContent=name;
+  $("recWhy").textContent=r.why;
+  $("recList").innerHTML=r.f.map(x=>`<li><span>✓</span><span>${x}</span></li>`).join("")+(st.ai?"<li><span>✓</span><span>Copilot en Word, Excel, Outlook y Teams</span></li>":"");
+  $("tip").textContent=st.ai?"Copilot no tiene que ser para todos: puedes asignarlo solo a quienes más lo aprovechen.":
+    k==="standard"?"Si tu equipo maneja información sensible, considera Premium para proteger correo y dispositivos.":
+    k==="basic"?"Puedes combinar planes: Basic para unos usuarios y Standard o Premium para otros.":
+    k==="premium"?"Premium es el plan más completo para empresas de hasta 300 usuarios.":"Te ayudamos a definir si tu organización necesita E3 o E5.";
+  $("estimado").value=name;
 }
-document.querySelectorAll(".profile").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".profile").forEach(x=>x.setAttribute("aria-pressed",x===b));
-  showRec(b.dataset.p);
+document.querySelectorAll("[data-size]").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("[data-size]").forEach(x=>x.setAttribute("aria-pressed",x===b));st.size=b.dataset.size;rec();
 }));
-showRec("admin");
-
-/* ---------- Pestañas de laptops ---------- */
-const tabs=[...document.querySelectorAll('[role="tab"]')];
-function selectTab(key,focus){
-  tabs.forEach(t=>{
-    const on=t.dataset.key===key;
-    t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1;
-    const p=document.getElementById(t.getAttribute("aria-controls"));
-    p.hidden=!on;if(on){p.classList.remove("enter");void p.offsetWidth;p.classList.add("enter");if(focus)t.focus();}
-  });
-}
-tabs.forEach((t,i)=>{
-  t.addEventListener("click",()=>selectTab(t.dataset.key));
-  t.addEventListener("keydown",e=>{
-    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){const n=tabs[(i+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length];selectTab(n.dataset.key,true);}
-  });
-});
-document.addEventListener("click",e=>{const a=e.target.closest("[data-tab]");if(a)selectTab(a.dataset.tab)});
-
-/* Colores de MacBook Neo */
-document.querySelectorAll(".sw").forEach(s=>s.addEventListener("click",()=>{
-  document.querySelectorAll(".sw").forEach(x=>x.setAttribute("aria-pressed",x===s));
-  const [body,base]=s.dataset.c.split("|");const svg=document.getElementById("neoSvg");
-  svg.style.setProperty("--body",body);svg.style.setProperty("--base",base);
-  document.getElementById("neoName").textContent=s.dataset.n;
+document.querySelectorAll(".sw-btn[data-q]").forEach(b=>b.addEventListener("click",()=>{
+  st[b.dataset.q]=!st[b.dataset.q];b.setAttribute("aria-checked",st[b.dataset.q]);rec();
 }));
-
-/* ---------- Specs por chip (Mac mini / Mac Studio) ---------- */
-const specs={
-  "mini-m6":[["CPU","12 núcleos"],["GPU","12 núcleos"],["Memoria","16 GB, hasta 32 GB"],["Ancho de banda","170 GB/s"]],
-  "mini-pro":[["CPU","Hasta 18 núcleos"],["GPU","Hasta 20 núcleos"],["Memoria","Hasta 64 GB"],["Ancho de banda","307 GB/s"]],
-  "studio-max":[["CPU","18 núcleos"],["GPU","Hasta 40 núcleos"],["Memoria","Hasta 128 GB"],["Puertos","Thunderbolt 5"]],
-  "studio-ultra":[["CPU","Hasta 36 núcleos"],["GPU","Hasta 80 núcleos"],["Memoria","Hasta 512 GB"],["Ancho de banda","1.2 TB/s"]]
-};
-function renderSpec(key){
-  const target=document.getElementById(key.startsWith("mini")?"kv-mini":"kv-studio");
-  target.innerHTML=specs[key].map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
-}
-document.querySelectorAll(".chipsel button").forEach(b=>b.addEventListener("click",()=>{
-  b.parentElement.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));
-  renderSpec(b.dataset.spec);
-}));
-renderSpec("mini-m6");renderSpec("studio-max");
+$("calcCta").addEventListener("click",()=>{$("interes").value="Recomendador";});
+rec();
 
 /* Interés del botón presionado + UTMs */
-document.addEventListener("click",e=>{const a=e.target.closest("[data-interest]");if(a)document.getElementById("interes").value=a.dataset.interest});
+document.addEventListener("click",e=>{const a=e.target.closest("[data-interest]");if(a)$("interes").value=a.dataset.interest});
 const qs=new URLSearchParams(location.search);
-["utm_source","utm_medium","utm_campaign"].forEach(k=>{document.getElementById(k).value=qs.get(k)||""});
+["utm_source","utm_medium","utm_campaign"].forEach(k=>{$(k).value=qs.get(k)||""});
 
 /* Validación */
-const form=document.getElementById("leadForm"),msg=document.getElementById("formMsg");
+const form=$("leadForm"),msg=$("formMsg");
 form.addEventListener("submit",e=>{
   if(!form.checkValidity()){e.preventDefault();msg.textContent="Completa los campos obligatorios para enviar tu solicitud.";msg.classList.add("show");form.querySelector(":invalid").focus();return;}
   if(form.getAttribute("action")==="#"){e.preventDefault();msg.textContent="Solicitud enviada. Un especialista de Cadgrafics te contactará en menos de 24 horas hábiles.";msg.classList.add("show");form.reset();}
