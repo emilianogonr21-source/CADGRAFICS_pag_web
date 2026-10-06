@@ -22,16 +22,9 @@
     t.addEventListener("keydown",e=>{if(e.key==="ArrowRight"||e.key==="ArrowLeft"){const n=pts[(i+(e.key==="ArrowRight"?1:-1)+pts.length)%pts.length];showP(n.dataset.p,true)}});
   });
 
-  /* Interés + UTMs */
-  const $=id=>document.getElementById(id);
-  document.addEventListener("click",e=>{const a=e.target.closest("[data-interest]");if(a)$("interes").value=a.dataset.interest});
-  const qs=new URLSearchParams(location.search);
-  ["utm_source","utm_medium","utm_campaign"].forEach(k=>{$(k).value=qs.get(k)||""});
-
-  /* Validación */
-  const form=$("leadForm"),msg=$("formMsg");
-  form.addEventListener("submit",e=>{
-    if(!form.checkValidity()){e.preventDefault();msg.textContent="Completa los campos obligatorios para enviar tu solicitud.";msg.classList.add("show");form.querySelector(":invalid").focus();return;}
-    if(form.getAttribute("action")==="#"){e.preventDefault();msg.textContent="Solicitud enviada. Un especialista de Cadgrafics te contactará en menos de 24 horas hábiles.";msg.classList.add("show");form.reset();}
+  /* Formulario de contacto: interés, UTMs, validación y envío por WhatsApp (compartido) */
+  if(window.Cadgrafics)window.Cadgrafics.initLandingLeadForm({
+    label:"Chaos",source:"Landing Chaos",
+    extraFields:[{name:"producto",label:"Producto"},{name:"situacion",label:"Situación"},{name:"interes",label:"Botón"}]
   });
 })();

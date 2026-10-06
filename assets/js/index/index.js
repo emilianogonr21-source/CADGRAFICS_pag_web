@@ -19,7 +19,7 @@
     return;
   }
 
-  const { $, $$, isValidEmail, isValidPhone, submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
+  const { $, $$, isValidEmail, isValidPhone, submitLead, appendWhatsAppFallback, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
   initHeader({ lockBodyScroll: true });
   initSmoothAnchors({ offset: 80 });
@@ -53,7 +53,7 @@
     input.addEventListener('input', () => clearValidation(input));
   });
 
-  consultForm?.addEventListener('submit', async (e) => {
+  consultForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     setMessage('', '');
 
@@ -88,29 +88,13 @@
     }
     if (hasError) return;
 
-    const submitBtn = consultForm.querySelector('.btn-primary');
-    const originalText = submitBtn ? submitBtn.innerHTML : '';
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Enviando...';
-    }
-
-    try {
-      await submitLead(
-        { nombre, empresa, email, telefono, source: 'hero-form' },
-        { label: 'Formulario inicio Cadgrafics' }
-      );
-      setMessage('¡Gracias ' + nombre + '! Te redirigimos a WhatsApp para continuar.', 'success');
-      consultForm.reset();
-    } catch (error) {
-      console.error('Error al enviar formulario:', error);
-      setMessage('Error al enviar. Contáctanos por WhatsApp al 55 3112 0508.', 'error');
-    } finally {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-      }
-    }
+    const result = submitLead(
+      { nombre, empresa, email, telefono, source: 'hero-form' },
+      { label: 'Formulario inicio Cadgrafics' }
+    );
+    setMessage('¡Gracias ' + nombre + '! Abrimos WhatsApp con tus datos para continuar.', 'success');
+    appendWhatsAppFallback(formMessage, result.whatsappUrl);
+    consultForm.reset();
   });
 
   // ===== Carrusel de marcas =====

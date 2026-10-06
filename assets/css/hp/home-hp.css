@@ -683,7 +683,7 @@
       justify-content: center;
       background:
         linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.4) 100%),
-        url('../../images/hp/home/image1.png') center/cover no-repeat;
+        url('../../images/hp/home/image1.jpg') center/cover no-repeat;
       color: var(--bg-white);
       overflow: hidden;
       margin-top: 0;

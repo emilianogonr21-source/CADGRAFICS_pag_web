@@ -4,8 +4,8 @@
   Qué hace este archivo (en simple):
   - Menú de arriba (también en celular)
   - Ventana de Contáctanos
-  - Envío de formularios: intenta guardar el dato y SIEMPRE abre WhatsApp
-    con el mensaje listo, para no perder el contacto
+  - Envío de formularios: abre WhatsApp con el mensaje listo y deja un
+    enlace de respaldo por si el navegador bloquea la ventana
 
   Cómo usarlo: cargar ESTE archivo ANTES del JS de cada página.
   Cada marca reutiliza esta lógica sin cambiar su propio aspecto (CSS).
@@ -16,9 +16,6 @@
   'use strict';
 
   const WHATSAPP_PHONE = '525531120508';
-  /* Endpoint opcional: en hosting estático suele no existir.
-     El canal real del lead es WhatsApp; el POST no debe bloquear el flujo. */
-  const LEADS_ENDPOINT = '/api/leads';
 
   const $ = (sel, ctx) => (ctx || document).querySelector(sel);
   const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
@@ -48,55 +45,42 @@
     return lines.join('\n');
   }
 
-  function openWhatsApp(text, phone) {
-    const url = `https://wa.me/${phone || WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-    return url;
-  }
-
   /**
-   * Envía el contacto del visitante:
-   * 1) Intenta POST a /api/leads (opcional; falla en silencio si no hay API).
-   * 2) Siempre abre WhatsApp con los datos — ese es el canal real del sitio.
+   * Envía el contacto del visitante abriendo WhatsApp con sus datos.
+   * Llamarla sin "await" previo dentro del submit: window.open debe ocurrir
+   * durante el clic o el navegador lo bloquea.
+   * Devuelve la URL para mostrar un enlace de respaldo (con noopener no hay
+   * forma de saber si la ventana se abrió).
    */
-  async function submitLead(raw, options) {
+  function submitLead(raw, options) {
     const opts = options || {};
     const data = {
-      name: normalizeText(raw.name || raw.nombre || ''),
-      email: normalizeText(raw.email || ''),
-      phone: normalizeText(raw.phone || raw.telefono || ''),
-      company: normalizeText(raw.company || raw.empresa || ''),
-      message: normalizeText(raw.message || ''),
-      source: raw.source || 'site',
+      name: normalizeText(raw.name || raw.nombre),
+      email: normalizeText(raw.email),
+      phone: normalizeText(raw.phone || raw.telefono),
+      company: normalizeText(raw.company || raw.empresa),
+      message: normalizeText(raw.message),
+      source: normalizeText(raw.source) || 'site',
     };
+    const text = opts.whatsappText || buildWhatsAppMessage(data, opts.label || data.source);
+    const url = 'https://wa.me/' + (opts.phone || WHATSAPP_PHONE) + '?text=' + encodeURIComponent(text);
+    if (opts.openWhatsApp !== false) window.open(url, '_blank', 'noopener,noreferrer');
+    return { whatsappUrl: url, data: data };
+  }
 
-    const waText =
-      opts.whatsappText ||
-      buildWhatsAppMessage(data, opts.label || data.source);
-
-    if (opts.openWhatsApp !== false) {
-      openWhatsApp(waText, opts.phone);
-    }
-
-    let apiOk = false;
-    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
-    const timer = controller ? setTimeout(function () { controller.abort(); }, 4000) : null;
-    try {
-      const response = await fetch(LEADS_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-        signal: controller ? controller.signal : undefined,
-      });
-      apiOk = !!(response && response.ok);
-    } catch (err) {
-      /* Hosting estático o API ausente: esperado; WhatsApp cubre el lead. */
-      apiOk = false;
-    } finally {
-      if (timer) clearTimeout(timer);
-    }
-
-    return { apiOk: apiOk, whatsappOpened: opts.openWhatsApp !== false, data: data };
+  /* Agrega "Si no se abrió, Abrir WhatsApp." al mensaje de éxito. */
+  function appendWhatsAppFallback(container, url) {
+    if (!container || !url) return;
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Abrir WhatsApp';
+    /* Estilo en línea: cada página resetea los enlaces de forma distinta */
+    link.style.color = 'inherit';
+    link.style.fontWeight = '700';
+    link.style.textDecoration = 'underline';
+    container.append(' Si no se abrió, ', link, '.');
   }
 
   /* Menú de arriba: cambia al hacer scroll, abre en celular y maneja submenús. */
@@ -128,19 +112,24 @@
     }
 
     if (mobileToggle && navMenu) {
-      mobileToggle.addEventListener('click', function () {
-        const isActive = navMenu.classList.toggle('active');
-        mobileToggle.classList.toggle('is-open', isActive);
-        mobileToggle.setAttribute('aria-expanded', String(isActive));
-        mobileToggle.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
-        if (opts.lockBodyScroll) {
-          document.body.style.overflow = isActive ? 'hidden' : '';
-        }
-        if (!isActive) {
+      const setMenuOpen = function (isOpen) {
+        navMenu.classList.toggle('active', isOpen);
+        mobileToggle.classList.toggle('is-open', isOpen);
+        mobileToggle.setAttribute('aria-expanded', String(isOpen));
+        mobileToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+        if (opts.lockBodyScroll) document.body.style.overflow = isOpen ? 'hidden' : '';
+        if (!isOpen) {
           $$('.nav-item.active, .dropdown-submenu.active').forEach(function (el) {
             el.classList.remove('active');
           });
         }
+      };
+      const isMenuOpen = function () {
+        return navMenu.classList.contains('active');
+      };
+
+      mobileToggle.addEventListener('click', function () {
+        setMenuOpen(!isMenuOpen());
       });
 
       $$('.nav-menu a').forEach(function (link) {
@@ -150,12 +139,19 @@
             parent &&
             parent.querySelector(':scope > .dropdown-menu, :scope > .dropdown-submenu-menu');
           if (hasMenu && window.innerWidth <= breakpoint) return;
-          navMenu.classList.remove('active');
-          mobileToggle.classList.remove('is-open');
-          mobileToggle.setAttribute('aria-expanded', 'false');
-          mobileToggle.setAttribute('aria-label', 'Abrir menú');
-          if (opts.lockBodyScroll) document.body.style.overflow = '';
+          setMenuOpen(false);
         });
+      });
+
+      /* Al girar una tablet o agrandar la ventana, el menú móvil no debe dejar el scroll bloqueado. */
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > breakpoint && isMenuOpen()) setMenuOpen(false);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape' || !isMenuOpen()) return;
+        setMenuOpen(false);
+        mobileToggle.focus();
       });
     }
 
@@ -299,7 +295,7 @@
         });
       });
 
-      leadForm.addEventListener('submit', async function (e) {
+      leadForm.addEventListener('submit', function (e) {
         e.preventDefault();
         if (modalFormMessage) {
           modalFormMessage.textContent = '';
@@ -343,55 +339,113 @@
           return;
         }
 
-        const submitBtn = leadForm.querySelector(opts.submitSelector || '.cta-modal, button[type="submit"]');
-        const originalText = submitBtn ? submitBtn.innerHTML : '';
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.innerHTML =
-            opts.loadingHtml ||
-            '<svg width="16" height="16" style="animation: spin 1s linear infinite;" aria-hidden="true"><use href="#icon-send"/></svg> Enviando...';
+        const result = submitLead(data, {
+          label: opts.label || data.source,
+          whatsappText: opts.whatsappText,
+        });
+
+        if (formFields) formFields.style.display = 'none';
+        if (successMessage) {
+          const successText = successMessage.querySelector('p');
+          if (successText) {
+            successText.textContent = 'Abrimos WhatsApp con tus datos para que envíes la consulta.';
+            appendWhatsAppFallback(successText, result.whatsappUrl);
+          }
+          successMessage.style.display = 'block';
+          successMessage.classList.add('show');
         }
 
-        try {
-          await submitLead(data, {
-            label: opts.label || data.source,
-            whatsappText: opts.whatsappText,
-          });
-
-          if (formFields) formFields.style.display = 'none';
-          if (successMessage) {
-            successMessage.style.display = 'block';
-            successMessage.classList.add('show');
-          }
-
+        /* Tiempo suficiente para usar el enlace de respaldo antes de cerrar. */
+        setTimeout(function () {
+          closeModal();
           setTimeout(function () {
-            closeModal();
-            setTimeout(function () {
-              leadForm.reset();
-              if (formFields) formFields.style.display = '';
-              if (successMessage) {
-                successMessage.style.display = 'none';
-                successMessage.classList.remove('show');
-              }
-            }, 300);
-          }, opts.successDelay || 3000);
-        } catch (err) {
-          console.error('Error al enviar formulario:', err);
-          if (modalFormMessage) {
-            modalFormMessage.textContent =
-              'No se pudo abrir WhatsApp. Escríbenos al +52 55 3112 0508.';
-            modalFormMessage.className = 'form-message error';
-          }
-        } finally {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-          }
-        }
+            leadForm.reset();
+            if (formFields) formFields.style.display = '';
+            if (successMessage) {
+              successMessage.style.display = 'none';
+              successMessage.classList.remove('show');
+            }
+          }, 300);
+        }, 8000);
       });
     }
 
     return { openModal: openModal, closeModal: closeModal };
+  }
+
+  /**
+   * Formulario de las landings Mac, Microsoft y Chaos: rellena interés y UTMs,
+   * valida y envía por WhatsApp.
+   * options.extraFields: [{ name, label }] campos propios de cada página que
+   * se agregan al mensaje.
+   */
+  function initLandingLeadForm(options) {
+    const opts = options || {};
+    const form = $(opts.formSelector || '#leadForm');
+    if (!form) return;
+    const msg = $(opts.messageSelector || '#formMsg');
+    const interest = form.querySelector('[name="interes"]');
+    const phoneField = form.querySelector('[name="phone"]');
+
+    const showMessage = function (text) {
+      if (!msg) return;
+      msg.textContent = text;
+      msg.classList.add('show');
+    };
+
+    const qs = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (key) {
+      const field = form.querySelector('[name="' + key + '"]');
+      if (field) field.value = normalizeText(qs.get(key)).slice(0, 100);
+    });
+
+    document.addEventListener('click', function (e) {
+      const trigger = e.target.closest('[data-interest]');
+      if (trigger && interest) interest.value = trigger.dataset.interest;
+    });
+
+    if (phoneField) {
+      phoneField.addEventListener('input', function () {
+        phoneField.setCustomValidity('');
+      });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const fd = new FormData(form);
+      if (phoneField) {
+        phoneField.setCustomValidity(isValidPhone(fd.get('phone')) ? '' : 'Escribe un teléfono válido.');
+      }
+      if (!form.checkValidity()) {
+        showMessage('Completa los campos obligatorios para enviar tu solicitud.');
+        const firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      const details = (opts.extraFields || [])
+        .map(function (field) {
+          const value = normalizeText(fd.get(field.name));
+          return value ? field.label + ': ' + value : null;
+        })
+        .filter(Boolean);
+
+      const result = submitLead(
+        {
+          name: fd.get('first_name') || fd.get('name'),
+          email: fd.get('email'),
+          phone: fd.get('phone'),
+          company: fd.get('company'),
+          message: details.join(' | '),
+          source: fd.get('lead_source') || opts.source,
+        },
+        { label: opts.label }
+      );
+
+      form.reset();
+      showMessage('Abrimos WhatsApp con tus datos para que envíes la solicitud; un especialista te responderá en menos de 24 horas hábiles.');
+      appendWhatsAppFallback(msg, result.whatsappUrl);
+    });
   }
 
   /**
@@ -449,9 +503,11 @@
     isValidEmail: isValidEmail,
     isValidPhone: isValidPhone,
     submitLead: submitLead,
+    appendWhatsAppFallback: appendWhatsAppFallback,
     initHeader: initHeader,
     initSmoothAnchors: initSmoothAnchors,
     initStandardLeadModal: initStandardLeadModal,
+    initLandingLeadForm: initLandingLeadForm,
   };
 
   /* Videos lazy: se activan solos en cualquier página que cargue este archivo. */

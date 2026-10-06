@@ -68,16 +68,10 @@ document.querySelectorAll(".sw-btn[data-q]").forEach(b=>b.addEventListener("clic
 $("calcCta").addEventListener("click",()=>{$("interes").value="Recomendador";});
 rec();
 
-/* Interés del botón presionado + UTMs */
-document.addEventListener("click",e=>{const a=e.target.closest("[data-interest]");if(a)$("interes").value=a.dataset.interest});
-const qs=new URLSearchParams(location.search);
-["utm_source","utm_medium","utm_campaign"].forEach(k=>{$(k).value=qs.get(k)||""});
-
-/* Validación */
-const form=$("leadForm"),msg=$("formMsg");
-form.addEventListener("submit",e=>{
-  if(!form.checkValidity()){e.preventDefault();msg.textContent="Completa los campos obligatorios para enviar tu solicitud.";msg.classList.add("show");form.querySelector(":invalid").focus();return;}
-  if(form.getAttribute("action")==="#"){e.preventDefault();msg.textContent="Solicitud enviada. Un especialista de Cadgrafics te contactará en menos de 24 horas hábiles.";msg.classList.add("show");form.reset();}
+/* Formulario de contacto: interés, UTMs, validación y envío por WhatsApp (compartido) */
+if(window.Cadgrafics)window.Cadgrafics.initLandingLeadForm({
+  label:"Microsoft 365",source:"Landing Microsoft",
+  extraFields:[{name:"usuarios",label:"Usuarios"},{name:"situacion",label:"Situación"},{name:"recomendacion",label:"Plan sugerido"},{name:"interes",label:"Botón"}]
 });
 
 })();

@@ -40,7 +40,7 @@ function Render-Header {
 
   $map = @{
     '{{ROOT}}'            = $rootPrefix
-    '{{LOGO_HREF}}'       = if ($isRoot) { '#' } else { "${rootPrefix}index.html" }
+    '{{LOGO_HREF}}'       = if ($isRoot) { './' } else { "${rootPrefix}index.html" }
     '{{INDEX_MARCAS}}'    = if ($isRoot) { '#marcas' } else { "${rootPrefix}index.html#marcas" }
     '{{INDEX_SERVICIOS}}' = if ($isRoot) { '#servicios' } else { "${rootPrefix}index.html#servicios" }
     '{{INDEX_CASOS}}'     = if ($isRoot) { '#casos' } else { "${rootPrefix}index.html#casos" }

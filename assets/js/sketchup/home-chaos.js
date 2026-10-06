@@ -16,7 +16,7 @@
     return;
   }
 
-  const { submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
+  const { submitLead, appendWhatsAppFallback, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
   initHeader({ lockBodyScroll: true });
   initSmoothAnchors();
@@ -30,42 +30,35 @@
 
   /* Formulario de la portada → WhatsApp (mismo flujo que Dell/HP) */
   const heroForm = document.getElementById('chaosHeroForm');
+  const heroMessage = document.getElementById('chaosHeroMessage');
   if (heroForm) {
-    heroForm.addEventListener('submit', async function (e) {
+    heroForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (heroMessage) {
+        heroMessage.textContent = '';
+        heroMessage.className = 'form-group full hero-form-message';
+      }
       if (!heroForm.checkValidity()) {
         heroForm.reportValidity();
         return;
       }
 
       const fd = new FormData(heroForm);
-      const submitBtn = heroForm.querySelector('button[type="submit"]');
-      const original = submitBtn ? submitBtn.innerHTML : '';
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Enviando...';
-      }
-
-      try {
-        await submitLead(
-          {
-            name: fd.get('name'),
-            email: fd.get('email'),
-            phone: fd.get('phone'),
-            company: fd.get('company'),
-            message: fd.get('interest') || '',
-            source: 'chaos-hero',
-          },
-          { label: 'SketchUp — formulario de portada' }
-        );
-        heroForm.reset();
-      } catch (err) {
-        console.error('Error al enviar formulario SketchUp:', err);
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = original;
-        }
+      const result = submitLead(
+        {
+          name: fd.get('name'),
+          email: fd.get('email'),
+          phone: fd.get('phone'),
+          company: fd.get('company'),
+          message: fd.get('interest') || '',
+          source: 'chaos-hero',
+        },
+        { label: 'SketchUp — formulario de portada' }
+      );
+      heroForm.reset();
+      if (heroMessage) {
+        heroMessage.textContent = 'Abrimos WhatsApp con tus datos para que envíes la consulta.';
+        appendWhatsAppFallback(heroMessage, result.whatsappUrl);
       }
     });
   }

@@ -212,7 +212,9 @@ Orden típico en el HTML (como en Dell): CSS de la página y luego `header.css`;
 
 Al enviar Contáctanos (o el formulario de la página), el sitio **abre WhatsApp** con el mensaje listo. Ese es el canal real del lead.
 
-Opcionalmente intenta un `POST /api/leads` (útil si más adelante hay backend). En hosting estático ese endpoint no existe: el fallo es esperado y **no bloquea** WhatsApp.
+Junto al mensaje de éxito aparece un enlace **"Abrir WhatsApp"** por si el navegador bloqueó la ventana. No se envía nada a un servidor: si algún día hay backend, se conecta en `submitLead` de `site-common.js`.
+
+Las landings Mac, Microsoft y Chaos (formulario dentro de la página, sin modal) usan `Cadgrafics.initLandingLeadForm({ label, source, extraFields })`, que además rellena el interés del botón presionado y los UTM.
 
 ### Patrón técnico (igual en todo el sitio)
 

@@ -38,7 +38,7 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com; font-src 'self' https://fonts.gstatic.com; media-src 'self';" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; media-src 'self';" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -159,7 +159,7 @@
                     Transformamos tu visión en <span class="highlight">Realidad Digital</span>
                 </h1>
 
-                <img src="../../assets/images/autodesk/home/autodesk-logo.png"
+                <img src="../../assets/images/index/autodesk-logo.png"
                      alt="Autodesk Platinum Partner"
                      class="hero__logo fade-in"
                      width="220"
@@ -536,10 +536,10 @@
                 <h2 class="cta-box__title">¿Listo para llevar tu empresa al siguiente nivel?</h2>
                 <p class="cta-box__subtitle">Descubre cómo nuestras soluciones Autodesk pueden transformar tus procesos</p>
                 <div class="cta-box__actions">
-                    <a href="#" class="btn btn-primary textbutton-trigger">
+                    <button type="button" class="btn btn-primary textbutton-trigger">
                         Contactar especialista
-                        <span class="btn__arrow">→</span>
-                    </a>
+                        <span class="btn__arrow" aria-hidden="true">→</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -561,7 +561,7 @@
             <div class="cases-grid">
                 <article class="case-card fade-in">
                     <div class="case-card__image">
-                        <img src="../../assets/images/autodesk/home/caso-exito-1.png" alt="Construcción" width="800" height="500">
+                        <img src="../../assets/images/index/caso-exito-1.jpg" alt="Construcción" width="800" height="500" loading="lazy" decoding="async">
                         <div class="case-card__result">-40% tiempo de entrega</div>
                         <a href="https://www.youtube.com/watch?v=cgwuOv4rOEs"
                            class="case-card__play"
@@ -589,7 +589,7 @@
 
                 <article class="case-card fade-in fade-in-delay-1">
                     <div class="case-card__image">
-                        <img src="../../assets/images/autodesk/home/caso-exito-2.png" alt="Manufactura" width="800" height="500">
+                        <img src="../../assets/images/index/caso-exito-2.jpg" alt="Manufactura" width="800" height="500" loading="lazy" decoding="async">
                         <div class="case-card__result">-60% tiempo de prototipado</div>
                         <a href="https://www.youtube.com/watch?v=-wPrzTvsZm8"
                            class="case-card__play"
@@ -725,7 +725,7 @@
 
 <!-- JavaScript -->
 
-    <script src="../../assets/js/shared/site-common.js"></script>
+    <script src="../../assets/js/shared/site-common.js?v=20261006e"></script>
     <script src="../../assets/js/autodesk/home-autodesk.js"></script>
 </body>
 </html>

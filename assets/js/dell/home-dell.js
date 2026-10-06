@@ -21,7 +21,7 @@
     return;
   }
 
-  const { $, $$, submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
+  const { $, $$, submitLead, appendWhatsAppFallback, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
   /* ===== 1. Menú y ventana Contáctanos ===== */
   initHeader({ lockBodyScroll: true });
@@ -37,6 +37,15 @@
     },
     focusSelector: '#modal-name',
     triggerSelector: '.textbutton-trigger',
+  });
+
+  /* Fotos de producto: si un archivo no existe se quita el <img> para no mostrar el ícono roto */
+  $$('img[src*="/images/dell/home/"]').forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) {
+      img.remove();
+      return;
+    }
+    img.addEventListener('error', function () { img.remove(); }, { once: true });
   });
 
   /* ===== 2. Pestañas de la línea Dell Pro ===== */
@@ -104,7 +113,7 @@
     formMessage.className = 'form-message' + (type ? ' ' + type : '');
   }
 
-  contactForm.addEventListener('submit', async function (e) {
+  contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
     showMessage('');
 
@@ -122,35 +131,19 @@
       fd.get('message') ? 'Cargas de trabajo: ' + fd.get('message') : null,
     ].filter(Boolean);
 
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn ? submitBtn.textContent : '';
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando...';
-    }
-
-    try {
-      await submitLead(
-        {
-          name: fd.get('name'),
-          email: fd.get('email'),
-          phone: fd.get('phone'),
-          company: fd.get('company'),
-          message: details.join(' | '),
-          source: 'dell-contact',
-        },
-        { label: 'Dell — formulario de página' }
-      );
-      contactForm.reset();
-      showMessage('Solicitud enviada. Te redirigimos a WhatsApp para continuar; un especialista te contactará en menos de 24 horas hábiles.', 'success');
-    } catch (err) {
-      console.error('Error al enviar formulario Dell:', err);
-      showMessage('No se pudo abrir WhatsApp. Escríbenos al +52 55 3112 0508.', 'error');
-    } finally {
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-      }
-    }
+    const result = submitLead(
+      {
+        name: fd.get('name'),
+        email: fd.get('email'),
+        phone: fd.get('phone'),
+        company: fd.get('company'),
+        message: details.join(' | '),
+        source: 'dell-contact',
+      },
+      { label: 'Dell — formulario de página' }
+    );
+    contactForm.reset();
+    showMessage('Abrimos WhatsApp con tus datos para que envíes la solicitud; un especialista te responderá en menos de 24 horas hábiles.', 'success');
+    appendWhatsAppFallback(formMessage, result.whatsappUrl);
   });
 })();

@@ -108,16 +108,10 @@ document.querySelectorAll(".chipsel button").forEach(b=>b.addEventListener("clic
 }));
 renderSpec("mini-m6");renderSpec("studio-max");
 
-/* Interés del botón presionado + UTMs */
-document.addEventListener("click",e=>{const a=e.target.closest("[data-interest]");if(a)document.getElementById("interes").value=a.dataset.interest});
-const qs=new URLSearchParams(location.search);
-["utm_source","utm_medium","utm_campaign"].forEach(k=>{document.getElementById(k).value=qs.get(k)||""});
-
-/* Validación */
-const form=document.getElementById("leadForm"),msg=document.getElementById("formMsg");
-form.addEventListener("submit",e=>{
-  if(!form.checkValidity()){e.preventDefault();msg.textContent="Completa los campos obligatorios para enviar tu solicitud.";msg.classList.add("show");form.querySelector(":invalid").focus();return;}
-  if(form.getAttribute("action")==="#"){e.preventDefault();msg.textContent="Solicitud enviada. Un especialista de Cadgrafics te contactará en menos de 24 horas hábiles.";msg.classList.add("show");form.reset();}
+/* Formulario de contacto: interés, UTMs, validación y envío por WhatsApp (compartido) */
+if(window.Cadgrafics)window.Cadgrafics.initLandingLeadForm({
+  label:"Mac",source:"Landing Mac",
+  extraFields:[{name:"linea",label:"Equipo de interés"},{name:"description",label:"Detalle"},{name:"interes",label:"Botón"}]
 });
 
 })();

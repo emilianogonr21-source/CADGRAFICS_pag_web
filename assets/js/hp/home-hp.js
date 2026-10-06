@@ -14,7 +14,7 @@
     return;
   }
 
-  const { $, $$, submitLead, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
+  const { $, $$, submitLead, appendWhatsAppFallback, initHeader, initSmoothAnchors, initStandardLeadModal } = CG;
 
   initHeader({ lockBodyScroll: true });
   initSmoothAnchors();
@@ -123,7 +123,7 @@
   // ===== FORMULARIO DE CONTACTO EN PÁGINA =====
   const contactForm = $('#contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', async function (e) {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!contactForm.checkValidity()) {
         contactForm.reportValidity();
@@ -131,62 +131,24 @@
       }
 
       const formData = new FormData(contactForm);
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerHTML : '';
-      if (submitBtn) {
-        submitBtn.innerHTML = 'Enviando...';
-        submitBtn.disabled = true;
-      }
+      const result = submitLead(
+        {
+          name: formData.get('name') || formData.get('nombre'),
+          email: formData.get('email'),
+          phone: formData.get('phone') || formData.get('telefono'),
+          company: formData.get('company') || formData.get('empresa'),
+          message: formData.get('message') || formData.get('mensaje'),
+          source: 'hp-contact',
+        },
+        { label: 'HP — formulario de página' }
+      );
+      contactForm.reset();
 
       const formMessage = $('#contactFormMessage');
       if (formMessage) {
-        formMessage.textContent = '';
-        formMessage.className = 'form-message';
-      }
-
-      try {
-        await submitLead(
-          {
-            name: formData.get('name') || formData.get('nombre'),
-            email: formData.get('email'),
-            phone: formData.get('phone') || formData.get('telefono'),
-            company: formData.get('company') || formData.get('empresa'),
-            message: formData.get('message') || formData.get('mensaje'),
-            source: 'hp-contact',
-          },
-          { label: 'HP — formulario de página' }
-        );
-        if (submitBtn) {
-          submitBtn.innerHTML = 'Solicitud enviada';
-          submitBtn.style.backgroundColor = '#10b981';
-        }
-        if (formMessage) {
-          formMessage.textContent = 'Te redirigimos a WhatsApp para continuar.';
-          formMessage.className = 'form-message success';
-        }
-        setTimeout(function () {
-          if (submitBtn) {
-            submitBtn.innerHTML = originalText;
-            submitBtn.style.backgroundColor = '';
-            submitBtn.disabled = false;
-          }
-          contactForm.reset();
-          if (formMessage) {
-            formMessage.textContent = '';
-            formMessage.className = 'form-message';
-          }
-        }, 3000);
-      } catch (err) {
-        console.error('Error al enviar formulario HP:', err);
-        if (submitBtn) {
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }
-        if (formMessage) {
-          formMessage.textContent =
-            'No se pudo abrir WhatsApp. Escríbenos al +52 55 3112 0508.';
-          formMessage.className = 'form-message error';
-        }
+        formMessage.textContent = 'Abrimos WhatsApp con tus datos para que envíes la solicitud.';
+        formMessage.className = 'form-message success';
+        appendWhatsAppFallback(formMessage, result.whatsappUrl);
       }
     });
   }

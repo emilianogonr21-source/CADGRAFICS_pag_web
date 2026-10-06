@@ -880,6 +880,22 @@
       height: 15px;
       flex-shrink: 0;
     }
+    .hero .hero-form-message {
+      margin: 0;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: #18ff5c;
+    }
+    .hero .hero-form-message:empty {
+      display: none;
+    }
+    .hero .hero-form-message.error {
+      color: #ff6b6b;
+    }
+    .hero .hero-form-message a {
+      color: inherit;
+      text-decoration: underline;
+    }
     .hero .form-note {
       text-align: center;
       font-size: 0.7rem;
