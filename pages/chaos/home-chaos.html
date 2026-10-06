@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<!--
+  Página Chaos 2026 — Cadgrafics
+  ------------------------------
+  Qué hace: presenta las novedades 2026 de Chaos (Enscape, V-Ray, Corona,
+  Veras y Vantage), sus licencias y permite pedir asesoría.
+
+  Archivos relacionados:
+  - Apariencia:     ../../assets/css/chaos/home-chaos.css
+  - Comportamiento: ../../assets/js/chaos/home-chaos.js
+
+  Guía del equipo: docs/README.md
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chaos 2026: Enscape, V-Ray, Corona y Veras | Cadgrafics</title>
+<meta name="description" content="Novedades Chaos 2026: Veras con IA en Enscape, V-Ray y Corona, Corona 15, V-Ray 7 Update 3, Vantage 3.4 y nuevas licencias Collection. Asesoría sin costo con Cadgrafics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/chaos/home-chaos.css?v=20261006">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Cadgrafics, inicio"><img src="data:image/webp;base64,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" alt="Cadgrafics"></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <ul class="nav" id="nav">
+      <li><a href="#">Marcas</a></li>
+      <li><a href="#">Soluciones Claves</a></li>
+      <li><a href="#">Casos</a></li>
+      <li><a href="#contacto">Contáctanos</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= 1. HERO ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge">Ecosistema Chaos · Novedades 2026</span>
+      <h1>Del modelo a la imagen que vende tu proyecto</h1>
+      <p class="body">Enscape, V-Ray, Corona y ahora Veras con IA integrada en todos. Te ayudamos a elegir la licencia correcta y a sacarle provecho a todo lo nuevo de Chaos.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-light" href="#contacto">Solicita una asesoría sin costo</a>
+        <a class="btn btn-outline-light" href="#novedades">Ver novedades 2026</a>
+      </div>
+      <div class="hero-facts"><span>IA de Veras incluida</span><span>Un solo instalador</span><span>Chaos Credits mensuales</span></div>
+    </div>
+
+    <div>
+      <div class="reveal intro" id="reveal" style="--x:72%">
+        <!-- Render (ilustración original) -->
+        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A97A50"/><stop offset="1" stop-color="#7B5535"/></linearGradient>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FBDE3"/><stop offset="1" stop-color="#F3E3C8"/></linearGradient>
+            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7B0" stop-opacity=".55"/><stop offset="1" stop-color="#FFE7B0" stop-opacity=".1"/></linearGradient>
+            <radialGradient id="lampglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD58A" stop-opacity=".8"/><stop offset="1" stop-color="#FFD58A" stop-opacity="0"/></radialGradient>
+            <linearGradient id="bw" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E9DFD2"/><stop offset="1" stop-color="#F5EEE4"/></linearGradient>
+          </defs>
+          <path d="M0 0H600L480 60H120Z" fill="#F7F3EE"/>
+          <path d="M0 0L120 60V260L0 400Z" fill="#DCCFBF"/>
+          <path d="M600 0L480 60V260L600 400Z" fill="#E6DACB"/>
+          <rect x="120" y="60" width="360" height="200" fill="url(#bw)"/>
+          <path d="M0 400H600L480 260H120Z" fill="url(#fl)"/>
+          <g stroke="#6E4B2E" stroke-opacity=".35" stroke-width="1"><path d="M190 260L120 400M260 260L240 400M330 260L360 400M400 260L480 400M470 260L590 400"/></g>
+          <rect x="250" y="88" width="190" height="136" fill="url(#sky)"/>
+          <path d="M250 175c30-14 60-12 90-4s60 6 100-8v61H250z" fill="#9DB79A" opacity=".9"/>
+          <g fill="none" stroke="#3B3F46" stroke-width="5"><rect x="250" y="88" width="190" height="136"/><path d="M345 88V224M250 156H440"/></g>
+          <path d="M250 224H440L470 392H175Z" fill="url(#beam)"/>
+          <ellipse cx="330" cy="352" rx="175" ry="30" fill="#CDB89C"/>
+          <ellipse cx="250" cy="334" rx="110" ry="12" fill="#000" opacity=".18"/>
+          <rect x="150" y="252" width="190" height="40" rx="10" fill="#38465A"/>
+          <rect x="150" y="285" width="190" height="42" rx="8" fill="#435369"/>
+          <rect x="140" y="270" width="24" height="60" rx="8" fill="#34414F"/>
+          <rect x="326" y="270" width="24" height="60" rx="8" fill="#34414F"/>
+          <rect x="170" y="262" width="44" height="30" rx="8" fill="#B80007" opacity=".85"/>
+          <ellipse cx="400" cy="364" rx="70" ry="9" fill="#000" opacity=".2"/>
+          <ellipse cx="400" cy="340" rx="64" ry="14" fill="#6E4A2C"/>
+          <path d="M370 346v18M430 346v18" stroke="#4E331E" stroke-width="5"/>
+          <rect x="392" y="326" width="16" height="12" rx="2" fill="#F1EDE6"/>
+          <ellipse cx="478" cy="333" rx="26" ry="6" fill="#000" opacity=".18"/>
+          <rect x="460" y="292" width="34" height="40" rx="4" fill="#D8CDBE"/>
+          <g fill="#4F7B4B"><circle cx="470" cy="276" r="17"/><circle cx="490" cy="262" r="15"/><circle cx="480" cy="244" r="13"/><circle cx="462" cy="256" r="12"/></g>
+          <path d="M300 0V36" stroke="#3B3F46" stroke-width="2"/>
+          <circle cx="300" cy="60" r="70" fill="url(#lampglow)"/>
+          <path d="M282 36H318L326 56H274Z" fill="#2E3138"/>
+          <ellipse cx="300" cy="56" rx="26" ry="4" fill="#FFE2A8"/>
+        </svg>
+        <!-- Modelo / wireframe -->
+        <svg class="wire" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="600" height="400" fill="#1A0910"/>
+          <g stroke="rgba(255,255,255,.06)"><path d="M0 40H600M0 80H600M0 120H600M0 160H600M0 200H600M0 240H600M0 280H600M0 320H600M0 360H600M40 0V400M80 0V400M120 0V400M160 0V400M200 0V400M240 0V400M280 0V400M320 0V400M360 0V400M400 0V400M440 0V400M480 0V400M520 0V400M560 0V400"/></g>
+          <g fill="none" stroke="#FF8A8F" stroke-width="1.6">
+            <path d="M0 0L120 60H480L600 0M120 60V260H480V60M0 400L120 260M600 400L480 260"/>
+            <path d="M190 260L120 400M260 260L240 400M330 260L360 400M400 260L480 400" stroke-opacity=".35"/>
+            <rect x="250" y="88" width="190" height="136"/><path d="M345 88V224M250 156H440"/>
+            <ellipse cx="330" cy="352" rx="175" ry="30" stroke-opacity=".5"/>
+            <rect x="150" y="252" width="190" height="40" rx="10"/><rect x="150" y="285" width="190" height="42" rx="8"/>
+            <rect x="140" y="270" width="24" height="60" rx="8"/><rect x="326" y="270" width="24" height="60" rx="8"/>
+            <rect x="170" y="262" width="44" height="30" rx="8"/>
+            <ellipse cx="400" cy="340" rx="64" ry="14"/><path d="M370 346v18M430 346v18"/>
+            <rect x="460" y="292" width="34" height="40" rx="4"/>
+            <circle cx="470" cy="276" r="17"/><circle cx="490" cy="262" r="15"/><circle cx="480" cy="244" r="13"/><circle cx="462" cy="256" r="12"/>
+            <path d="M300 0V36M282 36H318L326 56H274Z"/>
+          </g>
+          <g fill="#fff"><circle cx="120" cy="60" r="3"/><circle cx="480" cy="60" r="3"/><circle cx="120" cy="260" r="3"/><circle cx="480" cy="260" r="3"/></g>
+        </svg>
+        <div class="handle"></div>
+        <span class="tag l">Modelo</span><span class="tag r">Render</span>
+        <input type="range" min="0" max="100" value="72" aria-label="Desliza para comparar el modelo con el render">
+      </div>
+      <p class="reveal-cap">Desliza para pasar del modelo al render</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. NOVEDADES 2026 ================= -->
+<section class="section gray" id="novedades">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">Lo nuevo de Chaos</span>
+      <h2>Todo lo que llegó en 2026</h2>
+      <p class="sub">Un año enfocado en IA integrada, tiempo real y un ecosistema más simple de instalar y licenciar.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date"><strong>Septiembre</strong><span>2026</span></div>
+        <div class="tl-card"><span class="new">Lo más reciente</span>
+          <h3>Vantage 3.4</h3><p class="prod">Ray tracing en tiempo real</p>
+          <ul><li>Soporte para materiales <b>OpenPBR</b></li><li>Más materiales y luces de V-Ray</li><li>Simulador renombrado <b>Fire &amp; Smoke</b></li><li>Compatible con V-Ray 4+, Corona 12+ y Enscape 4.2+</li></ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date"><strong>Mayo</strong><span>2026</span></div>
+        <div class="tl-card hot">
+          <h3>Veras en todo el ecosistema + Corona 15</h3><p class="prod">IA integrada y licencias unificadas</p>
+          <ul><li><b>Veras con IA</b> incluido en Enscape, V-Ray y Corona</li><li><b>Un solo instalador</b> para todos los productos</li><li><b>Chaos Credits</b> para nube e IA</li><li><b>Envision Live Link</b> desde Enscape en un clic</li><li><b>2,500+ assets</b> nuevos en Cosmos con búsqueda por IA</li><li><b>Vantage</b> dentro del viewport de V-Ray</li><li><b>Corona 15:</b> Glints, Gaussian Splats y 3D Streaming</li><li>Videocolaboración en Chaos Cloud</li></ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date"><strong>Abril</strong><span>2026</span></div>
+        <div class="tl-card">
+          <h3>V-Ray 7, Update 3</h3><p class="prod">Tiempo real dentro de V-Ray</p>
+          <ul><li>Ray tracing en tiempo real en el viewport</li><li><b>AI Mood Match</b></li><li><b>Parallax Interiors</b></li><li>Colaboración con Chaos Cloud</li><li><b>V-Ray para Blender Community Edition</b> gratuita</li></ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date"><strong>Febrero</strong><span>2026</span></div>
+        <div class="tl-card">
+          <h3>Flujo arquitectónico de punta a punta</h3><p class="prod">Enscape, Veras y Envision</p>
+          <ul><li>Casi <b>20 nuevas capacidades</b></li><li><b>AI Material Generator</b> desde fotos reales</li><li><b>3D Streaming</b> desde Enscape</li><li>Revisiones centralizadas en Chaos Cloud</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. PRODUCTOS ================= -->
+<section class="section" id="productos">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">El ecosistema Chaos</span>
+      <h2>Una herramienta para cada etapa</h2>
+      <p class="sub">Elige un producto para ver qué hace, qué hay de nuevo y con qué software trabaja.</p>
+    </div>
+    <div class="prod-tabs" role="tablist" aria-label="Productos Chaos">
+      <button class="pt" role="tab" aria-selected="true" data-p="enscape" style="--c:#7B5CFF"><i></i>Enscape</button>
+      <button class="pt" role="tab" aria-selected="false" data-p="vray" style="--c:#2F7DE1"><i></i>V-Ray</button>
+      <button class="pt" role="tab" aria-selected="false" data-p="corona" style="--c:#F28C28"><i></i>Corona</button>
+      <button class="pt" role="tab" aria-selected="false" data-p="veras" style="--c:#E0457B"><i></i>Veras</button>
+      <button class="pt" role="tab" aria-selected="false" data-p="vantage" style="--c:#19B39B"><i></i>Vantage</button>
+      <button class="pt" role="tab" aria-selected="false" data-p="envision" style="--c:#5AA9E6"><i></i>Envision</button>
+      <button class="pt" role="tab" aria-selected="false" data-p="cosmos" style="--c:#C9A227"><i></i>Cosmos</button>
+      <button class="pt" role="tab" aria-selected="false" data-p="cloud" style="--c:#8A94A6"><i></i>Chaos Cloud</button>
+    </div>
+
+    <div class="pp" role="tabpanel" data-p="enscape" style="--c:#7B5CFF">
+      <div class="pp-art"><span class="pp-mono">En</span><h3>Enscape</h3><p>Renderizado en tiempo real para diseñar mientras modelas.</p></div>
+      <div class="pp-copy">
+        <p>Visualiza tu proyecto al instante dentro de tu software de diseño. Cada cambio en el modelo se refleja de inmediato, ideal para tomar decisiones con tu cliente.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>Veras integrado: de Enscape a IA con un clic</li><li>Envision Live Link para animaciones avanzadas</li><li>2,500+ assets de Cosmos y búsqueda por IA</li><li>AI Material Generator y 3D Streaming</li></ul>
+        <h4>Trabaja con</h4>
+        <div class="hosts"><span>Revit</span><span>SketchUp</span><span>Rhino</span><span>Archicad</span><span>Vectorworks</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="Enscape">Cotizar Enscape</a>
+      </div>
+    </div>
+    <div class="pp" role="tabpanel" data-p="vray" style="--c:#2F7DE1" hidden>
+      <div class="pp-art"><span class="pp-mono">V</span><h3>V-Ray</h3><p>El estándar de la industria en renderizado fotorrealista.</p></div>
+      <div class="pp-copy">
+        <p>Imágenes y animaciones de máxima calidad para arquitectura, producto y entretenimiento, con control total sobre luz y materiales.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>V-Ray 7 Update 3: tiempo real en el viewport con Vantage</li><li>AI Mood Match y Parallax Interiors</li><li>Veras integrado y 1,000+ assets nuevos</li><li>Versión gratuita Community Edition para Blender</li></ul>
+        <h4>Trabaja con</h4>
+        <div class="hosts"><span>3ds Max</span><span>SketchUp</span><span>Rhino</span><span>Revit</span><span>Maya</span><span>Cinema 4D</span><span>Blender</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="V-Ray">Cotizar V-Ray</a>
+      </div>
+    </div>
+    <div class="pp" role="tabpanel" data-p="corona" style="--c:#F28C28" hidden>
+      <div class="pp-art"><span class="pp-mono">Co</span><h3>Corona 15</h3><p>Fotorrealismo sencillo, con un solo botón.</p></div>
+      <div class="pp-copy">
+        <p>Fotorrealismo con una configuración sencilla, que ahora reúne IA, render y animación cinematográfica en un mismo entorno.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>Capa Glints para pintura metálica, arena y nieve</li><li>Gaussian Splats que se integran con la iluminación</li><li>Animaciones más rápidas en 3ds Max</li><li>3D Streaming: recorridos desde cualquier dispositivo</li></ul>
+        <h4>Trabaja con</h4>
+        <div class="hosts"><span>3ds Max</span><span>Cinema 4D</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="Corona">Cotizar Corona</a>
+      </div>
+    </div>
+    <div class="pp" role="tabpanel" data-p="veras" style="--c:#E0457B" hidden>
+      <div class="pp-art"><span class="pp-mono">Ve</span><h3>Veras</h3><p>Ideación y visualización con inteligencia artificial.</p></div>
+      <div class="pp-copy">
+        <p>Convierte bocetos, imágenes 2D y modelos 3D en imágenes y animaciones listas para presentar. Explora estilos y ambientes sin perder la intención de diseño.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>Incluido en todas las versiones de Enscape, V-Ray y Corona</li><li>En Corona funciona desde una captura del VFB</li><li>Genera varios conceptos en cualquier etapa</li></ul>
+        <h4>Trabaja con</h4>
+        <div class="hosts"><span>Revit</span><span>SketchUp</span><span>Rhino</span><span>Archicad</span><span>Vectorworks</span><span>3ds Max</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="Veras">Quiero conocer Veras</a>
+      </div>
+    </div>
+    <div class="pp" role="tabpanel" data-p="vantage" style="--c:#19B39B" hidden>
+      <div class="pp-art"><span class="pp-mono">Va</span><h3>Vantage 3.4</h3><p>Ray tracing en tiempo real para escenas enormes.</p></div>
+      <div class="pp-copy">
+        <p>Explora escenas de producción completas en tiempo real, con la misma tecnología de V-Ray. Ideal para revisiones, recorridos y animaciones rápidas.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>Materiales OpenPBR</li><li>Más materiales y luces de V-Ray soportados</li><li>Simulación de fuego y humo en tiempo real</li></ul>
+        <h4>Abre escenas de</h4>
+        <div class="hosts"><span>V-Ray 4+</span><span>Corona 12+</span><span>Enscape 4.2+</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="Vantage">Quiero conocer Vantage</a>
+      </div>
+    </div>
+    <div class="pp" role="tabpanel" data-p="envision" style="--c:#5AA9E6" hidden>
+      <div class="pp-art"><span class="pp-mono">Ev</span><h3>Envision</h3><p>Ensamblaje y animación en tiempo real para AEC.</p></div>
+      <div class="pp-copy">
+        <p>Construye escenas, anima y presenta tu proyecto con calidad totalmente ray traced, partiendo de lo que ya hiciste en Enscape o en tu software de diseño.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>Live Link desde Enscape en un clic</li><li>Assets consistentes entre Enscape y Envision</li></ul>
+        <h4>Recibe contenido de</h4>
+        <div class="hosts"><span>Enscape</span><span>V-Ray</span><span>Revit</span><span>SketchUp</span><span>Rhino</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="Envision">Quiero conocer Envision</a>
+      </div>
+    </div>
+    <div class="pp" role="tabpanel" data-p="cosmos" style="--c:#C9A227" hidden>
+      <div class="pp-art"><span class="pp-mono">Cs</span><h3>Chaos Cosmos</h3><p>La biblioteca de assets 3D del ecosistema.</p></div>
+      <div class="pp-copy">
+        <p>Personas, vegetación, mobiliario, accesorios y materiales listos para usar en todos los productos Chaos, optimizados para tiempo real y alta calidad.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>2,500+ assets nuevos para Enscape</li><li>1,000+ assets nuevos para V-Ray y Corona</li><li>Búsqueda por IA en lenguaje natural</li></ul>
+        <h4>Disponible en</h4>
+        <div class="hosts"><span>Enscape</span><span>V-Ray</span><span>Corona</span><span>Vantage</span><span>Envision</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="Cosmos">Quiero más información</a>
+      </div>
+    </div>
+    <div class="pp" role="tabpanel" data-p="cloud" style="--c:#8A94A6" hidden>
+      <div class="pp-art"><span class="pp-mono">Cl</span><h3>Chaos Cloud</h3><p>Render en la nube y colaboración con tu cliente.</p></div>
+      <div class="pp-copy">
+        <p>Renderiza sin ocupar tu equipo y comparte avances para revisión y aprobación, sin descargas ni herramientas externas.</p>
+        <h4>Lo nuevo</h4>
+        <ul class="pp-new"><li>Revisiones centralizadas en la nube</li><li>Videocolaboración</li><li>Funciona con Chaos Credits</li></ul>
+        <h4>Conectado con</h4>
+        <div class="hosts"><span>Enscape</span><span>V-Ray</span><span>Corona</span></div>
+        <a class="btn btn-primary" href="#contacto" data-interest="Chaos Cloud">Quiero más información</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. FLUJO ================= -->
+<section class="section gray" id="flujo">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">Cómo se conecta</span>
+      <h2>Un flujo de trabajo, de la idea a la aprobación</h2>
+    </div>
+    <ol class="eco">
+      <li><h3>Diseña</h3><p class="tools">Enscape</p><p>Visualiza en tiempo real mientras modelas en Revit, SketchUp o Rhino.</p></li>
+      <li><h3>Explora con IA</h3><p class="tools">Veras</p><p>Prueba estilos, materiales y ambientes rápidamente.</p></li>
+      <li><h3>Renderiza</h3><p class="tools">V-Ray · Corona</p><p>Imágenes fotorrealistas para presentación y marketing.</p></li>
+      <li><h3>Anima y recorre</h3><p class="tools">Envision · Vantage</p><p>Recorridos y animaciones con ray tracing en tiempo real.</p></li>
+      <li><h3>Comparte</h3><p class="tools">Chaos Cloud</p><p>Revisiones, 3D Streaming y aprobaciones desde cualquier dispositivo.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= 5. LICENCIAS 2026 ================= -->
+<section class="section" id="licencias">
+  <div class="wrap">
+    <div class="center">
+      <span class="pill">Licenciamiento 2026</span>
+      <h2>Licencias más simples y con más incluido</h2>
+      <p class="sub">Desde mayo de 2026 Chaos renombró y simplificó sus licencias. Esto es lo que cambia para tu empresa.</p>
+    </div>
+    <div class="lic-note">
+      <div class="ln"><b>Veras incluido</b><span>En todas las licencias comerciales Solo, Premium y Collection de V-Ray, Enscape y Corona.</span></div>
+      <div class="ln"><b>Chaos Credits cada mes</b><span>Para render en la nube y funciones de IA, según el nivel de tu licencia.</span></div>
+      <div class="ln"><b>Un solo instalador</b><span>Descarga e instala todos tus productos Chaos de una vez.</span></div>
+    </div>
+    <div class="collections">
+      <article class="col" style="--c:#7B5CFF">
+        <p class="was">Antes ArchDesign Collection</p>
+        <h3>Enscape Collection</h3>
+        <p>Para despachos de arquitectura que diseñan y presentan en tiempo real.</p>
+        <ul><li>Enscape</li><li>Veras</li><li>Envision</li><li>Enscape Impact</li><li>Chaos Cosmos y Chaos Cloud</li><li>Chaos Credits mensuales</li></ul>
+        <a class="btn btn-outline" href="#contacto" data-interest="Enscape Collection">Cotizar Enscape Collection</a>
+      </article>
+      <article class="col" style="--c:#2F7DE1">
+        <p class="was">Antes ArchViz V-Ray y M&amp;R V-Ray Collection</p>
+        <h3>V-Ray Collection</h3>
+        <p>Para estudios de visualización, producto y entretenimiento.</p>
+        <ul><li>V-Ray</li><li>Veras</li><li>Vantage</li><li>Chaos Credits mensuales</li></ul>
+        <a class="btn btn-outline" href="#contacto" data-interest="V-Ray Collection">Cotizar V-Ray Collection</a>
+      </article>
+      <article class="col" style="--c:#F28C28">
+        <p class="was">Antes ArchViz Collection: Corona</p>
+        <h3>Corona Collection</h3>
+        <p>Para artistas de visualización que buscan fotorrealismo simple.</p>
+        <ul><li>Corona</li><li>Veras</li><li>Vantage</li><li>Chaos Credits mensuales</li></ul>
+        <a class="btn btn-outline" href="#contacto" data-interest="Corona Collection">Cotizar Corona Collection</a>
+      </article>
+    </div>
+    <div class="tiers"><b>Niveles disponibles:</b><span>Solo</span><span>Premium</span><span>Collection</span><em style="font-style:normal;color:var(--muted)">· También hay licencias educativas.</em></div>
+  </div>
+</section>
+
+<!-- ================= 6. VALOR CADGRAFICS ================= -->
+<section class="section value">
+  <div class="wrap center">
+    <span class="pill">Cadgrafics + Chaos</span>
+    <h2>Tecnología que se adapta a tu negocio</h2>
+    <p class="sub">Licenciamiento, asesoría y acompañamiento para que tu equipo aproveche todo lo nuevo de Chaos.</p>
+    <div class="value-cards">
+      <div class="vcard"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><h3>Licenciamiento</h3><p>La colección y el nivel correctos para cada usuario.</p></div>
+      <div class="vcard"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div><h3>Asesoría</h3><p>Te ayudamos a migrar a las nuevas licencias 2026.</p></div>
+      <div class="vcard"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></div><h3>Acompañamiento</h3><p>Soporte en instalación, renovaciones y adopción.</p></div>
+    </div>
+    <a class="btn btn-light" href="#contacto">Solicita una asesoría sin costo</a>
+  </div>
+</section>
+
+<!-- ================= 7. CONTACTO ================= -->
+<section class="section gray contact" id="contacto">
+  <div class="wrap">
+    <div class="copy">
+      <span class="pill">Contáctanos</span>
+      <h2>No todas las empresas tienen las mismas necesidades</h2>
+      <p>Te ayudamos a elegir entre Enscape, V-Ray y Corona, y a definir la colección y el nivel de licencia ideales para tu equipo.</p>
+      <div class="whys">
+        <div><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.8-3 3-5 6-5s5.2 2 6 5M15 15c3 0 5 1.8 6 5"/></svg></span><div><h3>Para tu equipo</h3><p>Analizamos quién diseña, quién renderiza y quién presenta.</p></div></div>
+        <div><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><div><h3>Para tu software</h3><p>Revisamos tus programas de diseño para elegir el producto compatible.</p></div></div>
+        <div><span class="n"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7M21 4v5h-5"/></svg></span><div><h3>Para tu renovación</h3><p>Te explicamos cómo quedan tus licencias con los cambios de 2026.</p></div></div>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Solicita una recomendación personalizada</h3>
+      <p>Cuéntanos qué necesitas y un especialista de Cadgrafics te contactará.</p>
+      <!-- Salesforce Web-to-Lead: cambia action y los name por los de tu org -->
+      <form id="leadForm" action="#" method="POST" novalidate>
+        <input type="hidden" name="lead_source" value="Landing Chaos">
+        <input type="hidden" name="interes" id="interes">
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+        <div class="field"><label for="f-name">Nombre completo</label><input id="f-name" name="first_name" type="text" autocomplete="name" required></div>
+        <div class="row">
+          <div class="field"><label for="f-email">Correo empresarial</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone">Celular</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="f-company">Empresa</label><input id="f-company" name="company" type="text" autocomplete="organization" required></div>
+          <div class="field"><label for="f-prod">Producto de interés</label>
+            <select id="f-prod" name="producto" required>
+              <option value="">Selecciona</option><option>Enscape</option><option>V-Ray</option><option>Corona</option><option>Veras</option><option>Vantage</option><option>Envision</option><option>Aún no lo sé</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-sit">Situación actual</label>
+          <select id="f-sit" name="situacion" required>
+            <option value="">Selecciona</option>
+            <option>Ya tengo licencias Chaos y quiero renovar</option>
+            <option>Quiero cambiar de colección o nivel</option>
+            <option>Uso otro renderizador</option>
+            <option>Empiezo desde cero</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Solicitar asesoría sin costo</button>
+        <p class="form-msg" id="formMsg" role="status"></p>
+        <p class="fine">Un especialista te contactará en menos de 24 horas hábiles.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Cadgrafics S.A. de C.V.</h4>
+        <p>Norte 56-A #5204, Col. Tablas de San Agustín</p>
+        <p>07860, Gustavo A. Madero, CDMX</p>
+        <p>Correo: <a href="mailto:sandra.alvarez@cadgrafics.com.mx">sandra.alvarez@cadgrafics.com.mx</a></p>
+        <p>WhatsApp: <a href="https://wa.me/525531120508">+52 (55) 3112-0508</a></p>
+      </div>
+      <div>
+        <h4>Cadgrafics de Occidente S.A. de C.V.</h4>
+        <p>Calle Día #2381, Col. Jardines del Bosque</p>
+        <p>44520, Guadalajara, Jalisco</p>
+        <p>Correo: <a href="mailto:rafael.castro@cadgrafics.com.mx">rafael.castro@cadgrafics.com.mx</a></p>
+        <p>WhatsApp: <a href="https://wa.me/523314040396">+52 (33) 1404-0396</a></p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <div class="social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube">yt</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a></div>
+      </div>
+    </div>
+    <p class="legal">© 2026 Todos los derechos reservados | <a href="#">Aviso de privacidad</a><br>Chaos, V-Ray, Corona, Enscape, Veras, Vantage, Envision y Chaos Cosmos son marcas de Chaos Software EOOD y sus afiliadas.</p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/525531120508?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20licencias%20Chaos" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+<script src="../../assets/js/chaos/home-chaos.js?v=20261006" defer></script>
+</body>
+</html>
