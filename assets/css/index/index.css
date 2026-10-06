@@ -206,7 +206,8 @@
         .form-fields input::placeholder { color: rgba(255, 255, 255, 0.7); }
         .form-fields input:focus { 
             outline: none; 
-            border-color: var(--color-green); 
+            border-color: #ff1a1a; 
+            box-shadow: 0 0 0 3px rgba(255, 26, 26, 0.3); 
             background: rgba(255, 255, 255, 0.2); 
         }
         .form-fields input.is-invalid {
@@ -1013,8 +1014,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #8B0000;
-            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.25);
+            border-color: #ff1a1a;
+            box-shadow: 0 0 0 3px rgba(255, 26, 26, 0.35);
         }
         .form-group input.is-invalid,
         .form-group textarea.is-invalid {

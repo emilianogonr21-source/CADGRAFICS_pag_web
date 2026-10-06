@@ -12,6 +12,7 @@
   --cg-nav-white: #ffffff;
   --cg-nav-dark-red: #990000;
   --cg-nav-green: #18ff5c;
+  --cg-nav-red: #ff1a1a;
   --cg-nav-glass-bg: rgba(30, 41, 59, 0.98);
   --cg-nav-glass-border: rgba(255, 255, 255, 0.1);
   --cg-nav-radius-sm: 6px;
@@ -251,7 +252,7 @@ video {
 
 .dropdown-menu a svg,
 .dropdown-submenu-menu a svg {
-  color: var(--cg-nav-green);
+  color: var(--cg-nav-red);
   width: 1.25rem;
   height: 1.25rem;
   text-align: center;
@@ -417,7 +418,7 @@ main {
     max-height: 500px;
     padding: 0.5rem 0 0.5rem 1.5rem;
     margin-top: 0.25rem;
-    border-left: 2px solid var(--cg-nav-green);
+    border-left: 2px solid var(--cg-nav-red);
   }
 
   .nav-item > a::after {

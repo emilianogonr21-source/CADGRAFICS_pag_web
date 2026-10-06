@@ -1497,8 +1497,8 @@ h3 {
 .modal .form-group input:focus,
 .modal .form-group textarea:focus {
   outline: none;
-  border-color: var(--maroon);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
+  border-color: #ff1a1a;
+  box-shadow: 0 0 0 3px rgba(255, 26, 26, 0.35);
 }
 
 .modal .form-group input.is-invalid,

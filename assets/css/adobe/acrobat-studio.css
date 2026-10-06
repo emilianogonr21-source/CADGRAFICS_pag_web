@@ -1147,8 +1147,8 @@
 .modal .form-group input:focus,
 .modal .form-group textarea:focus {
   outline: none;
-  border-color: #D90F1A;
-  box-shadow: 0 0 0 3px rgba(217, 15, 26, 0.25);
+  border-color: #ff1a1a;
+  box-shadow: 0 0 0 3px rgba(255, 26, 26, 0.35);
 }
 .modal .form-group input.is-invalid,
 .modal .form-group textarea.is-invalid {
