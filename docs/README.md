@@ -166,7 +166,7 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | Acrobat Studio | `pages/adobe/acrobat-studio.html` |
 | Autodesk (inicio) | `pages/autodesk/home-autodesk.html` |
 | AEC Collection | `pages/autodesk/aec-collection.html` |
-| SketchUp | `pages/sketchup/home-chaos.html` |
+| SketchUp | `pages/sketchup/home-sketchup.html` |
 | Dell | `pages/dell/home-dell.html` |
 | HP | `pages/hp/home-hp.html` |
 | Mac | `pages/mac/home-mac.html` |
@@ -183,7 +183,7 @@ Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
 | Acrobat Studio | `pages/adobe/acrobat-studio.html` | `assets/css/adobe/acrobat-studio.css` | `assets/js/adobe/acrobat-studio.js` |
 | Autodesk | `pages/autodesk/home-autodesk.html` | `assets/css/autodesk/home-autodesk.css` | `assets/js/autodesk/home-autodesk.js` |
 | AEC Collection | `pages/autodesk/aec-collection.html` | `assets/css/autodesk/aec-collection.css` | `assets/js/autodesk/aec-collection.js` |
-| SketchUp | `pages/sketchup/home-chaos.html` | `assets/css/sketchup/home-chaos.css` | `assets/js/sketchup/home-chaos.js` |
+| SketchUp | `pages/sketchup/home-sketchup.html` | `assets/css/sketchup/home-sketchup.css` | `assets/js/sketchup/home-sketchup.js` |
 | Dell | `pages/dell/home-dell.html` | `assets/css/dell/home-dell.css` | `assets/js/dell/home-dell.js` |
 | HP | `pages/hp/home-hp.html` | `assets/css/hp/home-hp.css` | `assets/js/hp/home-hp.js` |
 | Mac | `pages/mac/home-mac.html` | `assets/css/mac/home-mac.css` | `assets/js/mac/home-mac.js` |
@@ -347,7 +347,7 @@ Dominio de referencia en los archivos: `https://cadgrafics.com.mx/`.
 |----------|-------------|
 | El aviso de privacidad no abre | Ruta correcta según dónde estés (ver [Rutas](#rutas-por-qué-a-veces-no-se-ve-una-imagen)). |
 | Una imagen no se ve | Nombre exacto + carpeta correcta + `../../assets/...` desde `pages/`. |
-| SketchUp no abre desde el menú | El archivo es `pages/sketchup/home-chaos.html` (carpeta `sketchup`, minúsculas). |
+| SketchUp no abre desde el menú | El archivo es `pages/sketchup/home-sketchup.html` (carpeta `sketchup`, minúsculas). |
 | Cambié un nombre y “se rompió todo” | Busca el nombre viejo en todo el proyecto y actualízalo (menús, CSS, JS, sitemap). |
 | En celular el menú no se abre | Botón de tres líneas; lógica en `site-common.js` / JS de la página. |
 | Contáctanos no abre | Clase `textbutton-trigger`, `#formModal`, `#leadForm` y `site-common.js`. |

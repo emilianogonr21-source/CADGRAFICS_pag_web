@@ -2,8 +2,8 @@
   Comportamiento de SketchUp (Chaos) — Cadgrafics
   -----------------------------------------------
   Depende de: assets/js/shared/site-common.js (menú, Contáctanos, WhatsApp)
-  Contenido: pages/sketchup/home-chaos.html
-  Apariencia: assets/css/sketchup/home-chaos.css
+  Contenido: pages/sketchup/home-sketchup.html
+  Apariencia: assets/css/sketchup/home-sketchup.css
 
   Guía del equipo: docs/README.md
 */

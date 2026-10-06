@@ -20,7 +20,7 @@ $pages = @(
   @{ Rel = 'pages/autodesk/home-autodesk.html'; Active = 'autodesk' },
   @{ Rel = 'pages/autodesk/aec-collection.html'; Active = 'autodesk' },
   @{ Rel = 'pages/chaos/home-chaos.html'; Active = 'chaos'; NoModal = $true },
-  @{ Rel = 'pages/sketchup/home-chaos.html'; Active = 'sketchup' },
+  @{ Rel = 'pages/sketchup/home-sketchup.html'; Active = 'sketchup' },
   @{ Rel = 'pages/dell/home-dell.html'; Active = 'dell' },
   @{ Rel = 'pages/hp/home-hp.html'; Active = 'hp' },
   @{ Rel = 'pages/mac/home-mac.html'; Active = 'mac'; NoModal = $true },

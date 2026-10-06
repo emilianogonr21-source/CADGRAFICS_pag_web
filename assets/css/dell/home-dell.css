@@ -462,6 +462,10 @@ h3 {
   max-height: 270px;
 }
 
+.tile-img--photo img {
+  border-radius: 10px;
+}
+
 .t-max,
 .t-ess {
   grid-column: span 2;
@@ -648,6 +652,24 @@ h3 {
   width: 85%;
   max-height: 280px;
   object-fit: contain;
+}
+
+.panel-media.panel-media--photo {
+  padding: 0;
+  overflow: hidden;
+}
+
+.panel-media.panel-media--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
+}
+
+.panel-media--photo .panel-tag {
+  z-index: 1;
 }
 
 .panel-tag {
