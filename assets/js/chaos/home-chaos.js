@@ -1,13 +1,8 @@
 (function () {
   'use strict';
 
-  /* Header */
-  const header=document.getElementById("header");
-  const onScroll=()=>header.classList.toggle("scrolled",scrollY>40);
-  addEventListener("scroll",onScroll,{passive:true});onScroll();
-  const menuBtn=document.getElementById("menuBtn"),nav=document.getElementById("nav");
-  menuBtn.addEventListener("click",()=>{const o=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",o)});
-  nav.addEventListener("click",e=>{if(e.target.tagName==="A"){nav.classList.remove("open");menuBtn.setAttribute("aria-expanded",false)}});
+  /* Menú superior compartido (assets/js/shared/site-common.js) */
+  if(window.Cadgrafics)window.Cadgrafics.initHeader({lockBodyScroll:true});
 
   /* Comparador modelo / render */
   const rv=document.getElementById("reveal"),rr=rv.querySelector("input");
