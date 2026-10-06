@@ -104,7 +104,10 @@ CADGRAFICS_pag_web/
 │   ├── autodesk/
 │   ├── dell/
 │   ├── hp/
-│   └── sketchup/
+│   ├── mac/
+│   ├── microsoft/
+│   ├── sketchup/
+│   └── brevo/              ← Boletines de correo (no son páginas del sitio)
 │
 └── assets/                 ← Recursos
     ├── images/
@@ -114,7 +117,10 @@ CADGRAFICS_pag_web/
     │   ├── autodesk/       ← home / aec-collection
     │   ├── dell/home/
     │   ├── hp/home/
-    │   └── sketchup/home/
+    │   ├── mac/home/
+    │   ├── microsoft/home/
+    │   ├── sketchup/home/
+    │   └── brevo/          ← Una subcarpeta por boletín (ej. news-octubre/)
     ├── video/              ← Misma lógica que images (espejo por marca/página)
     ├── css/                ← shared + cada marca + index + legal
     └── js/                 ← shared + cada marca + index (legal no usa JS)
@@ -130,6 +136,8 @@ Si existe `pages/dell/home-dell.html`, lo normal es que existan:
 - `assets/video/dell/home/` (aunque esté vacío, con un `.gitkeep` para guardar la carpeta en Git)
 
 Así siempre sabes dónde poner una foto nueva: **misma marca, misma página**.
+
+**Excepción: boletines de Brevo** (`pages/brevo/`). Son correos, no páginas del sitio: su CSS va dentro del mismo HTML (los programas de correo ignoran archivos CSS externos) y no llevan JS. Sus imágenes van en `assets/images/brevo/<boletín>/`.
 
 | Carpeta | Para qué |
 |---------|----------|

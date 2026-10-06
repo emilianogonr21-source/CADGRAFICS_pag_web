@@ -54,7 +54,7 @@ function showRec(k){
   const r=recs[k];
   match.classList.remove("enter");void match.offsetWidth;match.classList.add("enter");
   match.innerHTML=`<div><p class="lbl">Te recomendamos</p><h3>${r.n}</h3><p class="why">${r.why}</p></div>
-    <div class="dev"><img src="../../assets/images/mac/${r.img}.webp" alt="">${svgs[r.svg]}</div>
+    <div class="dev"><img src="../../assets/images/mac/home/${r.img}.webp" alt="">${svgs[r.svg]}</div>
     <div class="row"><div class="chips">${r.tags.map(t=>`<span>${t}</span>`).join("")}</div>
     <a class="btn btn-primary" href="${r.go}" ${r.tab?`data-tab="${r.tab}"`:""}>Ver ${r.n}</a></div>`;
   useFallback(match);
