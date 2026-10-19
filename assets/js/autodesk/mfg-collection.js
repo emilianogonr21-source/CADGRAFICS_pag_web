@@ -110,16 +110,13 @@ function saveInUrl(key){
   } catch (e) { /* la página sigue funcionando aunque no se pueda actualizar la URL */ }
 }
 
-function setCollection(key, scroll){
+function setCollection(key){
   if (!TOOLS[key]) key = "pdm";
   document.body.dataset.col = key;
-  document.querySelectorAll("[data-set]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.set === key)));
   document.querySelectorAll(`[data-c="${key}"]`).forEach(el => { el.classList.remove("swap"); void el.offsetWidth; el.classList.add("swap"); });
   updateLinks();
   saveInUrl(key);
-  if (scroll) document.getElementById("top").scrollIntoView({ behavior: "smooth" });
 }
-document.querySelectorAll("[data-set]").forEach(b => b.addEventListener("click", () => setCollection(b.dataset.set, false)));
 
 /* =========================================================
    5. PESTAÑAS DE NOVEDADES (accesibles con flechas)
@@ -154,7 +151,7 @@ function updateLinks(){
 }
 
 /* =========================================================
-   7. MENÚ COMPARTIDO Y BARRA FIJA DE COLECCIÓN
+   7. MENÚ COMPARTIDO
    ========================================================= */
 if (window.Cadgrafics) {
   Cadgrafics.initHeader({ lockBodyScroll: true });
@@ -165,17 +162,5 @@ document.addEventListener("keydown", (e) => {
   document.querySelectorAll('.tool button[aria-expanded="true"]').forEach(x => x.setAttribute("aria-expanded","false"));
 });
 
-const colBar = document.getElementById("colBar");
-const heroCtas = document.querySelector(".hero .hero-ctas");
-const barButtons = colBar.querySelectorAll("button");
-function onScroll(){
-  const show = heroCtas.getBoundingClientRect().bottom < 0 && document.getElementById("contacto").getBoundingClientRect().top > window.innerHeight * .5;
-  colBar.classList.toggle("show", show);
-  colBar.setAttribute("aria-hidden", String(!show));
-  barButtons.forEach(b => b.tabIndex = show ? 0 : -1);
-}
-window.addEventListener("scroll", onScroll, { passive: true });
-
 /* Inicio */
-setCollection(new URLSearchParams(location.search).get("coleccion") || "pdm", false);
-onScroll();
+setCollection(new URLSearchParams(location.search).get("coleccion") || "pdm");
