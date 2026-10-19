@@ -9,23 +9,94 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/adopcion_autodesk/adopcion_Autodesk.css">
+<link rel="stylesheet" href="../../assets/css/shared/header.css?v=20261006h" />
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="site-header" id="header">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="Cadgrafics, inicio"><img src="../../assets/images/adopcion_autodesk/logo-cadgrafics.webp" alt="Cadgrafics"></a>
-    <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+<a href="#top" class="skip-link">Saltar al contenido principal</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></symbol>
+</svg>
+
+<header class="header" id="header">
+  <div class="container nav-container">
+    <a href="../../index.html" class="brand-link" aria-label="Ir a inicio de Cadgrafics">
+      <img src="../../assets/images/brand/logo_cadgrafics.png" alt="" class="logo" loading="eager" width="288" height="72"/>
+      <span class="brand-name">CADGRAFICS</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item">
+          <a href="../../index.html#marcas" aria-haspopup="true" aria-expanded="false">
+            Marcas <svg width="12" height="12" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu">
+              <a href="../../pages/adobe/home-adobe.html" aria-haspopup="true" aria-expanded="false">
+                Adobe <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/adobe/acrobat-studio.html">Acrobat Studio</a></li>
+                <li><a href="../../pages/adobe/creative-cloud.html">Creative Cloud</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="../../pages/autodesk/home-autodesk.html" aria-haspopup="true" aria-expanded="false" aria-current="page">
+                Autodesk <svg width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"/></svg>
+              </a>
+              <ul class="dropdown-submenu-menu">
+                <li><a href="../../pages/autodesk/aec-collection.html">AEC Collection</a></li>
+                <li><a href="../../pages/autodesk/mfg-collection.html?coleccion=pdm">Product Design &amp; Manufacturing</a></li>
+                <li><a href="../../pages/autodesk/mfg-collection.html?coleccion=me">Media &amp; Entertainment</a></li>
+                <li><a href="../../pages/adopcion_autodesk/adopcion_Autodesk.html">Programa de Adopción</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../pages/chaos/home-chaos.html">
+                Chaos
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/dell/home-dell.html">
+                Dell
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/hp/home-hp.html">
+                HP
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/mac/home-mac.html">
+                Mac
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/microsoft/home-microsoft.html">
+                Microsoft
+              </a>
+            </li>
+            <li>
+              <a href="../../pages/sketchup/home-sketchup.html">
+                SketchUp
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../index.html#servicios">Soluciones Claves</a></li>
+        <li><a href="../../index.html#casos">Casos</a></li>
+        <li><a href="#contacto" aria-label="Contactar a Cadgrafics">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="hamburger" aria-hidden="true">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
     </button>
-    <!-- Menú general del sitio: cambia los href por las URLs reales -->
-    <ul class="nav" id="nav">
-      <li><a href="#">Marcas</a></li>
-      <li><a href="#">Soluciones Claves</a></li>
-      <li><a href="#">Casos</a></li>
-      <li><a href="#contacto">Contáctanos</a></li>
-    </ul>
   </div>
 </header>
 
@@ -448,6 +519,7 @@
   <a class="wa2" aria-label="Escribir por WhatsApp" tabindex="-1" data-link="whatsapp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span>WhatsApp</span></a>
   <a class="mail" aria-label="Enviar correo" tabindex="-1" data-link="email" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Correo</span></a>
 </nav>
+<script src="../../assets/js/shared/site-common.js?v=20261006e"></script>
 <script src="../../assets/js/adopcion_autodesk/adopcion_Autodesk.js"></script>
 </body>
 </html>

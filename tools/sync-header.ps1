@@ -19,6 +19,8 @@ $pages = @(
   @{ Rel = 'pages/adobe/creative-cloud.html'; Active = 'adobe' },
   @{ Rel = 'pages/autodesk/home-autodesk.html'; Active = 'autodesk' },
   @{ Rel = 'pages/autodesk/aec-collection.html'; Active = 'autodesk' },
+  @{ Rel = 'pages/autodesk/mfg-collection.html'; Active = 'autodesk'; NoModal = $true },
+  @{ Rel = 'pages/adopcion_autodesk/adopcion_Autodesk.html'; Active = 'autodesk'; NoModal = $true },
   @{ Rel = 'pages/chaos/home-chaos.html'; Active = 'chaos'; NoModal = $true },
   @{ Rel = 'pages/sketchup/home-sketchup.html'; Active = 'sketchup' },
   @{ Rel = 'pages/dell/home-dell.html'; Active = 'dell' },

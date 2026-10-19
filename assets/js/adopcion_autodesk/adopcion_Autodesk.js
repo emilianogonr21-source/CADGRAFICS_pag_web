@@ -36,8 +36,11 @@ document.querySelectorAll("[data-link]").forEach((a) => {
   a.href = buildLink(a.dataset.link, a.dataset.ws);
 });
 
-/* ---------- 3. Header: cambia de color al hacer scroll ---------- */
-const header = document.getElementById("header");
+/* ---------- 3. Menú compartido del sitio ---------- */
+if (window.Cadgrafics) {
+  Cadgrafics.initHeader({ lockBodyScroll: true });
+  Cadgrafics.initSmoothAnchors();
+}
 
 /* ---------- 4. Barra fija de contacto ----------
    Aparece después del hero y se oculta al llegar a la sección de contacto. */
@@ -53,7 +56,6 @@ function setDock(visible) {
 }
 
 function onScroll() {
-  header.classList.toggle("scrolled", window.scrollY > 40);
   if (dock && contact) {
     const contactTop = contact.getBoundingClientRect().top;
     setDock(window.scrollY > window.innerHeight * 0.6 && contactTop > window.innerHeight * 0.6);
@@ -63,22 +65,7 @@ window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll);
 onScroll();
 
-/* ---------- 5. Menú móvil ---------- */
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
-
-function setMenu(open) {
-  nav.classList.toggle("open", open);
-  menuBtn.setAttribute("aria-expanded", String(open));
-  menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-}
-menuBtn.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
-nav.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && nav.classList.contains("open")) { setMenu(false); menuBtn.focus(); }
-});
-
-/* ---------- 6. Explorador de talleres ----------
+/* ---------- 5. Explorador de talleres ----------
    Los botones de área (.role) y las tarjetas (.wsc) comparten data-k
    con el panel (.wsp) que muestran: arq, est, mep, dm. */
 const wsButtons = document.querySelectorAll(".role, .wsc");
