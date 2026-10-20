@@ -1,12 +1,11 @@
-# Cadgrafics — instrucciones para buscadores
+# Cadgrafics - instrucciones para buscadores
 # https://cadgrafics.com.mx/robots.txt
 
 User-agent: *
 Allow: /
 
-# Carpetas de trabajo interno (no son páginas del sitio)
+# Carpetas de trabajo interno (no son paginas del sitio)
 Disallow: /docs/
 Disallow: /tools/
-Disallow: /shared/
 
 Sitemap: https://cadgrafics.com.mx/sitemap.xml

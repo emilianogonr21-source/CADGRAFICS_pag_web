@@ -1,43 +1,39 @@
 # Cadgrafics — sitio web
 
-Sitio estático de Cadgrafics: inicio + páginas por marca (Adobe, Autodesk, SketchUp, HP, Dell).
+Sitio estático de Cadgrafics: inicio + páginas por marca (Autodesk, Adobe, Microsoft, Chaos, SketchUp, Dell, HP, Mac) + aviso de privacidad.
 
-No hace falta saber programar a fondo para editar textos, imágenes o colores. Sí hace falta saber **qué carpeta abrir**.
-
-## Empieza aquí (elige una)
+## Empieza aquí
 
 | Si quieres… | Abre |
 |-------------|------|
-| Entender el proyecto completo | **[docs/README.md](docs/README.md)** ← guía principal |
-| Un ejemplo concreto (Dell) | **[docs/guia-dell.md](docs/guia-dell.md)** |
-| Cambiar el menú o WhatsApp | **[shared/partials/README.md](shared/partials/README.md)** |
-| Ver el sitio en tu PC | Abre la carpeta en VS Code / Cursor → Live Server → `index.html` (puerto **5501**) |
+| Entender cómo está hecho el sitio | **[docs/README.md](docs/README.md)** |
+| Ver todos los componentes con ejemplos | `docs/componentes.html` (con Live Server) |
+| Ver el sitio en tu PC | Abre la carpeta en VS Code / Cursor → Live Server → `index.html` |
 
-## En una frase
+## Qué se publica en el servidor
 
-| Tipo | Pregunta que responde |
-|------|------------------------|
-| **HTML** | ¿Qué textos, botones e imágenes hay? |
-| **CSS** | ¿Cómo se ve (colores, tamaños, celular)? |
-| **JS** | ¿Qué pasa al hacer clic o enviar un formulario? |
+Sube a la raíz del dominio **solo** esto:
 
-## Dónde está cada cosa (resumen)
+```
+index.html
+robots.txt
+sitemap.xml
+assets/
+pages/
+```
+
+`docs/`, `tools/` y `README.md` son de trabajo interno: no se suben.
+
+## Dónde está cada cosa
 
 | Qué | Dónde |
-|-----|--------|
-| Página de inicio | `index.html` (raíz) |
+|-----|-------|
+| Página de inicio | `index.html` |
 | Páginas por marca | `pages/{marca}/` |
-| Aviso de privacidad | `pages/legal/` |
-| Apariencia | `assets/css/{marca}/` |
-| Comportamiento | `assets/js/{marca}/` |
-| Logo y favicon | `assets/images/brand/` |
-| Fotos | `assets/images/{marca}/{página}/` |
-| Videos | `assets/video/{marca}/{página}/` |
-| Menú / WhatsApp (modelos) | `shared/partials/` |
-| Guías del equipo | `docs/` |
-| Scripts internos | `tools/` (no se publican) |
+| Aviso de privacidad | `pages/legal/aviso-privacidad.html` |
+| Estilos de todo el sitio (colores, tipografía Inter, componentes) | `assets/css/site.css` |
+| Menú superior (logo y navegación) | `assets/css/shared/header.css` |
+| Comportamiento (formulario, videos, WhatsApp, pestañas) | `assets/js/site.js` + `assets/js/shared/site-common.js` |
+| Iconos | `assets/images/icons.svg` |
+| Logos, fotos y videos | `assets/images/…` y `assets/video/…` |
 | SEO | `robots.txt`, `sitemap.xml` |
-
-Al publicar en el servidor, sube también `robots.txt` y `sitemap.xml` en la **raíz del dominio**.
-
-Detalle, tablas de archivos, Contáctanos, publicar y problemas frecuentes: **[docs/README.md](docs/README.md)**.
