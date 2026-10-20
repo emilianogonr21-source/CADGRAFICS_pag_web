@@ -30,6 +30,11 @@
 - **Tipografía:** Inter en todo el sitio, con los tamaños de la página de inicio.
 - Sobre fondo negro, el rojo solo va en títulos grandes; los textos pequeños van en blanco con una línea o punto rojo.
 - Los colores, tamaños y componentes viven en `assets/css/site.css`. **No agregues estilos dentro de las páginas**: usa las clases de ese archivo (ejemplos en `docs/componentes.html`).
+- Cada página sigue el orden de módulos de la marca: **Identidad → Impacto → Información → Conversión**.
+  - Identidad (rojo 1807 C, quién habla): la etiqueta `eyebrow` o `hero__badge` del hero.
+  - Impacto (negro, qué queremos que recuerden): el `hero` y, si hace falta, una banda `section--ink` o `trust` justo después.
+  - Información (claro, qué necesitan entender): secciones `section` y `section section--paper` alternadas. No uses `section--ink` a mitad de página, salvo que un logo del fabricante solo exista en blanco.
+  - Conversión (rojo profundo, qué queremos que hagan): la banda final `cta-band`.
 
 ## Crear o editar una página
 
@@ -43,9 +48,9 @@ Rutas desde `pages/{carpeta}/{pagina}.html`: assets con `../../assets/…`, inic
 
 ## Formularios
 
-- Son de 3 pasos y se configuran con atributos (`data-lead-form`, `data-sf`, `data-error`, `data-show-if`); la lógica está en `assets/js/site.js`.
-- Hoy los datos se muestran en la consola del navegador. Para recibirlos en el CRM, pon la URL del servicio en `data-endpoint` del `<form>`.
-- Al terminar, el botón de WhatsApp manda al número de la oficina según la región elegida (CDMX o Guadalajara).
+- Se configuran con atributos (`data-lead-form`, `data-sf`, `data-error`, `data-show-if`); la lógica está en `assets/js/site.js`.
+- **Hoy (sin CRM, `data-endpoint=""`):** el formulario tiene 2 pasos y al presionar "Enviar por WhatsApp" abre WhatsApp con todos los datos (interés, nombre, empresa, correo, celular, industria y región) dirigido a la oficina según la región: CDMX 55 3112 0508 u Occidente 33 1404 0396. La persona solo presiona Enviar en WhatsApp.
+- **Con CRM:** pon la URL del servicio en `data-endpoint` del `<form>`. El formulario vuelve a 3 pasos (el tercero pide datos para calificar: usuarios, plazo, vencimiento de licencias, volumen, etc.) y envía los datos a esa URL.
 
 ## Videos
 

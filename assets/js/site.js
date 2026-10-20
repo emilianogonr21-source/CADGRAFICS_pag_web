@@ -107,6 +107,37 @@
     return lead;
   };
 
+  // Mensaje de WhatsApp con todos los datos visibles del formulario (etiqueta: valor)
+  const SHORT_LABEL = { interes: 'Me interesa', nombre: 'Nombre', empresa: 'Empresa', email: 'Correo', celular: 'Celular', region: 'Región', industria: 'Industria' };
+  const fieldLabel = (form, el) => {
+    if (SHORT_LABEL[el.name]) return SHORT_LABEL[el.name];
+    const label = el.id && form.querySelector('label[for="' + el.id + '"]');
+    if (label) return label.textContent.replace(/\s+/g, ' ').replace(/[*:]\s*$/, '').trim();
+    const legend = el.closest('fieldset') && $('legend', el.closest('fieldset'));
+    return legend ? legend.textContent.trim() : el.name;
+  };
+  const buildMessage = (form, steps) => {
+    const lines = ['Hola Cadgrafics, quiero información. Envío mis datos desde la página de ' + pageName + ':', ''];
+    const seen = new Set();
+    steps.forEach((step) => {
+      $$('input, select, textarea', step).forEach((el) => {
+        if (el.type === 'hidden' || el.type === 'checkbox' || el.name === 'website' || seen.has(el.name)) return;
+        let value = '';
+        if (el.type === 'radio') {
+          seen.add(el.name);
+          const checked = form.querySelector('[name="' + el.name + '"]:checked');
+          value = checked ? checked.value : '';
+        } else if (el.tagName === 'SELECT') {
+          value = el.value ? el.options[el.selectedIndex].text : '';
+        } else {
+          value = el.value.trim();
+        }
+        if (value) lines.push(fieldLabel(form, el) + ': ' + value.slice(0, 500));
+      });
+    });
+    return lines.join('\n');
+  };
+
   const sendLead = (form, lead, isUpdate) => {
     const endpoint = form.dataset.endpoint;
     if (!endpoint) {
@@ -118,17 +149,34 @@
 
   $$('form[data-lead-form]').forEach((form) => {
     const card = form.closest('.form-card') || form;
-    const steps = $$('.form-step', form);
+    // Sin CRM configurado (data-endpoint vacío) los datos se envían por WhatsApp: el paso 3 opcional
+    // se omite porque esa información no llegaría a nadie.
+    const whatsappMode = !form.dataset.endpoint;
+    const allSteps = $$('.form-step', form);
+    const steps = allSteps.filter((s) => !(whatsappMode && s.dataset.step === '3'));
     const title = $('.form-card__title', card);
     const counter = $('.form-card__steps', card);
     const bar = $('.form-progress span', card);
     const total = steps.filter((s) => s.dataset.step !== 'done').length;
     let current = 0;
 
+    if (whatsappMode) {
+      const submitBtn = $('button[type="submit"]', form);
+      if (submitBtn && submitBtn.firstChild && submitBtn.firstChild.nodeType === 3) submitBtn.firstChild.textContent = 'Enviar por WhatsApp ';
+      const done = steps[steps.length - 1];
+      done.dataset.title = 'Ya casi listo';
+      const doneTitle = $('h3', done);
+      const doneText = $('p', done);
+      const doneBtn = $('a[data-wa]', done);
+      if (doneTitle) doneTitle.textContent = 'Envía el mensaje en WhatsApp';
+      if (doneText) doneText.textContent = 'Abrimos WhatsApp con tus datos. Solo presiona Enviar y un especialista te responde en menos de 24 horas hábiles. ¿No se abrió?';
+      if (doneBtn && doneBtn.lastChild && doneBtn.lastChild.nodeType === 3) doneBtn.lastChild.textContent = 'Abrir WhatsApp con mis datos';
+    }
+
     const show = (index, focus) => {
       current = index;
-      steps.forEach((s, i) => { s.hidden = i !== index; });
       const step = steps[index];
+      allSteps.forEach((s) => { s.hidden = s !== step; });
       const isDone = step.dataset.step === 'done';
       if (title && step.dataset.title) title.textContent = step.dataset.title;
       if (counter) counter.textContent = isDone ? 'Solicitud enviada' : 'Paso ' + (index + 1) + ' de ' + total;
@@ -190,7 +238,16 @@
       if (form.elements.website && form.elements.website.value) return;
       if (!validateStep(steps[current], form)) return;
       sendLead(form, buildLead(form), false);
-      updateWhatsApp();
+      if (whatsappMode) {
+        const region = form.elements.region ? form.elements.region.value : '';
+        const phone = WHATSAPP[region] || DEFAULT_WA;
+        const message = buildMessage(form, steps);
+        setWhatsAppLinks(phone, message);
+        // Se abre dentro del clic de enviar para que el navegador no lo bloquee
+        window.open(waUrl(phone, message), '_blank', 'noopener');
+      } else {
+        updateWhatsApp();
+      }
       show(current + 1, true);
     });
 
