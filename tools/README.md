@@ -5,6 +5,7 @@ Scripts de mantenimiento del **equipo**. No son páginas del sitio y no se publi
 | Archivo | Para qué |
 |---------|----------|
 | `optimize-videos.ps1` | Comprime los MP4 de `assets/video/` para web (H.264, sin audio, inicio rápido) |
+| `originales/` | Fotos originales en alta resolución que el sitio no usa directamente (ej. `sandra-alvarez-original.png`, de donde sale `assets/images/team/sandra-alvarez.jpg`) |
 
 ### Comprimir videos
 

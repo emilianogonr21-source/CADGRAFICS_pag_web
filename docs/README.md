@@ -257,15 +257,24 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 
 ### Imágenes (`assets/images/`)
 
+**Regla:** lo que se comparte entre varias páginas va en una carpeta por tipo (`brand/`, `partners/`, `casos/`, `team/`); lo que pertenece a una sola página va en `{marca}/{página}/`, igual que en `pages/`. Las imágenes fijas de los videos (`poster-…`) van junto a las demás imágenes de su página.
+
 | Carpeta | Contenido |
 |---|---|
-| `index/` | Logos de partners e imágenes del inicio |
-| `autodesk/`, `adobe/`, `hp/`, `dell/`, `sketchup/`, `adopcion_autodesk/` | Imágenes de cada marca |
-| `posters/` | Imagen fija que se ve mientras carga cada video |
+| `brand/` | Identidad Cadgrafics: `logo_cadgrafics.png`, `favicon.png`, `og-image.jpg` (vista previa al compartir en redes) |
+| `partners/` | Logos de fabricantes y software: Autodesk, Adobe, Microsoft, Chaos, SketchUp, Dell, HP, Mac, CivilCAD, Lumion, Opus |
+| `casos/` | Fotos de casos de éxito: `grupo-idinsa.jpg`, `grupo-alba.jpg`, `universidad-etac.jpg` |
 | `team/` | Fotos del equipo (cuadradas, 192 × 192 px, JPG). Ej.: `sandra-alvarez.jpg` (6 KB) |
-| `brand/` | Recursos de identidad Cadgrafics |
-| `brevo/` | Imágenes usadas también en correos de campañas: **no las borres del servidor** |
+| `autodesk/home/`, `aec-collection/`, `pdm-collection/`, `me-collection/` | Imágenes de cada página de Autodesk |
+| `autodesk/certificaciones/` | Insignias oficiales de Autodesk (`1-autodesk.png` … `7-autodesk.png`), usadas en el carril de las 4 páginas |
+| `autodesk/colecciones/` | Logos de las colecciones (AEC, PD&M, M&E, Forma) |
+| `adobe/home/`, `creative-cloud/`, `acrobat-studio/` | Imágenes de cada página de Adobe, incluidas las imágenes fijas de sus videos |
+| `adopcion_autodesk/`, `dell/home/`, `sketchup/home/` | Imágenes de esas páginas (Chaos usa los renders de `sketchup/home/`) |
+| `hp/home/{familia}/{modelo}/` | Fotos de cada plotter HP (ej. `pagewide-xl-pro/8200/`) |
+| `brevo/` | Imágenes de correos de campañas ya enviados. **No las muevas ni las borres del servidor**: los correos apuntan a esas direcciones |
 | `icons.svg` | Todos los íconos del sitio en un solo archivo. Se usan así: `<svg class="icon"><use href="…/icons.svg#icon-phone"/></svg>` |
+
+Las fotos originales en alta resolución (que el sitio no usa) se guardan fuera del sitio, en `tools/originales/`.
 
 Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, y `loading="lazy"` si no están en la primera pantalla. **No cambies ni deformes los logos de los fabricantes**: respeta sus lineamientos de marca.
 

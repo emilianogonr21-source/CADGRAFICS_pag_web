@@ -42,8 +42,15 @@ CADGRAFICS_pag_web/
 │   ├── css/shared/header.css Menú superior (no modificar el logo)
 │   ├── js/site.js            Formularios, WhatsApp, animaciones, videos
 │   ├── js/shared/            Menú (compartido con el sitio anterior)
-│   ├── images/               Logos, fotos, íconos (icons.svg) y fotos del equipo (team/)
-│   └── video/                Videos MP4 de Autodesk y Adobe
+│   ├── images/               Imágenes ordenadas por uso:
+│   │   ├── brand/              Logo, favicon e imagen para redes de Cadgrafics
+│   │   ├── partners/           Logos de fabricantes (Autodesk, Adobe, Dell…)
+│   │   ├── casos/              Fotos de casos de éxito
+│   │   ├── team/               Fotos del equipo
+│   │   ├── {marca}/{página}/   Imágenes de cada página (ej. adobe/creative-cloud/)
+│   │   ├── brevo/              Imágenes de correos de campaña (no mover)
+│   │   └── icons.svg           Todos los íconos
+│   └── video/{marca}/{página}/ Videos MP4
 ├── robots.txt  sitemap.xml ← Para Google
 ├── docs/                   ← Documentación (no se publica)
 └── tools/                  ← Utilidades internas (no se publica)
@@ -80,8 +87,6 @@ pages/
 - [ ] Abrir varias páginas en celular y computadora y revisar que se vean bien.
 - [ ] Probar el formulario de una página (ver la sección siguiente).
 - [ ] Si agregas o reemplazas un video, comprímelo antes con la herramienta de `tools/` (ver [tools/README.md](tools/README.md)). Los videos actuales ya están optimizados (21 MB en total).
-- [ ] Opcional: borrar del servidor `assets/images/image_sandra.png` (540 KB). Es la foto original; el sitio usa la versión optimizada `assets/images/team/sandra-alvarez.jpg`.
-
 ### ⚠️ Paso obligatorio después de publicar: activar el formulario
 
 Los formularios envían los correos a través de **FormSubmit**, un servicio gratuito. La primera vez hay que autorizarlo:
