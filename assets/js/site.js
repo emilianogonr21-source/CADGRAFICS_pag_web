@@ -8,7 +8,9 @@
   4. Pestañas: [data-tabs]
   5. WhatsApp por región y por página
   6. Animación de entrada: .reveal
-  7. Videos ambientales: video[data-ambient] + botón [data-video-toggle]
+  7. Cifras animadas: .stats (entrada escalonada y conteo)
+  8. Videos ambientales: video[data-ambient] + botón [data-video-toggle]
+  9. Carril infinito de insignias: [data-marquee]
 */
 (function () {
   'use strict';
@@ -312,7 +314,63 @@
     });
   }
 
-  // ===== 7. Videos ambientales =====
+  // ===== 7. Cifras animadas: .stats =====
+  // Solo cuentan los valores que empiezan con número ("500M+", "99.9%", "−40%", "30 A1/min").
+  // Textos como "Platinum" o "macOS 27" y años como "2010" solo aparecen, sin contar.
+  const parseStat = (text) => {
+    const m = text.trim().match(/^([+\-−]?)(\d+(?:\.\d+)?)(.*)$/);
+    if (!m || (!m[1] && !m[3].trim() && /^(19|20)\d{2}$/.test(m[2]))) return null;
+    return { prefix: m[1], value: parseFloat(m[2]), decimals: (m[2].split('.')[1] || '').length, suffix: m[3] };
+  };
+  const formatStat = (s, n) => s.prefix + n.toFixed(s.decimals) + s.suffix;
+  const countUp = (el, s) => {
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / 1600, 1);
+      el.textContent = formatStat(s, s.value * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const counters = new Map();
+    const statsIO = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        statsIO.unobserve(entry.target);
+        entry.target.classList.remove('stats--pending');
+        $$('.stat__count', entry.target).forEach((el) => {
+          const { stat, delay } = counters.get(el);
+          setTimeout(() => countUp(el, stat), delay);
+        });
+      });
+    }, { threshold: 0.35 });
+
+    $$('.stats').forEach((stats) => {
+      $$('.stat', stats).forEach((item, i) => {
+        item.style.setProperty('--i', i);
+        const value = $('dd, strong', item);
+        const stat = value && parseStat(value.textContent);
+        if (!stat) return;
+        // El número que se anima va oculto para lectores de pantalla; ellos leen el valor final
+        const finalText = value.textContent.trim();
+        const visible = document.createElement('span');
+        visible.className = 'stat__count';
+        visible.setAttribute('aria-hidden', 'true');
+        visible.textContent = formatStat(stat, 0);
+        const hidden = document.createElement('span');
+        hidden.className = 'visually-hidden';
+        hidden.textContent = finalText;
+        value.replaceChildren(visible, hidden);
+        counters.set(visible, { stat, delay: i * 120 + 150 });
+      });
+      stats.classList.add('stats--pending');
+      statsIO.observe(stats);
+    });
+  }
+
+  // ===== 8. Videos ambientales =====
   // Sin autoplay en HTML: solo se reproducen visibles y si el usuario no pidió menos movimiento o ahorro de datos.
   const saveData = !!(navigator.connection && navigator.connection.saveData);
   const smallScreen = window.matchMedia('(max-width: 768px)').matches;
@@ -353,4 +411,37 @@
     }
     sync();
   });
+
+  // ===== 9. Carril infinito de insignias =====
+  // Con "reducir movimiento" se queda la fila fija original. Las copias van ocultas para lectores de pantalla.
+  if (!reduceMotion) {
+    $$('[data-marquee]').forEach((row) => {
+      const items = Array.from(row.children);
+      if (items.length < 3) return;
+      const track = document.createElement('div');
+      track.className = 'marquee__track';
+      // Se repite el juego hasta cubrir pantallas anchas; luego se duplica todo para que el bucle no tenga corte
+      const sets = Math.max(1, Math.ceil(1600 / (items.length * 170)));
+      const half = [];
+      for (let s = 0; s < sets; s++) {
+        items.forEach((item) => {
+          const node = s === 0 ? item : item.cloneNode(true);
+          if (s > 0) { node.setAttribute('aria-hidden', 'true'); if (node.alt !== undefined) node.alt = ''; }
+          half.push(node);
+        });
+      }
+      half.forEach((node) => track.appendChild(node));
+      half.forEach((node) => {
+        const copy = node.cloneNode(true);
+        copy.setAttribute('aria-hidden', 'true');
+        if (copy.alt !== undefined) copy.alt = '';
+        copy.removeAttribute('loading');
+        track.appendChild(copy);
+      });
+      track.style.setProperty('--marquee-duration', half.length * 5 + 's');
+      row.classList.remove('badge-row');
+      row.classList.add('marquee');
+      row.replaceChildren(track);
+    });
+  }
 })();
