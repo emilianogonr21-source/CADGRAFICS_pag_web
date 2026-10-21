@@ -97,7 +97,7 @@ Todas las páginas siguen el sistema de la marca **Identidad → Impacto → Inf
 
 | Módulo | Color | Qué comunica | En el código |
 |---|---|---|---|
-| Identidad | Rojo 1807 C | Quién habla | Etiqueta del hero: `.eyebrow` o `.hero__badge` |
+| Identidad | Rojo 1807 C | Quién habla | Logotipo del fabricante a la derecha (`img.hero__logo`) o, si la página no tiene logotipo, etiqueta del hero: `.eyebrow` o `.hero__badge`. Las páginas de Autodesk conservan el logotipo arriba a la izquierda con la etiqueta roja debajo. |
 | Impacto | Negro | Qué queremos que recuerden | `.hero` y, si hace falta, una banda `.trust` o `.section--ink` justo después |
 | Información | Blanco y papel alternados | Qué necesitan entender | `.section` y `.section.section--paper` alternadas |
 | Conversión | Rojo profundo | Qué queremos que hagan | Banda final `.cta-band` |
@@ -113,6 +113,8 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 | `.hero--compact` | Más bajo (lo usa el aviso de privacidad). |
 | `.hero--low` | El contenido se apoya más abajo (Programa de Adopción). |
 | `.hero__grid--single` | Una sola columna de texto (sin formulario ni video al lado). |
+| `.hero__grid--brand` | Texto a la izquierda y logotipo del fabricante a la derecha en un panel translúcido. El `img.hero__logo` va después del bloque de texto, como hijo directo del grid; en móvil sube arriba del título. |
+| `.hero__grid--media-logo` | Texto a la izquierda; a la derecha, el logotipo encima del video (`.hero__media`). El `img.hero__logo` va al final del grid. |
 
 ---
 
