@@ -350,7 +350,7 @@ img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain
 /* Producto / app con icono oficial */
 .app { display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; border-radius: var(--radius-md); background: var(--white); border: 1px solid var(--line); transition: border-color var(--t); }
 .app:hover { border-color: #d1d5db; }
-.app img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
+.app img { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
 .app h3 { font-size: var(--fs-card-title-sm); font-weight: 700; line-height: 1.3; margin-bottom: 0.2rem; }
 .app p { font-size: var(--fs-feature-text); color: var(--gray); line-height: 1.45; }
 .section--ink .app { background: rgba(255, 255, 255, 0.04); border-color: var(--line-dark); }
