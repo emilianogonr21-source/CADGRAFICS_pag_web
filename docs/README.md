@@ -49,7 +49,11 @@ Rutas desde `pages/{carpeta}/{pagina}.html`: assets con `../../assets/…`, inic
 ## Formularios
 
 - Se configuran con atributos (`data-lead-form`, `data-sf`, `data-error`, `data-show-if`); la lógica está en `assets/js/site.js`.
-- **Hoy (sin CRM, `data-endpoint=""`):** el formulario tiene 2 pasos y al presionar "Enviar por WhatsApp" abre WhatsApp con todos los datos (interés, nombre, empresa, correo, celular, industria y región) dirigido a la oficina según la región: CDMX 55 3112 0508 u Occidente 33 1404 0396. La persona solo presiona Enviar en WhatsApp.
+- **Hoy (sin CRM, `data-endpoint=""`):** el formulario tiene 2 pasos y al presionar "Enviar" manda un correo a **marketing@cadgrafics.com.mx** con todos los datos (interés, nombre, empresa, correo, celular, industria, región, página de origen y UTM). Al responder ese correo se contesta directo al cliente.
+  - El envío pasa por [FormSubmit](https://formsubmit.co) (gratuito, sin servidor). La dirección se cambia en `LEAD_EMAIL`, al inicio de `assets/js/site.js`.
+  - **Activación (una sola vez):** después de publicar, envía un formulario de prueba desde el sitio en línea. FormSubmit manda a marketing@ un correo con el botón "Activate Form"; hasta presionarlo, los envíos no llegan.
+  - Si el correo no sale, el formulario muestra un aviso y un botón para mandar los mismos datos por WhatsApp a la oficina de la región (CDMX 55 3112 0508 u Occidente 33 1404 0396).
+  - La Content-Security-Policy de cada página permite `https://formsubmit.co` en `connect-src`; si cambias de servicio, actualízala.
 - **Con CRM:** pon la URL del servicio en `data-endpoint` del `<form>`. El formulario vuelve a 3 pasos (el tercero pide datos para calificar: usuarios, plazo, vencimiento de licencias, volumen, etc.) y envía los datos a esa URL.
 
 ## Videos

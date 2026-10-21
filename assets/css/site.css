@@ -535,6 +535,9 @@ img.person__avatar { height: 60px; object-fit: cover; object-position: center 30
 .form-actions { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-top: 0.75rem; }
 .btn-back { font-size: var(--fs-btn); font-weight: 600; color: var(--gray); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; padding: 0 0.25rem; }
 .form-note { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--gray); text-align: center; }
+.form-alert { margin-top: 0.75rem; padding: 0.9rem 1rem; border-radius: var(--radius-sm); background: var(--red-tint); border-left: 3px solid var(--red); font-size: var(--fs-small); color: var(--ink); }
+.form-alert p { margin-bottom: 0.75rem; }
+.form-card button[type="submit"]:disabled { opacity: 0.7; cursor: progress; }
 .form-done { text-align: center; padding: 1rem 0; }
 .form-done > .icon { width: 3rem; height: 3rem; margin: 0 auto 0.75rem; color: var(--success); }
 .form-done h3 { font-size: var(--fs-card-title); margin-bottom: 0.5rem; }

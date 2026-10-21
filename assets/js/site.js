@@ -18,6 +18,11 @@
   const $ = (sel, ctx) => (ctx || document).querySelector(sel);
   const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
 
+  // Los formularios sin data-endpoint (CRM) mandan cada solicitud por correo a esta dirección vía FormSubmit.
+  // FormSubmit pide activarla una sola vez: el primer envío desde el sitio publicado manda un correo con el botón "Activate Form".
+  const LEAD_EMAIL = 'marketing@cadgrafics.com.mx';
+  const EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/' + LEAD_EMAIL;
+
   const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' };
   const DEFAULT_WA = WHATSAPP['CDMX y centro'];
   const pageName = document.body.dataset.page || 'el sitio';
@@ -118,8 +123,9 @@
     const legend = el.closest('fieldset') && $('legend', el.closest('fieldset'));
     return legend ? legend.textContent.trim() : el.name;
   };
-  const buildMessage = (form, steps) => {
-    const lines = ['Hola Cadgrafics, quiero información. Envío mis datos desde la página de ' + pageName + ':', ''];
+  // Pares [etiqueta, valor] de los campos llenos en los pasos indicados (sin honeypot ni casilla de consentimiento)
+  const collectFields = (form, steps) => {
+    const pairs = [];
     const seen = new Set();
     steps.forEach((step) => {
       $$('input, select, textarea', step).forEach((el) => {
@@ -134,10 +140,45 @@
         } else {
           value = el.value.trim();
         }
-        if (value) lines.push(fieldLabel(form, el) + ': ' + value.slice(0, 500));
+        if (value) pairs.push([fieldLabel(form, el), value.slice(0, 500)]);
       });
     });
+    return pairs;
+  };
+  const buildMessage = (form, steps) => {
+    const lines = ['Hola Cadgrafics, quiero información. Envío mis datos desde la página de ' + pageName + ':', ''];
+    collectFields(form, steps).forEach(([label, value]) => lines.push(label + ': ' + value));
     return lines.join('\n');
+  };
+
+  // Correo a LEAD_EMAIL: asunto con página e interés, tabla con todos los datos y "Responder" dirigido al cliente
+  const sendEmail = (form, steps) => {
+    const interest = form.elements.interes ? form.elements.interes.value : '';
+    const data = {
+      _subject: 'Nuevo contacto web · ' + pageName + (interest ? ' · ' + interest : ''),
+      _template: 'table',
+      _captcha: 'false'
+    };
+    if (form.elements.email && form.elements.email.value) data._replyto = form.elements.email.value.trim();
+    collectFields(form, steps).forEach(([label, value]) => { data[label] = value; });
+    data['Página'] = pageName;
+    data['Dirección de la página'] = location.href.split('#')[0];
+    const qs = new URLSearchParams(location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach((k) => { if (qs.get(k)) data[k] = qs.get(k).slice(0, 100); });
+    data['Aceptó aviso de privacidad'] = 'Sí, ' + new Date().toLocaleString('es-MX');
+
+    const controller = 'AbortController' in window ? new AbortController() : null;
+    const timer = controller && setTimeout(() => controller.abort(), 15000);
+    return fetch(EMAIL_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+      signal: controller ? controller.signal : undefined
+    })
+      .then((res) => res.json().catch(() => ({})).then((json) => {
+        if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || 'HTTP ' + res.status);
+      }))
+      .finally(() => { if (timer) clearTimeout(timer); });
   };
 
   const sendLead = (form, lead, isUpdate) => {
@@ -151,29 +192,18 @@
 
   $$('form[data-lead-form]').forEach((form) => {
     const card = form.closest('.form-card') || form;
-    // Sin CRM configurado (data-endpoint vacío) los datos se envían por WhatsApp: el paso 3 opcional
-    // se omite porque esa información no llegaría a nadie.
-    const whatsappMode = !form.dataset.endpoint;
+    // Sin CRM (data-endpoint vacío) la solicitud llega por correo a LEAD_EMAIL en un solo envío,
+    // así que el paso 3 opcional se omite para no mandar dos correos por persona.
+    const emailMode = !form.dataset.endpoint;
     const allSteps = $$('.form-step', form);
-    const steps = allSteps.filter((s) => !(whatsappMode && s.dataset.step === '3'));
+    const steps = allSteps.filter((s) => !(emailMode && s.dataset.step === '3'));
     const title = $('.form-card__title', card);
     const counter = $('.form-card__steps', card);
     const bar = $('.form-progress span', card);
     const total = steps.filter((s) => s.dataset.step !== 'done').length;
+    const submitBtn = $('button[type="submit"]', form);
     let current = 0;
-
-    if (whatsappMode) {
-      const submitBtn = $('button[type="submit"]', form);
-      if (submitBtn && submitBtn.firstChild && submitBtn.firstChild.nodeType === 3) submitBtn.firstChild.textContent = 'Enviar por WhatsApp ';
-      const done = steps[steps.length - 1];
-      done.dataset.title = 'Ya casi listo';
-      const doneTitle = $('h3', done);
-      const doneText = $('p', done);
-      const doneBtn = $('a[data-wa]', done);
-      if (doneTitle) doneTitle.textContent = 'Envía el mensaje en WhatsApp';
-      if (doneText) doneText.textContent = 'Abrimos WhatsApp con tus datos. Solo presiona Enviar y un especialista te responde en menos de 24 horas hábiles. ¿No se abrió?';
-      if (doneBtn && doneBtn.lastChild && doneBtn.lastChild.nodeType === 3) doneBtn.lastChild.textContent = 'Abrir WhatsApp con mis datos';
-    }
+    let sending = false;
 
     const show = (index, focus) => {
       current = index;
@@ -235,22 +265,52 @@
       }
     });
 
+    // Aviso si el correo no sale: se puede reintentar o mandar los mismos datos por WhatsApp
+    const showSendError = (show) => {
+      let alert = $('.form-alert', form);
+      if (!show) { if (alert) alert.hidden = true; return; }
+      const region = form.elements.region ? form.elements.region.value : '';
+      const phone = WHATSAPP[region] || DEFAULT_WA;
+      if (!alert) {
+        alert = document.createElement('div');
+        alert.className = 'form-alert';
+        alert.setAttribute('role', 'alert');
+        alert.innerHTML = '<p>No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo, o mándanos los mismos datos por WhatsApp.</p>' +
+          '<a class="btn btn--wa btn--block" target="_blank" rel="noopener">Enviar mis datos por WhatsApp</a>';
+        $('.form-actions', steps[current]).insertAdjacentElement('beforebegin', alert);
+      }
+      $('a', alert).href = waUrl(phone, buildMessage(form, steps));
+      alert.hidden = false;
+    };
+
+    const setSending = (on) => {
+      sending = on;
+      if (!submitBtn) return;
+      submitBtn.disabled = on;
+      submitBtn.setAttribute('aria-busy', String(on));
+      if (submitBtn.firstChild && submitBtn.firstChild.nodeType === 3) submitBtn.firstChild.textContent = on ? 'Enviando… ' : 'Enviar ';
+    };
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (sending) return;
       if (form.elements.website && form.elements.website.value) return;
       if (!validateStep(steps[current], form)) return;
       sendLead(form, buildLead(form), false);
-      if (whatsappMode) {
-        const region = form.elements.region ? form.elements.region.value : '';
-        const phone = WHATSAPP[region] || DEFAULT_WA;
-        const message = buildMessage(form, steps);
-        setWhatsAppLinks(phone, message);
-        // Se abre dentro del clic de enviar para que el navegador no lo bloquee
-        window.open(waUrl(phone, message), '_blank', 'noopener');
-      } else {
-        updateWhatsApp();
+      updateWhatsApp();
+      if (!emailMode) {
+        show(current + 1, true);
+        return;
       }
-      show(current + 1, true);
+      showSendError(false);
+      setSending(true);
+      sendEmail(form, steps)
+        .then(() => show(current + 1, true))
+        .catch((err) => {
+          console.warn('No se pudo enviar el correo de la solicitud:', err);
+          showSendError(true);
+        })
+        .finally(() => setSending(false));
     });
 
     updateConditional();
