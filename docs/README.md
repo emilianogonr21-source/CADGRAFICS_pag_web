@@ -162,10 +162,12 @@ Todo vive en `assets/js/site.js`, organizado en 9 bloques numerados. Se activa c
 Valores importantes al inicio de `site.js`:
 
 ```js
-const LEAD_EMAIL = 'marketing@cadgrafics.com.mx';                               // destino de los formularios
+const CONTACT_ENDPOINT = '/contacto.php';                                         // script que envía el correo
 const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' }; // número por región
 const WA_LABEL = { '525531120508': '55 3112 0508', '523314040396': '33 1404 0396' }; // texto accesible
 ```
+
+El destinatario del correo está en `contacto.php` (`RECIPIENT`), no en el JavaScript.
 
 ---
 
@@ -185,9 +187,9 @@ flowchart LR
 
 1. **Paso 1:** elige en qué le podemos ayudar (`name="interes"`) y escribe su correo.
 2. **Paso 2:** nombre, empresa, celular, industria (si aplica), región y aceptación del aviso de privacidad.
-3. **Enviar:** el botón cambia a "Enviando…" y se manda un correo a `LEAD_EMAIL`.
+3. **Enviar:** el botón cambia a "Enviando…" y `contacto.php` manda un correo a marketing@cadgrafics.com.mx.
 4. **Éxito:** se muestra "¡Gracias! Recibimos tu solicitud" con un botón opcional para seguir por WhatsApp.
-5. **Error** (sin internet, servicio caído o formulario sin activar): aparece un aviso; la persona puede reintentar o mandar **los mismos datos por WhatsApp** a la oficina de su región. Así ningún contacto se pierde.
+5. **Error** (sin internet o el servidor no pudo enviar el correo): aparece un aviso; la persona puede reintentar o mandar **los mismos datos por WhatsApp** a la oficina de su región. Así ningún contacto se pierde.
 
 ### El correo que llega
 
@@ -196,20 +198,19 @@ flowchart LR
 - **Contenido:** tabla con interés, correo, nombre, empresa, celular, industria, región, página, dirección exacta de la página, campaña (`utm_source/medium/campaign` si venía de un anuncio) y fecha en que aceptó el aviso de privacidad.
 - **Responder** contesta directo al correo del cliente.
 
-### Cómo se envía (FormSubmit)
+### Cómo se envía
 
-El sitio no tiene servidor propio, así que el envío pasa por **[FormSubmit](https://formsubmit.co)**, un servicio gratuito que recibe los datos y los reenvía como correo.
+`assets/js/site.js` hace `POST` a `/contacto.php`. Ese script solo acepta el origen `https://cadgrafics.com.mx` (y `www`), descarta el campo trampa `_honey`, arma el correo con destinatario fijo y lo entrega con `mail()`.
 
-- **Activación única:** el primer envío desde el sitio publicado manda a marketing@ un correo con el botón **"Activate Form"**. Hasta presionarlo, los envíos fallan (y se ofrece WhatsApp).
-- **Cambiar el destinatario:** edita `LEAD_EMAIL` en `site.js` y repite la activación con la nueva dirección.
-- **Seguridad:** la Content-Security-Policy de cada página permite `https://formsubmit.co` en `connect-src`. Si cambias de servicio, actualiza esa línea en **todas** las páginas.
+- **Cambiar el destinatario:** edita `RECIPIENT` en `contacto.php`.
+- **Seguridad:** la Content-Security-Policy solo permite conexiones a `'self'`. El correo del visitante no se publica en el JavaScript.
 
 ### Validación y protección
 
 - Cada campo obligatorio lleva `required` y un mensaje propio en `data-error` (ej. "Revisa que tenga 10 dígitos.").
 - `data-rule="fullname"` exige nombre y apellido.
 - Los errores se anuncian a lectores de pantalla y el cursor salta al primer campo con error.
-- **Anti-spam:** el campo oculto `website` ("No llenar") es una trampa para robots; si viene lleno, no se envía nada.
+- **Anti-spam:** el campo oculto `_honey` ("No llenar") es una trampa para robots. Si viene lleno, el servidor responde como si hubiera enviado y no manda correo. No uses el nombre `website`: el navegador lo rellena solo y el envío se perdía en silencio.
 
 ### Conectar un CRM (opcional, a futuro)
 
@@ -304,7 +305,7 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 - Cada página tiene `<title>`, `meta description`, `canonical` (`https://cadgrafics.com.mx/…`) y etiquetas `og:` para compartir en redes.
 - `sitemap.xml` lista las 16 páginas; `robots.txt` lo anuncia y bloquea `/docs/` y `/tools/`.
 - `mfg-collection.html` lleva `noindex` porque solo redirige.
-- **Content-Security-Policy** (en cada `<head>`): solo permite recursos del propio sitio, Google Fonts y FormSubmit. Si agregas un servicio externo (analítica, chat, CRM, mapas), **debes agregarlo a la política** o el navegador lo bloqueará.
+- **Content-Security-Policy** (en cada `<head>` y en `.htaccess`): solo permite recursos del propio sitio y Google Fonts. `.htaccess` añade `frame-ancestors 'none'` para que el sitio no se pueda incrustar en otro. Si agregas un servicio externo (analítica, chat, CRM, mapas), **debes agregarlo a las dos políticas** o el navegador lo bloqueará.
 
 ---
 
@@ -328,9 +329,9 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 
 ## 12. Publicar
 
-1. Sube a la raíz del dominio: `index.html`, `robots.txt`, `sitemap.xml`, `assets/`, `pages/`.
+1. Sube a la raíz del dominio: `index.html`, `contacto.php`, `.htaccess`, `robots.txt`, `sitemap.xml`, `assets/`, `pages/`.
 2. **No subas:** `docs/`, `tools/`, `README.md`, `.gitignore`, `.gitattributes`.
-3. **Activa el formulario** (solo la primera vez o si cambias `LEAD_EMAIL`): envía uno de prueba desde el sitio publicado y presiona "Activate Form" en el correo que llega a marketing@.
+3. **Prueba el formulario** en el sitio publicado. El correo debe llegar a marketing@. Si no llega, el hosting tiene que habilitar `mail()`.
 4. Prueba en celular y computadora: menú, un formulario, el botón de WhatsApp y un video.
 
 ---
@@ -339,12 +340,12 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 
 | Problema | Causa probable | Solución |
 |---|---|---|
-| El formulario muestra "No pudimos enviar tu solicitud" | FormSubmit aún no está activado, o no hay internet | Haz la activación (sección 6). Revisa también la carpeta de spam de marketing@. |
-| No llegan los correos aunque el formulario dice "¡Gracias!" | Filtro de spam o reglas del correo | Busca remitente "FormSubmit" en spam y márcalo como seguro. |
+| El formulario muestra "No pudimos enviar tu solicitud" | No hay internet, se abrió en local, o `mail()` falló en el hosting | Prueba en https://cadgrafics.com.mx. Si ahí también falla, pide al hosting que habilite el correo PHP. |
+| No llegan los correos aunque el formulario dice "¡Gracias!" | El servidor aceptó `mail()` pero el buzón lo filtró | Revisa spam de marketing@ y que `RECIPIENT` sea un correo del dominio. |
 | Un recurso externo no carga (fuente, script, mapa) | La Content-Security-Policy lo bloquea | Agrega su dominio a la directiva correspondiente en el `<head>` de cada página. |
 | Una imagen se ve estirada o del tamaño incorrecto | Regla `img { height: auto }` de `header.css` | En `site.css` usa un selector más específico, ej. `img.mi-clase { height: … }`. |
 | Un elemento con `hidden` sigue visible | Otra regla le pone `display` | Ya existe `[hidden] { display: none !important }`; revisa que el atributo esté en el elemento correcto. |
 | Los íconos no se ven | `icons.svg` guardado con otra codificación o ruta mal escrita | El archivo debe estar en UTF-8; revisa la ruta `../../assets/images/icons.svg#icon-…`. |
 | Un video no se reproduce en celular | Es `data-desktop-only` (intencional) o el sistema tiene ahorro de datos | Es el comportamiento esperado; la persona puede darle play. |
 | Las animaciones no se ven | El sistema tiene "reducir movimiento" activado | Es intencional por accesibilidad. |
-| El botón del formulario no prellena la opción | `data-interest` no coincide exactamente con el `value` de la opción | Copia el texto exacto (mayúsculas y acentos incluidos). |
+| El botón del formulario no prellena la opc

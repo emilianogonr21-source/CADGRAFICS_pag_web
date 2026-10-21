@@ -18,10 +18,11 @@
   const $ = (sel, ctx) => (ctx || document).querySelector(sel);
   const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
 
-  // Los formularios sin data-endpoint (CRM) mandan cada solicitud por correo a esta dirección vía FormSubmit.
-  // FormSubmit pide activarla una sola vez: el primer envío desde el sitio publicado manda un correo con el botón "Activate Form".
-  const LEAD_EMAIL = 'marketing@cadgrafics.com.mx';
-  const EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/' + LEAD_EMAIL;
+  // Sin CRM (data-endpoint vacío) cada solicitud se envía al script del propio sitio.
+  // El destinatario vive solo en contacto.php, no en este archivo.
+  const CONTACT_ENDPOINT = '/contacto.php';
+  // Orígenes extra solo si más adelante un CRM recibe el lead. Vacío = solo este sitio.
+  const LEAD_ENDPOINT_ORIGINS = [];
 
   const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' };
   const DEFAULT_WA = WHATSAPP['CDMX y centro'];
@@ -73,8 +74,14 @@
     if (msg) msg.hidden = !invalid;
     const targets = el.type === 'radio' ? $$('[name="' + el.name + '"]', el.form) : [el];
     targets.forEach((t) => {
+      if (!t.dataset.describedby && t.hasAttribute('aria-describedby')) {
+        t.dataset.describedby = t.getAttribute('aria-describedby');
+      }
       t.setAttribute('aria-invalid', String(invalid));
-      if (invalid) t.setAttribute('aria-describedby', id);
+      const hint = t.dataset.describedby || '';
+      if (invalid) t.setAttribute('aria-describedby', [id, hint].filter(Boolean).join(' '));
+      else if (hint) t.setAttribute('aria-describedby', hint);
+      else t.removeAttribute('aria-describedby');
     });
   };
 
@@ -129,7 +136,7 @@
     const seen = new Set();
     steps.forEach((step) => {
       $$('input, select, textarea', step).forEach((el) => {
-        if (el.type === 'hidden' || el.type === 'checkbox' || el.name === 'website' || seen.has(el.name)) return;
+        if (el.type === 'hidden' || el.type === 'checkbox' || el.name === '_honey' || seen.has(el.name)) return;
         let value = '';
         if (el.type === 'radio') {
           seen.add(el.name);
@@ -151,49 +158,47 @@
     return lines.join('\n');
   };
 
-  // Correo a LEAD_EMAIL: asunto con página e interés, tabla con todos los datos y "Responder" dirigido al cliente
+  // Correo vía contacto.php: el asunto lo arma el servidor; aquí solo viajan los datos ya validados.
   const sendEmail = (form, steps) => {
-    const interest = form.elements.interes ? form.elements.interes.value : '';
-    const data = {
-      _subject: 'Nuevo contacto web · ' + pageName + (interest ? ' · ' + interest : ''),
-      _template: 'table',
-      _captcha: 'false'
-    };
-    if (form.elements.email && form.elements.email.value) data._replyto = form.elements.email.value.trim();
-    collectFields(form, steps).forEach(([label, value]) => { data[label] = value; });
-    data['Página'] = pageName;
-    data['Dirección de la página'] = location.href.split('#')[0];
+    const data = { _honey: form.elements._honey ? form.elements._honey.value : '' };
+    collectFields(form, steps).forEach(([label, value]) => { data[label.slice(0, 80)] = value.slice(0, 500); });
+    data['Página'] = pageName.slice(0, 120);
+    data['Dirección de la página'] = location.href.split('#')[0].slice(0, 300);
     const qs = new URLSearchParams(location.search);
     ['utm_source', 'utm_medium', 'utm_campaign'].forEach((k) => { if (qs.get(k)) data[k] = qs.get(k).slice(0, 100); });
     data['Aceptó aviso de privacidad'] = 'Sí, ' + new Date().toLocaleString('es-MX');
 
     const controller = 'AbortController' in window ? new AbortController() : null;
     const timer = controller && setTimeout(() => controller.abort(), 15000);
-    return fetch(EMAIL_ENDPOINT, {
+    return fetch(CONTACT_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(data),
       signal: controller ? controller.signal : undefined
     })
       .then((res) => res.json().catch(() => ({})).then((json) => {
-        if (!res.ok || String(json.success) !== 'true') throw new Error(json.message || 'HTTP ' + res.status);
+        if (!res.ok || json.ok !== true) throw new Error('HTTP ' + res.status);
       }))
       .finally(() => { if (timer) clearTimeout(timer); });
   };
 
   const sendLead = (form, lead, isUpdate) => {
     const endpoint = form.dataset.endpoint;
-    if (!endpoint) {
-      console.info(isUpdate ? 'Lead (actualización)' : 'Lead (alta)', lead);
-      return;
-    }
-    fetch(endpoint, { method: isUpdate ? 'PATCH' : 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) });
+    if (!endpoint) return;
+    let url;
+    try { url = new URL(endpoint, location.origin); } catch (err) { return; }
+    if (url.origin !== location.origin && LEAD_ENDPOINT_ORIGINS.indexOf(url.origin) === -1) return;
+    fetch(url.href, {
+      method: isUpdate ? 'PATCH' : 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(lead)
+    }).catch(() => {});
   };
 
   $$('form[data-lead-form]').forEach((form) => {
     const card = form.closest('.form-card') || form;
-    // Sin CRM (data-endpoint vacío) la solicitud llega por correo a LEAD_EMAIL en un solo envío,
-    // así que el paso 3 opcional se omite para no mandar dos correos por persona.
+    // Sin CRM (data-endpoint vacío) la solicitud llega en un solo correo,
+    // así que el paso 3 opcional se omite para no pedir datos que ese correo no guardaría aparte.
     const emailMode = !form.dataset.endpoint;
     const allSteps = $$('.form-step', form);
     const steps = allSteps.filter((s) => !(emailMode && s.dataset.step === '3'));
@@ -294,7 +299,7 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (sending) return;
-      if (form.elements.website && form.elements.website.value) return;
+      if (form.elements._honey && form.elements._honey.value) return;
       if (!validateStep(steps[current], form)) return;
       sendLead(form, buildLead(form), false);
       updateWhatsApp();

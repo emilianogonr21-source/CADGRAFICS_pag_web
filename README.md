@@ -10,8 +10,8 @@ Dominio: **https://cadgrafics.com.mx/**
 
 ## 1. Qué es este proyecto, en pocas palabras
 
-- Es un **sitio estático**: solo archivos HTML, CSS, JavaScript, imágenes y videos. No usa base de datos, ni WordPress, ni un servidor que "programe" las páginas. Lo que ves en los archivos es exactamente lo que ve el visitante.
-- **No necesita instalar nada** para funcionar ni para publicarse: basta con copiar las carpetas al servidor web.
+- Las páginas son **HTML, CSS y JavaScript**. No hay base de datos ni WordPress. El único archivo de servidor es `contacto.php`: recibe el formulario y lo manda por correo.
+- **No necesita instalar nada** en tu computadora para verlo. Para publicarlo, el hosting debe ejecutar PHP y permitir la función `mail()`.
 - Tiene **16 páginas**: la de inicio, 14 páginas de marcas y productos, y el aviso de privacidad.
 - Todas las páginas comparten **un solo archivo de estilos** (`assets/css/site.css`) y **un solo archivo de comportamiento** (`assets/js/site.js`). Si cambias algo ahí, cambia en todo el sitio.
 
@@ -31,6 +31,8 @@ Dominio: **https://cadgrafics.com.mx/**
 ```
 CADGRAFICS_pag_web/
 ├── index.html              ← Página de inicio
+├── contacto.php            ← Recibe el formulario y envía el correo
+├── .htaccess               ← Cabeceras de seguridad del hosting
 ├── pages/                  ← Una carpeta por marca
 │   ├── autodesk/             Autodesk, AEC, PD&M, M&E (+ redirección vieja)
 │   ├── adopcion_autodesk/    Programa de Adopción
@@ -74,28 +76,30 @@ Sube **solo esto** a la raíz del dominio (por FTP o el panel del hosting):
 
 ```
 index.html
+contacto.php
+.htaccess
 robots.txt
 sitemap.xml
 assets/
 pages/
 ```
 
-**No subas** `docs/`, `tools/`, `README.md` ni los archivos que empiezan con punto (`.gitignore`, `.gitattributes`).
+**No subas** `docs/`, `tools/`, `README.md`, `.gitignore` ni `.gitattributes`. Sí sube `.htaccess`: ahí van las cabeceras de seguridad que el HTML no puede aplicar.
 
 ### Lista de revisión antes de publicar
 
 - [ ] Abrir varias páginas en celular y computadora y revisar que se vean bien.
 - [ ] Probar el formulario de una página (ver la sección siguiente).
 - [ ] Si agregas o reemplazas un video, comprímelo antes con la herramienta de `tools/` (ver [tools/README.md](tools/README.md)). Los videos actuales ya están optimizados (21 MB en total).
-### ⚠️ Paso obligatorio después de publicar: activar el formulario
+### Paso obligatorio después de publicar: probar el formulario
 
-Los formularios envían los correos a través de **FormSubmit**, un servicio gratuito. La primera vez hay que autorizarlo:
+El formulario envía los datos a `contacto.php`, en el mismo dominio. El correo llega a **marketing@cadgrafics.com.mx**.
 
-1. Entra al sitio **ya publicado** y envía un formulario de prueba con tus datos. (Verás un aviso de error: es normal la primera vez).
-2. Revisa la bandeja de **marketing@cadgrafics.com.mx**: llegará un correo de FormSubmit con el botón **"Activate Form"**. Presiónalo.
-3. Envía otro formulario de prueba. Ahora debe mostrar "¡Gracias! Recibimos tu solicitud" y el correo debe llegar a marketing@.
+1. Entra al sitio **ya publicado** (https://cadgrafics.com.mx) y envía un formulario de prueba.
+2. Debe mostrarse "Recibimos tu solicitud" y el correo debe llegar a marketing@.
+3. Si aparece "No pudimos enviar tu solicitud", el hosting no está entregando `mail()`. Pide al proveedor que habilite el correo PHP para ese dominio. Mientras tanto, el visitante puede mandar los mismos datos por WhatsApp.
 
-Hasta hacer esto, **ninguna solicitud llega por correo** (los visitantes verán la opción de mandarla por WhatsApp).
+En tu computadora, con Live Server, el formulario no puede enviar el correo: el script solo acepta el sitio publicado. Verás el aviso y la opción de WhatsApp. Eso es lo esperado.
 
 ---
 
@@ -106,7 +110,7 @@ Abre el archivo en Cursor/VS Code, usa **Ctrl + Shift + F** para buscar el texto
 | Quiero cambiar… | Dónde | Cómo |
 |---|---|---|
 | Un texto de una página | El `.html` de esa página | Busca el texto y reemplázalo. No borres lo que está entre `< >`. |
-| El correo que recibe los formularios | `assets/js/site.js`, línea `const LEAD_EMAIL = '…'` | Cambia la dirección y vuelve a hacer la **activación** del paso 4. |
+| El correo que recibe los formularios | `contacto.php`, constante `RECIPIENT` | Cambia la dirección. Tiene que ser un buzón del mismo dominio para que `mail()` lo entregue. |
 | Un número de WhatsApp | `assets/js/site.js` (`WHATSAPP` y `WA_LABEL`) **y** los enlaces `wa.me/52…` en los `.html` | Usa Ctrl + Shift + F con el número viejo (ej. `525531120508`) para encontrar todos. |
 | Teléfonos o direcciones del pie de página | Cada `.html`, al final, dentro de `<footer>` | Búscalo con Ctrl + Shift + F y cámbialo en todas las páginas. |
 | La foto de una persona | `assets/images/team/` | Reemplaza el archivo con una foto cuadrada de 192 × 192 px con el mismo nombre. |
