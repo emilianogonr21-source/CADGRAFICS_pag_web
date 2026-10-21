@@ -101,6 +101,13 @@ El formulario envía los datos a `contacto.php`, en el mismo dominio. El correo 
 
 En tu computadora, con Live Server, el formulario no puede enviar el correo: el script solo acepta el sitio publicado. Verás el aviso y la opción de WhatsApp. Eso es lo esperado.
 
+### Probar los enlaces antiguos de colecciones
+
+`.htaccess` redirige la página que ya no existe `pages/autodesk/mfg-collection.html`. Esto solo funciona en el sitio publicado (Live Server no lee `.htaccess`):
+
+- https://cadgrafics.com.mx/pages/autodesk/mfg-collection.html y `?coleccion=pdm` deben abrir **PD&M**.
+- https://cadgrafics.com.mx/pages/autodesk/mfg-collection.html?coleccion=me debe abrir **M&E**.
+
 ---
 
 ## 5. Cambios frecuentes (sin saber programar)

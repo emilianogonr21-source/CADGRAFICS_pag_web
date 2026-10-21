@@ -8,3 +8,15 @@ Options -Indexes
   Header set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; img-src 'self' data:; font-src https://fonts.gstatic.com; media-src 'self'; connect-src 'self'; frame-ancestors 'none'"
   Header set Strict-Transport-Security "max-age=31536000"
 </IfModule>
+
+# Enlaces antiguos de mfg-collection.html (ya no existe) que siguen en correos y buscadores:
+# ?coleccion=me va a M&E; cualquier otro, a PD&M. El "?" final quita el parámetro viejo.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{QUERY_STRING} (^|&)coleccion=me(&|$) [NC]
+  RewriteRule ^pages/autodesk/mfg-collection\.html$ /pages/autodesk/me-collection.html? [R=301,L]
+  RewriteRule ^pages/autodesk/mfg-collection\.html$ /pages/autodesk/pdm-collection.html? [R=301,L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+  Redirect 301 /pages/autodesk/mfg-collection.html /pages/autodesk/pdm-collection.html
+</IfModule>
