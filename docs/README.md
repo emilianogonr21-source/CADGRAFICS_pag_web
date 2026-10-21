@@ -1,67 +1,341 @@
-# Guía del sitio Cadgrafics
+# Guía técnica del sitio Cadgrafics
 
-## Páginas
+Esta guía explica **cómo funciona por dentro** el sitio y cómo modificarlo sin romper nada. Para una introducción general (qué es, cómo verlo, cómo publicarlo) lee primero el **[README principal](../README.md)**.
 
-| Página | Archivo |
-|--------|---------|
-| Inicio | `index.html` |
-| Autodesk | `pages/autodesk/home-autodesk.html` |
-| AEC Collection | `pages/autodesk/aec-collection.html` |
-| Product Design & Manufacturing | `pages/autodesk/pdm-collection.html` |
-| Media & Entertainment | `pages/autodesk/me-collection.html` |
-| Programa de Adopción Autodesk | `pages/adopcion_autodesk/adopcion_Autodesk.html` |
-| Adobe | `pages/adobe/home-adobe.html` |
-| Creative Cloud | `pages/adobe/creative-cloud.html` |
-| Acrobat Studio | `pages/adobe/acrobat-studio.html` |
-| Microsoft 365 | `pages/microsoft/home-microsoft.html` |
-| Chaos | `pages/chaos/home-chaos.html` |
-| SketchUp | `pages/sketchup/home-sketchup.html` |
-| Dell | `pages/dell/home-dell.html` |
-| HP gran formato | `pages/hp/home-hp.html` |
-| Mac | `pages/mac/home-mac.html` |
-| Aviso de privacidad | `pages/legal/aviso-privacidad.html` |
+**Contenido**
 
-`pages/autodesk/mfg-collection.html` solo redirige los enlaces viejos (`?coleccion=pdm` o `?coleccion=me`) a las dos páginas nuevas. No lo borres.
+1. [Cómo funciona una página](#1-cómo-funciona-una-página)
+2. [Mapa de páginas](#2-mapa-de-páginas)
+3. [Identidad visual y sistema de diseño](#3-identidad-visual-y-sistema-de-diseño)
+4. [Componentes disponibles](#4-componentes-disponibles)
+5. [Comportamiento (JavaScript)](#5-comportamiento-javascript)
+6. [Formularios de contacto](#6-formularios-de-contacto)
+7. [WhatsApp](#7-whatsapp)
+8. [Videos e imágenes](#8-videos-e-imágenes)
+9. [Animaciones y accesibilidad](#9-animaciones-y-accesibilidad)
+10. [SEO y seguridad](#10-seo-y-seguridad)
+11. [Crear o editar una página](#crear-o-editar-una-página)
+12. [Publicar](#12-publicar)
+13. [Solución de problemas](#13-solución-de-problemas)
 
-## Identidad
+---
 
-- **Rojo Cadgrafics:** Pantone Process 1807 C · CMYK 0/100/96/28 → `#B80007`. Degradado hasta `#660000` (C0 M100 Y100 K60).
-- **Negro:** Pantone Process Black · CMYK 0/0/0/100 → `#000000`.
-- **Tipografía:** Inter en todo el sitio, con los tamaños de la página de inicio.
-- Sobre fondo negro, el rojo solo va en títulos grandes; los textos pequeños van en blanco con una línea o punto rojo.
-- Los colores, tamaños y componentes viven en `assets/css/site.css`. **No agregues estilos dentro de las páginas**: usa las clases de ese archivo (ejemplos en `docs/componentes.html`).
-- Cada página sigue el orden de módulos de la marca: **Identidad → Impacto → Información → Conversión**.
-  - Identidad (rojo 1807 C, quién habla): la etiqueta `eyebrow` o `hero__badge` del hero.
-  - Impacto (negro, qué queremos que recuerden): el `hero` y, si hace falta, una banda `section--ink` o `trust` justo después.
-  - Información (claro, qué necesitan entender): secciones `section` y `section section--paper` alternadas. No uses `section--ink` a mitad de página, salvo que un logo del fabricante solo exista en blanco.
-  - Conversión (rojo profundo, qué queremos que hagan): la banda final `cta-band`.
+## 1. Cómo funciona una página
+
+Cada página es un archivo `.html` completo e independiente. Todas cargan los mismos archivos compartidos, **en este orden**:
+
+```
+<head>
+  Content-Security-Policy        (qué recursos externos se permiten)
+  Google Fonts · Inter           (tipografía)
+  assets/css/shared/header.css   (menú superior heredado; NO modificar)
+  assets/css/site.css            (todo el diseño del sitio)
+</head>
+<body data-page="Nombre de la página">
+  header  → menú
+  main    → hero + secciones + contacto (#contacto) + banda final (.cta-band)
+  footer  → oficinas, enlaces, redes, aviso de privacidad
+  botón flotante de WhatsApp + barra inferior en celular
+  assets/js/shared/site-common.js  (menú)
+  assets/js/site.js                (formularios, WhatsApp, animaciones, videos)
+</body>
+```
+
+- `site.css` se carga **después** de `header.css` y ajusta sus colores sin tocar el archivo original.
+- `data-page` en `<body>` es el nombre de la página: aparece en los correos y mensajes de WhatsApp para saber de dónde llegó cada contacto.
+- No hay compilación ni dependencias: lo que editas es lo que se publica.
+
+---
+
+## 2. Mapa de páginas
+
+| Página | Archivo | `data-page` |
+|---|---|---|
+| Inicio | `index.html` | Inicio |
+| Autodesk | `pages/autodesk/home-autodesk.html` | Autodesk |
+| AEC Collection | `pages/autodesk/aec-collection.html` | Autodesk AEC Collection |
+| Product Design & Manufacturing | `pages/autodesk/pdm-collection.html` | Autodesk Product Design & Manufacturing |
+| Media & Entertainment | `pages/autodesk/me-collection.html` | Autodesk Media & Entertainment |
+| Programa de Adopción | `pages/adopcion_autodesk/adopcion_Autodesk.html` | Programa de Adopción Autodesk |
+| Adobe | `pages/adobe/home-adobe.html` | Adobe |
+| Creative Cloud | `pages/adobe/creative-cloud.html` | Adobe Creative Cloud |
+| Acrobat Studio | `pages/adobe/acrobat-studio.html` | Adobe Acrobat Studio |
+| Microsoft 365 | `pages/microsoft/home-microsoft.html` | Microsoft 365 |
+| Chaos | `pages/chaos/home-chaos.html` | Chaos |
+| SketchUp | `pages/sketchup/home-sketchup.html` | SketchUp |
+| Dell | `pages/dell/home-dell.html` | Dell |
+| HP gran formato | `pages/hp/home-hp.html` | HP gran formato |
+| Mac | `pages/mac/home-mac.html` | Mac para empresas |
+| Aviso de privacidad | `pages/legal/aviso-privacidad.html` | Aviso de privacidad |
+
+**Archivo especial:** `pages/autodesk/mfg-collection.html` no es una página: redirige los enlaces antiguos (`?coleccion=pdm` → PD&M, `?coleccion=me` → M&E). No lo borres; protege enlaces que ya circulan en correos y buscadores.
+
+---
+
+## 3. Identidad visual y sistema de diseño
+
+### Colores y tipografía
+
+| Elemento | Valor | Variable en `site.css` |
+|---|---|---|
+| Rojo Cadgrafics | Pantone Process 1807 C · CMYK 0/100/96/28 → `#B80007` | `--red` |
+| Rojo profundo (fin del degradado) | CMYK 0/100/100/60 → `#660000` | `--red-deep`, `--red-gradient` |
+| Negro | Pantone Process Black → `#000000` | `--ink` |
+| Papel (fondo claro cálido) | `#F7F6F3` | `--paper` |
+| Verde WhatsApp | `#075E54` (texto blanco encima, contraste 7.7:1) | `--wa`, `--success` |
+| Tipografía | **Inter** (400–900), tamaños tomados de la página de inicio original | `--font-main`, `--fs-*` |
+
+Reglas:
+
+- Sobre fondo negro, el rojo solo va en **títulos grandes** (en texto pequeño no tiene contraste suficiente). Las etiquetas pequeñas van en blanco con una línea o punto rojo.
+- **Nunca** pongas estilos dentro de las páginas (`style="…"`). Usa las clases de `site.css`; si falta algo, agrégalo ahí.
+- Los espacios (márgenes laterales, aire entre secciones, separación entre tarjetas) también son variables: `--gutter`, `--section-y`, `--stack`, `--grid-gap`. Cambiarlas ajusta todo el sitio de forma pareja.
+
+### Orden de módulos en cada página
+
+Todas las páginas siguen el sistema de la marca **Identidad → Impacto → Información → Conversión**:
+
+| Módulo | Color | Qué comunica | En el código |
+|---|---|---|---|
+| Identidad | Rojo 1807 C | Quién habla | Etiqueta del hero: `.eyebrow` o `.hero__badge` |
+| Impacto | Negro | Qué queremos que recuerden | `.hero` y, si hace falta, una banda `.trust` o `.section--ink` justo después |
+| Información | Blanco y papel alternados | Qué necesitan entender | `.section` y `.section.section--paper` alternadas |
+| Conversión | Rojo profundo | Qué queremos que hagan | Banda final `.cta-band` |
+
+No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque "¿Buscas otra colección?" de PD&M y M&E, porque el logo de Autodesk de ese bloque solo existe en blanco.
+
+### Variantes del hero
+
+| Clase | Efecto |
+|---|---|
+| `.hero` | Hero oscuro con imagen o video de fondo; en escritorio ocupa casi toda la pantalla. |
+| `.hero--plain` | Sin imagen: fondo negro con un brillo rojo. |
+| `.hero--compact` | Más bajo (lo usa el aviso de privacidad). |
+| `.hero--low` | El contenido se apoya más abajo (Programa de Adopción). |
+| `.hero__grid--single` | Una sola columna de texto (sin formulario ni video al lado). |
+
+---
+
+## 4. Componentes disponibles
+
+**Catálogo visual con ejemplos de código:** abre `docs/componentes.html` con Live Server.
+
+| Componente | Clases principales | Para qué |
+|---|---|---|
+| Secciones | `.section`, `.section--paper`, `.section--ink`, `.section--tight`, `.section-header` | Estructura y fondo de cada bloque |
+| Botones | `.btn` + `.btn--primary` / `--ghost` / `--outline` / `--wa`, `.btn--xl`, `.btn--block` | Acciones (`--ghost` solo sobre fondo oscuro) |
+| Tarjetas | `.grid--2/3/4`, `.card`, `.card--featured`, `.card--dark`, `.card__tag`, `.card__actions` | Productos, retos, soluciones |
+| Ventajas | `.feature`, `.feature__icon`, `.app`, `.checklist` | Listas de beneficios |
+| Imagen + texto | `.split`, `.split--reverse`, `.split__media`, `.split__body` | Bloques mitad y mitad |
+| Proceso | `.steps`, `.step-card` | Antes · Durante · Después |
+| Cifras | `.stats` > `.stat` | Números grandes con línea roja (animados) |
+| Casos de éxito | `.case-feature`, `.case`, `.case__media`, `.case__body` | Testimonios con video de YouTube |
+| Personas | `.people` > `.person` + `.person__avatar` | Tarjetas de contacto (foto o iniciales) |
+| Planes | `.plan`, `.plan--featured`, `.plan__badge` | Comparar opciones |
+| Tablas | `.table-wrap` > `.spec-table` | Especificaciones |
+| Pestañas | `[data-tabs]`, `.tabs__list`, `.tabs__tab` | Contenido por categoría |
+| Preguntas frecuentes | `.faq` (con `<details>`) | Dudas comunes |
+| Galería | `.gallery` | Fotos de producto |
+| Credenciales | `.trust`, `.logo-wall`, `.badge-row` | Logos de partners e insignias |
+| Nota | `.note` | Aviso destacado |
+| Banda final | `.cta-band`, `.stage-grid` | Llamado a la acción |
+| Animación de entrada | `.reveal` | El elemento aparece al bajar |
+
+---
+
+## 5. Comportamiento (JavaScript)
+
+Todo vive en `assets/js/site.js`, organizado en 9 bloques numerados. Se activa con **atributos en el HTML**, así que normalmente no hace falta tocar el JavaScript.
+
+| # | Función | Cómo se activa en el HTML |
+|---|---|---|
+| 1 | Menú (abrir/cerrar, submenús) | Automático (usa `site-common.js`) |
+| 2 | Formulario por pasos | `<form data-lead-form="…" data-endpoint="">` → ver [sección 6](#6-formularios-de-contacto) |
+| 3 | Prellenar el formulario desde un botón | `data-interest="Valor exacto de una opción"` y/o `data-stage="evaluar|cotizar|descubrir"` en el enlace |
+| 4 | Pestañas accesibles (teclado con flechas) | `data-tabs` en el contenedor, botones `role="tab"` con `aria-controls` |
+| 5 | WhatsApp por región | Enlaces con `data-wa` → ver [sección 7](#7-whatsapp) |
+| 6 | Aparición al bajar | Clase `reveal` |
+| 7 | Cifras que cuentan | Automático en cualquier `.stats` |
+| 8 | Videos ambientales | `<video data-ambient>` + botón `data-video-toggle` |
+| 9 | Carril infinito de insignias | `data-marquee` en una `.badge-row` con 3 o más imágenes |
+
+Valores importantes al inicio de `site.js`:
+
+```js
+const LEAD_EMAIL = 'marketing@cadgrafics.com.mx';                               // destino de los formularios
+const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' }; // número por región
+const WA_LABEL = { '525531120508': '55 3112 0508', '523314040396': '33 1404 0396' }; // texto accesible
+```
+
+---
+
+## 6. Formularios de contacto
+
+Cada página (excepto el aviso de privacidad) tiene **un formulario** dentro de `#contacto` (en el inicio está en el hero).
+
+### Recorrido del visitante
+
+```mermaid
+flowchart LR
+  A[Paso 1<br>Interés + correo] --> B[Paso 2<br>Nombre, empresa, celular,<br>industria, región, aviso]
+  B -->|Enviar| C{¿Correo enviado?}
+  C -->|Sí| D[¡Gracias!<br>+ botón opcional de WhatsApp]
+  C -->|No| E[Aviso en el formulario<br>Reintentar o mandar por WhatsApp]
+```
+
+1. **Paso 1:** elige en qué le podemos ayudar (`name="interes"`) y escribe su correo.
+2. **Paso 2:** nombre, empresa, celular, industria (si aplica), región y aceptación del aviso de privacidad.
+3. **Enviar:** el botón cambia a "Enviando…" y se manda un correo a `LEAD_EMAIL`.
+4. **Éxito:** se muestra "¡Gracias! Recibimos tu solicitud" con un botón opcional para seguir por WhatsApp.
+5. **Error** (sin internet, servicio caído o formulario sin activar): aparece un aviso; la persona puede reintentar o mandar **los mismos datos por WhatsApp** a la oficina de su región. Así ningún contacto se pierde.
+
+### El correo que llega
+
+- **Para:** marketing@cadgrafics.com.mx
+- **Asunto:** `Nuevo contacto web · {página} · {interés}` — ej. *Nuevo contacto web · HP gran formato · HP DesignJet*
+- **Contenido:** tabla con interés, correo, nombre, empresa, celular, industria, región, página, dirección exacta de la página, campaña (`utm_source/medium/campaign` si venía de un anuncio) y fecha en que aceptó el aviso de privacidad.
+- **Responder** contesta directo al correo del cliente.
+
+### Cómo se envía (FormSubmit)
+
+El sitio no tiene servidor propio, así que el envío pasa por **[FormSubmit](https://formsubmit.co)**, un servicio gratuito que recibe los datos y los reenvía como correo.
+
+- **Activación única:** el primer envío desde el sitio publicado manda a marketing@ un correo con el botón **"Activate Form"**. Hasta presionarlo, los envíos fallan (y se ofrece WhatsApp).
+- **Cambiar el destinatario:** edita `LEAD_EMAIL` en `site.js` y repite la activación con la nueva dirección.
+- **Seguridad:** la Content-Security-Policy de cada página permite `https://formsubmit.co` en `connect-src`. Si cambias de servicio, actualiza esa línea en **todas** las páginas.
+
+### Validación y protección
+
+- Cada campo obligatorio lleva `required` y un mensaje propio en `data-error` (ej. "Revisa que tenga 10 dígitos.").
+- `data-rule="fullname"` exige nombre y apellido.
+- Los errores se anuncian a lectores de pantalla y el cursor salta al primer campo con error.
+- **Anti-spam:** el campo oculto `website` ("No llenar") es una trampa para robots; si viene lleno, no se envía nada.
+
+### Conectar un CRM (opcional, a futuro)
+
+Si algún día se usa Salesforce, HubSpot u otro CRM:
+
+1. Pon la URL del servicio en `data-endpoint` del `<form>`.
+2. El formulario cambia solo a **3 pasos**: el tercero (opcional) pide datos para calificar el contacto (usuarios, plazo, vencimiento de licencias, volumen, etc.).
+3. Los campos ya llevan los nombres de Salesforce en `data-sf` (`Email`, `Company`, `MobilePhone`, `Industry`, `State`, `Tipo_Necesidad__c`, etc.).
+4. Agrega el dominio del CRM a `connect-src` en la Content-Security-Policy.
+
+---
+
+## 7. WhatsApp
+
+| Elemento | Comportamiento |
+|---|---|
+| Botón flotante (todas las páginas) | Abre chat con CDMX **55 3112 0508**. Si la persona elige "Jalisco y occidente" en el formulario, cambia a Guadalajara **33 1404 0396**. |
+| Botón "Continuar por WhatsApp" (después de enviar) | Mismo número según la región, con un mensaje que incluye nombre, empresa e interés. |
+| Respaldo si el correo falla | Mensaje con **todos** los datos del formulario. |
+| Botones fijos en la página | Enlaces `https://wa.me/52…` escritos directamente en el HTML. |
+
+Para cambiar un número: actualiza `WHATSAPP` y `WA_LABEL` en `site.js` **y** busca el número viejo (`525531120508` o `523314040396`) en todos los `.html` con Ctrl + Shift + F.
+
+---
+
+## 8. Videos e imágenes
+
+### Videos (`assets/video/`)
+
+Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se guardan fuera del sitio en `tools/_video-originals/`.
+
+| Video | Página | Uso | Tamaño | Peso |
+|---|---|---|---|---|
+| `autodesk/home/video-home-autodesk.mp4` | Autodesk | Fondo del hero, bajo velo oscuro | 960 px | 5.7 MB |
+| `adobe/home/video-home-adobe.mp4` | Adobe | Marco del hero | 960 px | 5.6 MB |
+| `adobe/creative-cloud/creative-cloud.mp4` | Creative Cloud | Marco del hero | 960 px | 3.2 MB |
+| `adobe/creative-cloud/video-landing-cc-adobe-express.mp4` | Creative Cloud | Demo con controles | 1280 px | 2.7 MB |
+| `adobe/acrobat-studio/video-agenda-demo.mp4` | Acrobat Studio | Demo con controles | 1280 px | 2.6 MB |
+| `adobe/acrobat-studio/video-acrobat-studio.mp4` | Acrobat Studio | Marco del hero | 1080 px | 1.6 MB |
+
+- `data-ambient`: video sin sonido que se reproduce **solo cuando está en pantalla** y se pausa al salir. Lleva un botón de pausa (`data-video-toggle`) por accesibilidad.
+- `data-desktop-only`: en celular muestra su imagen fija (`poster`) y no se reproduce solo, para no gastar datos.
+- No se reproducen si la persona activó "reducir movimiento" o "ahorro de datos".
+- Para comprimirlos antes de publicar: [tools/README.md](../tools/README.md).
+
+### Imágenes (`assets/images/`)
+
+| Carpeta | Contenido |
+|---|---|
+| `index/` | Logos de partners e imágenes del inicio |
+| `autodesk/`, `adobe/`, `hp/`, `dell/`, `sketchup/`, `adopcion_autodesk/` | Imágenes de cada marca |
+| `posters/` | Imagen fija que se ve mientras carga cada video |
+| `team/` | Fotos del equipo (cuadradas, 192 × 192 px, JPG). Ej.: `sandra-alvarez.jpg` (6 KB) |
+| `brand/` | Recursos de identidad Cadgrafics |
+| `brevo/` | Imágenes usadas también en correos de campañas: **no las borres del servidor** |
+| `icons.svg` | Todos los íconos del sitio en un solo archivo. Se usan así: `<svg class="icon"><use href="…/icons.svg#icon-phone"/></svg>` |
+
+Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, y `loading="lazy"` si no están en la primera pantalla. **No cambies ni deformes los logos de los fabricantes**: respeta sus lineamientos de marca.
+
+---
+
+## 9. Animaciones y accesibilidad
+
+| Animación | Dónde | Detalle |
+|---|---|---|
+| Aparición al bajar | Elementos con `.reveal` | Suben y aparecen suavemente |
+| Cifras | Todas las `.stats` | Entran escalonadas, la línea roja crece y el número cuenta de 0 a su valor. Valores de texto ("Platinum", "macOS 27") y años ("2010") no cuentan. |
+| Carril de insignias | Certificaciones de Autodesk (`data-marquee`) | Se desplaza sin fin; se pausa al pasar el cursor |
+| Videos | `data-ambient` | Ver sección 8 |
+
+**Accesibilidad (objetivo WCAG AA):**
+
+- Si el sistema tiene **"reducir movimiento"**, todas las animaciones se desactivan y el contenido se ve fijo.
+- Contraste de texto AA en todo el sitio; foco de teclado visible en rojo (o blanco sobre fondos rojos).
+- Enlace "Saltar al contenido principal", pestañas navegables con flechas, formularios con mensajes de error anunciados.
+- Los números animados y las copias del carril se ocultan a lectores de pantalla; ellos leen el valor final y cada insignia una sola vez.
+- Imágenes decorativas con `alt=""`; imágenes con información con `alt` descriptivo.
+
+---
+
+## 10. SEO y seguridad
+
+- Cada página tiene `<title>`, `meta description`, `canonical` (`https://cadgrafics.com.mx/…`) y etiquetas `og:` para compartir en redes.
+- `sitemap.xml` lista las 16 páginas; `robots.txt` lo anuncia y bloquea `/docs/` y `/tools/`.
+- `mfg-collection.html` lleva `noindex` porque solo redirige.
+- **Content-Security-Policy** (en cada `<head>`): solo permite recursos del propio sitio, Google Fonts y FormSubmit. Si agregas un servicio externo (analítica, chat, CRM, mapas), **debes agregarlo a la política** o el navegador lo bloqueará.
+
+---
 
 ## Crear o editar una página
 
-1. Copia una página parecida de `pages/` (el menú, el pie, el botón de WhatsApp y los scripts ya vienen listos).
-2. Cambia `<title>`, `meta description`, `canonical`, las etiquetas `og:` y `data-page` del `<body>`.
-3. Marca la marca activa en el menú con `aria-current="page"`.
-4. Deja un solo formulario por página, dentro de `#contacto`. Las opciones del paso 1 (`name="interes"`) deben coincidir con los `data-interest` de los botones de la página.
-5. Agrega la página a `sitemap.xml`.
+1. **Copia una página parecida** de `pages/`. El menú, el pie, el botón de WhatsApp, la barra móvil y los scripts ya vienen listos.
+2. **Cambia en el `<head>`:** `<title>`, `meta description`, `canonical`, etiquetas `og:`.
+3. **Cambia `data-page`** en `<body>` (aparece en los correos de contacto).
+4. **Marca la página activa** en el menú con `aria-current="page"`.
+5. **Formulario:** deja uno solo, dentro de `#contacto`, con un `data-lead-form` único (ej. `landing-marca-pagina`). Las opciones del paso 1 (`name="interes"`) deben coincidir **exactamente** con los `data-interest` de los botones de esa página.
+6. **Sigue el orden de módulos:** hero → información alternando blanco/papel → contacto → `.cta-band`.
+7. **Agrega la página** a `sitemap.xml` y, si corresponde, al menú de todas las páginas.
 
-Rutas desde `pages/{carpeta}/{pagina}.html`: assets con `../../assets/…`, inicio con `../../index.html`, otras páginas con `../{carpeta}/{pagina}.html`.
+**Rutas** desde `pages/{carpeta}/{pagina}.html`:
 
-## Formularios
+- Archivos de assets: `../../assets/…`
+- Inicio: `../../index.html`
+- Otra página: `../{carpeta}/{pagina}.html`
 
-- Se configuran con atributos (`data-lead-form`, `data-sf`, `data-error`, `data-show-if`); la lógica está en `assets/js/site.js`.
-- **Hoy (sin CRM, `data-endpoint=""`):** el formulario tiene 2 pasos y al presionar "Enviar" manda un correo a **marketing@cadgrafics.com.mx** con todos los datos (interés, nombre, empresa, correo, celular, industria, región, página de origen y UTM). Al responder ese correo se contesta directo al cliente.
-  - El envío pasa por [FormSubmit](https://formsubmit.co) (gratuito, sin servidor). La dirección se cambia en `LEAD_EMAIL`, al inicio de `assets/js/site.js`.
-  - **Activación (una sola vez):** después de publicar, envía un formulario de prueba desde el sitio en línea. FormSubmit manda a marketing@ un correo con el botón "Activate Form"; hasta presionarlo, los envíos no llegan.
-  - Si el correo no sale, el formulario muestra un aviso y un botón para mandar los mismos datos por WhatsApp a la oficina de la región (CDMX 55 3112 0508 u Occidente 33 1404 0396).
-  - La Content-Security-Policy de cada página permite `https://formsubmit.co` en `connect-src`; si cambias de servicio, actualízala.
-- **Con CRM:** pon la URL del servicio en `data-endpoint` del `<form>`. El formulario vuelve a 3 pasos (el tercero pide datos para calificar: usuarios, plazo, vencimiento de licencias, volumen, etc.) y envía los datos a esa URL.
+---
 
-## Videos
+## 12. Publicar
 
-- Los videos sin sonido llevan `data-ambient` y un botón de pausa; solo se reproducen cuando están en pantalla.
-- En celular, los videos pesados (`data-desktop-only`) muestran su imagen de espera hasta que la persona da play.
-- Para comprimirlos antes de publicar: `tools/optimize-videos.ps1` (ver `tools/README.md`).
+1. Sube a la raíz del dominio: `index.html`, `robots.txt`, `sitemap.xml`, `assets/`, `pages/`.
+2. **No subas:** `docs/`, `tools/`, `README.md`, `.gitignore`, `.gitattributes`.
+3. **Activa el formulario** (solo la primera vez o si cambias `LEAD_EMAIL`): envía uno de prueba desde el sitio publicado y presiona "Activate Form" en el correo que llega a marketing@.
+4. Prueba en celular y computadora: menú, un formulario, el botón de WhatsApp y un video.
 
-## Publicar
+---
 
-Sube `index.html`, `robots.txt`, `sitemap.xml`, `assets/` y `pages/` a la raíz del dominio. Las imágenes de `assets/images/brevo/` se usan en correos de campañas: no las borres del servidor.
+## 13. Solución de problemas
+
+| Problema | Causa probable | Solución |
+|---|---|---|
+| El formulario muestra "No pudimos enviar tu solicitud" | FormSubmit aún no está activado, o no hay internet | Haz la activación (sección 6). Revisa también la carpeta de spam de marketing@. |
+| No llegan los correos aunque el formulario dice "¡Gracias!" | Filtro de spam o reglas del correo | Busca remitente "FormSubmit" en spam y márcalo como seguro. |
+| Un recurso externo no carga (fuente, script, mapa) | La Content-Security-Policy lo bloquea | Agrega su dominio a la directiva correspondiente en el `<head>` de cada página. |
+| Una imagen se ve estirada o del tamaño incorrecto | Regla `img { height: auto }` de `header.css` | En `site.css` usa un selector más específico, ej. `img.mi-clase { height: … }`. |
+| Un elemento con `hidden` sigue visible | Otra regla le pone `display` | Ya existe `[hidden] { display: none !important }`; revisa que el atributo esté en el elemento correcto. |
+| Los íconos no se ven | `icons.svg` guardado con otra codificación o ruta mal escrita | El archivo debe estar en UTF-8; revisa la ruta `../../assets/images/icons.svg#icon-…`. |
+| Un video no se reproduce en celular | Es `data-desktop-only` (intencional) o el sistema tiene ahorro de datos | Es el comportamiento esperado; la persona puede darle play. |
+| Las animaciones no se ven | El sistema tiene "reducir movimiento" activado | Es intencional por accesibilidad. |
+| El botón del formulario no prellena la opción | `data-interest` no coincide exactamente con el `value` de la opción | Copia el texto exacto (mayúsculas y acentos incluidos). |
