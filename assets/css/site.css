@@ -51,8 +51,9 @@
   --paper: #f7f6f3;
   --white: #ffffff;
   --error: #b42318;
-  --success: #1f7a4d;
-  --wa: #25d366;
+  --success: #075e54;
+  --wa: #075e54;            /* Verde WhatsApp oscuro: 7.7:1 con texto blanco (AA) */
+  --wa-hover: #054a42;
 
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -138,8 +139,8 @@ p { text-wrap: pretty; }
 .btn--ghost:hover { border-color: var(--white); background: rgba(255, 255, 255, 0.08); }
 .btn--outline { color: var(--ink); border-color: var(--ink); }
 .btn--outline:hover { background: var(--ink); color: var(--white); }
-.btn--wa { background: var(--wa); color: var(--ink); }
-.btn--wa:hover { background: #1fb457; }
+.btn--wa { background: var(--wa); color: var(--white); }
+.btn--wa:hover { background: var(--wa-hover); }
 .btn--block { width: 100%; }
 .btn--xl { font-size: var(--fs-btn-xl); font-weight: 800; letter-spacing: 0.05em; padding: 1.1rem 2.5rem; border-radius: var(--radius-md); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
@@ -431,8 +432,10 @@ img.quote__avatar {
 .people { display: grid; gap: 1rem; }
 .person { display: flex; align-items: center; gap: 1rem; padding: 1.25rem; border-radius: var(--radius-md); background: var(--white); border: 1px solid var(--line); }
 .section--ink .person { background: rgba(255, 255, 255, 0.04); border-color: var(--line-dark); }
-.person__avatar { display: grid; place-items: center; width: 52px; height: 52px; flex-shrink: 0; border-radius: 50%; background: var(--red-gradient); color: var(--white); font-weight: 800; }
-.person h3 { font-size: var(--fs-card-title-sm); font-weight: 700; }
+.person__avatar { display: grid; place-items: center; width: 60px; height: 60px; flex-shrink: 0; border-radius: 50%; background: var(--red-gradient); color: var(--white); font-weight: 800; }
+/* Foto: img.person__avatar gana a img { height: auto } de header.css; aro blanco + rojo 1807 C como marco */
+img.person__avatar { height: 60px; object-fit: cover; object-position: center 30%; background: var(--ink-900); box-shadow: 0 0 0 3px var(--white), 0 0 0 5px var(--red), 0 8px 18px -6px rgba(0, 0, 0, 0.35); }
+.section--ink img.person__avatar { box-shadow: 0 0 0 3px var(--ink), 0 0 0 5px var(--red); }.person h3 { font-size: var(--fs-card-title-sm); font-weight: 700; }
 .person p { font-size: var(--fs-feature-text); color: var(--gray); }
 .section--ink .person p { color: var(--gray-soft); }
 .person a { color: var(--red); font-weight: 600; font-size: var(--fs-feature-text); text-decoration: underline; text-underline-offset: 3px; }
@@ -533,7 +536,7 @@ img.quote__avatar {
 .btn-back { font-size: var(--fs-btn); font-weight: 600; color: var(--gray); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; padding: 0 0.25rem; }
 .form-note { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--gray); text-align: center; }
 .form-done { text-align: center; padding: 1rem 0; }
-.form-done .icon { width: 3rem; height: 3rem; margin: 0 auto 0.75rem; color: var(--success); }
+.form-done > .icon { width: 3rem; height: 3rem; margin: 0 auto 0.75rem; color: var(--success); }
 .form-done h3 { font-size: var(--fs-card-title); margin-bottom: 0.5rem; }
 .form-done p { font-size: var(--fs-card-text); color: var(--gray); }
 .form-done .btn { margin-top: 0.75rem; }
