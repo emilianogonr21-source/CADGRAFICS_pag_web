@@ -707,9 +707,9 @@ body { padding-bottom: 68px; }
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
   .logo-wall { grid-template-columns: repeat(6, 1fr); }
-  /* En escritorio el hero ocupa casi toda la primera pantalla y centra su contenido;
-     se asoma la siguiente sección para invitar a bajar */
-  .hero:not(.hero--compact) { display: flex; align-items: center; min-height: clamp(640px, 88svh, 860px); }
+  /* En escritorio el hero ocupa la primera pantalla completa y centra su contenido,
+     para que la siguiente sección no se asome cortada */
+  .hero:not(.hero--compact) { display: flex; align-items: center; min-height: max(640px, 100vh); min-height: max(640px, 100svh); }
   .hero--low:not(.hero--compact) { align-items: flex-end; }
   .hero__grid { grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr); }
   .hero__grid > :nth-child(2) { justify-self: end; width: 100%; max-width: 460px; }
@@ -740,6 +740,10 @@ body { padding-bottom: 68px; }
   .case-feature > .case:first-child { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
   .case-feature > .case:first-child .case__body { justify-content: center; padding: clamp(2rem, 1rem + 2.5vw, 3.5rem); }
   .case-feature > .case:first-child .case__person { margin-top: 0; }
+}
+/* Pantallas de escritorio bajas (laptops): menos aire vertical para que el contenido del hero quepa en la primera vista */
+@media (min-width: 1025px) and (max-height: 860px) {
+  .hero { --hero-space: clamp(1.5rem, 4svh, 2.5rem); }
 }
 @media (min-width: 769px) {
   .case-feature { grid-template-columns: repeat(2, minmax(0, 1fr)); }

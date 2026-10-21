@@ -108,7 +108,7 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 
 | Clase | Efecto |
 |---|---|
-| `.hero` | Hero oscuro con imagen o video de fondo; en escritorio ocupa casi toda la pantalla. |
+| `.hero` | Hero oscuro con imagen o video de fondo; en escritorio ocupa la primera pantalla completa (mínimo 640 px), así la siguiente sección no se asoma cortada. |
 | `.hero--plain` | Sin imagen: fondo negro con un brillo rojo. |
 | `.hero--compact` | Más bajo (lo usa el aviso de privacidad). |
 | `.hero--low` | El contenido se apoya más abajo (Programa de Adopción). |
