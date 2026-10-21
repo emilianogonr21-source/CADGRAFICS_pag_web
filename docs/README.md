@@ -115,6 +115,7 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 | `.hero__grid--single` | Una sola columna de texto (sin formulario ni video al lado). |
 | `.hero__grid--brand` | Texto a la izquierda y logotipo del fabricante arriba a la derecha, alineado con el título, en un panel translúcido. El `img.hero__logo` va después del bloque de texto, como hijo directo del grid; en móvil sube arriba del título. |
 | `.hero__grid--media-logo` | Texto a la izquierda; a la derecha, el logotipo encima del video (`.hero__media`). El `img.hero__logo` va al final del grid. |
+| `.hero__grid--media-wide` | Se suma a `.hero__grid--media-logo`: video más grande y logotipo más discreto encima (inicio de Adobe). |
 
 ---
 

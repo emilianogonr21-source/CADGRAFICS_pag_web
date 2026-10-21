@@ -730,6 +730,10 @@ body { padding-bottom: 68px; }
   .hero__grid--media-logo > :first-child { grid-area: copy; }
   .hero__grid--media-logo > .hero__media { grid-area: media; align-self: start; }
   .hero__grid--media-logo > img.hero__logo { grid-area: logo; align-self: end; max-width: 380px; height: clamp(56px, 1.5rem + 2.5vw, 80px); }
+  /* Video protagonista: columna de video más ancha y logotipo discreto encima */
+  .hero__grid--media-wide { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); column-gap: clamp(2.5rem, 1rem + 2.5vw, 4rem); row-gap: 1.25rem; }
+  .hero__grid--media-wide > .hero__media { width: 100%; max-width: 760px; }
+  .hero__grid--media-wide > img.hero__logo { height: clamp(36px, 0.75rem + 1.6vw, 48px); }
   .split { grid-template-columns: 1fr 1fr; }
   .split--reverse .split__media { order: 2; }
   .steps { grid-template-columns: repeat(3, 1fr); }
