@@ -212,6 +212,12 @@ p { text-wrap: pretty; }
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: linear-gradient(100deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.78) 45%, rgba(0, 0, 0, 0.45) 100%);
 }
+/* Fondo de circuito rojo: el lado del título se queda oscuro y a la derecha se ve el video */
+.hero--film::after {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 20%),
+    linear-gradient(100deg, rgba(6, 0, 0, 0.94) 0%, rgba(6, 0, 0, 0.92) 54%, rgba(18, 0, 2, 0.5) 70%, rgba(48, 0, 4, 0.26) 86%, rgba(64, 0, 6, 0.12) 100%);
+}
 .hero--plain::after { background: radial-gradient(90% 70% at 85% 0%, rgba(184, 0, 7, 0.28), rgba(102, 0, 0, 0.12) 45%, transparent 70%); }
 .hero > .container { position: relative; z-index: 1; }
 .hero__grid { display: grid; gap: clamp(2.5rem, 1rem + 4vw, 5.5rem); align-items: center; }
@@ -251,6 +257,16 @@ img.hero__logo { height: 48px; width: auto; max-width: 220px; object-fit: contai
 .video-toggle:hover { background: rgba(0, 0, 0, 0.9); }
 .video-toggle .icon { width: 0.85rem; height: 0.85rem; }
 .hero > .video-toggle { right: 1.5rem; bottom: 1.5rem; }
+/* En inicio el formulario ocupa la esquina inferior: el control queda en la franja superior */
+.hero.hero--film > .video-toggle {
+  top: calc(var(--header-offset) + 0.65rem);
+  right: 1.25rem;
+  bottom: auto;
+  left: auto;
+}
+@media (max-width: 768px) {
+  .hero.hero--film { padding-top: calc(var(--header-offset) + 0.65rem + 44px + 0.85rem); }
+}
 .video-caption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--gray); }
 .hero .video-caption { color: var(--gray-soft); }
 

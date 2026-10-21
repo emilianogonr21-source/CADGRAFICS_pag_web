@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/images/home/hero-fondo.jpg" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/shared/header.css">
   <link rel="stylesheet" href="assets/css/site.css">
 </head>
@@ -92,8 +93,11 @@
 <main id="main-content">
 
   <!-- ============ HERO + FORMULARIO ============ -->
-  <section class="hero" aria-labelledby="hero-title">
-    <img class="hero__bg" src="assets/images/autodesk/home/hero-poster.jpg" alt="" width="1024" height="576" fetchpriority="high">
+  <section class="hero hero--film" aria-labelledby="hero-title">
+    <video class="hero__bg" data-ambient data-desktop-only muted loop playsinline preload="metadata" poster="assets/images/home/hero-fondo.jpg" aria-hidden="true" width="1280" height="720">
+      <source src="assets/video/fondo-hero.mp4" type="video/mp4">
+    </video>
+    <button class="video-toggle" type="button" data-video-toggle aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="assets/images/icons.svg#icon-pause"/></svg><span>Pausar video</span></button>
     <div class="container hero__grid">
       <div>
         <p class="eyebrow">Más de 30 años acompañando a empresas en México</p>
