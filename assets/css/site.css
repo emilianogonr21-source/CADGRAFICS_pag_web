@@ -718,9 +718,10 @@ body { padding-bottom: 68px; }
   .hero__grid--single { grid-template-columns: minmax(0, 760px); }
   .hero__grid--brand { grid-template-columns: minmax(0, 760px) minmax(0, 1fr); }
   .hero__grid > img.hero__logo { order: 0; justify-self: end; width: auto; margin: 0; object-position: right center; }
-  /* Sobre foto, el logotipo va en un panel translúcido para que se lea igual con cualquier fondo */
+  /* Sobre foto, el logotipo va en un panel translúcido para que se lea igual con cualquier fondo.
+     Arriba a la derecha: alineado con el inicio del título */
   .hero__grid--brand > img.hero__logo {
-    box-sizing: border-box; height: clamp(112px, 4rem + 3.5vw, 144px); max-width: 340px; padding: 1.5rem 2rem;
+    align-self: start; box-sizing: border-box; height: clamp(112px, 4rem + 3.5vw, 144px); max-width: 340px; padding: 1.5rem 2rem;
     object-position: center; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: var(--radius-lg); backdrop-filter: blur(10px); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
   }
