@@ -68,8 +68,6 @@ Cada página es un archivo `.html` completo e independiente. Todas cargan los mi
 | Mac | `pages/mac/home-mac.html` | Mac para empresas |
 | Aviso de privacidad | `pages/legal/aviso-privacidad.html` | Aviso de privacidad |
 
-**Archivo especial:** `pages/autodesk/mfg-collection.html` no es una página: redirige los enlaces antiguos (`?coleccion=pdm` → PD&M, `?coleccion=me` → M&E). No lo borres; protege enlaces que ya circulan en correos y buscadores.
-
 ---
 
 ## 3. Identidad visual y sistema de diseño
@@ -307,7 +305,6 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 
 - Cada página tiene `<title>`, `meta description`, `canonical` (`https://cadgrafics.com.mx/…`) y etiquetas `og:` para compartir en redes.
 - `sitemap.xml` lista las 16 páginas; `robots.txt` lo anuncia y bloquea `/docs/` y `/tools/`.
-- `mfg-collection.html` lleva `noindex` porque solo redirige.
 - **Content-Security-Policy** (en cada `<head>` y en `.htaccess`): solo permite recursos del propio sitio y Google Fonts. `.htaccess` añade `frame-ancestors 'none'` para que el sitio no se pueda incrustar en otro. Si agregas un servicio externo (analítica, chat, CRM, mapas), **debes agregarlo a las dos políticas** o el navegador lo bloqueará.
 
 ---
