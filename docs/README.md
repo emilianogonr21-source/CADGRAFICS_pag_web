@@ -114,6 +114,9 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 | `.hero--low` | El contenido se apoya más abajo (Programa de Adopción). |
 | `.hero__grid--single` | Una sola columna de texto (sin formulario ni video al lado). |
 | `.hero__grid--brand` | Texto a la izquierda y logotipo del fabricante arriba a la derecha, alineado con el título, en un panel translúcido. El `img.hero__logo` va después del bloque de texto, como hijo directo del grid; en móvil sube arriba del título. |
+| `.hero__grid--brand-sm` | Se suma a `.hero__grid--brand`: panel del logotipo compacto (72 px de alto). Lo usan Chaos, HP, Mac, Microsoft y SketchUp; Dell conserva el panel grande. |
+| `.hero__grid--brand-top` | Se suma a `.hero__grid--brand`: el logotipo sube a la esquina superior derecha del hero, cerca del menú, mientras el texto sigue centrado. Lo usan Chaos y Microsoft. |
+| `.hero__grid--brand-xs` | Se suma a `.hero__grid--brand-sm`: panel del logotipo aún más chico (56 px). Solo para logotipos que se siguen leyendo a ese tamaño; lo usa Microsoft. |
 | `.hero__grid--media-logo` | Texto a la izquierda; a la derecha, el logotipo encima del video (`.hero__media`). El `img.hero__logo` va al final del grid. |
 | `.hero__grid--media-wide` | Se suma a `.hero__grid--media-logo`: video más grande y logotipo más discreto encima (inicio de Adobe). |
 

@@ -704,6 +704,18 @@ body { padding-bottom: 68px; }
     object-position: center; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: var(--radius-lg); backdrop-filter: blur(10px); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
   }
+  /* Panel compacto: el logotipo acompaña sin competir con el título.
+     48 px de logo dentro del panel = tamaño nativo de los PNG de partners/, para que no se vean borrosos */
+  .hero__grid--brand-sm > img.hero__logo {
+    height: 72px; max-width: 220px; padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md); box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+  /* Logotipo en la esquina superior derecha del hero: el grid ocupa toda la altura,
+     el texto sigue centrado y el logotipo sube arriba, cerca del menú */
+  .hero__grid--brand-top { align-self: stretch; }
+  .hero__grid--brand-top > img.hero__logo { margin-top: calc(var(--hero-space) * -0.5); }
+  /* Panel aún más chico, para logotipos que se leen bien a 40 px (Microsoft) */
+  .hero__grid--brand-xs > img.hero__logo { height: 56px; max-width: 180px; padding: 0.5rem 0.875rem; }
   /* Con video a la derecha, el logotipo va encima del video y el texto ocupa las dos filas */
   .hero__grid--media-logo { grid-template-areas: "copy logo" "copy media"; row-gap: 1.75rem; }
   .hero__grid--media-logo > :first-child { grid-area: copy; }
