@@ -9,6 +9,9 @@
 # pequeño y toleran más compresión; los que se ven con controles (demos) conservan más detalle.
 $Crf = @{
   'video-home-autodesk.mp4'            = 30  # fondo del hero de Autodesk, bajo velo oscuro
+  'video_home_autodesk.mp4'            = 30  # fondo del hero de AEC Collection, bajo velo oscuro
+  'pdm-overview.mp4'                   = 30  # fondo del hero de PD&M Collection, bajo velo oscuro
+  'ME_Collection.mp4'                  = 30  # fondo del hero de M&E Collection, bajo velo oscuro
   'video-home-adobe.mp4'               = 29  # marco del hero de Adobe
   'creative-cloud.mp4'                 = 29  # marco del hero de Creative Cloud
   'video-acrobat-studio.mp4'           = 28  # marco del hero de Acrobat Studio
@@ -21,6 +24,9 @@ $DefaultCrf = 28
 # a 960 px pesan la mitad y en pantalla se ven igual que a 1280 px.
 $MaxWidth = @{
   'video-home-autodesk.mp4' = 960
+  'video_home_autodesk.mp4' = 960
+  'pdm-overview.mp4'        = 960
+  'ME_Collection.mp4'       = 960
   'video-home-adobe.mp4'    = 960
   'creative-cloud.mp4'      = 960
 }

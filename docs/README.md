@@ -282,6 +282,9 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 |---|---|---|---|---|
 | `fondo-hero.mp4` | Inicio | Fondo del hero, bajo velo oscuro | — | 1.1 MB |
 | `autodesk/home/video-home-autodesk.mp4` | Autodesk | Fondo del hero, bajo velo oscuro | 960 px | 5.7 MB |
+| `autodesk/home/aec-collection/video_home_autodesk.mp4` | AEC Collection | Fondo del hero, bajo velo oscuro | 960 px | 6.0 MB |
+| `autodesk/pdm-collection/pdm-overview.mp4` | PD&M Collection | Fondo del hero, bajo velo oscuro | 960 px | 3.0 MB |
+| `autodesk/me-collection/ME_Collection.mp4` | M&E Collection | Fondo del hero, bajo velo oscuro | 960 px | 1.5 MB |
 | `adobe/home/video-home-adobe.mp4` | Adobe | Marco del hero | 960 px | 5.6 MB |
 | `adobe/creative-cloud/creative-cloud.mp4` | Creative Cloud | Marco del hero | 960 px | 3.2 MB |
 | `adobe/creative-cloud/video-landing-cc-adobe-express.mp4` | Creative Cloud | Demo en bucle | 1280 px | 2.7 MB |
