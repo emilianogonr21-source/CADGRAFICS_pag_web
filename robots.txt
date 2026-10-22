@@ -7,5 +7,6 @@ Allow: /
 # Carpetas de trabajo interno (no son paginas del sitio)
 Disallow: /docs/
 Disallow: /tools/
+Disallow: /private/
 
 Sitemap: https://cadgrafics.com.mx/sitemap.xml

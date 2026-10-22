@@ -1,6 +1,6 @@
 # Tools (utilidades internas)
 
-Scripts de mantenimiento del **equipo**. No son páginas del sitio y no se publican.
+Scripts de mantenimiento del **equipo**. No son páginas del sitio. `tools/.htaccess` niega el acceso por HTTP si la carpeta llega a subirse. Aun así, no la publiques: contiene originales y, en local, FFmpeg.
 
 | Archivo | Para qué |
 |---------|----------|

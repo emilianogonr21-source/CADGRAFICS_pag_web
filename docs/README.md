@@ -152,7 +152,7 @@ Todo vive en `assets/js/site.js`, organizado en 9 bloques numerados. Se activa c
 |---|---|---|
 | 1 | Menú (abrir/cerrar, submenús) | Automático (usa `site-common.js`) |
 | 2 | Formulario por pasos | `<form data-lead-form="…" data-endpoint="">` → ver [sección 6](#6-formularios-de-contacto) |
-| 3 | Prellenar el formulario desde un botón | `data-interest="Valor exacto de una opción"` y/o `data-stage="evaluar|cotizar|descubrir"` en el enlace |
+| 3 | Prellenar el formulario desde un botón | El enlace debe terminar en `#contacto`. Ahí, `data-interest` debe ser el valor exacto de una opción y `data-stage` uno de `evaluar`, `cotizar` o `descubrir`. Un enlace a otra sección no cambia la etapa. |
 | 4 | Pestañas accesibles (teclado con flechas) | `data-tabs` en el contenedor, botones `role="tab"` con `aria-controls` |
 | 5 | WhatsApp por región | Enlaces con `data-wa` → ver [sección 7](#7-whatsapp) |
 | 6 | Aparición al bajar | Clase `reveal` |
@@ -164,8 +164,13 @@ Valores importantes al inicio de `site.js`:
 
 ```js
 const CONTACT_ENDPOINT = '/contacto.php';                                         // script que envía el correo
-const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' }; // número por región
-const WA_LABEL = { '525531120508': '55 3112 0508', '523314040396': '33 1404 0396' }; // texto accesible
+const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' }; // Norte y Sur usan el de CDMX
+const WA_LABEL = { '525531120508': '55 3112 0508', '523314040396': '33 1404 0396' };
+const STAGE_LABEL = {
+  descubrir: 'Explorando, quiere una recomendación',
+  evaluar: 'Quiere una demo',
+  cotizar: 'Quiere una cotización'
+};
 ```
 
 El destinatario del correo está en `contacto.php` (`RECIPIENT`), no en el JavaScript.
@@ -180,38 +185,58 @@ Cada página (excepto el aviso de privacidad) tiene **un formulario** dentro de 
 
 ```mermaid
 flowchart LR
-  A[Paso 1<br>Interés + correo] --> B[Paso 2<br>Nombre, empresa, celular,<br>industria, región, aviso]
+  A[Paso 1<br>Interés + correo] --> B[Paso 2<br>Nombre, empresa, celular,<br>región, aviso]
   B -->|Enviar| C{¿Correo enviado?}
-  C -->|Sí| D[¡Gracias!<br>+ botón opcional de WhatsApp]
+  C -->|Sí| D[Gracias<br>+ botón opcional de WhatsApp]
   C -->|No| E[Aviso en el formulario<br>Reintentar o mandar por WhatsApp]
 ```
 
 1. **Paso 1:** elige en qué le podemos ayudar (`name="interes"`) y escribe su correo.
-2. **Paso 2:** nombre, empresa, celular, industria (si aplica), región y aceptación del aviso de privacidad.
-3. **Enviar:** el botón cambia a "Enviando…" y `contacto.php` manda un correo a marketing@cadgrafics.com.mx.
-4. **Éxito:** se muestra "¡Gracias! Recibimos tu solicitud" con un botón opcional para seguir por WhatsApp.
-5. **Error** (sin internet o el servidor no pudo enviar el correo): aparece un aviso; la persona puede reintentar o mandar **los mismos datos por WhatsApp** a la oficina de su región. Así ningún contacto se pierde.
+2. **Paso 2:** nombre, empresa, celular, industria si la página la pide, región y aceptación del aviso de privacidad.
+3. **Enviar:** el botón cambia a «Enviando…». `contacto.php` valida y manda un correo a marketing@cadgrafics.com.mx.
+4. **Éxito:** se muestra «Recibimos tu solicitud» con un botón opcional para seguir por WhatsApp.
+5. **Error** (sin internet, origen no permitido, demasiados intentos o el servidor no pudo enviar el correo): aparece un aviso. La persona puede reintentar o mandar los mismos datos por WhatsApp a la oficina de su región.
+
+El paso 3 (usuarios, plazo, mensaje) está en el HTML para un CRM futuro. Con `data-endpoint=""` no se muestra: el contador dice «Paso 1 de 2».
 
 ### El correo que llega
 
-- **Para:** marketing@cadgrafics.com.mx
-- **Asunto:** `Nuevo contacto web · {página} · {interés}` — ej. *Nuevo contacto web · HP gran formato · HP DesignJet*
-- **Contenido:** tabla con interés, correo, nombre, empresa, celular, industria, región, página, dirección exacta de la página, campaña (`utm_source/medium/campaign` si venía de un anuncio) y fecha en que aceptó el aviso de privacidad.
+- **Para:** marketing@cadgrafics.com.mx (fijo; el visitante no elige destinatario).
+- **Asunto:** `Nuevo contacto web · {página} · {interés}` — ej. *Nuevo contacto web · Inicio · Licencias de software*.
+- **Contenido:** interés, correo, nombre, empresa, celular, industria si venía, región, etapa, página, dirección de la página (solo si es `https://cadgrafics.com.mx` o `www`), campaña (`utm_source`, `utm_medium`, `utm_campaign`) y la frase de aceptación del aviso.
 - **Responder** contesta directo al correo del cliente.
+- **Etapa:** solo si la persona pulsó un enlace que termina en `#contacto`.
+
+| `data-stage` | Texto en el correo |
+|---|---|
+| `descubrir` | Explorando, quiere una recomendación |
+| `evaluar` | Quiere una demo |
+| `cotizar` | Quiere una cotización |
+
+Si nadie pulsó uno de esos enlaces, el campo oculto trae `evaluar` y el correo dice «Quiere una demo».
 
 ### Cómo se envía
 
-`assets/js/site.js` hace `POST` a `/contacto.php`. Ese script solo acepta el origen `https://cadgrafics.com.mx` (y `www`), descarta el campo trampa `_honey`, arma el correo con destinatario fijo y lo entrega con `mail()`.
+`assets/js/site.js` hace `POST` JSON a `/contacto.php`. El script:
 
-- **Cambiar el destinatario:** edita `RECIPIENT` en `contacto.php`.
-- **Seguridad:** la Content-Security-Policy solo permite conexiones a `'self'`. El correo del visitante no se publica en el JavaScript.
+- solo acepta el método POST y el origen `https://cadgrafics.com.mx` o `https://www.cadgrafics.com.mx`;
+- admite como máximo 5 envíos por hora y por dirección IP; si no puede contar, rechaza;
+- exige correo válido, celular de 10 dígitos, nombre, empresa, interés, una región de la lista y un consentimiento que empiece por «Sí»;
+- ignora cualquier etiqueta que no esté en `ALLOWED_FIELDS`;
+- quita saltos de línea, codifica el asunto en UTF-8 y pone `Reply-To` solo con el correo ya validado;
+- si `mail()` falla, escribe el mismo texto en `private/leads/failed.log` (Apache niega esa carpeta) y responde error para que el visitante use WhatsApp.
+
+**Cambiar el destinatario:** edita `RECIPIENT` en `contacto.php`.
+
+**Agregar un campo:** el nombre del input debe estar en `SHORT_LABEL` de `site.js` (o la etiqueta visible se convierte en la clave) y esa clave en español debe estar en `ALLOWED_FIELDS`. Si el servidor debe rechazar el envío cuando falte, agrégalo también a la validación de `contacto.php`.
 
 ### Validación y protección
 
-- Cada campo obligatorio lleva `required` y un mensaje propio en `data-error` (ej. "Revisa que tenga 10 dígitos.").
+- Cada campo obligatorio lleva `required` y un mensaje propio en `data-error` (ej. «Revisa que tenga 10 dígitos.»).
 - `data-rule="fullname"` exige nombre y apellido.
 - Los errores se anuncian a lectores de pantalla y el cursor salta al primer campo con error.
-- **Anti-spam:** el campo oculto `_honey` ("No llenar") es una trampa para robots. Si viene lleno, el servidor responde como si hubiera enviado y no manda correo. No uses el nombre `website`: el navegador lo rellena solo y el envío se perdía en silencio.
+- El campo `_honey` («No llenar») es una trampa para robots. Si un programa lo manda lleno, el servidor responde éxito y no envía correo. Si el navegador de una persona lo rellena, el formulario muestra el aviso de reintento y no envía: así no se queda el botón mudo. No uses el nombre `website`: algunos navegadores lo rellenan solos.
+- La Content-Security-Policy solo permite conexiones al propio sitio. El correo del visitante no se publica en el JavaScript.
 
 ### Conectar un CRM (opcional, a futuro)
 
@@ -228,7 +253,7 @@ Si algún día se usa Salesforce, HubSpot u otro CRM:
 
 | Elemento | Comportamiento |
 |---|---|
-| Botón flotante (todas las páginas) | Abre chat con CDMX **55 3112 0508**. Si la persona elige "Jalisco y occidente" en el formulario, cambia a Guadalajara **33 1404 0396**. |
+| Botón flotante (todas las páginas) | Abre chat con CDMX **55 3112 0508**. Si la persona elige «Jalisco y occidente», cambia a Guadalajara **33 1404 0396**. Norte y Sur y sureste se quedan en CDMX. |
 | Botón "Continuar por WhatsApp" (después de enviar) | Mismo número según la región, con un mensaje que incluye nombre, empresa e interés. |
 | Respaldo si el correo falla | Mensaje con **todos** los datos del formulario. |
 | Botones fijos en la página | Enlaces `https://wa.me/52…` escritos directamente en el HTML. |
@@ -245,6 +270,7 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 
 | Video | Página | Uso | Tamaño | Peso |
 |---|---|---|---|---|
+| `fondo-hero.mp4` | Inicio | Fondo del hero, bajo velo oscuro | — | 1.1 MB |
 | `autodesk/home/video-home-autodesk.mp4` | Autodesk | Fondo del hero, bajo velo oscuro | 960 px | 5.7 MB |
 | `adobe/home/video-home-adobe.mp4` | Adobe | Marco del hero | 960 px | 5.6 MB |
 | `adobe/creative-cloud/creative-cloud.mp4` | Creative Cloud | Marco del hero | 960 px | 3.2 MB |
@@ -253,7 +279,7 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `adobe/acrobat-studio/video-acrobat-studio.mp4` | Acrobat Studio | Marco del hero | 1080 px | 1.6 MB |
 
 - `data-ambient` (con `muted loop playsinline`): video sin sonido que se repite sin fin, en computadora y en celular, mientras está en pantalla; se detiene al salir para no gastar batería. No lleva botón de pausa.
-- No se reproducen si la persona activó "reducir movimiento" o "ahorro de datos": en ese caso se ve la imagen fija (`poster`).
+- No se reproducen si la persona activó «reducir movimiento», «ahorro de datos» o la red es 2G (`slow-2g` o `2g`): en ese caso se ve la imagen fija (`poster`). El aviso de red lenta solo existe en algunos navegadores.
 - Para comprimirlos antes de publicar: [tools/README.md](../tools/README.md).
 
 ### Imágenes (`assets/images/`)
@@ -303,9 +329,11 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 ## 10. SEO y seguridad
 
 - Cada página tiene `<title>`, `meta description`, `canonical` (`https://cadgrafics.com.mx/…`) y etiquetas `og:` para compartir en redes.
-- `sitemap.xml` lista las 16 páginas; `robots.txt` lo anuncia y bloquea `/docs/` y `/tools/`.
+- `sitemap.xml` lista las 16 páginas. `robots.txt` lo anuncia y pide no indexar `/docs/`, `/tools/` y `/private/`. Esa petición no impide abrir la URL: el cierre real está en el `.htaccess` de cada carpeta (`Require all denied`).
+- `.htaccess` de la raíz, solo cuando el dominio es cadgrafics.com.mx, redirige HTTP a HTTPS. Respeta `X-Forwarded-Proto` para no entrar en un bucle detrás de un balanceador. En local, sin ese dominio, no redirige.
+- Las cabeceras (`X-Frame-Options`, `nosniff`, `Referrer-Policy`, Content-Security-Policy y HSTS) se envían con `Header always`, también en respuestas de error. HSTS solo lo aplica el navegador después de una visita por HTTPS.
+- La misma política de contenido está en cada `<head>`. Solo permite recursos del propio sitio y Google Fonts. `.htaccess` añade `frame-ancestors 'none'` para que el sitio no se pueda incrustar en otro. La etiqueta meta no puede fijar esa directiva. Si agregas un servicio externo (analítica, chat, CRM, mapas), **debes agregarlo a las dos políticas** o el navegador lo bloqueará.
 - `.htaccess` redirige con 301 la antigua `pages/autodesk/mfg-collection.html`: `?coleccion=me` va a M&E y cualquier otro enlace va a PD&M. No vuelvas a crear esa página.
-- **Content-Security-Policy** (en cada `<head>` y en `.htaccess`): solo permite recursos del propio sitio y Google Fonts. `.htaccess` añade `frame-ancestors 'none'` para que el sitio no se pueda incrustar en otro. Si agregas un servicio externo (analítica, chat, CRM, mapas), **debes agregarlo a las dos políticas** o el navegador lo bloqueará.
 
 ---
 
@@ -315,7 +343,7 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 2. **Cambia en el `<head>`:** `<title>`, `meta description`, `canonical`, etiquetas `og:`.
 3. **Cambia `data-page`** en `<body>` (aparece en los correos de contacto).
 4. **Marca la página activa** en el menú con `aria-current="page"`.
-5. **Formulario:** deja uno solo, dentro de `#contacto`, con un `data-lead-form` único (ej. `landing-marca-pagina`). Las opciones del paso 1 (`name="interes"`) deben coincidir **exactamente** con los `data-interest` de los botones de esa página.
+5. **Formulario:** deja uno solo, dentro de `#contacto`, con un `data-lead-form` único (ej. `landing-marca-pagina`) y `data-endpoint=""`. Las opciones del paso 1 (`name="interes"`) deben coincidir **exactamente** con los `data-interest` de los botones. Esos botones, y los de etapa, tienen que apuntar a `#contacto`. Si el campo nuevo debe salir en el correo, agrégalo a `SHORT_LABEL` y a `ALLOWED_FIELDS`.
 6. **Sigue el orden de módulos:** hero → información alternando blanco/papel → contacto → `.cta-band`.
 7. **Agrega la página** a `sitemap.xml` y, si corresponde, al menú de todas las páginas.
 
@@ -329,10 +357,10 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 
 ## 12. Publicar
 
-1. Sube a la raíz del dominio: `index.html`, `contacto.php`, `.htaccess`, `robots.txt`, `sitemap.xml`, `assets/`, `pages/`.
-2. **No subas:** `docs/`, `tools/`, `README.md`, `.gitignore`, `.gitattributes`.
-3. **Prueba el formulario** en el sitio publicado. El correo debe llegar a marketing@. Si no llega, el hosting tiene que habilitar `mail()`.
-4. Prueba en celular y computadora: menú, un formulario, el botón de WhatsApp y un video.
+1. Sube a la raíz del dominio: `index.html`, `contacto.php`, `.htaccess`, `robots.txt`, `sitemap.xml`, `assets/`, `pages/` y la carpeta `private/` con su `.htaccess` (sin archivos `.log`).
+2. **No subas:** `docs/`, `tools/`, `README.md`, `.gitignore`, `.gitattributes`. Si alguna de esas carpetas ya está en el servidor, su `.htaccess` debe seguir ahí para negar el acceso.
+3. **Prueba el formulario** en https://cadgrafics.com.mx. El correo debe llegar a marketing@ con la etapa. Si no llega y la página muestra el aviso, revisa `mail()` y, en el servidor, `private/leads/failed.log`.
+4. Comprueba el paso de HTTP a HTTPS, que `/docs/` y `/private/` nieguen el acceso, y en celular: menú, formulario, WhatsApp y un video.
 
 ---
 
@@ -340,12 +368,14 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 
 | Problema | Causa probable | Solución |
 |---|---|---|
-| El formulario muestra "No pudimos enviar tu solicitud" | No hay internet, se abrió en local, o `mail()` falló en el hosting | Prueba en https://cadgrafics.com.mx. Si ahí también falla, pide al hosting que habilite el correo PHP. |
-| No llegan los correos aunque el formulario dice "¡Gracias!" | El servidor aceptó `mail()` pero el buzón lo filtró | Revisa spam de marketing@ y que `RECIPIENT` sea un correo del dominio. |
-| Un recurso externo no carga (fuente, script, mapa) | La Content-Security-Policy lo bloquea | Agrega su dominio a la directiva correspondiente en el `<head>` de cada página. |
+| El formulario muestra «No pudimos enviar tu solicitud» | Se abrió en local, no hay internet, el origen no es el dominio público, se superaron 5 envíos en una hora, o `mail()` falló | Prueba en https://cadgrafics.com.mx. Si ahí también falla, revisa que PHP pueda escribir en el temporal o en `private/ratelimit/`, y que `mail()` esté activo. Si el correo no salió, la copia está en `private/leads/failed.log`. |
+| No llegan los correos aunque el formulario dice «Recibimos tu solicitud» | El servidor aceptó `mail()` pero el buzón lo filtró | Revisa spam de marketing@ y que `RECIPIENT` sea un correo del dominio. Confirma SPF y DKIM con el hosting. |
+| El correo llega sin la etapa, o con la etapa equivocada | El botón no termina en `#contacto`, o `data-stage` no es `descubrir`, `evaluar` ni `cotizar` | El enlace debe ser `#contacto` (o una ruta que termine así) y usar uno de esos tres valores. |
+| Un campo nuevo no aparece en el correo | Su etiqueta no está en `ALLOWED_FIELDS` | Agrégala en `contacto.php` y, para que el nombre sea estable, en `SHORT_LABEL` de `site.js`. |
+| Un recurso externo no carga (fuente, script, mapa) | La Content-Security-Policy lo bloquea | Agrega su dominio a la directiva correspondiente en el `<head>` de cada página y en `.htaccess`. |
 | Una imagen se ve estirada o del tamaño incorrecto | Regla `img { height: auto }` de `header.css` | En `site.css` usa un selector más específico, ej. `img.mi-clase { height: … }`. |
 | Un elemento con `hidden` sigue visible | Otra regla le pone `display` | Ya existe `[hidden] { display: none !important }`; revisa que el atributo esté en el elemento correcto. |
 | Los íconos no se ven | `icons.svg` guardado con otra codificación o ruta mal escrita | El archivo debe estar en UTF-8; revisa la ruta `../../assets/images/icons.svg#icon-…`. |
-| Un video no se mueve | El sistema tiene "reducir movimiento" o ahorro de datos activado | Es el comportamiento esperado: se muestra la imagen fija. |
-| Las animaciones no se ven | El sistema tiene "reducir movimiento" activado | Es intencional por accesibilidad. |
-| El botón del formulario no prellena la opc
+| Un video no se mueve | El sistema tiene «reducir movimiento», ahorro de datos o una red 2G | Es el comportamiento esperado: se muestra la imagen fija. |
+| Las animaciones no se ven | El sistema tiene «reducir movimiento» activado | Es intencional por accesibilidad. |
+| El botón no prellena la opción ni la etapa | El `href` no termina en `#contacto`, o `data-interest` no es idéntico al `value` del radio | Corrige el enlace. Un botón que solo baja a otra sección no debe cambiar el formulario. |

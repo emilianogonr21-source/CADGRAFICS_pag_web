@@ -19,9 +19,9 @@ Dominio: **https://cadgrafics.com.mx/**
 
 | Función | Qué pasa |
 |---|---|
-| **Formulario de contacto** (en cada página) | 2 pasos. Al enviar, llega un **correo a marketing@cadgrafics.com.mx** con todos los datos. Si el correo falla, ofrece mandar los datos por WhatsApp. |
-| **Botón flotante de WhatsApp** | Abre un chat con la oficina CDMX (55 3112 0508). Si la persona eligió "Jalisco y occidente" en el formulario, cambia a Guadalajara (33 1404 0396). |
-| **Videos de fondo** | Se reproducen sin sonido solo cuando están en pantalla, con botón de pausa. En celular los más pesados muestran una imagen fija y no se reproducen solos. |
+| **Formulario de contacto** (en cada página, menos el aviso de privacidad) | 2 pasos. Al enviar, llega un **correo a marketing@cadgrafics.com.mx** con los datos permitidos y la etapa (recomendación, demo o cotización). Si el correo falla, el visitante puede reintentar o mandar los mismos datos por WhatsApp, y el servidor guarda una copia en `private/leads/`. |
+| **Botón flotante de WhatsApp** | Abre un chat con la oficina CDMX (55 3112 0508). Si la persona eligió "Jalisco y occidente" en el formulario, cambia a Guadalajara (33 1404 0396). Norte y Sur y sureste siguen con el número de CDMX: solo hay dos oficinas. |
+| **Videos de fondo** | Sin sonido, en bucle, solo mientras están en pantalla. No tienen botón de pausa. Se quedan en la imagen fija si la persona pidió reducir movimiento, ahorrar datos o está en una red 2G. |
 | **Animaciones** | Las secciones aparecen suavemente al bajar, las cifras cuentan hasta su valor y las certificaciones de Autodesk se desplazan en un carril infinito. Todo se desactiva si la persona pidió "reducir movimiento" en su sistema. |
 
 ---
@@ -31,8 +31,9 @@ Dominio: **https://cadgrafics.com.mx/**
 ```
 CADGRAFICS_pag_web/
 ├── index.html              ← Página de inicio
-├── contacto.php            ← Recibe el formulario y envía el correo
-├── .htaccess               ← Cabeceras de seguridad del hosting
+├── contacto.php            ← Recibe el formulario, valida y envía el correo
+├── .htaccess               ← HTTPS, cabeceras de seguridad y redirecciones
+├── private/                ← Copias si el correo falla, y conteo de intentos (no se publica)
 ├── pages/                  ← Una carpeta por marca
 │   ├── autodesk/             Autodesk, AEC, PD&M, M&E (+ redirección vieja)
 │   ├── adopcion_autodesk/    Programa de Adopción
@@ -72,7 +73,7 @@ CADGRAFICS_pag_web/
 
 ## 4. Publicar en internet
 
-Sube **solo esto** a la raíz del dominio (por FTP o el panel del hosting):
+Sube esto a la raíz del dominio (por FTP o el panel del hosting):
 
 ```
 index.html
@@ -82,9 +83,14 @@ robots.txt
 sitemap.xml
 assets/
 pages/
+private/.htaccess
+private/leads/          (puede ir vacía; el servidor crea el registro si hace falta)
+private/ratelimit/      (puede ir vacía; cuenta intentos si el temporal del sistema no se puede usar)
 ```
 
-**No subas** `docs/`, `tools/`, `README.md`, `.gitignore` ni `.gitattributes`. Sí sube `.htaccess`: ahí van las cabeceras de seguridad que el HTML no puede aplicar.
+**No subas** `docs/`, `tools/`, `README.md`, `.gitignore`, `.gitattributes` ni archivos `private/leads/*.log`. Esos registros tienen datos personales.
+
+Sí sube los `.htaccess`. El de la raíz fuerza HTTPS en cadgrafics.com.mx y pone las cabeceras de seguridad. Los de `docs/`, `tools/` y `private/` niegan el acceso por HTTP por si alguna de esas carpetas se sube por error. `robots.txt` pide a los buscadores que no indexen esas tres rutas; eso no sustituye el `.htaccess`.
 
 ### Lista de revisión antes de publicar
 
@@ -95,11 +101,12 @@ pages/
 
 El formulario envía los datos a `contacto.php`, en el mismo dominio. El correo llega a **marketing@cadgrafics.com.mx**.
 
-1. Entra al sitio **ya publicado** (https://cadgrafics.com.mx) y envía un formulario de prueba.
-2. Debe mostrarse "Recibimos tu solicitud" y el correo debe llegar a marketing@.
-3. Si aparece "No pudimos enviar tu solicitud", el hosting no está entregando `mail()`. Pide al proveedor que habilite el correo PHP para ese dominio. Mientras tanto, el visitante puede mandar los mismos datos por WhatsApp.
+1. Entra al sitio **ya publicado** (https://cadgrafics.com.mx), pulsa un botón que lleve a `#contacto` (por ejemplo «Solicitar cotización») y envía un formulario de prueba.
+2. Debe mostrarse «Recibimos tu solicitud». El correo debe llegar a marketing@ con la etapa («Quiere una cotización», «Quiere una demo» o «Explorando, quiere una recomendación»).
+3. Si aparece «No pudimos enviar tu solicitud», revisa dos cosas: que el hosting entregue `mail()` y que la carpeta temporal de PHP, o `private/ratelimit/`, se pueda escribir. Si `mail()` falla, la solicitud queda en `private/leads/failed.log`. Esa dirección no debe abrirse en el navegador.
+4. Comprueba que `https://cadgrafics.com.mx/docs/` y `https://cadgrafics.com.mx/private/` respondan acceso denegado, y que `http://cadgrafics.com.mx/` pase a `https://`.
 
-En tu computadora, con Live Server, el formulario no puede enviar el correo: el script solo acepta el sitio publicado. Verás el aviso y la opción de WhatsApp. Eso es lo esperado.
+En tu computadora, con Live Server, el formulario no envía el correo: `contacto.php` solo acepta el origen `https://cadgrafics.com.mx` y `https://www.cadgrafics.com.mx`. Verás el aviso y la opción de WhatsApp. Eso es lo esperado.
 
 ### Probar los enlaces antiguos de colecciones
 
@@ -117,7 +124,7 @@ Abre el archivo en Cursor/VS Code, usa **Ctrl + Shift + F** para buscar el texto
 | Quiero cambiar… | Dónde | Cómo |
 |---|---|---|
 | Un texto de una página | El `.html` de esa página | Busca el texto y reemplázalo. No borres lo que está entre `< >`. |
-| El correo que recibe los formularios | `contacto.php`, constante `RECIPIENT` | Cambia la dirección. Tiene que ser un buzón del mismo dominio para que `mail()` lo entregue. |
+| El correo que recibe los formularios | `contacto.php`, constante `RECIPIENT` | Cambia la dirección. Tiene que ser un buzón del mismo dominio para que `mail()` lo entregue. Si agregas un campo nuevo al formulario, también hay que añadirlo a `ALLOWED_FIELDS` y, si el servidor debe exigirlo, a la validación. |
 | Un número de WhatsApp | `assets/js/site.js` (`WHATSAPP` y `WA_LABEL`) **y** los enlaces `wa.me/52…` en los `.html` | Usa Ctrl + Shift + F con el número viejo (ej. `525531120508`) para encontrar todos. |
 | Teléfonos o direcciones del pie de página | Cada `.html`, al final, dentro de `<footer>` | Búscalo con Ctrl + Shift + F y cámbialo en todas las páginas. |
 | La foto de una persona | `assets/images/team/` | Reemplaza el archivo con una foto cuadrada de 192 × 192 px con el mismo nombre. |

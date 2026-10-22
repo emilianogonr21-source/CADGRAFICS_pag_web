@@ -28,3 +28,8 @@ dist/
 # FFmpeg portable local (solo para comprimir assets; no publicar)
 tools/_ffmpeg/
 tools/_video-originals/
+
+# Solicitudes que no pudieron enviarse por correo, y conteo de intentos
+private/leads/*.log
+private/ratelimit/*
+!private/ratelimit/.gitkeep

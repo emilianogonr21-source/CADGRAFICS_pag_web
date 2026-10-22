@@ -2,12 +2,12 @@
   Cadgrafics — estilos compartidos de todo el sitio
   ------------------------------------------------------------
   Cargar DESPUÉS de assets/css/shared/header.css (menú y logo sin cambios).
-  Tipografía y tamaños de texto: los mismos de assets/css/index/index.css.
+  Tipografía y tamaños de texto: definidos en este archivo.
   Catálogo de componentes con ejemplos: docs/componentes.html
 */
 
 :root {
-  /* Tipografía (idéntica a index.css) */
+  /* Tipografía del sitio */
   /* Tipografía institucional: Inter (claridad) para cuerpo, subtítulos, tablas e interfaces */
   --font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   --fs-hero: clamp(1.8rem, 4vw, 3rem);        /* .hero-title / .cta-title */
@@ -575,19 +575,19 @@ img.person__avatar { height: 60px; object-fit: cover; object-position: center 30
 .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(2rem, 1.5rem + 2vw, 3rem); margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
 .site-footer h3, .site-footer h4 { font-size: 1rem; font-weight: 700; line-height: 1.6; margin-bottom: 1rem; }
 .site-footer p, .site-footer li { font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.85); margin-bottom: 0.5rem; }
-.site-footer a { transition: color var(--t); }
-.site-footer a:hover { color: var(--white); text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.site-footer a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color var(--t); }
+.site-footer a:hover { color: var(--white); text-decoration-color: var(--red); text-decoration-thickness: 2px; }
 .footer-contact-link { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 32px; }
 .footer-contact-link .icon { width: 18px; height: 18px; color: var(--gray-soft); }
 .social-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-.social-links a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); }
+.social-links a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); text-decoration: none; }
 .social-links a:hover { background: var(--red-gradient); text-decoration: none; }
 .social-links svg { width: 18px; height: 18px; }
 .copyright { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--line-dark); font-size: var(--fs-small); color: rgba(255, 255, 255, 0.75); }
 .copyright a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* WhatsApp flotante (sin pulso) y barra móvil */
-/* Botón flotante de WhatsApp: mismo diseño que index.html (assets/css/index/index.css) */
+/* Botón flotante de WhatsApp */
 .whatsapp-float {
   position: fixed; width: 60px; height: 60px; bottom: 2rem; right: 2rem; z-index: 950;
   display: flex; align-items: center; justify-content: center; border-radius: 50%;

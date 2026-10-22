@@ -24,6 +24,7 @@
   // Orígenes extra solo si más adelante un CRM recibe el lead. Vacío = solo este sitio.
   const LEAD_ENDPOINT_ORIGINS = [];
 
+  // Solo hay dos oficinas. Norte y Sur y sureste se atienden con el número de CDMX.
   const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' };
   const DEFAULT_WA = WHATSAPP['CDMX y centro'];
   const pageName = document.body.dataset.page || 'el sitio';
@@ -123,6 +124,11 @@
 
   // Mensaje de WhatsApp con todos los datos visibles del formulario (etiqueta: valor)
   const SHORT_LABEL = { interes: 'Me interesa', nombre: 'Nombre', empresa: 'Empresa', email: 'Correo', celular: 'Celular', region: 'Región', industria: 'Industria' };
+  const STAGE_LABEL = {
+    descubrir: 'Explorando, quiere una recomendación',
+    evaluar: 'Quiere una demo',
+    cotizar: 'Quiere una cotización'
+  };
   const fieldLabel = (form, el) => {
     if (SHORT_LABEL[el.name]) return SHORT_LABEL[el.name];
     const label = el.id && form.querySelector('label[for="' + el.id + '"]');
@@ -164,6 +170,8 @@
     collectFields(form, steps).forEach(([label, value]) => { data[label.slice(0, 80)] = value.slice(0, 500); });
     data['Página'] = pageName.slice(0, 120);
     data['Dirección de la página'] = location.href.split('#')[0].slice(0, 300);
+    const stageKey = form.elements.etapa ? form.elements.etapa.value : '';
+    if (STAGE_LABEL[stageKey]) data['Etapa'] = STAGE_LABEL[stageKey];
     const qs = new URLSearchParams(location.search);
     ['utm_source', 'utm_medium', 'utm_campaign'].forEach((k) => { if (qs.get(k)) data[k] = qs.get(k).slice(0, 100); });
     data['Aceptó aviso de privacidad'] = 'Sí, ' + new Date().toLocaleString('es-MX');
@@ -280,7 +288,7 @@
         alert = document.createElement('div');
         alert.className = 'form-alert';
         alert.setAttribute('role', 'alert');
-        alert.innerHTML = '<p>No pudimos enviar tu solicitud. Revisa tu conexión e inténtalo de nuevo, o mándanos los mismos datos por WhatsApp.</p>' +
+        alert.innerHTML = '<p>No pudimos enviar tu solicitud. Inténtalo de nuevo o mándanos los mismos datos por WhatsApp.</p>' +
           '<a class="btn btn--wa btn--block" target="_blank" rel="noopener">Enviar mis datos por WhatsApp</a>';
         $('.form-actions', steps[current]).insertAdjacentElement('beforebegin', alert);
       }
@@ -299,7 +307,10 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (sending) return;
-      if (form.elements._honey && form.elements._honey.value) return;
+      if (form.elements._honey && form.elements._honey.value) {
+        showSendError(true);
+        return;
+      }
       if (!validateStep(steps[current], form)) return;
       sendLead(form, buildLead(form), false);
       updateWhatsApp();
@@ -326,6 +337,8 @@
   document.addEventListener('click', (e) => {
     const cta = e.target.closest('[data-interest], [data-stage]');
     if (!cta) return;
+    const href = cta.getAttribute('href') || '';
+    if (href.slice(-9) !== '#contacto') return;
     const form = $('form[data-lead-form]');
     if (!form) return;
     if (cta.dataset.stage && form.elements.etapa) form.elements.etapa.value = cta.dataset.stage;
@@ -437,10 +450,12 @@
 
   // ===== 8. Videos ambientales =====
   // Sin sonido y en bucle (loop en el HTML). Corren mientras están en pantalla; fuera de ella se detienen
-  // para no gastar batería. Con "reducir movimiento" o ahorro de datos se queda la imagen fija (poster).
-  const saveData = !!(navigator.connection && navigator.connection.saveData);
+  // para no gastar batería. Con "reducir movimiento", ahorro de datos o red 2G se queda la imagen fija (poster).
+  const net = navigator.connection;
+  const saveData = !!(net && net.saveData);
+  const slowNet = !!(net && (net.effectiveType === 'slow-2g' || net.effectiveType === '2g'));
 
-  if (!reduceMotion && !saveData) {
+  if (!reduceMotion && !saveData && !slowNet) {
     $$('video[data-ambient]').forEach((video) => {
       if ('IntersectionObserver' in window) {
         new IntersectionObserver((entries) => {
