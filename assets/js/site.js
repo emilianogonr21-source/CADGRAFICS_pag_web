@@ -11,6 +11,7 @@
   7. Cifras animadas: .stats (entrada escalonada y conteo)
   8. Videos ambientales: video[data-ambient] (sin sonido, en bucle)
   9. Carril infinito de insignias: [data-marquee]
+  10. Carrusel de tarjetas: [data-carousel]
 */
 (function () {
   'use strict';
@@ -502,4 +503,62 @@
       row.replaceChildren(track);
     });
   }
+
+  // ===== 10. Carrusel de tarjetas =====
+  // El carril ya se desliza con el dedo, el trackpad o las flechas del teclado; aquí solo se agregan
+  // los botones y un punto por cada posición posible (con 2 tarjetas a la vista, 4 tarjetas = 3 posiciones).
+  $$('[data-carousel]').forEach((root) => {
+    const track = $('.carousel__track', root);
+    const nav = $('.carousel__nav', root);
+    const prev = $('[data-carousel-prev]', root);
+    const next = $('[data-carousel-next]', root);
+    const dotsBox = $('.carousel__dots', root);
+    const slides = track ? Array.from(track.children) : [];
+    if (!nav || !prev || !next || !dotsBox || slides.length < 2) return;
+
+    const step = () => slides[1].offsetLeft - slides[0].offsetLeft;
+    const positions = () => Math.max(1, slides.length - Math.round(track.clientWidth / step()) + 1);
+    const current = () => Math.min(Math.round(track.scrollLeft / step()), positions() - 1);
+    const goTo = (i) => {
+      const target = Math.max(0, Math.min(i, positions() - 1));
+      track.scrollTo({ left: target * step(), behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+
+    let dots = [];
+    const buildDots = () => {
+      const count = positions();
+      if (dots.length === count) return;
+      dots = Array.from({ length: count }, (_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel__dot';
+        const title = $('h3', slides[i]);
+        dot.setAttribute('aria-label', 'Ir a ' + (title ? title.textContent.trim() : 'la tarjeta ' + (i + 1)));
+        dot.setAttribute('aria-controls', track.id);
+        dot.addEventListener('click', () => goTo(i));
+        return dot;
+      });
+      dotsBox.replaceChildren(...dots);
+    };
+
+    const update = () => {
+      buildDots();
+      const i = current();
+      dots.forEach((dot, k) => {
+        if (k === i) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+      nav.hidden = dots.length < 2;
+    };
+
+    prev.addEventListener('click', () => goTo(current() - 1));
+    next.addEventListener('click', () => goTo(current() + 1));
+    let frame = 0;
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); };
+    track.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+  });
 })();

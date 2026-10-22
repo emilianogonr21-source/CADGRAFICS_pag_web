@@ -141,7 +141,8 @@
         <h2 class="section-title" id="novedades-title">Todo lo que llegó en 2026</h2>
         <p class="section-subtitle">Un año enfocado en IA integrada, tiempo real y un ecosistema más simple de instalar y licenciar. Te lo resumimos del más reciente al más antiguo.</p>
       </header>
-      <ul class="grid grid--2">
+      <div class="carousel" data-carousel role="region" aria-roledescription="carrusel" aria-label="Novedades de Chaos en 2026">
+      <ul class="carousel__track" id="novedades-track" tabindex="0">
         <li class="card reveal">
           <p class="card__tag">Septiembre 2026 · Lo más reciente</p>
           <h3>Vantage 3.4</h3>
@@ -192,6 +193,12 @@
           </ul>
         </li>
       </ul>
+      <div class="carousel__nav" hidden>
+        <button class="carousel__btn" type="button" data-carousel-prev aria-controls="novedades-track" aria-label="Novedad anterior"><svg class="icon icon-flip" aria-hidden="true"><use href="../../assets/images/icons.svg#icon-chevron-right"/></svg></button>
+        <div class="carousel__dots" role="group" aria-label="Elegir novedad"></div>
+        <button class="carousel__btn" type="button" data-carousel-next aria-controls="novedades-track" aria-label="Siguiente novedad"><svg class="icon" aria-hidden="true"><use href="../../assets/images/icons.svg#icon-chevron-right"/></svg></button>
+      </div>
+      </div>
     </div>
   </section>
 

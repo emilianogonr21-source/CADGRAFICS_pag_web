@@ -146,12 +146,13 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 | Nota | `.note` | Aviso destacado |
 | Banda final | `.cta-band`, `.stage-grid` | Llamado a la acción |
 | Animación de entrada | `.reveal` | El elemento aparece al bajar |
+| Carrusel | `.carousel[data-carousel]` > `ul.carousel__track` + `.carousel__nav` | Tarjetas que se deslizan de lado (novedades de Chaos) |
 
 ---
 
 ## 5. Comportamiento (JavaScript)
 
-Todo vive en `assets/js/site.js`, organizado en 9 bloques numerados. Se activa con **atributos en el HTML**, así que normalmente no hace falta tocar el JavaScript.
+Todo vive en `assets/js/site.js`, organizado en 10 bloques numerados. Se activa con **atributos en el HTML**, así que normalmente no hace falta tocar el JavaScript.
 
 | # | Función | Cómo se activa en el HTML |
 |---|---|---|
@@ -164,6 +165,7 @@ Todo vive en `assets/js/site.js`, organizado en 9 bloques numerados. Se activa c
 | 7 | Cifras que cuentan | Automático en cualquier `.stats` |
 | 8 | Videos ambientales | `<video data-ambient muted loop>` (en bucle, sin botón) |
 | 9 | Carril infinito de insignias | `data-marquee` en una `.badge-row` con 3 o más imágenes |
+| 10 | Carrusel de tarjetas | `data-carousel` en un `.carousel` con un `ul.carousel__track` (con `id`) y un `.carousel__nav hidden` con los botones `data-carousel-prev` / `data-carousel-next` y un `.carousel__dots` vacío. El script muestra la navegación y crea un punto por posición. Sin JavaScript el carril se desliza igual. |
 
 Valores importantes al inicio de `site.js`:
 
@@ -319,6 +321,7 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 | Aparición al bajar | Elementos con `.reveal` | Suben y aparecen suavemente |
 | Cifras | Todas las `.stats` | Entran escalonadas, la línea roja crece y el número cuenta de 0 a su valor. Valores de texto ("Platinum", "macOS 27") y años ("2010") no cuentan. |
 | Carril de insignias | Certificaciones de Autodesk (`data-marquee`) | Se desplaza sin fin; se pausa al pasar el cursor |
+| Carrusel | Novedades de Chaos (`data-carousel`) | 2 tarjetas a la vista en tableta y escritorio, 1 en celular. Las tarjetas `.reveal` que aún no se ven aparecen cuando el carrusel llega a ellas. Con "reducir movimiento" el cambio es inmediato, sin deslizamiento. |
 | Videos | `data-ambient` | Ver sección 8 |
 
 **Accesibilidad (objetivo WCAG AA):**

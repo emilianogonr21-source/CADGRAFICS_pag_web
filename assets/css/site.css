@@ -283,6 +283,34 @@ img.hero__logo { height: 48px; width: auto; max-width: 220px; object-fit: contai
 .marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
+/* Carrusel de tarjetas: [data-carousel]. Sin JS se desliza igual; site.js agrega flechas y puntos.
+   El carril sale un poco del contenedor (--carousel-bleed) para que la sombra y el contorno de foco no se corten */
+.carousel { --carousel-bleed: 0.75rem; }
+.carousel__track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 86%; gap: var(--grid-gap);
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+  margin: calc(var(--carousel-bleed) * -1); padding: var(--carousel-bleed) var(--carousel-bleed) 1.75rem;
+  scroll-padding-inline: var(--carousel-bleed);
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__track > li { scroll-snap-align: start; }
+.carousel__nav { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 0.75rem; }
+.carousel__nav[hidden] { display: none; }
+.carousel__btn {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer;
+  transition: border-color var(--t), background-color var(--t), color var(--t);
+}
+.carousel__btn:hover:not(:disabled) { border-color: var(--ink); background: var(--ink); color: var(--white); }
+.carousel__btn:disabled { opacity: 0.35; cursor: default; }
+.icon-flip { transform: scaleX(-1); }
+.carousel__dots { display: flex; align-items: center; gap: 0.25rem; }
+/* Área de clic de 24 px; el punto visible es el ::before */
+.carousel__dot { display: grid; place-items: center; min-width: 24px; height: 24px; padding: 0 2px; border: 0; background: none; cursor: pointer; }
+.carousel__dot::before { content: ""; width: 10px; height: 10px; border-radius: 999px; background: #d1d5db; transition: width var(--t), background-color var(--t); }
+.carousel__dot:hover::before { background: var(--gray); }
+.carousel__dot[aria-current="true"]::before { width: 28px; background: var(--red); }
+
 /* ===== Tarjetas ===== */
 .grid { display: grid; gap: var(--grid-gap); }
 .card {
@@ -671,6 +699,7 @@ body { padding-bottom: 68px; }
 }
 @media (min-width: 640px) {
   .grid--2, .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .carousel__track { grid-auto-columns: calc((100% - var(--grid-gap)) / 2); }
   .logo-wall { grid-template-columns: repeat(3, 1fr); }
   .stats { grid-template-columns: repeat(4, 1fr); }
   .field-row { grid-template-columns: 1fr 1fr; }
