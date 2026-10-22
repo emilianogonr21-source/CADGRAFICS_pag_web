@@ -100,8 +100,6 @@ El botón verde flotante empieza en el número de CDMX. Cambia a Guadalajara cua
 
 Si cambias un color o un comportamiento en `assets/`, cambia en **todas** las páginas. Si cambias un texto dentro de un archivo de `pages/`, cambia solo esa página.
 
-Las imágenes de `assets/images/brevo/` salen en correos de campañas ya enviados. No las muevas ni las borres: esos correos dejan de mostrar la foto.
-
 ---
 
 ## 4. Cómo se ve una página, de arriba abajo

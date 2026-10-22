@@ -311,7 +311,6 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `adobe/home/`, `creative-cloud/`, `acrobat-studio/` | Imágenes de cada página de Adobe, incluidas las imágenes fijas de sus videos |
 | `adopcion_autodesk/`, `dell/home/`, `sketchup/home/` | Imágenes de esas páginas (Chaos usa los renders de `sketchup/home/`) |
 | `hp/home/{familia}/{modelo}/` | Fotos de cada plotter HP (ej. `pagewide-xl-pro/8200/`) |
-| `brevo/` | Imágenes de correos de campañas ya enviados. **No las muevas ni las borres del servidor**: los correos apuntan a esas direcciones |
 | `icons.svg` | Todos los íconos del sitio en un solo archivo. Se usan así: `<svg class="icon"><use href="…/icons.svg#icon-phone"/></svg>` |
 
 Las fotos originales en alta resolución (que el sitio no usa) se guardan fuera del sitio, en `tools/originales/`.
