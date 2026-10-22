@@ -606,6 +606,11 @@ img.person__avatar { height: 60px; object-fit: cover; object-position: center 30
 .site-footer { background: #000; color: var(--white); padding: clamp(3rem, 2rem + 3vw, 4.5rem) 0 1.5rem; border-top: 1px solid var(--line-dark); }
 .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(2rem, 1.5rem + 2vw, 3rem); margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
 .site-footer h3, .site-footer h4 { font-size: 1rem; font-weight: 700; line-height: 1.6; margin-bottom: 1rem; }
+/* Con columnas lado a lado, cada título ocupa dos líneas (el de Occidente las necesita)
+   y se apoya abajo, para que direcciones y contactos empiecen a la misma altura */
+@media (min-width: 560px) {
+  .footer-content > div > :is(h3, h4):first-child { display: flex; align-items: flex-end; min-height: 3.2em; }
+}
 .site-footer p, .site-footer li { font-size: 1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.85); margin-bottom: 0.5rem; }
 .site-footer a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color var(--t); }
 .site-footer a:hover { color: var(--white); text-decoration-color: var(--red); text-decoration-thickness: 2px; }
