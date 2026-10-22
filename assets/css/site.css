@@ -250,25 +250,6 @@ img.hero__logo { height: 48px; width: auto; max-width: 220px; object-fit: contai
   display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--ink);
 }
 .video-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--ink); box-shadow: var(--shadow-md); }
-.video-toggle {
-  position: absolute; right: 0.75rem; bottom: 0.75rem; z-index: 2; display: inline-flex; align-items: center; gap: 0.4rem;
-  min-height: 44px; padding: 0.4rem 0.8rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(0, 0, 0, 0.72); color: var(--white); font-size: var(--fs-small); font-weight: 600;
-  backdrop-filter: blur(6px); transition: background-color var(--t);
-}
-.video-toggle:hover { background: rgba(0, 0, 0, 0.9); }
-.video-toggle .icon { width: 0.85rem; height: 0.85rem; }
-.hero > .video-toggle { right: 1.5rem; bottom: 1.5rem; }
-/* En inicio el formulario ocupa la esquina inferior: el control queda en la franja superior */
-.hero.hero--film > .video-toggle {
-  top: calc(var(--header-offset) + 0.65rem);
-  right: 1.25rem;
-  bottom: auto;
-  left: auto;
-}
-@media (max-width: 768px) {
-  .hero.hero--film { padding-top: calc(var(--header-offset) + 0.65rem + 44px + 0.85rem); }
-}
 .video-caption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--gray); }
 .hero .video-caption { color: var(--gray-soft); }
 

@@ -157,7 +157,7 @@ Todo vive en `assets/js/site.js`, organizado en 9 bloques numerados. Se activa c
 | 5 | WhatsApp por región | Enlaces con `data-wa` → ver [sección 7](#7-whatsapp) |
 | 6 | Aparición al bajar | Clase `reveal` |
 | 7 | Cifras que cuentan | Automático en cualquier `.stats` |
-| 8 | Videos ambientales | `<video data-ambient>` + botón `data-video-toggle` |
+| 8 | Videos ambientales | `<video data-ambient muted loop>` (en bucle, sin botón) |
 | 9 | Carril infinito de insignias | `data-marquee` en una `.badge-row` con 3 o más imágenes |
 
 Valores importantes al inicio de `site.js`:
@@ -248,13 +248,12 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `autodesk/home/video-home-autodesk.mp4` | Autodesk | Fondo del hero, bajo velo oscuro | 960 px | 5.7 MB |
 | `adobe/home/video-home-adobe.mp4` | Adobe | Marco del hero | 960 px | 5.6 MB |
 | `adobe/creative-cloud/creative-cloud.mp4` | Creative Cloud | Marco del hero | 960 px | 3.2 MB |
-| `adobe/creative-cloud/video-landing-cc-adobe-express.mp4` | Creative Cloud | Demo con controles | 1280 px | 2.7 MB |
-| `adobe/acrobat-studio/video-agenda-demo.mp4` | Acrobat Studio | Demo con controles | 1280 px | 2.6 MB |
+| `adobe/creative-cloud/video-landing-cc-adobe-express.mp4` | Creative Cloud | Demo en bucle | 1280 px | 2.7 MB |
+| `adobe/acrobat-studio/video-agenda-demo.mp4` | Acrobat Studio | Demo en bucle | 1280 px | 2.6 MB |
 | `adobe/acrobat-studio/video-acrobat-studio.mp4` | Acrobat Studio | Marco del hero | 1080 px | 1.6 MB |
 
-- `data-ambient`: video sin sonido que se reproduce **solo cuando está en pantalla** y se pausa al salir. Lleva un botón de pausa (`data-video-toggle`) por accesibilidad.
-- `data-desktop-only`: en celular muestra su imagen fija (`poster`) y no se reproduce solo, para no gastar datos.
-- No se reproducen si la persona activó "reducir movimiento" o "ahorro de datos".
+- `data-ambient` (con `muted loop playsinline`): video sin sonido que se repite sin fin, en computadora y en celular, mientras está en pantalla; se detiene al salir para no gastar batería. No lleva botón de pausa.
+- No se reproducen si la persona activó "reducir movimiento" o "ahorro de datos": en ese caso se ve la imagen fija (`poster`).
 - Para comprimirlos antes de publicar: [tools/README.md](../tools/README.md).
 
 ### Imágenes (`assets/images/`)
@@ -347,6 +346,6 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 | Una imagen se ve estirada o del tamaño incorrecto | Regla `img { height: auto }` de `header.css` | En `site.css` usa un selector más específico, ej. `img.mi-clase { height: … }`. |
 | Un elemento con `hidden` sigue visible | Otra regla le pone `display` | Ya existe `[hidden] { display: none !important }`; revisa que el atributo esté en el elemento correcto. |
 | Los íconos no se ven | `icons.svg` guardado con otra codificación o ruta mal escrita | El archivo debe estar en UTF-8; revisa la ruta `../../assets/images/icons.svg#icon-…`. |
-| Un video no se reproduce en celular | Es `data-desktop-only` (intencional) o el sistema tiene ahorro de datos | Es el comportamiento esperado; la persona puede darle play. |
+| Un video no se mueve | El sistema tiene "reducir movimiento" o ahorro de datos activado | Es el comportamiento esperado: se muestra la imagen fija. |
 | Las animaciones no se ven | El sistema tiene "reducir movimiento" activado | Es intencional por accesibilidad. |
 | El botón del formulario no prellena la opc

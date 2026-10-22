@@ -9,7 +9,7 @@
   5. WhatsApp por región y por página
   6. Animación de entrada: .reveal
   7. Cifras animadas: .stats (entrada escalonada y conteo)
-  8. Videos ambientales: video[data-ambient] + botón [data-video-toggle]
+  8. Videos ambientales: video[data-ambient] (sin sonido, en bucle)
   9. Carril infinito de insignias: [data-marquee]
 */
 (function () {
@@ -436,46 +436,24 @@
   }
 
   // ===== 8. Videos ambientales =====
-  // Sin autoplay en HTML: solo se reproducen visibles y si el usuario no pidió menos movimiento o ahorro de datos.
+  // Sin sonido y en bucle (loop en el HTML). Corren mientras están en pantalla; fuera de ella se detienen
+  // para no gastar batería. Con "reducir movimiento" o ahorro de datos se queda la imagen fija (poster).
   const saveData = !!(navigator.connection && navigator.connection.saveData);
-  const smallScreen = window.matchMedia('(max-width: 768px)').matches;
 
-  $$('video[data-ambient]').forEach((video) => {
-    const toggle = $('[data-video-toggle]', video.parentElement);
-    const allowed = !reduceMotion && !saveData && !(smallScreen && video.hasAttribute('data-desktop-only'));
-    let userPaused = !allowed;
-
-    const sync = () => {
-      if (!toggle) return;
-      const playing = !video.paused;
-      toggle.setAttribute('aria-pressed', String(!playing));
-      $('span', toggle).textContent = playing ? 'Pausar video' : 'Reproducir video';
-      const use = $('use', toggle);
-      use.setAttribute('href', use.getAttribute('href').replace(/#icon-[\w-]+$/, playing ? '#icon-pause' : '#icon-play'));
-    };
-    video.addEventListener('play', sync);
-    video.addEventListener('pause', sync);
-
-    if (toggle) {
-      toggle.addEventListener('click', () => {
-        userPaused = !video.paused;
-        if (userPaused) video.pause();
-        else video.play().catch(() => {});
-      });
-    }
-
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !userPaused) video.play().catch(() => {});
-          else if (!entry.isIntersecting) video.pause();
-        });
-      }, { threshold: 0.25 }).observe(video);
-    } else if (allowed) {
-      video.play().catch(() => {});
-    }
-    sync();
-  });
+  if (!reduceMotion && !saveData) {
+    $$('video[data-ambient]').forEach((video) => {
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) video.play().catch(() => {});
+            else video.pause();
+          });
+        }, { threshold: 0.25 }).observe(video);
+      } else {
+        video.play().catch(() => {});
+      }
+    });
+  }
 
   // ===== 9. Carril infinito de insignias =====
   // Con "reducir movimiento" se queda la fila fija original. Las copias van ocultas para lectores de pantalla.

@@ -187,23 +187,23 @@
   </section>
 
   <!-- ============ VIDEO ============
-       Ambiental (sin sonido, en bucle): video[data-ambient] + botón [data-video-toggle] dentro del mismo contenedor.
-         Fondo de hero: <video class="hero__bg" data-ambient data-desktop-only ...> como hijo directo de .hero
+       Ambiental (sin sonido, en bucle infinito, sin botón): video[data-ambient][muted][loop][playsinline][poster].
+         Fondo de hero: <video class="hero__bg" data-ambient ...> como hijo directo de .hero
          Junto al texto del hero: .hero__grid > .hero__media > video[data-ambient]
-       Con controles y sonido: .split__media.video-frame > video[controls][preload="none"][poster]
-       Siempre con poster; data-desktop-only en videos pesados (en móvil queda el poster hasta que la persona da play). -->
+         Dentro de una sección: .split__media.video-frame > video[data-ambient]
+       Con controles y sonido (si algún día hace falta): .split__media.video-frame > video[controls][preload="none"][poster]
+       Siempre con poster: es lo que se ve con "reducir movimiento" o ahorro de datos. -->
   <section class="section" aria-labelledby="t-video">
     <div class="container split">
       <div class="hero__media reveal">
         <video data-ambient muted loop playsinline preload="metadata" poster="../assets/images/adobe/acrobat-studio/video-fondo1.jpeg" aria-label="Video de ejemplo: Acrobat Studio" width="1280" height="720">
           <source src="../assets/video/adobe/acrobat-studio/video-acrobat-studio.mp4" type="video/mp4">
         </video>
-        <button class="video-toggle" type="button" data-video-toggle aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../assets/images/icons.svg#icon-pause"/></svg><span>Pausar video</span></button>
       </div>
       <div class="split__body reveal">
         <p class="eyebrow">Video</p>
-        <h2 class="section-title" id="t-video">Video ambiental con botón de pausa</h2>
-        <p class="section-subtitle">Se reproduce solo cuando está en pantalla, respeta "reducir movimiento" y el ahorro de datos, y siempre se puede pausar.</p>
+        <h2 class="section-title" id="t-video">Video ambiental en bucle</h2>
+        <p class="section-subtitle">Se repite sin fin mientras está en pantalla y se detiene al salir de ella. Con "reducir movimiento" o ahorro de datos se queda la imagen fija.</p>
       </div>
     </div>
   </section>
