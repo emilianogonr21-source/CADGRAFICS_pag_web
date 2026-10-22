@@ -102,7 +102,7 @@ Todas las páginas siguen el sistema de la marca **Identidad → Impacto → Inf
 | Información | Blanco y papel alternados | Qué necesitan entender | `.section` y `.section.section--paper` alternadas |
 | Conversión | Rojo profundo | Qué queremos que hagan | Banda final `.cta-band` |
 
-No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque "¿Buscas otra colección?" de PD&M y M&E, porque el logo de Autodesk de ese bloque solo existe en blanco.
+No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Buscas otra colección?" de PD&M y M&E, porque el logo de Autodesk de ese bloque solo existe en blanco, y "Quiénes Somos" del inicio, que va justo después del hero y de la banda de partners (sigue siendo la zona de impacto).
 
 ### Variantes del hero
 
@@ -136,6 +136,8 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 | Proceso | `.steps`, `.step-card` | Antes · Durante · Después. Para poner el número junto a la etapa, envuélvelos en `.step-card__head`; el `h3` que sigue queda centrado. |
 | Cifras | `.stats` > `.stat` | Números grandes con línea roja (animados) |
 | Casos de éxito | `.case-feature`, `.case`, `.case__media`, `.case__body` | Testimonios con video de YouTube |
+| Casos del inicio | `.case-cards` > `.case-card`, `.case-card__media`, `.case-card__play`, `.case-card__company` | Tres tarjetas iguales en rojo profundo con botón de reproducir al centro; una columna (máx. 560 px) por debajo de 1025 px |
+| Problemas del inicio | `.problems` > `.problem-card`, `.problem-card__icon` | Cinco tarjetas con borde rojo y brillo suave |
 | Personas | `.people` > `.person` + `.person__avatar` | Tarjetas de contacto (foto o iniciales) |
 | Planes | `.plan`, `.plan--featured`, `.plan__badge` | Comparar opciones |
 | Tablas | `.table-wrap` > `.spec-table` | Especificaciones |
