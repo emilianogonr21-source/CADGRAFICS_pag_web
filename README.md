@@ -66,15 +66,9 @@ En una vista de prueba en tu computadora el formulario no envía el correo. Solo
 
 ### WhatsApp
 
-Hay dos números, porque hay dos oficinas:
+El formulario no ofrece Guadalajara. Toda solicitud llega a **marketing@cadgrafics.com.mx**. El botón verde, el de «Continuar por WhatsApp» y el respaldo si el correo falla usan siempre el número de CDMX: 55 3112 0508. Norte y Sur y sureste también.
 
-| Región que eligió | Quién contesta | Número |
-|---|---|---|
-| CDMX y centro | Oficina de la Ciudad de México | 55 3112 0508 |
-| Jalisco y occidente | Oficina de Guadalajara | 33 1404 0396 |
-| Norte, o Sur y sureste | También la oficina de la Ciudad de México | 55 3112 0508 |
-
-El botón verde flotante empieza en el número de CDMX. Cambia a Guadalajara cuando la persona elige «Jalisco y occidente» en el formulario.
+En el pie sigue el teléfono de la oficina de Guadalajara, 33 1404 0396. Ese enlace no cambia con la región del formulario.
 
 ### Oficinas que aparecen en el pie
 
@@ -110,7 +104,7 @@ Si cambias un color o un comportamiento en `assets/`, cambia en **todas** las p�
 4. **Cierre en rojo.** Invitación a escribir o a cotizar.
 5. **Pie.** Las dos oficinas, enlaces y redes.
 
-Los videos de fondo no tienen botón de pausa. Se mueven solo mientras se ven en pantalla y se quedan en una foto fija si la persona pidió menos movimiento, ahorrar datos o está en una red muy lenta.
+Los videos de fondo tienen un botón «Pausar video». Se mueven solo mientras se ven en pantalla y se quedan en una foto fija si la persona pidió menos movimiento, ahorrar datos o está en una red muy lenta.
 
 ---
 

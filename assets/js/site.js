@@ -25,8 +25,8 @@
   // Orígenes extra solo si más adelante un CRM recibe el lead. Vacío = solo este sitio.
   const LEAD_ENDPOINT_ORIGINS = [];
 
-  // Solo hay dos oficinas. Norte y Sur y sureste se atienden con el número de CDMX.
-  const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' };
+  // El formulario siempre avisa a CDMX. El pie conserva el WhatsApp de Guadalajara como teléfono de esa oficina.
+  const WHATSAPP = { 'CDMX y centro': '525531120508' };
   const DEFAULT_WA = WHATSAPP['CDMX y centro'];
   const pageName = document.body.dataset.page || 'el sitio';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -151,7 +151,7 @@
           const checked = form.querySelector('[name="' + el.name + '"]:checked');
           value = checked ? checked.value : '';
         } else if (el.tagName === 'SELECT') {
-          value = el.value ? el.options[el.selectedIndex].text : '';
+          value = el.value;
         } else {
           value = el.value.trim();
         }
@@ -453,20 +453,60 @@
   // ===== 8. Videos ambientales =====
   // Sin sonido y en bucle (loop en el HTML). Corren mientras están en pantalla; fuera de ella se detienen
   // para no gastar batería. Con "reducir movimiento", ahorro de datos o red 2G se queda la imagen fija (poster).
+  // Quien sí ve el video puede pausarlo. Si lo pausó, no vuelve a arrancar al hacer scroll.
   const net = navigator.connection;
   const saveData = !!(net && net.saveData);
   const slowNet = !!(net && (net.effectiveType === 'slow-2g' || net.effectiveType === '2g'));
 
+  const hostControl = (video) => video.parentElement && video.parentElement.querySelector(':scope > .ambient-pause');
+
+  const addAmbientControl = (video) => {
+    const host = video.parentElement;
+    if (!host || video.dataset.pauseReady === '1') return;
+    video.dataset.pauseReady = '1';
+    if (window.getComputedStyle(host).position === 'static') host.style.position = 'relative';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'ambient-pause';
+    const paint = () => {
+      const paused = video.paused;
+      btn.textContent = paused ? 'Reproducir video' : 'Pausar video';
+      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+    };
+    btn.addEventListener('click', () => {
+      if (video.paused) {
+        delete video.dataset.userPaused;
+        video.play().catch(() => {});
+      } else {
+        video.dataset.userPaused = '1';
+        video.pause();
+      }
+      paint();
+    });
+    video.addEventListener('play', paint);
+    video.addEventListener('pause', paint);
+    host.appendChild(btn);
+    paint();
+  };
+
   if (!reduceMotion && !saveData && !slowNet) {
     $$('video[data-ambient]').forEach((video) => {
+      addAmbientControl(video);
+      const blocked = () => video.dataset.userPaused === '1';
       if ('IntersectionObserver' in window) {
         new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
-            if (entry.isIntersecting) video.play().catch(() => {});
-            else video.pause();
+            const control = hostControl(video);
+            if (entry.isIntersecting) {
+              if (control) control.hidden = false;
+              if (!blocked()) video.play().catch(() => {});
+            } else {
+              video.pause();
+              if (control) control.hidden = true;
+            }
           });
         }, { threshold: 0.25 }).observe(video);
-      } else {
+      } else if (!blocked()) {
         video.play().catch(() => {});
       }
     });

@@ -15,6 +15,9 @@ Options -Indexes
 # HTTPS solo en el dominio público, para no romper una vista local sin certificado.
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # private/, docs/ y tools/ tampoco se sirven si el .htaccess de la carpeta no se lee.
+  RewriteRule ^(private|docs|tools)(/|$) - [F,L]
+
   RewriteCond %{HTTP_HOST} ^(www\.)?cadgrafics\.com\.mx$ [NC]
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]

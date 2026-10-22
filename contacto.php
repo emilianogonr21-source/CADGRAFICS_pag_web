@@ -33,7 +33,7 @@ const ALLOWED_FIELDS = [
     'utm_campaign',
     'Aceptó aviso de privacidad',
 ];
-const ALLOWED_REGIONS = ['CDMX y centro', 'Occidente', 'Norte', 'Sur y sureste'];
+const ALLOWED_REGIONS = ['CDMX y centro', 'Norte', 'Sur y sureste'];
 const ALLOWED_STAGES = [
     'Explorando, quiere una recomendación',
     'Quiere una demo',

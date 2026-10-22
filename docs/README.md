@@ -166,7 +166,7 @@ Todo vive en `assets/js/site.js`, organizado en 10 bloques numerados. Se activa 
 | 5 | WhatsApp por región | Enlaces con `data-wa` → ver [sección 7](#7-whatsapp) |
 | 6 | Aparición al bajar | Clase `reveal` |
 | 7 | Cifras que cuentan | Automático en cualquier `.stats` |
-| 8 | Videos ambientales | `<video data-ambient muted loop>` (en bucle, sin botón) |
+| 8 | Videos ambientales | `<video data-ambient muted loop>` (en bucle, con botón Pausar) |
 | 9 | Carril infinito de insignias | `data-marquee` en una `.badge-row` con 3 o más imágenes |
 | 10 | Carrusel de tarjetas | `data-carousel` en un `.carousel` con un `ul.carousel__track` (con `id`) y un `.carousel__nav hidden` con los botones `data-carousel-prev` / `data-carousel-next` y un `.carousel__dots` vacío. El script muestra la navegación y crea un punto por posición. Sin JavaScript el carril se desliza igual. |
 
@@ -174,7 +174,7 @@ Valores importantes al inicio de `site.js`:
 
 ```js
 const CONTACT_ENDPOINT = '/contacto.php';                                         // script que envía el correo
-const WHATSAPP = { 'CDMX y centro': '525531120508', Occidente: '523314040396' }; // Norte y Sur usan el de CDMX
+const WHATSAPP = { 'CDMX y centro': '525531120508' }; // el formulario no cambia de oficina
 const WA_LABEL = { '525531120508': '55 3112 0508', '523314040396': '33 1404 0396' };
 const STAGE_LABEL = {
   descubrir: 'Explorando, quiere una recomendación',
@@ -263,8 +263,8 @@ Si algún día se usa Salesforce, HubSpot u otro CRM:
 
 | Elemento | Comportamiento |
 |---|---|
-| Botón flotante (todas las páginas) | Abre chat con CDMX **55 3112 0508**. Si la persona elige «Jalisco y occidente», cambia a Guadalajara **33 1404 0396**. Norte y Sur y sureste se quedan en CDMX. |
-| Botón "Continuar por WhatsApp" (después de enviar) | Mismo número según la región, con un mensaje que incluye nombre, empresa e interés. |
+| Botón flotante (todas las páginas) | Abre chat con CDMX **55 3112 0508**. No cambia al elegir región. |
+| Botón "Continuar por WhatsApp" (después de enviar) | El mismo número de CDMX, con un mensaje que incluye nombre, empresa e interés. |
 | Respaldo si el correo falla | Mensaje con **todos** los datos del formulario. |
 | Botones fijos en la página | Enlaces `https://wa.me/52…` escritos directamente en el HTML. |
 
@@ -291,7 +291,7 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `adobe/acrobat-studio/video-agenda-demo.mp4` | Acrobat Studio | Demo en bucle | 1280 px | 2.6 MB |
 | `adobe/acrobat-studio/video-acrobat-studio.mp4` | Acrobat Studio | Marco del hero | 1080 px | 1.6 MB |
 
-- `data-ambient` (con `muted loop playsinline`): video sin sonido que se repite sin fin, en computadora y en celular, mientras está en pantalla; se detiene al salir para no gastar batería. No lleva botón de pausa.
+- `data-ambient` (con `muted loop playsinline`): video sin sonido que se repite sin fin, en computadora y en celular, mientras está en pantalla; se detiene al salir para no gastar batería. Lleva un botón «Pausar video». Si la persona lo pausa, no vuelve a arrancar al hacer scroll.
 - No se reproducen si la persona activó «reducir movimiento», «ahorro de datos» o la red es 2G (`slow-2g` o `2g`): en ese caso se ve la imagen fija (`poster`). El aviso de red lenta solo existe en algunos navegadores.
 - Para comprimirlos antes de publicar: [tools/README.md](../tools/README.md).
 
