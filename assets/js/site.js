@@ -64,7 +64,8 @@
 
   const showError = (el, invalid) => {
     const anchor = errorAnchor(el);
-    const id = 'err-' + (el.id || el.name);
+    // Los radios no tienen id: se usa el nombre del formulario para no chocar si la página tiene dos formularios
+    const id = 'err-' + (el.id || (el.form && el.form.dataset.leadForm ? el.form.dataset.leadForm + '-' : '') + el.name);
     let msg = document.getElementById(id);
     if (invalid && !msg) {
       msg = document.createElement('p');

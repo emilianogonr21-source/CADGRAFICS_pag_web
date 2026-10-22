@@ -189,7 +189,7 @@ p { text-wrap: pretty; }
    justificados abren huecos grandes entre palabras. La división silábica (lang="es-MX") los reduce donde el navegador la soporta. */
 @media (min-width: 768px) {
   :is(.hero-description, .prose p, .split__body .section-subtitle, .section-header--left .section-subtitle,
-      .step-card p:not(.step-card__stage), .case blockquote, .faq details > div, .stage p, .note > span, .legal p, .legal li) {
+      .step-card p:not(.step-card__stage), .case blockquote, .faq details > div, .note > span, .legal p, .legal li) {
     text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 6 3 3;
   }
 }
@@ -631,24 +631,19 @@ img.person__avatar { height: 60px; object-fit: cover; object-position: center 30
 .cta-band :focus-visible { outline-color: var(--white); }
 .cta-band .btn--primary { background: var(--white); color: var(--red); }
 .cta-band .btn--primary:hover { background: var(--red-tint); color: var(--red-hover); }
-.cta-band .stage { background: rgba(0, 0, 0, 0.28); border-color: rgba(255, 255, 255, 0.16); }
-.cta-band .stage--main { border-color: var(--white); box-shadow: inset 0 3px 0 var(--white); }
-.cta-band .stage__label::before { background: var(--white); }
-.cta-band .stage p, .cta-band .wa-row p { color: rgba(255, 255, 255, 0.8); }
+/* Formulario dentro de la banda final (inicio): conserva sus colores normales sobre el fondo rojo */
+.cta-band .form-card { max-width: 560px; margin: 0 auto; text-align: left; }
+.cta-band .form-card :focus-visible { outline-color: var(--red); }
+.cta-band .form-card .btn--primary { background: var(--red-gradient); background-size: 180% 180%; color: var(--white); }
+.cta-band .form-card .btn--primary:hover { background-position: 100% 100%; color: var(--white); }
 .cta-title { font-size: var(--fs-hero); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
 .cta-subtitle { font-size: var(--fs-cta-sub); color: rgba(255, 255, 255, 0.85); margin: 0 auto 2.5rem; max-width: 46ch; }
 .cta-note { margin-top: 2rem; color: rgba(255, 255, 255, 0.7); font-size: 1rem; }
-.stage-grid { display: grid; gap: 1rem; text-align: left; margin-bottom: 2rem; }
-.stage { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem; border-radius: var(--radius-lg); background: var(--ink-900); border: 1px solid var(--line-dark); }
-.stage--main { border-color: var(--red); box-shadow: inset 0 3px 0 var(--red); }
-.stage__label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--fs-small); font-weight: 600; color: var(--white); }
-.stage__label::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); flex-shrink: 0; }
-.stage h3 { font-size: var(--fs-card-title); font-weight: 700; }
-.stage p { font-size: var(--fs-card-text); color: var(--gray-soft); margin-bottom: 0.75rem; }
-.stage .btn { margin-top: auto; }
-.wa-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem; }
-.wa-row p { width: 100%; color: var(--gray-soft); font-size: var(--fs-card-text); }
-
+/* Banda final con formulario (inicio): menos aire; en escritorio texto a la izquierda y formulario a la derecha */
+.cta-band--form { padding: clamp(2.5rem, 1.75rem + 3vw, 4.5rem) 0; }
+.cta-band__grid { display: grid; gap: 1.75rem; align-items: center; }
+.cta-band--form .cta-subtitle { margin-bottom: 0; }
+.cta-band--form .cta-note { margin-top: 1rem; font-size: var(--fs-card-text); }
 /* ===== Footer (mismos tamaños de index) ===== */
 .site-footer { background: #000; color: var(--white); padding: clamp(3rem, 2rem + 3vw, 4.5rem) 0 1.5rem; border-top: 1px solid var(--line-dark); }
 .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: clamp(2rem, 1.5rem + 2vw, 3rem); margin-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
@@ -773,6 +768,9 @@ body { padding-bottom: 68px; }
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
   .problems { grid-template-columns: repeat(5, 1fr); }
   .case-cards { grid-template-columns: repeat(3, 1fr); max-width: none; }
+  .cta-band__grid { grid-template-columns: minmax(0, 1fr) minmax(400px, 500px); gap: clamp(2.5rem, 1rem + 4vw, 5rem); text-align: left; }
+  .cta-band--form .cta-subtitle { margin-inline: 0; }
+  .cta-band--form .form-card { margin: 0; max-width: none; }
   .logo-wall { grid-template-columns: repeat(6, 1fr); }
   /* En escritorio el hero ocupa la primera pantalla completa y centra su contenido,
      para que la siguiente sección no se asome cortada */
@@ -818,7 +816,6 @@ body { padding-bottom: 68px; }
   .steps { grid-template-columns: repeat(3, 1fr); }
   .steps--4 { grid-template-columns: repeat(4, 1fr); }
   .contact__grid { grid-template-columns: minmax(0, 1fr) minmax(400px, 0.9fr); gap: 4rem; }
-  .stage-grid { grid-template-columns: repeat(3, 1fr); }
   /* Caso destacado a lo ancho (video a la izquierda, texto a la derecha) y los otros dos debajo */
   .case-feature > .case:first-child { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
   .case-feature > .case:first-child .case__body { justify-content: center; padding: clamp(2rem, 1rem + 2.5vw, 3.5rem); }

@@ -378,35 +378,121 @@
   </section>
 
   <!-- ============ CTA FINAL ============ -->
-  <section class="cta-band" aria-labelledby="cta-title">
-    <div class="container">
-      <h2 class="cta-title" id="cta-title">¿Platicamos?</h2>
-      <p class="cta-subtitle">Cuéntanos en qué punto estás y te decimos cuál es el siguiente paso, sin compromiso.</p>
-      <ul class="stage-grid">
-        <li class="stage">
-          <p class="stage__label">Estoy explorando</p>
-          <h3>Quiero una recomendación</h3>
-          <p>Nos cuentas tu reto y te decimos qué combinación de software y equipo tiene sentido para ti.</p>
-          <a class="btn btn--ghost" href="#contacto" data-stage="descubrir">Pedir recomendación</a>
-        </li>
-        <li class="stage stage--main">
-          <p class="stage__label">Estoy comparando opciones</p>
-          <h3>Quiero ver una demo</h3>
-          <p>Un especialista te muestra la solución con un ejemplo parecido al trabajo de tu equipo.</p>
-          <a class="btn btn--primary" href="#contacto" data-stage="evaluar">Agendar demo</a>
-        </li>
-        <li class="stage">
-          <p class="stage__label">Ya sé lo que necesito</p>
-          <h3>Quiero una cotización</h3>
-          <p>Licencias nuevas, renovaciones o equipos: te enviamos una propuesta formal.</p>
-          <a class="btn btn--ghost" href="#contacto" data-stage="cotizar">Solicitar cotización</a>
-        </li>
-      </ul>
-      <div class="wa-row">
-        <p>¿Prefieres escribirnos? Mándanos un WhatsApp:</p>
-        <a class="btn btn--wa" href="https://wa.me/525531120508?text=Hola%20Cadgrafics%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="assets/images/icons.svg#icon-whatsapp"/></svg>CDMX · 55 3112 0508</a>
+  <section class="cta-band cta-band--form" aria-labelledby="cta-title">
+    <div class="container cta-band__grid">
+      <div class="cta-band__copy">
+        <h2 class="cta-title" id="cta-title">¿Platicamos?</h2>
+        <p class="cta-subtitle">Cuéntanos en qué punto estás y te decimos cuál es el siguiente paso, sin compromiso.</p>
+        <p class="cta-note">Respuesta en menos de 24 horas · Consultoría inicial gratuita</p>
       </div>
-      <p class="cta-note">Respuesta en menos de 24 horas · Consultoría inicial gratuita</p>
+      <div class="form-card" id="contacto-final">
+        <p class="form-card__title">Cuéntanos de tu proyecto</p>
+        <p class="form-card__steps" aria-live="polite">Paso 1 de 2</p>
+        <div class="form-progress" aria-hidden="true"><span></span></div>
+        <form data-lead-form="cta-inicio" data-endpoint="" novalidate>
+          <input type="hidden" name="etapa" data-sf="Etapa_Embudo__c" value="evaluar">
+          <div class="hp-field" aria-hidden="true"><label for="lead-honey-cta">No llenar</label><input id="lead-honey-cta" name="_honey" tabindex="-1" autocomplete="off"></div>
+
+          <fieldset class="form-step" data-step="1" data-title="Cuéntanos de tu proyecto">
+            <legend>¿En qué te podemos ayudar?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="interes" value="Licencias de software" data-sf="Tipo_Necesidad__c" required data-error="Elige una opción para continuar."><span>Licencias de software</span></label>
+              <label class="chip"><input type="radio" name="interes" value="Renovar licencias" data-sf="Tipo_Necesidad__c"><span>Renovar licencias</span></label>
+              <label class="chip"><input type="radio" name="interes" value="Equipos de cómputo" data-sf="Tipo_Necesidad__c"><span>Equipos de cómputo</span></label>
+              <label class="chip"><input type="radio" name="interes" value="Impresión de gran formato" data-sf="Tipo_Necesidad__c"><span>Impresión de gran formato</span></label>
+              <label class="chip"><input type="radio" name="interes" value="Capacitación" data-sf="Tipo_Necesidad__c"><span>Capacitación</span></label>
+              <label class="chip"><input type="radio" name="interes" value="Soporte técnico" data-sf="Tipo_Necesidad__c"><span>Soporte técnico</span></label>
+            </div>
+            <div class="field">
+              <label for="c-email">Tu correo de trabajo</label>
+              <input id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required data-sf="Email" data-error="Escribe un correo válido, por ejemplo nombre@empresa.com.">
+            </div>
+            <button class="btn btn--primary btn--block" type="button" data-next>Continuar</button>
+            <p class="form-note">Te contacta una persona de nuestro equipo, no un bot.</p>
+          </fieldset>
+
+          <fieldset class="form-step" data-step="2" data-title="¿Con quién hablamos?" hidden>
+            <legend class="visually-hidden">Tus datos de contacto</legend>
+            <div class="field">
+              <label for="c-name">Nombre completo</label>
+              <input id="c-name" name="nombre" autocomplete="name" required data-rule="fullname" data-error="Escribe tu nombre y apellido.">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-company">Empresa o institución</label>
+                <input id="c-company" name="empresa" autocomplete="organization" required data-sf="Company" data-error="¿Cómo se llama tu empresa?">
+              </div>
+              <div class="field">
+                <label for="c-phone">Celular</label>
+                <input id="c-phone" name="celular" type="tel" autocomplete="tel" inputmode="tel" required data-sf="MobilePhone" data-error="Revisa que tenga 10 dígitos." aria-describedby="c-phone-hint">
+                <p class="field__hint" id="c-phone-hint">10 dígitos, ej. 55 1234 5678</p>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-industry">Industria</label>
+                <select id="c-industry" name="industria" required data-sf="Industry" data-error="Elige tu industria.">
+                  <option value="">Selecciona</option>
+                  <option>Arquitectura e ingeniería</option><option>Construcción e infraestructura</option>
+                  <option>Manufactura</option><option>Medios y creativos</option><option>Educación</option>
+                  <option>Gobierno</option><option>Corporativo / otra</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="c-region">¿Dónde está tu empresa?</label>
+                <select id="c-region" name="region" required data-sf="State" data-error="Elige una región.">
+                  <option value="">Selecciona</option>
+                  <option value="CDMX y centro">CDMX y centro</option><option value="Occidente">Jalisco y occidente</option>
+                  <option value="Norte">Norte</option><option value="Sur y sureste">Sur y sureste</option>
+                </select>
+              </div>
+            </div>
+            <label class="check">
+              <input type="checkbox" name="consentimiento" required data-sf="Consentimiento_Privacidad__c" data-error="Necesitamos tu permiso para contactarte.">
+              <span>Acepto el <a href="pages/legal/aviso-privacidad.html" target="_blank" rel="noopener">aviso de privacidad</a> y que Cadgrafics me contacte sobre esta solicitud.</span>
+            </label>
+            <div class="form-actions">
+              <button class="btn-back" type="button" data-back>Atrás</button>
+              <button class="btn btn--primary" type="submit">Enviar <svg class="icon" aria-hidden="true"><use href="assets/images/icons.svg#icon-send"/></svg></button>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" data-step="3" data-title="¡Listo! Un último detalle" hidden>
+            <legend>Ya tenemos tu solicitud. Si nos cuentas un poco más, llegamos con una propuesta concreta. <small>(opcional)</small></legend>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-users">¿Cuántas personas lo usarán?</label>
+                <select id="c-users" name="usuarios" data-sf="Num_Usuarios__c"><option value="">Selecciona</option><option>1 a 5</option><option>6 a 25</option><option>26 a 100</option><option>Más de 100</option></select>
+              </div>
+              <div class="field">
+                <label for="c-time">¿Para cuándo lo necesitas?</label>
+                <select id="c-time" name="plazo" data-sf="Plazo_Decision__c"><option value="">Selecciona</option><option>Este mes</option><option>1 a 3 meses</option><option>3 a 6 meses</option><option>Solo estoy explorando</option></select>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="c-role">Tu rol en la decisión</label>
+                <select id="c-role" name="rol" data-sf="Rol_Decision__c"><option value="">Selecciona</option><option>Yo decido</option><option>Recomiendo a quien decide</option><option>Estoy investigando</option></select>
+              </div>
+              <div class="field" data-show-if="interes=Renovar licencias">
+                <label for="c-renewal">¿Cuándo vencen tus licencias?</label>
+                <input id="c-renewal" name="vencimiento" type="month" data-sf="Fecha_Renovacion__c">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn-back" type="button" data-skip>Omitir</button>
+              <button class="btn btn--primary" type="button" data-finish>Guardar</button>
+            </div>
+          </fieldset>
+
+          <div class="form-step form-done" data-step="done" data-title="¡Gracias!" tabindex="-1" hidden>
+            <svg class="icon" aria-hidden="true"><use href="assets/images/icons.svg#icon-check-circle"/></svg>
+            <h3>Recibimos tu solicitud</h3>
+            <p>Un especialista te escribe en menos de 24 horas hábiles. Si prefieres avanzar ahora mismo, escríbenos:</p>
+            <a class="btn btn--wa btn--block" data-wa href="https://wa.me/525531120508" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="assets/images/icons.svg#icon-whatsapp"/></svg>Continuar por WhatsApp</a>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 </main>

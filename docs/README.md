@@ -146,9 +146,9 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 | Galería | `.gallery` | Fotos de producto |
 | Credenciales | `.trust`, `.logo-wall`, `.badge-row` | Logos de partners e insignias |
 | Nota | `.note` | Aviso destacado |
-| Banda final | `.cta-band`, `.stage-grid` | Llamado a la acción |
+| Banda final | `.cta-band`; con formulario, `.cta-band--form` > `.cta-band__grid` (`.cta-band__copy` + `.form-card`), como en el inicio | Llamado a la acción. Con formulario: texto a la izquierda y formulario a la derecha desde 1025 px; apilado y centrado en pantallas menores |
 | Animación de entrada | `.reveal` | El elemento aparece al bajar |
-| Texto justificado | Automático desde 768 px en `.hero-description`, `.prose`, subtítulos de `.split__body`, párrafos de `.step-card`, testimonios, `.faq`, `.note`, etapas de la banda final y `.legal` | Las tarjetas, planes y productos y todo en celular se quedan a la izquierda: son textos cortos en columnas angostas y justificados abren huecos entre palabras. |
+| Texto justificado | Automático desde 768 px en `.hero-description`, `.prose`, subtítulos de `.split__body`, párrafos de `.step-card`, testimonios, `.faq`, `.note` y `.legal` | Las tarjetas, planes y productos y todo en celular se quedan a la izquierda: son textos cortos en columnas angostas y justificados abren huecos entre palabras. |
 | Carrusel | `.carousel[data-carousel]` > `ul.carousel__track` + `.carousel__nav` | Tarjetas que se deslizan de lado (novedades de Chaos) |
 
 ---
