@@ -133,7 +133,7 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 | Tarjetas | `.grid--2/3/4`, `.card`, `.card--featured`, `.card--dark`, `.card__tag`, `.card__actions` | Productos, retos, soluciones |
 | Ventajas | `.feature`, `.feature__icon`, `.app`, `.checklist` | Listas de beneficios |
 | Imagen + texto | `.split`, `.split--reverse`, `.split__media`, `.split__body` | Bloques mitad y mitad |
-| Proceso | `.steps`, `.step-card` | Antes · Durante · Después |
+| Proceso | `.steps`, `.step-card` | Antes · Durante · Después. Para poner el número junto a la etapa, envuélvelos en `.step-card__head`; el `h3` que sigue queda centrado. |
 | Cifras | `.stats` > `.stat` | Números grandes con línea roja (animados) |
 | Casos de éxito | `.case-feature`, `.case`, `.case__media`, `.case__body` | Testimonios con video de YouTube |
 | Personas | `.people` > `.person` + `.person__avatar` | Tarjetas de contacto (foto o iniciales) |

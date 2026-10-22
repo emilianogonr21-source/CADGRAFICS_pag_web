@@ -394,6 +394,10 @@ img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain
   background: var(--red-gradient); color: var(--white); font-weight: 800;
 }
 .step-card__stage { font-size: var(--fs-small); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+/* Número y etapa en la misma fila */
+.step-card__head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.step-card__head .step-card__num { margin-bottom: 0; }
+.step-card__head + h3 { text-align: center; }
 .section--ink .step-card__stage { color: var(--white); }
 .step-card h3 { font-size: var(--fs-card-title); font-weight: 700; margin: 0.25rem 0 0.5rem; }
 .step-card p { font-size: var(--fs-card-text); color: var(--gray); line-height: 1.5; }
