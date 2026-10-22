@@ -197,8 +197,6 @@ p { text-wrap: pretty; }
 .section--ink .prose { color: rgba(255, 255, 255, 0.85); }
 .section--ink .prose strong { color: var(--white); }
 .prose .text-accent { font-weight: 600; }
-/* En párrafo sobre negro el rojo de marca no llega a 4.5:1. El acento queda en blanco. */
-.section--ink .prose .text-accent { color: var(--white); }
 /* Texto centrado bajo un título centrado (Quiénes Somos del inicio); gana al justificado de .prose p */
 .prose.prose--center { margin-inline: auto; text-align: center; }
 .prose.prose--center p { text-align: center; }
