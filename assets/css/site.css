@@ -189,7 +189,7 @@ p { text-wrap: pretty; }
    justificados abren huecos grandes entre palabras. La división silábica (lang="es-MX") los reduce donde el navegador la soporta. */
 @media (min-width: 768px) {
   :is(.hero-description, .prose p, .split__body .section-subtitle, .section-header--left .section-subtitle,
-      .step-card p:not(.step-card__stage), .case blockquote, .faq details > div, .note > span, .legal p, .legal li) {
+      .step-card p:not(.step-card__stage), .case blockquote, .split__body .quote blockquote, .faq details > div, .note > span, .legal p, .legal li) {
     text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 6 3 3;
   }
 }
@@ -443,6 +443,7 @@ img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain
 /* ===== Casos y testimonios ===== */
 .case { display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius-lg); background: var(--ink-900); border: 1px solid var(--line-dark); color: var(--white); }
 .case__media { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+.case__media--4x3 { aspect-ratio: 4 / 3; }
 .case__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease); }
 .case:hover .case__media img, a.case__media:hover img { transform: scale(1.03); }
 .case__play {
@@ -484,6 +485,8 @@ img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain
 .case-card blockquote { font-size: var(--fs-case-text); line-height: 1.6; color: rgba(255, 255, 255, 0.88); }
 
 .quote { max-width: 860px; margin: 0 auto; text-align: center; }
+/* Junto a una imagen el título va a la izquierda: la cita lo sigue */
+.split__body .quote { margin: 0; text-align: left; }
 .quote blockquote { font-size: var(--fs-cta-sub); line-height: 1.6; font-weight: 500; }
 .quote figcaption { margin-top: 1.25rem; font-size: var(--fs-card-text); color: var(--gray); }
 .quote figcaption strong { display: block; color: var(--ink); font-size: 1rem; }

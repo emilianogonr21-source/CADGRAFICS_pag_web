@@ -135,7 +135,7 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 | Imagen + texto | `.split`, `.split--reverse`, `.split__media`, `.split__body` | Bloques mitad y mitad |
 | Proceso | `.steps`, `.step-card` | Antes · Durante · Después. Para poner el número junto a la etapa, envuélvelos en `.step-card__head`; el `h3` que sigue queda centrado. |
 | Cifras | `.stats` > `.stat` | Números grandes con línea roja (animados) |
-| Casos de éxito | `.case-feature`, `.case`, `.case__media`, `.case__body` | Testimonios con video de YouTube |
+| Casos de éxito | `.case-feature`, `.case`, `.case__media`, `.case__body` | Testimonios con video de YouTube. `.case__media--4x3` para miniaturas 4:3 que no deben recortarse |
 | Casos del inicio | `.case-cards` > `.case-card`, `.case-card__media`, `.case-card__play`, `.case-card__company` | Tres tarjetas iguales en rojo profundo con botón de reproducir al centro; una columna (máx. 560 px) por debajo de 1025 px |
 | Problemas del inicio | `.problems` > `.problem-card`, `.problem-card__icon` | Cinco tarjetas con borde rojo y brillo suave |
 | Personas | `.people` > `.person` + `.person__avatar` | Tarjetas de contacto (foto o iniciales) |
