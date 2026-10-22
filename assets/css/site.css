@@ -410,8 +410,6 @@ img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain
 .quote figcaption strong { display: block; color: var(--ink); font-size: 1rem; }
 .section--ink .quote figcaption { color: var(--gray-soft); }
 .section--ink .quote figcaption strong { color: var(--white); }
-.name-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-top: 1.5rem; font-weight: 600; color: var(--gray); }
-
 /* Foto de la persona del testimonio (gana a img:not(.logo) de header.css) */
 img.quote__avatar {
   width: 96px; height: 96px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.25rem;
