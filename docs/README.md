@@ -146,6 +146,7 @@ No uses `.section--ink` (negro) a mitad de página. Única excepción: el bloque
 | Nota | `.note` | Aviso destacado |
 | Banda final | `.cta-band`, `.stage-grid` | Llamado a la acción |
 | Animación de entrada | `.reveal` | El elemento aparece al bajar |
+| Texto justificado | Automático desde 768 px en `.hero-description`, `.prose`, subtítulos de `.split__body`, párrafos de `.step-card`, testimonios, `.faq`, `.note`, etapas de la banda final y `.legal` | Las tarjetas, planes y productos y todo en celular se quedan a la izquierda: son textos cortos en columnas angostas y justificados abren huecos entre palabras. |
 | Carrusel | `.carousel[data-carousel]` > `ul.carousel__track` + `.carousel__nav` | Tarjetas que se deslizan de lado (novedades de Chaos) |
 
 ---

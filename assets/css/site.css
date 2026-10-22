@@ -184,6 +184,15 @@ p { text-wrap: pretty; }
 .section--ink .text-accent, .hero .text-accent, .cta-band .text-accent { color: var(--red); }
 .prose { font-size: var(--fs-subtitle); line-height: 1.8; color: var(--gray); max-width: 68ch; }
 .prose p + p { margin-top: 1rem; }
+/* Texto justificado: solo bloques de varias líneas en columnas anchas, desde tableta.
+   Tarjetas, planes y productos (textos de 2 líneas en columnas angostas) y todo en celular se quedan a la izquierda:
+   justificados abren huecos grandes entre palabras. La división silábica (lang="es-MX") los reduce donde el navegador la soporta. */
+@media (min-width: 768px) {
+  :is(.hero-description, .prose p, .split__body .section-subtitle, .section-header--left .section-subtitle,
+      .step-card p:not(.step-card__stage), .case blockquote, .faq details > div, .stage p, .note > span, .legal p, .legal li) {
+    text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 6 3 3;
+  }
+}
 .prose strong { color: var(--ink); font-weight: 600; }
 .section--ink .prose { color: rgba(255, 255, 255, 0.85); }
 .section--ink .prose strong { color: var(--white); }
