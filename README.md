@@ -1,159 +1,186 @@
 # Sitio web de Cadgrafics
 
-Sitio oficial de **Cadgrafics S.A. de C.V.** (CDMX) y **Cadgrafics de Occidente** (Guadalajara): software, equipos y capacitación de Autodesk, Adobe, Microsoft, Chaos, SketchUp, Dell, HP y Apple.
+Esta guía explica el sitio completo con palabras sencillas. Sirve para quien vende, atiende clientes o publica páginas, aunque no programe.
 
-Dominio: **https://cadgrafics.com.mx/**
+El sitio es la página pública de **Cadgrafics** (Ciudad de México) y **Cadgrafics de Occidente** (Guadalajara). Ahí una empresa conoce las marcas, pide una recomendación, una demo o una cotización, y habla por WhatsApp.
 
-> **¿Primera vez aquí?** Lee esta página completa (10 minutos). Si vas a modificar el código, sigue con la guía técnica: **[docs/README.md](docs/README.md)**.
+Dirección publicada: **https://cadgrafics.com.mx/**
 
----
-
-## 1. Qué es este proyecto, en pocas palabras
-
-- Las páginas son **HTML, CSS y JavaScript**. No hay base de datos ni WordPress. El único archivo de servidor es `contacto.php`: recibe el formulario y lo manda por correo.
-- **No necesita instalar nada** en tu computadora para verlo. Para publicarlo, el hosting debe ejecutar PHP y permitir la función `mail()`.
-- Tiene **16 páginas**: la de inicio, 14 páginas de marcas y productos, y el aviso de privacidad.
-- Todas las páginas comparten **un solo archivo de estilos** (`assets/css/site.css`) y **un solo archivo de comportamiento** (`assets/js/site.js`). Si cambias algo ahí, cambia en todo el sitio.
-
-### Qué hace el sitio por el visitante
-
-| Función | Qué pasa |
-|---|---|
-| **Formulario de contacto** (en cada página, menos el aviso de privacidad) | 2 pasos. Al enviar, llega un **correo a marketing@cadgrafics.com.mx** con los datos permitidos y la etapa (recomendación, demo o cotización). Si el correo falla, el visitante puede reintentar o mandar los mismos datos por WhatsApp, y el servidor guarda una copia en `private/leads/`. |
-| **Botón flotante de WhatsApp** | Abre un chat con la oficina CDMX (55 3112 0508). Si la persona eligió "Jalisco y occidente" en el formulario, cambia a Guadalajara (33 1404 0396). Norte y Sur y sureste siguen con el número de CDMX: solo hay dos oficinas. |
-| **Videos de fondo** | Sin sonido, en bucle, solo mientras están en pantalla. No tienen botón de pausa. Se quedan en la imagen fija si la persona pidió reducir movimiento, ahorrar datos o está en una red 2G. |
-| **Animaciones** | Las secciones aparecen suavemente al bajar, las cifras cuentan hasta su valor y las certificaciones de Autodesk se desplazan en un carril infinito. Todo se desactiva si la persona pidió "reducir movimiento" en su sistema. |
+Si vas a cambiar el diseño o el programa que envía los correos, después de esta guía abre **[docs/README.md](docs/README.md)**.
 
 ---
 
-## 2. Cómo está organizado
+## 1. Qué encuentra un visitante
 
-```
-CADGRAFICS_pag_web/
-├── index.html              ← Página de inicio
-├── contacto.php            ← Recibe el formulario, valida y envía el correo
-├── .htaccess               ← HTTPS, cabeceras de seguridad y redirecciones
-├── private/                ← Copias si el correo falla, y conteo de intentos (no se publica)
-├── pages/                  ← Una carpeta por marca
-│   ├── autodesk/             Autodesk, AEC, PD&M, M&E (+ redirección vieja)
-│   ├── adopcion_autodesk/    Programa de Adopción
-│   ├── adobe/                Adobe, Creative Cloud, Acrobat Studio
-│   ├── microsoft/  chaos/  sketchup/  dell/  hp/  mac/
-│   └── legal/                Aviso de privacidad
-├── assets/                 ← Todo lo que usan las páginas
-│   ├── css/site.css          Colores, tipografía y diseño de TODO el sitio
-│   ├── css/shared/header.css Menú superior (no modificar el logo)
-│   ├── js/site.js            Formularios, WhatsApp, animaciones, videos
-│   ├── js/shared/            Menú (compartido con el sitio anterior)
-│   ├── images/               Imágenes ordenadas por uso:
-│   │   ├── brand/              Logo, favicon e imagen para redes de Cadgrafics
-│   │   ├── partners/           Logos de fabricantes (Autodesk, Adobe, Dell…)
-│   │   ├── casos/              Fotos de casos de éxito
-│   │   ├── team/               Fotos del equipo
-│   │   ├── {marca}/{página}/   Imágenes de cada página (ej. adobe/creative-cloud/)
-│   │   ├── brevo/              Imágenes de correos de campaña (no mover)
-│   │   └── icons.svg           Todos los íconos
-│   └── video/{marca}/{página}/ Videos MP4
-├── robots.txt  sitemap.xml ← Para Google
-├── docs/                   ← Documentación (no se publica)
-└── tools/                  ← Utilidades internas (no se publica)
-```
+El sitio tiene **16 páginas**. Todas llevan el mismo menú, el mismo pie con las dos oficinas y un botón verde de WhatsApp. En el celular, abajo aparece una barra con «Cotizar» y «WhatsApp».
 
----
+Casi todas piden los datos en **dos pasos**:
 
-## 3. Ver el sitio en tu computadora
+1. Qué le interesa y su correo.
+2. Nombre, empresa, celular, región y la aceptación del aviso de privacidad.
 
-1. Abre la carpeta del proyecto en **Cursor** o **VS Code**.
-2. Instala la extensión **Live Server** (una sola vez).
-3. Clic derecho en `index.html` → **Open with Live Server**. Se abre el navegador y se actualiza solo cada vez que guardas.
+Al enviar, marketing recibe un correo. Si el correo no sale, la persona puede reenviar los mismos datos por WhatsApp.
 
-> Abrir `index.html` con doble clic también funciona para ver el diseño, pero el formulario y algunos videos necesitan Live Server (o el sitio publicado) para comportarse igual que en internet.
-
----
-
-## 4. Publicar en internet
-
-Sube esto a la raíz del dominio (por FTP o el panel del hosting):
-
-```
-index.html
-contacto.php
-.htaccess
-robots.txt
-sitemap.xml
-assets/
-pages/
-private/.htaccess
-private/leads/          (puede ir vacía; el servidor crea el registro si hace falta)
-private/ratelimit/      (puede ir vacía; cuenta intentos si el temporal del sistema no se puede usar)
-```
-
-**No subas** `docs/`, `tools/`, `README.md`, `.gitignore`, `.gitattributes` ni archivos `private/leads/*.log`. Esos registros tienen datos personales.
-
-Sí sube los `.htaccess`. El de la raíz fuerza HTTPS en cadgrafics.com.mx y pone las cabeceras de seguridad. Los de `docs/`, `tools/` y `private/` niegan el acceso por HTTP por si alguna de esas carpetas se sube por error. `robots.txt` pide a los buscadores que no indexen esas tres rutas; eso no sustituye el `.htaccess`.
-
-### Lista de revisión antes de publicar
-
-- [ ] Abrir varias páginas en celular y computadora y revisar que se vean bien.
-- [ ] Probar el formulario de una página (ver la sección siguiente).
-- [ ] Si agregas o reemplazas un video, comprímelo antes con la herramienta de `tools/` (ver [tools/README.md](tools/README.md)). Los videos actuales ya están optimizados (21 MB en total).
-### Paso obligatorio después de publicar: probar el formulario
-
-El formulario envía los datos a `contacto.php`, en el mismo dominio. El correo llega a **marketing@cadgrafics.com.mx**.
-
-1. Entra al sitio **ya publicado** (https://cadgrafics.com.mx), pulsa un botón que lleve a `#contacto` (por ejemplo «Solicitar cotización») y envía un formulario de prueba.
-2. Debe mostrarse «Recibimos tu solicitud». El correo debe llegar a marketing@ con la etapa («Quiere una cotización», «Quiere una demo» o «Explorando, quiere una recomendación»).
-3. Si aparece «No pudimos enviar tu solicitud», revisa dos cosas: que el hosting entregue `mail()` y que la carpeta temporal de PHP, o `private/ratelimit/`, se pueda escribir. Si `mail()` falla, la solicitud queda en `private/leads/failed.log`. Esa dirección no debe abrirse en el navegador.
-4. Comprueba que `https://cadgrafics.com.mx/docs/` y `https://cadgrafics.com.mx/private/` respondan acceso denegado, y que `http://cadgrafics.com.mx/` pase a `https://`.
-
-En tu computadora, con Live Server, el formulario no envía el correo: `contacto.php` solo acepta el origen `https://cadgrafics.com.mx` y `https://www.cadgrafics.com.mx`. Verás el aviso y la opción de WhatsApp. Eso es lo esperado.
-
-### Probar los enlaces antiguos de colecciones
-
-`.htaccess` redirige la página que ya no existe `pages/autodesk/mfg-collection.html`. Esto solo funciona en el sitio publicado (Live Server no lee `.htaccess`):
-
-- https://cadgrafics.com.mx/pages/autodesk/mfg-collection.html y `?coleccion=pdm` deben abrir **PD&M**.
-- https://cadgrafics.com.mx/pages/autodesk/mfg-collection.html?coleccion=me debe abrir **M&E**.
-
----
-
-## 5. Cambios frecuentes (sin saber programar)
-
-Abre el archivo en Cursor/VS Code, usa **Ctrl + Shift + F** para buscar el texto en todo el proyecto, cámbialo y guarda.
-
-| Quiero cambiar… | Dónde | Cómo |
+| Página | Para quién es | Archivo |
 |---|---|---|
-| Un texto de una página | El `.html` de esa página | Busca el texto y reemplázalo. No borres lo que está entre `< >`. |
-| El correo que recibe los formularios | `contacto.php`, constante `RECIPIENT` | Cambia la dirección. Tiene que ser un buzón del mismo dominio para que `mail()` lo entregue. Si agregas un campo nuevo al formulario, también hay que añadirlo a `ALLOWED_FIELDS` y, si el servidor debe exigirlo, a la validación. |
-| Un número de WhatsApp | `assets/js/site.js` (`WHATSAPP` y `WA_LABEL`) **y** los enlaces `wa.me/52…` en los `.html` | Usa Ctrl + Shift + F con el número viejo (ej. `525531120508`) para encontrar todos. |
-| Teléfonos o direcciones del pie de página | Cada `.html`, al final, dentro de `<footer>` | Búscalo con Ctrl + Shift + F y cámbialo en todas las páginas. |
-| La foto de una persona | `assets/images/team/` | Reemplaza el archivo con una foto cuadrada de 192 × 192 px con el mismo nombre. |
-| Un color del sitio | `assets/css/site.css`, al inicio (`--red`, `--wa`, etc.) | Cambia el código de color una vez y se aplica en todo el sitio. |
-| Agregar una página nueva | Ver [docs/README.md → Crear una página](docs/README.md#crear-o-editar-una-página) | Copiar una página parecida y ajustar textos. |
+| Inicio | Quien llega por primera vez: software, equipos, capacitación, casos de clientes y el formulario | `index.html` |
+| Autodesk | Empresas que buscan al partner Platinum y las colecciones | `pages/autodesk/home-autodesk.html` |
+| AEC Collection | Arquitectura, ingeniería y construcción (Revit, AutoCAD, Civil 3D y más) | `pages/autodesk/aec-collection.html` |
+| Product Design & Manufacturing | Diseño de producto y manufactura | `pages/autodesk/pdm-collection.html` |
+| Media & Entertainment | Animación, cine y videojuegos (Maya, 3ds Max y más) | `pages/autodesk/me-collection.html` |
+| Programa de Adopción | Talleres para que el equipo use de verdad Revit y la gestión de datos | `pages/adopcion_autodesk/adopcion_Autodesk.html` |
+| Adobe | Empresas que buscan al reseller Platinum | `pages/adobe/home-adobe.html` |
+| Creative Cloud | Photoshop, Illustrator, Premiere y el resto de la suite | `pages/adobe/creative-cloud.html` |
+| Acrobat Studio | PDF, firmas y el asistente de inteligencia artificial | `pages/adobe/acrobat-studio.html` |
+| Microsoft 365 | Correo, archivos y seguridad para la empresa | `pages/microsoft/home-microsoft.html` |
+| Chaos | Enscape, V-Ray, Corona y Veras | `pages/chaos/home-chaos.html` |
+| SketchUp | Modelado 3D fácil de enseñar | `pages/sketchup/home-sketchup.html` |
+| Dell | Computadoras y estaciones de trabajo | `pages/dell/home-dell.html` |
+| HP gran formato | Plotters DesignJet y PageWide | `pages/hp/home-hp.html` |
+| Mac para empresas | Equipos Apple para el trabajo | `pages/mac/home-mac.html` |
+| Aviso de privacidad | Cómo Cadgrafics cuida los datos y cómo pedir derechos ARCO. Esta página no tiene formulario | `pages/legal/aviso-privacidad.html` |
 
-> **Regla de oro:** no pongas estilos (colores, tamaños) dentro de las páginas. Todo el diseño vive en `assets/css/site.css`; así el sitio se mantiene uniforme.
+Un enlace viejo, `pages/autodesk/mfg-collection.html`, ya no existe. Quien lo abra en el sitio publicado llega a Product Design & Manufacturing. Si el enlace trae `?coleccion=me`, llega a Media & Entertainment.
 
 ---
 
-## 6. Guardar cambios (Git)
+## 2. Cómo nos contactan
 
-El proyecto usa **Git** para guardar el historial: cada cambio queda registrado y se puede volver atrás.
+### Formulario
 
-- En Cursor/VS Code: pestaña **Source Control** (Ctrl + Shift + G) → escribe una descripción breve → **Commit**.
-- Para subirlo al repositorio remoto: **Sync / Push**.
+El visitante elige una intención con un botón que dice, por ejemplo, «Solicitar cotización», «Agendar demo» o «Pedir recomendación». Ese botón tiene que llevar al formulario de la misma página. Marketing recibe uno de estos textos:
 
----
-
-## 7. Contactos y datos clave
-
-| Dato | Valor |
+| Lo que pulsó | Lo que dice el correo |
 |---|---|
-| Correo que recibe los formularios | marketing@cadgrafics.com.mx |
-| WhatsApp CDMX | 55 3112 0508 |
-| WhatsApp Guadalajara | 33 1404 0396 |
-| Color principal | Rojo Pantone 1807 C · `#B80007` |
-| Tipografía | Inter |
+| Pedir recomendación | Explorando, quiere una recomendación |
+| Agendar demo, o no pulsó ningún botón de estos | Quiere una demo |
+| Solicitar cotización | Quiere una cotización |
+
+El correo llega solo a **marketing@cadgrafics.com.mx**. El visitante no puede cambiar ese destino. Para contestar, se usa «Responder» y el mensaje va al correo que la persona escribió.
+
+El programa revisa que haya correo válido, celular de 10 dígitos, nombre, empresa, interés, región y la aceptación del aviso. Ignora cualquier dato que no sea de esa lista. Acepta como máximo **5 envíos por hora** desde la misma conexión.
+
+Si el correo no puede enviarse, la persona ve el aviso y el botón de WhatsApp. En el servidor queda una copia en `private/leads/`. Esa carpeta no se abre en el navegador y contiene datos personales: no la compartas ni la subas a un chat.
+
+En una vista de prueba en tu computadora el formulario no envía el correo. Solo lo hace el sitio ya publicado en cadgrafics.com.mx. Ver el aviso de WhatsApp en esa prueba es normal.
+
+### WhatsApp
+
+Hay dos números, porque hay dos oficinas:
+
+| Región que eligió | Quién contesta | Número |
+|---|---|---|
+| CDMX y centro | Oficina de la Ciudad de México | 55 3112 0508 |
+| Jalisco y occidente | Oficina de Guadalajara | 33 1404 0396 |
+| Norte, o Sur y sureste | También la oficina de la Ciudad de México | 55 3112 0508 |
+
+El botón verde flotante empieza en el número de CDMX. Cambia a Guadalajara cuando la persona elige «Jalisco y occidente» en el formulario.
+
+### Oficinas que aparecen en el pie
+
+- **Cadgrafics S.A. de C.V.** — Norte 56-A #5204, Col. Tablas de San Agustín, 07860, Gustavo A. Madero, CDMX. Correo: sandra.alvarez@cadgrafics.com.mx.
+- **Cadgrafics de Occidente S.A. de C.V.** — Calle Día #2381, Col. Jardines del Bosque, 44520, Guadalajara, Jalisco. Correo: rafael.castro@cadgrafics.com.mx.
 
 ---
 
-**Siguiente lectura:** [docs/README.md](docs/README.md) — guía técnica completa (diseño, formularios, animaciones, seguridad, SEO y solución de problemas).
+## 3. Qué hay en cada carpeta
+
+| Carpeta o archivo | En palabras simples | ¿Lo ve el visitante? |
+|---|---|---|
+| `index.html` | La página de inicio | Sí |
+| `pages/` | El resto de las páginas, una carpeta por marca | Sí |
+| `assets/` | Colores, letras, fotos, íconos y videos que usan todas las páginas | Sí, como parte de cada página |
+| `contacto.php` | El programa que recibe el formulario y manda el correo | No se ve; trabaja al enviar |
+| `.htaccess` | Reglas del servidor: obliga a usar https en el dominio público y protege el sitio | No se ve |
+| `robots.txt` y `sitemap.xml` | Le dicen a Google qué páginas existen y cuáles carpetas internas debe ignorar | No forman parte del diseño |
+| `private/` | Copias de solicitudes que no pudieron enviarse, y un conteo de intentos | No. Si alguien abre la dirección, el servidor la niega |
+| `docs/` | Esta explicación técnica y un catálogo visual de botones, tarjetas y formularios (`docs/componentes.html`) | No. Es para el equipo |
+| `tools/` | Una herramienta para achicar videos antes de publicarlos, y las fotos originales en alta resolución | No. Es para el equipo |
+| `.vscode/` | Un ajuste del editor para ver el sitio en el puerto 5501 | No |
+
+Si cambias un color o un comportamiento en `assets/`, cambia en **todas** las páginas. Si cambias un texto dentro de un archivo de `pages/`, cambia solo esa página.
+
+Las imágenes de `assets/images/brevo/` salen en correos de campañas ya enviados. No las muevas ni las borres: esos correos dejan de mostrar la foto.
+
+---
+
+## 4. Cómo se ve una página, de arriba abajo
+
+1. **Menú.** Marcas, soluciones, casos y «Contáctanos».
+2. **Presentación.** Título, una frase y, en la mayoría, el formulario o un video sin sonido.
+3. **Información.** Productos, planes o beneficios. El fondo alterna blanco y un papel claro.
+4. **Cierre en rojo.** Invitación a escribir o a cotizar.
+5. **Pie.** Las dos oficinas, enlaces y redes.
+
+Los videos de fondo no tienen botón de pausa. Se mueven solo mientras se ven en pantalla y se quedan en una foto fija si la persona pidió menos movimiento, ahorrar datos o está en una red muy lenta.
+
+---
+
+## 5. Ver el sitio en tu computadora
+
+1. Abre esta carpeta en Cursor o en VS Code.
+2. Instala la extensión **Live Server** (una sola vez).
+3. Clic derecho en `index.html` → **Open with Live Server**.
+
+También puedes abrir `index.html` con doble clic para leer los textos. El formulario y algunos videos se comportan como en internet solo con Live Server o con el sitio ya publicado.
+
+---
+
+## 6. Publicar
+
+Sube a la raíz del dominio:
+
+- `index.html`
+- `contacto.php`
+- `.htaccess`
+- `robots.txt`
+- `sitemap.xml`
+- la carpeta `assets/`
+- la carpeta `pages/`
+- la carpeta `private/` con su `.htaccess`, aunque `leads` y `ratelimit` vayan vacías
+
+No subas `docs/`, `tools/`, `.vscode/`, este `README.md`, `.gitignore`, `.gitattributes` ni ningún archivo `private/leads/failed.log`.
+
+Después de publicar, comprueba:
+
+- [ ] Una página de marca se ve bien en celular y en computadora.
+- [ ] Un formulario de prueba, pulsando antes «Solicitar cotización», muestra «Recibimos tu solicitud».
+- [ ] El correo llega a marketing@ y dice «Quiere una cotización».
+- [ ] `http://cadgrafics.com.mx/` pasa solo a `https://`.
+- [ ] Las direcciones `/docs/` y `/private/` responden que el acceso está negado.
+
+Si el formulario publicado dice «No pudimos enviar tu solicitud», pide al hosting que active el correo de PHP y que la carpeta temporal, o `private/ratelimit/`, se pueda escribir. Revisa también la carpeta de spam de marketing@.
+
+---
+
+## 7. Cambios que puedes hacer tú
+
+Abre el archivo, busca el texto con **Ctrl + Shift + F**, cámbialo y guarda. No borres lo que está entre `<` y `>`.
+
+| Quiero… | Dónde |
+|---|---|
+| Corregir una frase de una página | El archivo de esa página, en la tabla de la sección 1 |
+| Cambiar el correo que recibe los formularios | `contacto.php`, la línea `RECIPIENT`. Tiene que ser un buzón de cadgrafics.com.mx |
+| Cambiar un WhatsApp | `assets/js/site.js` y, con la búsqueda, el número viejo en todas las páginas (`525531120508` o `523314040396`) |
+| Cambiar dirección o teléfono del pie | El final de cada página, en la zona del pie. Hay que repetirlo en las 16 |
+| Cambiar la foto de una persona del equipo | `assets/images/team/`, misma foto cuadrada y el mismo nombre de archivo (192 × 192 px) |
+| Cambiar el rojo de la marca | `assets/css/site.css`, al inicio, el valor de `--red` (`#B80007`) |
+
+El rojo de marca es el Pantone 1807 C. La letra de todo el sitio es Inter.
+
+Para una página nueva, copia una parecida y pide apoyo a quien edita el código: hay que registrarla en el menú y en `sitemap.xml`. Los pasos están en [docs/README.md](docs/README.md).
+
+---
+
+## 8. Qué conviene no tocar
+
+- El logo del menú y el archivo `assets/css/shared/header.css`.
+- Los logos de Autodesk, Adobe, Dell y las demás marcas: hay que usarlos como los entrega cada fabricante.
+- El nombre del campo oculto del formulario (`_honey`). Si se cambia, pueden colarse envíos automáticos o perderse uno real.
+- Las copias de `private/leads/`: son datos de clientes.
+
+Cada cambio puede guardarse en el historial del proyecto: en Cursor, pestaña **Source Control** (Ctrl + Shift + G), escribe una frase corta y confirma el commit. **Sync** o **Push** lo sube al repositorio remoto.
+
+---
+
+**Para quien va a editar el diseño o el formulario:** [docs/README.md](docs/README.md).

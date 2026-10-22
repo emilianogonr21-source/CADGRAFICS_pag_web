@@ -1,6 +1,8 @@
 # Guía técnica del sitio Cadgrafics
 
-Esta guía explica **cómo funciona por dentro** el sitio y cómo modificarlo sin romper nada. Para una introducción general (qué es, cómo verlo, cómo publicarlo) lee primero el **[README principal](../README.md)**.
+Esta guía es para quien va a **editar el diseño o el programa del formulario**. Explica cómo está armado el sitio por dentro.
+
+Si solo necesitas saber qué página existe, cómo llega un contacto o qué carpeta se publica, lee primero el **[README principal](../README.md)**. Está escrito para cualquier persona del equipo.
 
 **Contenido**
 
