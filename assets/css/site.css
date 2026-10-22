@@ -421,7 +421,10 @@ img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain
 .step-card__stage { font-size: var(--fs-small); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
 /* Número y etapa en la misma fila */
 .step-card__head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
-.step-card__head .step-card__num { margin-bottom: 0; }
+.step-card__head .step-card__num { margin-bottom: 0; flex-shrink: 0; }
+/* En 4 columnas una etapa larga ("Adopción y soporte") ocupa 2 líneas: todas reservan esa altura para que los títulos queden alineados */
+.steps--4 .step-card__head { min-height: 3rem; }
+.steps--4 .step-card p { text-align: left; }
 .step-card__head + h3 { text-align: center; }
 /* Variante con producto y título junto al número (Chaos): textos de 1 o 2 líneas, justificados abren huecos */
 .step-card__head--title { gap: 0.875rem; }

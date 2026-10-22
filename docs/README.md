@@ -133,7 +133,7 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 | Tarjetas | `.grid--2/3/4`, `.card`, `.card--featured`, `.card--dark`, `.card__tag`, `.card__actions` | Productos, retos, soluciones |
 | Ventajas | `.feature`, `.feature__icon`, `.app`, `.checklist` | Listas de beneficios |
 | Imagen + texto | `.split`, `.split--reverse`, `.split__media`, `.split__body` | Bloques mitad y mitad |
-| Proceso | `.steps`, `.step-card` | Antes · Durante · Después. Para poner el número junto a la etapa, envuélvelos en `.step-card__head`; el `h3` que sigue queda centrado. Con `.step-card__head--title` (Chaos) el producto y el `h3` van juntos a un lado del número y el texto queda alineado a la izquierda. |
+| Proceso | `.steps`, `.step-card` | Antes · Durante · Después. Para poner el número junto a la etapa, envuélvelos en `.step-card__head`; el `h3` que sigue queda centrado. Con `.step-card__head--title` (Chaos) el producto y el `h3` van juntos a un lado del número y el texto queda alineado a la izquierda. En `.steps--4` (4 columnas angostas) el texto tampoco se justifica y la cabecera reserva 2 líneas para que los títulos queden alineados. |
 | Cifras | `.stats` > `.stat` | Números grandes con línea roja (animados) |
 | Casos de éxito | `.case-feature`, `.case`, `.case__media`, `.case__body` | Testimonios con video de YouTube. `.case__media--4x3` para miniaturas 4:3 que no deben recortarse |
 | Casos del inicio | `.case-cards` > `.case-card`, `.case-card__media`, `.case-card__play`, `.case-card__company` | Tres tarjetas iguales en rojo profundo con botón de reproducir al centro; una columna (máx. 560 px) por debajo de 1025 px |
