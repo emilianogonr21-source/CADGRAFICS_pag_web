@@ -149,7 +149,7 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 | Banda final | `.cta-band`; con formulario, `.cta-band--form` > `.cta-band__grid` (`.cta-band__copy` + `.form-card`), como en el inicio | Llamado a la acción. Con formulario: texto a la izquierda y formulario a la derecha desde 1025 px; apilado y centrado en pantallas menores |
 | Animación de entrada | `.reveal` | El elemento aparece al bajar |
 | Texto justificado | Automático desde 768 px en `.hero-description`, `.prose`, subtítulos de `.split__body`, párrafos de `.step-card`, testimonios, `.faq`, `.note` y `.legal` | Las tarjetas, planes y productos y todo en celular se quedan a la izquierda: son textos cortos en columnas angostas y justificados abren huecos entre palabras. |
-| Carrusel | `.carousel[data-carousel]` > `ul.carousel__track` + `.carousel__nav` | Tarjetas que se deslizan de lado (novedades de Chaos) |
+| Carrusel | `.carousel[data-carousel]` > `ul.carousel__track` + `.carousel__nav` | Tarjetas que se deslizan de lado (novedades de Chaos). Con `.carousel--3` se ven 3 tarjetas desde 1025 px («¿Qué Mac necesita cada área?» en Mac) |
 | Foto de producto | `figure.product-stage` > `img` | Foto con fondo transparente a lo ancho, sobre un panel blanco liso (un degradado deja ver bordes casi transparentes del PNG), arriba de las tarjetas de una pestaña (MacBook Neo en Mac). La imagen no pasa de 360 px de ancho |
 | Cartel de producto | `.product-split` > `figure.product-split__media` + `.product-split__cards` | Cartel vertical a la izquierda y las tarjetas apiladas a la derecha desde 769 px; en celular el cartel va arriba (máx. 360 px). El cartel nunca se recorta: si la columna es más alta, el fondo de la figura repite el color de su borde superior e inferior. Con otro cartel, cambia esos dos colores en `site.css` (MacBook Air en Mac). Si es una foto con texto abajo, usa `.product-split__media--photo` con la foto (`img.product-split__photo`) y la franja de texto como imagen aparte: desde 769 px la foto se recorta para llenar la altura y la franja siempre se ve entera (MacBook Pro en Mac) |
 
@@ -329,7 +329,7 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 | Aparición al bajar | Elementos con `.reveal` | Suben y aparecen suavemente |
 | Cifras | Todas las `.stats` | Entran escalonadas, la línea roja crece y el número cuenta de 0 a su valor. Valores de texto ("Platinum", "macOS 27") y años ("2010") no cuentan. |
 | Carril de insignias | Certificaciones de Autodesk (`data-marquee`) | Se desplaza sin fin; se pausa al pasar el cursor |
-| Carrusel | Novedades de Chaos (`data-carousel`) | 2 tarjetas a la vista en tableta y escritorio, 1 en celular. Las tarjetas `.reveal` que aún no se ven aparecen cuando el carrusel llega a ellas. Con "reducir movimiento" el cambio es inmediato, sin deslizamiento. |
+| Carrusel | Novedades de Chaos y perfiles de Mac (`data-carousel`) | 2 tarjetas a la vista en tableta y escritorio (3 desde 1025 px con `.carousel--3`), 1 en celular. Las tarjetas `.reveal` que aún no se ven aparecen cuando el carrusel llega a ellas. Con "reducir movimiento" el cambio es inmediato, sin deslizamiento. |
 | Videos | `data-ambient` | Ver sección 8 |
 
 **Accesibilidad (objetivo WCAG AA):**

@@ -810,6 +810,7 @@ body { padding-bottom: 68px; }
 }
 @media (min-width: 1025px) {
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .carousel--3 .carousel__track { grid-auto-columns: calc((100% - 2 * var(--grid-gap)) / 3); }
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
   .problems { grid-template-columns: repeat(5, 1fr); }
   .case-cards { grid-template-columns: repeat(3, 1fr); max-width: none; }

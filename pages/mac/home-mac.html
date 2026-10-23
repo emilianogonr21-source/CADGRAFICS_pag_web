@@ -145,7 +145,8 @@
         <h2 class="section-title" id="encuentra-title">¿Qué Mac necesita cada área?</h2>
         <p class="section-subtitle">Ubica el perfil de trabajo de cada persona y mira el equipo que le recomendamos. Si tu equipo mezcla perfiles, armamos la combinación contigo.</p>
       </header>
-      <ul class="grid grid--3">
+      <div class="carousel carousel--3" data-carousel role="region" aria-roledescription="carrusel" aria-label="Mac recomendada para cada área">
+      <ul class="carousel__track" id="encuentra-track" tabindex="0">
         <li class="card reveal">
           <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="../../assets/images/icons.svg#icon-file"/></svg></span>
           <p class="card__tag">Correo, documentos, navegador</p>
@@ -195,6 +196,12 @@
           <div class="card__actions"><a class="link" href="#contacto" data-interest="Mac Studio" data-stage="evaluar">Cotizar Mac Studio <svg class="icon" aria-hidden="true"><use href="../../assets/images/icons.svg#icon-arrow-right"/></svg></a></div>
         </li>
       </ul>
+      <div class="carousel__nav" hidden>
+        <button class="carousel__btn" type="button" data-carousel-prev aria-controls="encuentra-track" aria-label="Perfil anterior"><svg class="icon icon-flip" aria-hidden="true"><use href="../../assets/images/icons.svg#icon-chevron-right"/></svg></button>
+        <div class="carousel__dots" role="group" aria-label="Elegir perfil"></div>
+        <button class="carousel__btn" type="button" data-carousel-next aria-controls="encuentra-track" aria-label="Siguiente perfil"><svg class="icon" aria-hidden="true"><use href="../../assets/images/icons.svg#icon-chevron-right"/></svg></button>
+      </div>
+      </div>
     </div>
   </section>
 
