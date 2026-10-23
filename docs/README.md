@@ -132,7 +132,7 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 | Botones | `.btn` + `.btn--primary` / `--ghost` / `--outline` / `--wa`, `.btn--xl`, `.btn--block` | Acciones (`--ghost` solo sobre fondo oscuro) |
 | Tarjetas | `.grid--2/3/4`, `.card`, `.card--featured`, `.card--dark`, `.card__tag`, `.card__actions` | Productos, retos, soluciones. Foto arriba con `.card__img` (16:9); para un cartel de producto con su lema, `.card__img--product` (recuadro centrado de 260 px como máximo, 5:4, con borde y esquinas redondeadas), como en escritorio de Mac |
 | Ventajas | `.feature`, `.feature__icon`, `.app`, `.checklist` | Listas de beneficios |
-| Imagen + texto | `.split`, `.split--reverse`, `.split__media`, `.split__body` | Bloques mitad y mitad |
+| Imagen + texto | `.split`, `.split--reverse`, `.split__media`, `.split__body` | Bloques mitad y mitad. `.split__media--square` deja la imagen cuadrada y sin recorte (máx. 480 px en celular y tableta), como el mosaico de «Por qué dar el salto a Mac» |
 | Proceso | `.steps`, `.step-card` | Antes · Durante · Después. Para poner el número junto a la etapa, envuélvelos en `.step-card__head`; el `h3` que sigue queda centrado. Con `.step-card__head--title` (Chaos) el producto y el `h3` van juntos a un lado del número y el texto queda alineado a la izquierda. En `.steps--4` (4 columnas angostas) el texto tampoco se justifica y la cabecera reserva 2 líneas para que los títulos queden alineados. |
 | Cifras | `.stats` > `.stat` | Números grandes con línea roja (animados) |
 | Casos de éxito | `.case-feature`, `.case`, `.case__media`, `.case__body` | Testimonios con video de YouTube. `.case__media--4x3` para miniaturas 4:3 que no deben recortarse |
@@ -312,7 +312,7 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `autodesk/colecciones/` | Logos de las colecciones (AEC, PD&M, M&E, Forma) |
 | `adobe/home/`, `creative-cloud/`, `acrobat-studio/` | Imágenes de cada página de Adobe, incluidas las imágenes fijas de sus videos |
 | `adopcion_autodesk/`, `dell/home/`, `sketchup/home/` | Imágenes de esas páginas (Chaos usa los renders de `sketchup/home/`) |
-| `mac/home/` | Fotos de producto de Mac en WebP: `macbook-neo.webp` (fondo transparente, 720 px, 31 KB) y `macbook-air.webp` (cartel vertical, 800 px, 42 KB). MacBook Pro va en dos piezas: `macbook-pro.webp` (la foto, 41 KB) y `macbook-pro-bateria.webp` (la franja «Hasta 24 horas de batería», 7 KB). Escritorio: `imac.webp`, `mac-mini.webp` y `mac-studio.webp` (800 px, 16–22 KB; a Mac Studio se le agregó blanco a los lados para quedar en 5:4) |
+| `mac/home/` | Fotos de producto de Mac en WebP: `macbook-neo.webp` (fondo transparente, 720 px, 31 KB) y `macbook-air.webp` (cartel vertical, 800 px, 42 KB). MacBook Pro va en dos piezas: `macbook-pro.webp` (la foto, 41 KB) y `macbook-pro-bateria.webp` (la franja «Hasta 24 horas de batería», 7 KB). Escritorio: `imac.webp`, `mac-mini.webp` y `mac-studio.webp` (800 px, 16–22 KB; a Mac Studio se le agregó blanco a los lados para quedar en 5:4). Ventajas: `mac-ventajas.webp` (mosaico cuadrado, 1000 px, 56 KB) |
 | `hp/home/{familia}/{modelo}/` | Fotos de cada plotter HP (ej. `pagewide-xl-pro/8200/`) |
 | `icons.svg` | Todos los íconos del sitio en un solo archivo. Se usan así: `<svg class="icon"><use href="…/icons.svg#icon-phone"/></svg>` |
 
