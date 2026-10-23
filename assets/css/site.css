@@ -373,6 +373,12 @@ img.hero__logo { height: 48px; width: auto; max-width: 220px; object-fit: contai
 .card__img img { width: 100%; height: 100%; object-fit: cover; }
 .card__img--contain img { object-fit: contain; padding: 1rem; }
 .card--dark .card__img { background: var(--ink); }
+/* Foto de producto con fondo transparente, a lo ancho de una pestaña (MacBook Neo en Mac) */
+.product-stage {
+  margin: 0 0 var(--grid-gap); padding: clamp(1rem, 0.5rem + 2vw, 1.75rem) 1rem;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); background: var(--white);
+}
+.product-stage img { width: 100%; max-width: 360px; margin-inline: auto; }
 /* Logo de producto dentro de tarjeta o bloque (gana a img:not(.logo) de header.css) */
 img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; margin-bottom: 1rem; }
 .card__tag, .card p.card__tag, .app p.card__tag { font-size: var(--fs-small); font-weight: 600; color: var(--red); margin-bottom: 0.4rem; }

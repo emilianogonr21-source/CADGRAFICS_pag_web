@@ -150,6 +150,7 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 | Animación de entrada | `.reveal` | El elemento aparece al bajar |
 | Texto justificado | Automático desde 768 px en `.hero-description`, `.prose`, subtítulos de `.split__body`, párrafos de `.step-card`, testimonios, `.faq`, `.note` y `.legal` | Las tarjetas, planes y productos y todo en celular se quedan a la izquierda: son textos cortos en columnas angostas y justificados abren huecos entre palabras. |
 | Carrusel | `.carousel[data-carousel]` > `ul.carousel__track` + `.carousel__nav` | Tarjetas que se deslizan de lado (novedades de Chaos) |
+| Foto de producto | `figure.product-stage` > `img` | Foto con fondo transparente a lo ancho, sobre un panel blanco liso (un degradado deja ver bordes casi transparentes del PNG), arriba de las tarjetas de una pestaña (MacBook Neo en Mac). La imagen no pasa de 360 px de ancho |
 
 ---
 
@@ -310,6 +311,7 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `autodesk/colecciones/` | Logos de las colecciones (AEC, PD&M, M&E, Forma) |
 | `adobe/home/`, `creative-cloud/`, `acrobat-studio/` | Imágenes de cada página de Adobe, incluidas las imágenes fijas de sus videos |
 | `adopcion_autodesk/`, `dell/home/`, `sketchup/home/` | Imágenes de esas páginas (Chaos usa los renders de `sketchup/home/`) |
+| `mac/home/` | Fotos de producto de Mac con fondo transparente, en WebP (ej. `macbook-neo.webp`, 720 px, 38 KB) |
 | `hp/home/{familia}/{modelo}/` | Fotos de cada plotter HP (ej. `pagewide-xl-pro/8200/`) |
 | `icons.svg` | Todos los íconos del sitio en un solo archivo. Se usan así: `<svg class="icon"><use href="…/icons.svg#icon-phone"/></svg>` |
 
