@@ -379,6 +379,18 @@ img.hero__logo { height: 48px; width: auto; max-width: 220px; object-fit: contai
   border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); background: var(--white);
 }
 .product-stage img { width: 100%; max-width: 360px; margin-inline: auto; }
+/* Cartel vertical de producto junto a sus tarjetas apiladas (MacBook Air en Mac). En celular va arriba, más angosto */
+.product-split { display: grid; gap: var(--grid-gap); }
+/* Fondo partido con el color exacto de los bordes del cartel: si la columna es más alta que la foto, el cartel se ve continuo */
+.product-split__media {
+  display: flex; align-items: center; width: 100%; max-width: 360px; margin: 0 auto;
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+  background: linear-gradient(#d5e9f7 50%, #f9f9f9 50%);
+}
+.product-split__media img { width: 100%; }
+/* Foto + franja de texto (MacBook Pro): la foto se recorta para llenar la altura; la franja siempre se ve completa */
+.product-split__media--photo { flex-direction: column; align-items: stretch; background: var(--white); }
+.product-split__cards { display: grid; gap: var(--grid-gap); }
 /* Logo de producto dentro de tarjeta o bloque (gana a img:not(.logo) de header.css) */
 img.card__logo { height: 48px; width: auto; max-width: 100%; object-fit: contain; object-position: left center; margin-bottom: 1rem; }
 .card__tag, .card p.card__tag, .app p.card__tag { font-size: var(--fs-small); font-weight: 600; color: var(--red); margin-bottom: 0.4rem; }
@@ -792,6 +804,9 @@ body { padding-bottom: 68px; }
   body { padding-bottom: 0; }
   .mobile-bar { display: none; }
   .problems { grid-template-columns: repeat(3, 1fr); }
+  .product-split { grid-template-columns: min(400px, 42%) minmax(0, 1fr); }
+  .product-split__media { max-width: none; }
+  img.product-split__photo { flex: 1 1 0; min-height: 0; height: 100%; object-fit: cover; object-position: 62% center; }
 }
 @media (min-width: 1025px) {
   .grid--3 { grid-template-columns: repeat(3, 1fr); }

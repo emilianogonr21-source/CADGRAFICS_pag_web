@@ -151,6 +151,7 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 | Texto justificado | Automático desde 768 px en `.hero-description`, `.prose`, subtítulos de `.split__body`, párrafos de `.step-card`, testimonios, `.faq`, `.note` y `.legal` | Las tarjetas, planes y productos y todo en celular se quedan a la izquierda: son textos cortos en columnas angostas y justificados abren huecos entre palabras. |
 | Carrusel | `.carousel[data-carousel]` > `ul.carousel__track` + `.carousel__nav` | Tarjetas que se deslizan de lado (novedades de Chaos) |
 | Foto de producto | `figure.product-stage` > `img` | Foto con fondo transparente a lo ancho, sobre un panel blanco liso (un degradado deja ver bordes casi transparentes del PNG), arriba de las tarjetas de una pestaña (MacBook Neo en Mac). La imagen no pasa de 360 px de ancho |
+| Cartel de producto | `.product-split` > `figure.product-split__media` + `.product-split__cards` | Cartel vertical a la izquierda y las tarjetas apiladas a la derecha desde 769 px; en celular el cartel va arriba (máx. 360 px). El cartel nunca se recorta: si la columna es más alta, el fondo de la figura repite el color de su borde superior e inferior. Con otro cartel, cambia esos dos colores en `site.css` (MacBook Air en Mac). Si es una foto con texto abajo, usa `.product-split__media--photo` con la foto (`img.product-split__photo`) y la franja de texto como imagen aparte: desde 769 px la foto se recorta para llenar la altura y la franja siempre se ve entera (MacBook Pro en Mac) |
 
 ---
 
@@ -311,7 +312,7 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `autodesk/colecciones/` | Logos de las colecciones (AEC, PD&M, M&E, Forma) |
 | `adobe/home/`, `creative-cloud/`, `acrobat-studio/` | Imágenes de cada página de Adobe, incluidas las imágenes fijas de sus videos |
 | `adopcion_autodesk/`, `dell/home/`, `sketchup/home/` | Imágenes de esas páginas (Chaos usa los renders de `sketchup/home/`) |
-| `mac/home/` | Fotos de producto de Mac con fondo transparente, en WebP (ej. `macbook-neo.webp`, 720 px, 38 KB) |
+| `mac/home/` | Fotos de producto de Mac en WebP: `macbook-neo.webp` (fondo transparente, 720 px, 31 KB) y `macbook-air.webp` (cartel vertical, 800 px, 42 KB). MacBook Pro va en dos piezas: `macbook-pro.webp` (la foto, 41 KB) y `macbook-pro-bateria.webp` (la franja «Hasta 24 horas de batería», 7 KB) |
 | `hp/home/{familia}/{modelo}/` | Fotos de cada plotter HP (ej. `pagewide-xl-pro/8200/`) |
 | `icons.svg` | Todos los íconos del sitio en un solo archivo. Se usan así: `<svg class="icon"><use href="…/icons.svg#icon-phone"/></svg>` |
 
