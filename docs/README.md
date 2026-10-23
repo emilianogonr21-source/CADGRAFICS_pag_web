@@ -110,7 +110,7 @@ No uses `.section--ink` (negro) a mitad de página. Excepciones: el bloque "¿Bu
 |---|---|
 | `.hero` | Hero oscuro con imagen o video de fondo; en escritorio ocupa la primera pantalla completa (mínimo 640 px), así la siguiente sección no se asoma cortada. |
 | `.hero--plain` | Sin imagen: fondo negro con un brillo rojo. |
-| `.hero--dense` | Velo más oscuro y franja inferior negra, para videos que traen sus propios textos o subtítulos (Mac). |
+| `.hero--dense` | Velo más oscuro y franja inferior negra, para videos que traen sus propios textos o subtítulos, o que son muy claros (Mac, Microsoft y Dell). |
 | `.hero--compact` | Más bajo (lo usa el aviso de privacidad). |
 | `.hero--low` | El contenido se apoya más abajo (Programa de Adopción). |
 | `.hero__grid--single` | Una sola columna de texto (sin formulario ni video al lado). |
@@ -289,6 +289,8 @@ Todos están optimizados (H.264, sin audio, inicio rápido). Los originales se g
 | `autodesk/pdm-collection/pdm-overview.mp4` | PD&M Collection | Fondo del hero, bajo velo oscuro | 960 px | 3.0 MB |
 | `autodesk/me-collection/ME_Collection.mp4` | M&E Collection | Fondo del hero, bajo velo oscuro | 960 px | 1.5 MB |
 | `mac/home/video-home-mac.mp4` | Mac | Fondo del hero, bajo velo oscuro (imagen fija: `images/mac/home/hero-poster.jpg`) | 960 px | 2.3 MB |
+| `microsoft/home/video-home-microsoft.mp4` | Microsoft 365 | Fondo del hero, bajo velo oscuro (imagen fija: `images/microsoft/home/hero-poster.jpg`) | 960 px | 3.6 MB |
+| `dell/home/video-home-dell.mp4` | Dell | Fondo del hero, bajo velo oscuro (imagen fija: `images/dell/home/hero-poster.jpg`) | 960 px | 1.4 MB |
 | `adobe/home/video-home-adobe.mp4` | Adobe | Marco del hero | 960 px | 5.6 MB |
 | `adobe/creative-cloud/creative-cloud.mp4` | Creative Cloud | Marco del hero | 960 px | 3.2 MB |
 | `adobe/creative-cloud/video-landing-cc-adobe-express.mp4` | Creative Cloud | Demo en bucle | 1280 px | 2.7 MB |
