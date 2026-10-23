@@ -231,6 +231,12 @@ p { text-wrap: pretty; }
     linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 20%),
     linear-gradient(100deg, rgba(6, 0, 0, 0.94) 0%, rgba(6, 0, 0, 0.92) 54%, rgba(18, 0, 2, 0.5) 70%, rgba(48, 0, 4, 0.26) 86%, rgba(64, 0, 6, 0.12) 100%);
 }
+/* Video con textos y subtítulos propios (Mac): velo más denso y franja inferior oscura para que no compitan con el título ni las cifras */
+.hero--dense::after {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, transparent 22%, transparent 55%, rgba(0, 0, 0, 0.8) 100%),
+    linear-gradient(100deg, rgba(0, 0, 0, 0.94) 0%, rgba(0, 0, 0, 0.86) 45%, rgba(0, 0, 0, 0.62) 100%);
+}
 .hero--plain::after { background: radial-gradient(90% 70% at 85% 0%, rgba(184, 0, 7, 0.28), rgba(102, 0, 0, 0.12) 45%, transparent 70%); }
 .hero > .container { position: relative; z-index: 1; }
 .hero__grid { --hero-gap: clamp(2.5rem, 1rem + 4vw, 5.5rem); display: grid; gap: var(--hero-gap); align-items: center; }
@@ -265,20 +271,6 @@ img.hero__logo { height: 48px; width: auto; max-width: 220px; object-fit: contai
 .video-frame { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--ink); box-shadow: var(--shadow-md); }
 .video-caption { margin-top: 0.75rem; font-size: var(--fs-small); color: var(--gray); }
 .hero .video-caption { color: var(--gray-soft); }
-.ambient-pause {
-  position: absolute; z-index: 2; right: 0.75rem; bottom: 0.75rem;
-  padding: 0.4rem 0.75rem; border-radius: 999px;
-  background: rgba(0, 0, 0, 0.82); color: var(--white);
-  font-size: 0.8125rem; font-weight: 600; line-height: 1.2;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-}
-/* El fondo del hero ocupa la primera pantalla. El control va arriba a la derecha, debajo del menú, para no tapar el formulario ni el WhatsApp. */
-.hero > .ambient-pause {
-  position: fixed; z-index: 940;
-  top: calc(var(--header-offset) + 0.45rem);
-  right: max(0.75rem, var(--gutter));
-  left: auto; bottom: auto;
-}
 
 /* ===== Credenciales y logos de partners ===== */
 .trust { background: var(--ink-900); color: var(--white); padding: clamp(2.5rem, 2rem + 2vw, 3.5rem) 0; border-top: 1px solid var(--line-dark); }

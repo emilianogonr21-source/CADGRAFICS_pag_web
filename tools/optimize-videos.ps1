@@ -12,6 +12,7 @@ $Crf = @{
   'video_home_autodesk.mp4'            = 30  # fondo del hero de AEC Collection, bajo velo oscuro
   'pdm-overview.mp4'                   = 30  # fondo del hero de PD&M Collection, bajo velo oscuro
   'ME_Collection.mp4'                  = 30  # fondo del hero de M&E Collection, bajo velo oscuro
+  'video-home-mac.mp4'                 = 30  # fondo del hero de Mac, bajo velo oscuro
   'video-home-adobe.mp4'               = 29  # marco del hero de Adobe
   'creative-cloud.mp4'                 = 29  # marco del hero de Creative Cloud
   'video-acrobat-studio.mp4'           = 28  # marco del hero de Acrobat Studio
@@ -27,6 +28,7 @@ $MaxWidth = @{
   'video_home_autodesk.mp4' = 960
   'pdm-overview.mp4'        = 960
   'ME_Collection.mp4'       = 960
+  'video-home-mac.mp4'      = 960
   'video-home-adobe.mp4'    = 960
   'creative-cloud.mp4'      = 960
 }

@@ -212,7 +212,7 @@ Si cambias un color o un comportamiento en `assets/`, cambia en **todas** las p�
 4. **Cierre en rojo.** Invitación a escribir o a cotizar.
 5. **Pie.** Las dos oficinas, enlaces a las marcas, redes y el aviso de privacidad.
 
-Los videos de fondo tienen un botón «Pausar video». Se mueven solo mientras se ven en pantalla y se quedan en una foto fija si la persona pidió menos movimiento, ahorrar datos o está en una red muy lenta.
+Los videos de fondo no tienen botón para pausarlos. Se mueven solo mientras se ven en pantalla y se quedan en una foto fija si la persona pidió menos movimiento, ahorrar datos o está en una red muy lenta.
 
 El rojo de marca es el Pantone 1807 C. La letra de todo el sitio es Inter.
 

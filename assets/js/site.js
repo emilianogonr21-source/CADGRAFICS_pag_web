@@ -453,60 +453,20 @@
   // ===== 8. Videos ambientales =====
   // Sin sonido y en bucle (loop en el HTML). Corren mientras están en pantalla; fuera de ella se detienen
   // para no gastar batería. Con "reducir movimiento", ahorro de datos o red 2G se queda la imagen fija (poster).
-  // Quien sí ve el video puede pausarlo. Si lo pausó, no vuelve a arrancar al hacer scroll.
   const net = navigator.connection;
   const saveData = !!(net && net.saveData);
   const slowNet = !!(net && (net.effectiveType === 'slow-2g' || net.effectiveType === '2g'));
 
-  const hostControl = (video) => video.parentElement && video.parentElement.querySelector(':scope > .ambient-pause');
-
-  const addAmbientControl = (video) => {
-    const host = video.parentElement;
-    if (!host || video.dataset.pauseReady === '1') return;
-    video.dataset.pauseReady = '1';
-    if (window.getComputedStyle(host).position === 'static') host.style.position = 'relative';
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'ambient-pause';
-    const paint = () => {
-      const paused = video.paused;
-      btn.textContent = paused ? 'Reproducir video' : 'Pausar video';
-      btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-    };
-    btn.addEventListener('click', () => {
-      if (video.paused) {
-        delete video.dataset.userPaused;
-        video.play().catch(() => {});
-      } else {
-        video.dataset.userPaused = '1';
-        video.pause();
-      }
-      paint();
-    });
-    video.addEventListener('play', paint);
-    video.addEventListener('pause', paint);
-    host.appendChild(btn);
-    paint();
-  };
-
   if (!reduceMotion && !saveData && !slowNet) {
     $$('video[data-ambient]').forEach((video) => {
-      addAmbientControl(video);
-      const blocked = () => video.dataset.userPaused === '1';
       if ('IntersectionObserver' in window) {
         new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
-            const control = hostControl(video);
-            if (entry.isIntersecting) {
-              if (control) control.hidden = false;
-              if (!blocked()) video.play().catch(() => {});
-            } else {
-              video.pause();
-              if (control) control.hidden = true;
-            }
+            if (entry.isIntersecting) video.play().catch(() => {});
+            else video.pause();
           });
         }, { threshold: 0.25 }).observe(video);
-      } else if (!blocked()) {
+      } else {
         video.play().catch(() => {});
       }
     });
