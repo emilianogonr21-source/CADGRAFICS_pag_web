@@ -87,20 +87,18 @@ function field_string($value): string
 
 function is_trusted_proxy(string $ip): bool
 {
-    if ($ip === '') {
+    if ($ip === '' || filter_var($ip, FILTER_VALIDATE_IP) === false) {
         return false;
     }
     if (in_array($ip, TRUSTED_PROXIES, true)) {
         return true;
     }
-    if (filter_var($ip, FILTER_VALIDATE_IP) === false) {
-        return false;
+    if (strncmp($ip, '127.', 4) === 0 || $ip === '::1' || stripos($ip, 'fe80:') === 0) {
+        return true;
     }
-    return filter_var(
-        $ip,
-        FILTER_VALIDATE_IP,
-        FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
-    ) === false;
+    // Solo redes privadas. Las IP reservadas (pruebas, CGNAT) no son un proxy:
+    // si se trataran como tal, el visitante podría elegir la IP del límite.
+    return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE) === false;
 }
 
 /**
@@ -202,7 +200,15 @@ function page_on_site(string $url): string
     if ($scheme !== 'https' || !in_array($host, ALLOWED_PAGE_HOSTS, true)) {
         return '';
     }
-    return $url;
+    if (isset($parts['user']) || isset($parts['pass'])) {
+        return '';
+    }
+    $path = (string) ($parts['path'] ?? '/');
+    if ($path === '' || $path[0] !== '/' || strpbrk($path, "\\@") !== false) {
+        return '';
+    }
+    $query = isset($parts['query']) && $parts['query'] !== '' ? '?' . $parts['query'] : '';
+    return 'https://' . $host . $path . $query;
 }
 
 /** Quita copias con más de 30 días. Un bloque sin fecha se conserva. */
@@ -255,8 +261,9 @@ function store_failed_lead(string $body): void
 
 function request_data(): array
 {
-    $contentType = (string) ($_SERVER['CONTENT_TYPE'] ?? '');
-    if (stripos($contentType, 'application/json') === 0) {
+    $contentType = strtolower(trim((string) ($_SERVER['CONTENT_TYPE'] ?? $_SERVER['HTTP_CONTENT_TYPE'] ?? '')));
+    $contentType = trim(explode(';', $contentType, 2)[0]);
+    if ($contentType === 'application/json') {
         $raw = file_get_contents('php://input', false, null, 0, 20000);
         $decoded = json_decode($raw === false ? '' : $raw, true);
         return is_array($decoded) ? $decoded : [];

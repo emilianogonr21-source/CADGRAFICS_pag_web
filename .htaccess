@@ -18,8 +18,7 @@ Options -Indexes
   # private/, docs/ y tools/ tampoco se sirven si el .htaccess de la carpeta no se lee.
   RewriteRule ^(private|docs|tools)(/|$) - [F,L]
 
-  # Un visitante con IP pública no puede saltarse el HTTPS inventando X-Forwarded-Proto.
-  # Esa cabecera solo se consulta en la regla siguiente, cuando quien conecta es un proxy de red privada.
+  # IP pública: el HTTPS es obligatorio. X-Forwarded-Proto enviado por el visitante no cuenta.
   RewriteCond %{HTTP_HOST} ^(www\.)?cadgrafics\.com\.mx$ [NC]
   RewriteCond %{HTTPS} !=on
   RewriteCond %{REMOTE_ADDR} !^10\.
@@ -31,11 +30,18 @@ Options -Indexes
   RewriteCond %{REMOTE_ADDR} !^fe80: [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # Proxy interno que ya recibió la visita por HTTPS: no redirigir en bucle.
-  # Si el balanceador tiene IP pública, hay que tratarla como privada en las condiciones de arriba.
+  # Proxy de red privada: redirigir solo si la visita original no era HTTPS, para no entrar en bucle.
+  # Si el balanceador tiene IP pública, añade su dirección como excepción en el bloque de arriba.
   RewriteCond %{HTTP_HOST} ^(www\.)?cadgrafics\.com\.mx$ [NC]
   RewriteCond %{HTTPS} !=on
   RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteCond %{REMOTE_ADDR} ^10\. [OR]
+  RewriteCond %{REMOTE_ADDR} ^192\.168\. [OR]
+  RewriteCond %{REMOTE_ADDR} ^172\.(1[6-9]|2[0-9]|3[01])\. [OR]
+  RewriteCond %{REMOTE_ADDR} ^127\. [OR]
+  RewriteCond %{REMOTE_ADDR} ^::1$ [OR]
+  RewriteCond %{REMOTE_ADDR} ^f[cd][0-9a-f]{2}: [NC,OR]
+  RewriteCond %{REMOTE_ADDR} ^fe80: [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
   RewriteCond %{QUERY_STRING} (^|&)coleccion=me(&|$) [NC]
