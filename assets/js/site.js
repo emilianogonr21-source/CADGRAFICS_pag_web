@@ -31,12 +31,12 @@
   const pageName = document.body.dataset.page || 'el sitio';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const WA_LABEL = { '525531120508': '55 3112 0508', '523314040396': '33 1404 0396' };
+  const WA_LABEL = { '525531120508': '55 3112 0508' };
   const waUrl = (phone, text) => 'https://wa.me/' + phone + '?text=' + encodeURIComponent(text);
   const setWhatsAppLinks = (phone, text) => {
     $$('[data-wa]').forEach((a) => {
       a.href = waUrl(phone, text);
-      if (a.classList.contains('whatsapp-float')) a.setAttribute('aria-label', 'WhatsApp: ' + WA_LABEL[phone]);
+      if (a.classList.contains('whatsapp-float')) a.setAttribute('aria-label', 'WhatsApp: ' + (WA_LABEL[phone] || '55 3112 0508'));
     });
   };
 
@@ -310,7 +310,7 @@
       e.preventDefault();
       if (sending) return;
       if (form.elements._honey && form.elements._honey.value) {
-        showSendError(true);
+        show(steps.length - 1, true);
         return;
       }
       if (!validateStep(steps[current], form)) return;

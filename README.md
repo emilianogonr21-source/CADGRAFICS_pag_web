@@ -145,7 +145,7 @@ El asunto incluye la página y el interés, por ejemplo: *Nuevo contacto web · 
 
 El programa revisa que haya correo válido, celular de 10 dígitos, nombre, empresa, interés, región y la aceptación del aviso. Ignora cualquier dato que no sea de esa lista. Acepta como máximo **5 envíos por hora** desde la misma conexión.
 
-Si el correo no puede enviarse, la persona ve el aviso y el botón de WhatsApp. En el servidor queda una copia en `private/leads/`. Esa carpeta no se abre en el navegador y contiene datos personales: no la compartas ni la subas a un chat.
+Si el correo no puede enviarse, la persona ve el aviso y el botón de WhatsApp. En el servidor queda una copia en `private/leads/` durante 30 días. Esa carpeta no se abre en el navegador y contiene datos personales: no la compartas ni la subas a un chat.
 
 En una vista de prueba en tu computadora el formulario no envía el correo. Solo lo hace el sitio ya publicado en cadgrafics.com.mx. Ver el aviso de WhatsApp en esa prueba es normal.
 

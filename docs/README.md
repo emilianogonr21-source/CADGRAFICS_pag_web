@@ -233,11 +233,11 @@ Si nadie pulsó uno de esos enlaces, el campo oculto trae `evaluar` y el correo 
 `assets/js/site.js` hace `POST` JSON a `/contacto.php`. El script:
 
 - solo acepta el método POST y el origen `https://cadgrafics.com.mx` o `https://www.cadgrafics.com.mx`;
-- admite como máximo 5 envíos por hora y por dirección IP; si no puede contar, rechaza;
+- admite como máximo 5 envíos por hora y por visitante; si la conexión llega de un proxy de red privada, la IP sale de `X-Forwarded-For` (un visitante no puede inventarla); si no puede contar, rechaza;
 - exige correo válido, celular de 10 dígitos, nombre, empresa, interés, una región de la lista y un consentimiento que empiece por «Sí»;
 - ignora cualquier etiqueta que no esté en `ALLOWED_FIELDS`;
 - quita saltos de línea, codifica el asunto en UTF-8 y pone `Reply-To` solo con el correo ya validado;
-- si `mail()` falla, escribe el mismo texto en `private/leads/failed.log` (Apache niega esa carpeta) y responde error para que el visitante use WhatsApp.
+- si `mail()` falla, escribe el mismo texto en `private/leads/failed.log` (Apache niega esa carpeta), borra lo que tenga más de 30 días y responde error para que el visitante use WhatsApp.
 
 **Cambiar el destinatario:** edita `RECIPIENT` en `contacto.php`.
 
@@ -350,7 +350,7 @@ Recomendaciones: fotos en JPG/WebP comprimidas, siempre con `width` y `height`, 
 
 - Cada página tiene `<title>`, `meta description`, `canonical` (`https://cadgrafics.com.mx/…`) y etiquetas `og:` para compartir en redes.
 - `sitemap.xml` lista las 16 páginas. `robots.txt` lo anuncia y pide no indexar `/docs/`, `/tools/` y `/private/`. Esa petición no impide abrir la URL: el cierre real está en el `.htaccess` de cada carpeta (`Require all denied`).
-- `.htaccess` de la raíz, solo cuando el dominio es cadgrafics.com.mx, redirige HTTP a HTTPS. Respeta `X-Forwarded-Proto` para no entrar en un bucle detrás de un balanceador. En local, sin ese dominio, no redirige.
+- `.htaccess` de la raíz, solo cuando el dominio es cadgrafics.com.mx, redirige HTTP a HTTPS. Una IP pública no puede evitarlo con `X-Forwarded-Proto`. Esa cabecera solo cuenta si quien conecta es un proxy de red privada, para no entrar en bucle detrás de un balanceador. En local, sin ese dominio, no redirige.
 - Las cabeceras (`X-Frame-Options`, `nosniff`, `Referrer-Policy`, Content-Security-Policy y HSTS) se envían con `Header always`, también en respuestas de error. HSTS solo lo aplica el navegador después de una visita por HTTPS.
 - La misma política de contenido está en cada `<head>`. Solo permite recursos del propio sitio y Google Fonts. `.htaccess` añade `frame-ancestors 'none'` para que el sitio no se pueda incrustar en otro. La etiqueta meta no puede fijar esa directiva. Si agregas un servicio externo (analítica, chat, CRM, mapas), **debes agregarlo a las dos políticas** o el navegador lo bloqueará.
 - `.htaccess` redirige con 301 la antigua `pages/autodesk/mfg-collection.html`: `?coleccion=me` va a M&E y cualquier otro enlace va a PD&M. No vuelvas a crear esa página.

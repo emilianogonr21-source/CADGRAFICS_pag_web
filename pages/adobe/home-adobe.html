@@ -107,7 +107,7 @@
         </ul>
       </div>
       <div class="hero__media">
-        <video data-ambient muted loop playsinline preload="metadata" poster="../../assets/images/adobe/home/poster-video-home.jpg" aria-label="Video: Creative Cloud, Firefly y Acrobat en acción" width="1280" height="720">
+        <video data-ambient muted loop playsinline preload="none" poster="../../assets/images/adobe/home/poster-video-home.jpg" aria-label="Video: Creative Cloud, Firefly y Acrobat en acción" width="1280" height="720">
           <source src="../../assets/video/adobe/home/video-home-adobe.mp4" type="video/mp4">
         </video>
       </div>
@@ -488,7 +488,7 @@
         <p class="form-card__title">Pide tu diagnóstico gratuito</p>
         <p class="form-card__steps" aria-live="polite">Paso 1 de 2</p>
         <div class="form-progress" aria-hidden="true"><span></span></div>
-        <form data-lead-form="landing-adobe-home-adobe" data-endpoint="" novalidate>
+        <form data-lead-form="landing-adobe-home-adobe" method="post" action="/contacto.php" data-endpoint="" novalidate>
           <input type="hidden" name="etapa" data-sf="Etapa_Embudo__c" value="evaluar">
           <div class="hp-field" aria-hidden="true"><label for="lead-honey">No llenar</label><input id="lead-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
 

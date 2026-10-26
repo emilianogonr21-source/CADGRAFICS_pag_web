@@ -79,10 +79,36 @@
         if (window.innerWidth > breakpoint && isMenuOpen()) setMenuOpen(false);
       });
 
+      const linkIsShown = function (link) {
+        let node = link.parentElement;
+        while (node && node !== navMenu) {
+          if (node.classList.contains('dropdown-menu') || node.classList.contains('dropdown-submenu-menu')) {
+            const parent = node.parentElement;
+            if (!parent || !parent.classList.contains('active')) return false;
+          }
+          node = node.parentElement;
+        }
+        return true;
+      };
+      const menuFocusables = function () {
+        return [mobileToggle].concat($$('a', navMenu).filter(linkIsShown));
+      };
+
       document.addEventListener('keydown', function (e) {
-        if (e.key !== 'Escape' || !isMenuOpen()) return;
-        setMenuOpen(false);
-        mobileToggle.focus();
+        if (e.key === 'Escape' && isMenuOpen()) {
+          setMenuOpen(false);
+          mobileToggle.focus();
+          return;
+        }
+        if (e.key !== 'Tab' || !isMenuOpen() || window.innerWidth > breakpoint) return;
+        const list = menuFocusables();
+        if (!list.length) return;
+        const current = list.indexOf(document.activeElement);
+        let next = current === -1 ? (e.shiftKey ? list.length - 1 : 0) : current + (e.shiftKey ? -1 : 1);
+        if (next < 0) next = list.length - 1;
+        if (next >= list.length) next = 0;
+        e.preventDefault();
+        list[next].focus();
       });
     }
 
@@ -122,6 +148,7 @@
     const opts = options || {};
     const videos = $$(opts.selector || 'video[preload="none"]');
     if (!videos.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const playWhenVisible = function (video) {
       if (video.hasAttribute('controls') && !video.hasAttribute('data-autoplay-onview')) return;
